@@ -51,6 +51,56 @@ A repository qualifies if **all** hold:
 Four repositories are selected, deliberately spanning **four different languages**. A benchmark run
 entirely on TypeScript would not support a claim about repositories in general.
 
+**Candidate pool, pre-declared in order.** "Which four repositories" is otherwise a discretionary
+choice that could be made after seeing results, so the pool and the tie-break are fixed here:
+
+| Language | Pool, in order |
+|---|---|
+| TypeScript | `calcom/cal.com` → `formbricks/formbricks` → `twentyhq/twenty` |
+| Ruby | `mastodon/mastodon` → `chatwoot/chatwoot` → `discourse/discourse` |
+| Python | `apache/superset` → `PostHog/posthog` → `langflow-ai/langflow` |
+| Go | `usememos/memos` → `navidrome/navidrome` → `pocketbase/pocketbase` |
+
+**Rule:** for each language, the **first repository in pool order that yields ≥ 5 qualifying cases**
+is selected. Repositories skipped for yielding too few cases, or for failing a repository criterion,
+are recorded in `sample.frozen.json` with the reason and the count observed. Nothing is skipped
+silently.
+
+**Defect labels are discovered, not assumed.** Projects name the label differently — `bug`,
+`🐛 bug`, `#bug`, `C-bug` were all observed in the pool. The harness reads each repository's own
+label list and matches `/(^|[^a-z])bugs?$|defect/i`, so the classification stays the maintainers'
+rather than ours. A repository with no matching label yields no cases and is recorded as such.
+
+### Amendment 1 — Ruby pool exhausted (2026-08-14, before any run)
+
+Probing the pool showed no Ruby repository can supply cases:
+
+| Repo | Observed | Outcome |
+|---|---|---|
+| `mastodon/mastodon` | 1 bug-labelled issue closed since 2026-01-01 | below threshold |
+| `chatwoot/chatwoot` | licence `NOASSERTION` | fails repository criterion 1 |
+| `discourse/discourse` | 0 issues closed since 2026-01-01 — Discourse tracks bugs on meta.discourse.org, not GitHub | below threshold |
+
+This is a property of how these projects work, not of Watari. Rather than drop to three languages,
+a **fallback language order** is declared here, still before any run:
+
+**Rust → PHP → Java**, taking the first language whose pool yields a qualifying repository.
+
+| Language | Pool, in order |
+|---|---|
+| Rust | `helix-editor/helix` → `meilisearch/meilisearch` |
+| PHP | `nextcloud/server` → `filamentphp/filament` |
+| Java | `keycloak/keycloak` → `apache/dolphinscheduler` |
+
+Amending a pre-registration after seeing outcome data would invalidate it. Amending it after seeing
+only *feasibility* data — how many issues exist, what the licence is — does not, provided the
+amendment is committed before the run and states what was observed. Both conditions hold here: this
+commit precedes `sample.frozen.json` and `results.json` in the git history.
+
+Also corrected in this amendment: `calcom/cal.com` has been renamed to **`calcom/cal.diy`**. GitHub
+redirects metadata requests but its search index does not follow the rename, which silently returned
+zero results. The harness now resolves each pool entry to its canonical `full_name` first.
+
 ## Case selection criteria
 
 Within each repository, an issue qualifies as a case if **all** hold:
@@ -71,6 +121,31 @@ which cases are included. 4 repositories × 5 cases = **20 cases**.
 
 If a repository yields fewer than 5 qualifying issues, the shortfall is reported rather than
 back-filled from another repository.
+
+### Observed composition of the frozen sample (recorded 2026-08-14, before any run)
+
+Selecting repositories by language does **not** produce cases balanced by language, and the frozen
+sample makes that plain. Across 27 ground-truth files in 20 cases:
+
+| Extension | Files | |
+|---|---|---|
+| `.ts` / `.tsx` | 15 | 56% |
+| `.py` | 4 | 15% |
+| `.rs` | 4 | 15% |
+| `.go` | 2 | 7% |
+| `.scm` | 2 | 7% |
+
+Modern "Go" and "Python" products carry substantial TypeScript front-ends, and the maintainers' bug
+labels do not distinguish. **The honest claim this sample supports is "four repositories across four
+primary languages", not "an even split of cases across four languages."** Any published figure must
+say so; the per-repository breakdown is what carries the language signal.
+
+Two helix cases have ground truth in `.scm` files — Tree-sitter query files, which are **not in
+Watari's grammar set** and therefore get no AST-level chunking. They are deliberately kept. They are
+a real thing a real user reported, Watari's non-AST paths (embeddings, text search) may still reach
+them, and removing known-hard cases after seeing them is precisely the selection bias this protocol
+exists to prevent. They are flagged in the results so a reader can compute the figure with and
+without them.
 
 ---
 

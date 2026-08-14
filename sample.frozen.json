@@ -1,0 +1,1026 @@
+{
+  "protocol_version": 1,
+  "protocol": "benchmarks/localization/PROTOCOL.md",
+  "frozen_at": "2026-08-14T16:11:06.850Z",
+  "constraints": {
+    "merged_on_or_after": "2026-01-01",
+    "cases_per_repo": 5,
+    "min_body_chars": 200,
+    "max_fix_files": 5,
+    "candidates_examined_per_repo": 60
+  },
+  "pool": {
+    "typescript": [
+      "calcom/cal.com",
+      "formbricks/formbricks",
+      "twentyhq/twenty"
+    ],
+    "ruby": [
+      "mastodon/mastodon",
+      "chatwoot/chatwoot",
+      "discourse/discourse"
+    ],
+    "python": [
+      "apache/superset",
+      "PostHog/posthog",
+      "langflow-ai/langflow"
+    ],
+    "go": [
+      "usememos/memos",
+      "navidrome/navidrome",
+      "pocketbase/pocketbase"
+    ],
+    "rust": [
+      "helix-editor/helix",
+      "meilisearch/meilisearch"
+    ],
+    "php": [
+      "nextcloud/server",
+      "filamentphp/filament"
+    ],
+    "java": [
+      "keycloak/keycloak",
+      "apache/dolphinscheduler"
+    ]
+  },
+  "selected_repositories": [
+    {
+      "language": "typescript",
+      "repo": "calcom/cal.diy",
+      "license": "MIT",
+      "index_commit": "051ae77279dd573e544a4815b56599636fcf0839",
+      "index_commit_rationale": "parent of merge commit 62317bd4e1c80ca7c520cfd8485d93969d9725f9 (fix for #29628, earliest selected)",
+      "candidates_examined": 60,
+      "qualifying_found": 24,
+      "cases": [
+        {
+          "issue_number": 21540,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/21540",
+          "issue_title": "Custom Reply-To setting does not work in conjunction with \"Hide organizer email\"",
+          "issue_body": "When hiding the organizer email we alias to `hello@cal.com` for privacy reasons; a value that is not overwritten by the custom reply to email meaning that these two settings (often used together) do not work at this moment.",
+          "issue_author": "emrysal",
+          "issue_labels": [
+            "🐛 bug",
+            "Medium priority",
+            "emails"
+          ],
+          "closed_at": "2026-08-08T17:13:43Z",
+          "fix_pr_number": 29940,
+          "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29940",
+          "fix_merged_at": "2026-08-08T17:13:42Z",
+          "fix_merge_commit": "176037d0afbe572f870a3c702985e7cd83fe6c0c",
+          "pre_fix_commit": "b2c28a23ab5b53f2e3729657d23cccb50f64e18a",
+          "ground_truth_files": [
+            "packages/lib/getReplyToHeader.ts"
+          ],
+          "excluded_files": [
+            "packages/lib/getReplyToHeader.test.ts"
+          ]
+        },
+        {
+          "issue_number": 29684,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29684",
+          "issue_title": "[bug]: fully cancelling a paid seated booking refunds only one seat's payment",
+          "issue_body": "### Issue Summary\n\nOn a seated paid event, every attendee booking the same time slot creates a separate `Payment` record, but all of those payments belong to the same booking. When the host fully cancels that booking and the event's **Refund on cancellation** policy is set to **Always** or **Days**, only one attendee is refunded. The remaining attendees have their bookings cancelled but their successful payments are never refunded, and no error is reported.\n\nThe refund flow currently resolves only the first successful payment for a booking. Although the cancellation flow passes all booking payments into the refund handler, `processPaymentRefund.ts` selects a single payment via `payment.find((p) => p.success)` and issues only one refund request, silently ignoring the rest.\n\nThis is different from **#29664**, which affected the booking confirmation page UI. This issue causes real payment refunds to be skipped.\n\n---\n\n### Steps to Reproduce\n\n1. Create a paid event type with:\n\n   * `seatsPerTimeSlot > 1`\n   * a payment provider (e.g. Stripe) connected\n   * **Refund on cancellation** set to **Always** (or **Days**).\n2. Have two (or more) different attendees book and successfully pay for the same time slot.\n3. As the host, cancel the entire booking (not removing an individual seat/attendee).\n4. Check the payment provider (e.g. Stripe) dashboard for refunds.\n\n---\n\n### Actual Results\n\n* Only the first successful payment associated with the booking is refunded.\n* The remaining successful payments are left untouched.\n* The booking is cancelled for every attendee, but the other attendees remain charged.\n* No error or warning is surfaced.\n\n---\n\n### Expected Results\n\n* Every successful payment associated with the cancelled booking should be refunded, subject to the configured refund policy (Always/Days and any applicable cutoff).\n* If multiple attendees paid for the same booking, each successful payment should receive its own refund.\n\n---\n\n### Technical details\n\n* **Type:** Backend payment/refund logic bug.\n* **Reproduces on:** Current `main`.\n* **Browser / Node.js:** Not browser-dependent (backend issue).\n* **Affected code:**\n\n  * `packages/features/bookings/lib/payment/processPaymentRefund.ts`\n\n    * Uses `payment.find((p) => p.success)`, refunding only the first successful payment.\n  * `packages/features/bookings/lib/handleCancelBooking.ts`\n\n    * Correctly passes all booking payments (`payment: true`) into the refund flow, but only one is ultimately processed.\n* **Impact:** Occurs only when:\n\n  * the event has multiple seats,\n  * multiple attendees have paid,\n  * and the event uses automatic refunds on cancellation.\n\n---\n\n### Evidence\n\nThe issue was reproduced with automated tests.\n\n* **Unit test (`processPaymentRefund.test.ts`)**\n\n  * Created a booking containing two successful payments.\n  * Expected `handlePaymentRefund` to be called once per successful payment.\n  * On current `main`, only one refund is issued, confirming the bug.\n  * After changing the implementation to refund every successful payment, the test passes.\n\n* **Integration test (`handleCancelBooking.test.ts`)**\n\n  * Cancelled a seated booking with multiple successful payments.\n  * Verified that `handleCancelBooking` correctly passes all payments into `processPaymentRefund`.\n  * Confirms the loss occurs inside `processPaymentRefund`, where only the first successful payment is selected for refund.\n",
+          "issue_author": "shafi-VM",
+          "issue_labels": [
+            "🐛 bug"
+          ],
+          "closed_at": "2026-07-09T08:53:04Z",
+          "fix_pr_number": 29685,
+          "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29685",
+          "fix_merged_at": "2026-07-09T08:53:03Z",
+          "fix_merge_commit": "761b780aa2b2cf3f88b60549a34990071972cea9",
+          "pre_fix_commit": "009f91d1636560fe6c60182c0bcff3d413da2919",
+          "ground_truth_files": [
+            "packages/features/bookings/lib/payment/processPaymentRefund.ts"
+          ],
+          "excluded_files": [
+            "packages/features/bookings/lib/handleCancelBooking/test/handleCancelBooking.test.ts",
+            "packages/features/bookings/lib/payment/processPaymentRefund.test.ts"
+          ]
+        },
+        {
+          "issue_number": 29567,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29567",
+          "issue_title": "Test push notification opens https://app.cal.com instead of the self-hosted Cal.diy instance",
+          "issue_body": "### Issue Summary\n\nWhen a user enables push notifications, the server immediately sends a \"Test Notification\". The notification payload hardcodes `url: \"https://app.cal.com/\"`. The service worker uses exactly that `data.url` to navigate when the notification is clicked (`self.clients.openWindow(url)`), so on any self-hosted Cal.diy instance the test notification sends the user to **cal.com**, not their own deployment. Cal.diy is self-host-only, so this is wrong for the entire intended audience.\n\nEvery other place in the codebase that needs the app URL uses `process.env.NEXT_PUBLIC_WEBAPP_URL || \"https://app.cal.com\"` (see `CalendarEventBuilder.ts`, `getPublicEvent.ts`, `RegularBookingService.ts`, etc.)  this handler is the only one that hardcodes the URL with no env fallback.\n\n### Steps to Reproduce\n\n1. Self-host Cal.diy with `NEXT_PUBLIC_WEBAPP_URL` set to your own domain.\n2. Sign in, go to settings, and enable push notifications.\n3. Receive the \"Test Notification\" and click it.\n\n### Actual Results\n\n- The notification opens `https://app.cal.com/` (the public Cal.com app), not the user's own instance.\n\n### Expected Results\n\n- The notification should open the configured instance URL, e.g. `WEBAPP_URL` from `@calcom/lib/constants` (or `process.env.NEXT_PUBLIC_WEBAPP_URL`).\n\n### Technical details\n\n- The hardcoded URL: https://github.com/calcom/cal.diy/blob/main/packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts#L68\n- The service worker consumes `data.url` here: https://github.com/calcom/cal.diy/blob/main/apps/web/public/service-worker.js#L86-L94\n- While in this file, two adjacent robustness/i18n nits are worth fixing in the same PR:\n  - `JSON.parse(subscription)` at https://github.com/calcom/cal.diy/blob/main/packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts#L32 is not wrapped in try/catch — malformed JSON throws an uncaught error and returns a 500 instead of a clean `BAD_REQUEST`.\n  - The notification `title`/`body` (lines 66–67) are hardcoded English and aren't localized to the user's locale.\n\n### Evidence\n\nhttps://github.com/calcom/cal.diy/blob/main/packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts#L60-L74\n",
+          "issue_author": "alikhere",
+          "issue_labels": [
+            "🐛 bug"
+          ],
+          "closed_at": "2026-07-08T17:53:36Z",
+          "fix_pr_number": 29673,
+          "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29673",
+          "fix_merged_at": "2026-07-08T17:53:35Z",
+          "fix_merge_commit": "bb7c87cae1b9274f1c1260142e1c7f5c10286c0f",
+          "pre_fix_commit": "0968bcef016489e351fabb83b8cd9614104bcb9d",
+          "ground_truth_files": [
+            "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts"
+          ],
+          "excluded_files": [
+            "packages/i18n/locales/en/common.json",
+            "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.test.ts"
+          ]
+        },
+        {
+          "issue_number": 29575,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29575",
+          "issue_title": "Calendar subscription sync ignores Cal.diy iCalUIDs",
+          "issue_body": "### Issue Summary\n\nCalendar subscription sync currently filters incoming calendar events by checking whether the event `iCalUID` ends with `@cal.com`.\n\nHowever, Cal.diy generates booking iCalUIDs using the configured app name. In a default Cal.diy setup, `APP_NAME` defaults to `Cal.diy`, so generated booking UIDs can look like:\n\n`test-booking-uid@Cal.diy`\n\nBecause the sync filter only accepts `@cal.com`, valid Cal.diy booking events can be skipped during calendar subscription sync. This means changes made from a connected calendar, such as cancelling or moving a synced booking event, may not be processed for default/self-hosted Cal.diy bookings.\n\n### Steps to Reproduce\n\n1. Use a default Cal.diy setup where `NEXT_PUBLIC_APP_NAME` is not overridden.\n2. Create a booking that gets an iCalUID using the default app name, for example `test-booking-uid@Cal.diy`.\n3. Pass a calendar subscription event with that iCalUID into `CalendarSyncService.handleEvents`.\n4. Observe that the event is filtered out before cancellation or reschedule handling runs.\n\n### Actual Results\n\n- Calendar subscription sync only processes events whose `iCalUID` ends with `@cal.com`.\n- Valid Cal.diy iCalUIDs such as `test-booking-uid@Cal.diy` are ignored.\n- The booking repository is never queried for the booking UID.\n- Calendar-side changes may not sync back into Cal.diy.\n\n### Expected Results\n\n- Calendar subscription sync should process Cal-managed booking events generated by Cal.diy.\n- UIDs ending in the default Cal.diy suffix should be accepted.\n- Legacy `@cal.com` UIDs should continue to work.\n- External calendar UIDs such as `@google.com` or `@external.com` should still be ignored.\n\n### Technical details\n\n- `APP_NAME` defaults to `Cal.diy` in `packages/lib/constants.ts`.\n- iCalUID generation uses `APP_NAME` in `packages/emails/lib/getICalUID.ts`.\n- Calendar subscription sync currently filters only `@cal.com` in `packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts`.\n\n### Evidence\n\nI reproduced this with a focused unit test around `CalendarSyncService.handleEvents`.\n\nA regression test using:\n\n`test-booking-uid@Cal.diy`\n\nfails with the current `@cal.com`-only filter because the event is not processed.\n\nAfter updating the filter to accept Cal-managed iCalUID suffixes, the targeted calendar sync test passes:\n\n`yarn vitest run packages/features/calendar-subscription/lib/sync/__tests__/CalendarSyncService.test.ts`\n\nResult:\n\n`21 tests passed`",
+          "issue_author": "Shreyas2004wagh",
+          "issue_labels": [
+            "🐛 bug"
+          ],
+          "closed_at": "2026-07-07T16:23:05Z",
+          "fix_pr_number": 29580,
+          "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29580",
+          "fix_merged_at": "2026-07-07T16:23:04Z",
+          "fix_merge_commit": "0968bcef016489e351fabb83b8cd9614104bcb9d",
+          "pre_fix_commit": "ca90ca2c94536c7fac97e4e829cdfe18624c7f10",
+          "ground_truth_files": [
+            "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts"
+          ],
+          "excluded_files": [
+            "packages/features/calendar-subscription/lib/sync/__tests__/CalendarSyncService.test.ts"
+          ]
+        },
+        {
+          "issue_number": 29628,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29628",
+          "issue_title": "Add-on (priced booking field) charges are dropped for additional seat bookers on paid seated events",
+          "issue_body": "### Issue Summary\n\nOn a paid event that has both `seatsPerTimeSlot` set **and** priced booking fields (e.g. a `number` \"tickets\" field, or a priced `select`/`checkbox`/`boolean`/`radio` option), only the **first** booker for a slot is charged for their add-ons. Every **subsequent** seat booker is charged the **base price only** — their add-on selections are silently dropped from the payment, so the organizer loses that revenue on every seat after the first.\n\n### Steps to Reproduce\n\n1. Create a paid event type (e.g. Stripe, base price $10) with `seatsPerTimeSlot: 3`.\n2. Add a priced booking field — e.g. a `number` field named \"tickets\" at $5 each.\n3. **Booker A** (first seat) books and selects `tickets = 3` → charged $10 + 3×$5 = **$25** (correct).\n4. **Booker B** (second seat, joining the same slot) selects `tickets = 3`.\n\nWhy it's a bug: the first booker for a slot falls back to the regular booking path, which charges add-ons; subsequent seat bookings go through a different path that does not.\n\n### Actual Results\n\n* Booker B is charged **$10** (base price only); their `tickets = 3` add-on ($15) is never added to the payment.\n* The organizer loses the add-on revenue for every seat after the first.\n\n### Expected Results\n\n* Every seat booker is charged the base price plus their selected add-ons, exactly like the first booker (Booker B should be charged **$25**).\n\n### Technical Details\n\n* The first seat falls back to `RegularBookingService`, which passes `bookingFields` to `handlePayment` (`packages/features/bookings/lib/service/RegularBookingService.ts:2308`).\n* Subsequent seats route through `createNewSeat`, whose `handlePayment(...)` call **omits `bookingFields`** (and `locale`) (`packages/features/bookings/lib/handleSeats/create/createNewSeat.ts:262`).\n* In `handlePayment`, the add-on pricing loop is gated by `if ((bookingFields || []).length > 0)` (`packages/features/bookings/lib/handlePayment.ts:81`), so when `bookingFields` is undefined, the add-ons are never computed and `totalAmount` remains at the base price.\n* Not browser-specific; this is backend booking/payment logic.\n\n### Evidence\n\n* Verified by tracing the two `handlePayment` call sites. Only `RegularBookingService` passes `bookingFields`; `createNewSeat` does not. Also confirmed the add-on gate in `handlePayment`.\n* Covered by a new unit test asserting that `createNewSeat` forwards `bookingFields` to `handlePayment`. The test **fails** on current `main` (called without `bookingFields`) and **passes** with the fix.\n* A PR containing the fix and test is ready.\n",
+          "issue_author": "shafi-VM",
+          "issue_labels": [
+            "🐛 bug"
+          ],
+          "closed_at": "2026-06-25T04:21:40Z",
+          "fix_pr_number": 29639,
+          "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29639",
+          "fix_merged_at": "2026-06-25T04:21:39Z",
+          "fix_merge_commit": "62317bd4e1c80ca7c520cfd8485d93969d9725f9",
+          "pre_fix_commit": "051ae77279dd573e544a4815b56599636fcf0839",
+          "ground_truth_files": [
+            "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts"
+          ],
+          "excluded_files": []
+        }
+      ],
+      "rejected_sample": [
+        {
+          "ok": false,
+          "number": 29795,
+          "url": "https://github.com/calcom/cal.diy/issues/29795",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29739,
+          "url": "https://github.com/calcom/cal.diy/issues/29739",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29900,
+          "url": "https://github.com/calcom/cal.diy/issues/29900",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29905,
+          "url": "https://github.com/calcom/cal.diy/issues/29905",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29592,
+          "url": "https://github.com/calcom/cal.diy/issues/29592",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29784,
+          "url": "https://github.com/calcom/cal.diy/issues/29784",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29879,
+          "url": "https://github.com/calcom/cal.diy/issues/29879",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29868,
+          "url": "https://github.com/calcom/cal.diy/issues/29868",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29867,
+          "url": "https://github.com/calcom/cal.diy/issues/29867",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29694,
+          "url": "https://github.com/calcom/cal.diy/issues/29694",
+          "reason": "ground_truth_empty_after_exclusions"
+        },
+        {
+          "ok": false,
+          "number": 29757,
+          "url": "https://github.com/calcom/cal.diy/issues/29757",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29742,
+          "url": "https://github.com/calcom/cal.diy/issues/29742",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29645,
+          "url": "https://github.com/calcom/cal.diy/issues/29645",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 28506,
+          "url": "https://github.com/calcom/cal.diy/issues/28506",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 27711,
+          "url": "https://github.com/calcom/cal.diy/issues/27711",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 28987,
+          "url": "https://github.com/calcom/cal.diy/issues/28987",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29448,
+          "url": "https://github.com/calcom/cal.diy/issues/29448",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 29426,
+          "url": "https://github.com/calcom/cal.diy/issues/29426",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 27633,
+          "url": "https://github.com/calcom/cal.diy/issues/27633",
+          "reason": "fix_too_broad:8_files"
+        },
+        {
+          "ok": false,
+          "number": 29618,
+          "url": "https://github.com/calcom/cal.diy/issues/29618",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        }
+      ]
+    },
+    {
+      "language": "python",
+      "repo": "apache/superset",
+      "license": "Apache-2.0",
+      "index_commit": "55b2da75f657c27ad85b675616e7cef8d316e788",
+      "index_commit_rationale": "parent of merge commit 2d2a72b721fc88fa3965414563d6262961790f1e (fix for #22904, earliest selected)",
+      "candidates_examined": 33,
+      "qualifying_found": 16,
+      "cases": [
+        {
+          "issue_number": 33235,
+          "issue_url": "https://github.com/apache/superset/issues/33235",
+          "issue_title": "Filtering on Boolean columns has a limitation in Snowflake (and possibly other databases)",
+          "issue_body": "### Bug description\n\nIn chart creator, I can't apply a filter on a Boolean column (e.g. to just return rows where the column is `True`) when using Snowflake.\n\nThe generated Snowflake SQL isn't valid, because `IS True` isn't valid in Snowflake. This is the generated SQL:\n\n```\nSELECT COUNT(*) AS \"count\" \nFROM flights.fct_flight_stats \nWHERE \"IS_CANCELLED\" IS true\n LIMIT 5000\n```\n\n`IS` can only be used to evaluate NULL-ness in Snowflake, not for filtering values (read more [here](https://docs.snowflake.com/en/sql-reference/constructs/where#usage-notes) and [here](https://stackoverflow.com/questions/76759093/how-to-query-with-filter-boolean-column-with-is-in-snowflake)). I suspect this is also true for some other databases, but I haven't researched thoroughly. \n\nThe alternative would be to have menu options for `= True` and `= False`, for Boolean columns.\n\n**Version**\n\nPreset Cloud // Apache Superset 4.2.0.5\n\n**Workarounds**\n\n1. The `IN` option can be used in combination with and limiting the values to `True`.  \n- However, if the generated SQL errored previously, the IN option mysteriously disappears in the UI for this Boolean column. I suspect this is because Superset isn't aware of valid values to fetch that would work for `IN`. I'm happy to open a separate issue for this if the community would like!\n\n2. Use the Custom SQL tab and manually specify `= True`.\n\n![Image](https://github.com/user-attachments/assets/dab071ed-dab2-4ae3-a9a0-b111ab08f1bc)\n\n![Image](https://github.com/user-attachments/assets/c0dc0296-d6b4-4130-86b1-1e5996aef2f5)\n\n![Image](https://github.com/user-attachments/assets/bfdcf05c-f108-4b31-9c8d-6f62b03d7717)\n\n\n### Screenshots/recordings\n\n_No response_\n\n### Superset version\n\nmaster / latest-dev\n\n### Python version\n\n3.9\n\n### Node version\n\n16\n\n### Browser\n\nChrome\n\n### Additional context\n\n_No response_\n\n### Checklist\n\n- [x] I have searched Superset docs and Slack and didn't find a solution to my problem.\n- [x] I have searched the GitHub issue tracker and didn't find a similar bug report.\n- [x] I have checked Superset's logs for errors and if I found a relevant Python stacktrace, I included it here as text in the \"additional context\" section.",
+          "issue_author": "srinify",
+          "issue_labels": [
+            "data:connect:snowflake",
+            "#bug",
+            "viz:charts"
+          ],
+          "closed_at": "2026-07-30T17:27:31Z",
+          "fix_pr_number": 41867,
+          "fix_pr_url": "https://github.com/apache/superset/pull/41867",
+          "fix_merged_at": "2026-07-30T17:27:30Z",
+          "fix_merge_commit": "e71ade5824e882629cd1a7a0734437ef217ea9b2",
+          "pre_fix_commit": "3588c9ad8661d3fff950c461e070611fb80406d6",
+          "ground_truth_files": [
+            "superset/db_engine_specs/clickhouse.py"
+          ],
+          "excluded_files": [
+            "tests/unit_tests/db_engine_specs/test_clickhouse.py"
+          ]
+        },
+        {
+          "issue_number": 23167,
+          "issue_url": "https://github.com/apache/superset/issues/23167",
+          "issue_title": "HOURS OFFSET applies only to 1 time column, it should apply to all temporal columns in the dataset",
+          "issue_body": "In Dataset Settings there is an option called \"HOURS OFFSET\". \r\nWhen you have only one time column, it's working as expected: it adds the corresponding number of hours to the time column while outputting it on the chart. However, when you have more than one temporal columns, the number of hours is logically expected to be added to all of them. Now it adds to only the one column that is selected as the \"TIME COLUMN\" in the chart.\r\n\r\n#### How to reproduce the bug\r\n\r\n1. Create a dataset with more than one temporal field (e.g. Creation and expiration dates, as in the screencast),\r\n2. Add \"HOURS OFFSET\" to the dataset settings (e.g. 4) and save the dataset,\r\n3. Choose a \"TIME COLUMN\" in the Time settings of the chart and click Update,\r\n4. Choose another \"TIME COLUMN\" and click Update\r\n\r\n### Expected results\r\nX hours (set in \"HOURS OFFSET\") should be added to all temporal fields, regardless of the \"TIME COLUMN\" selected.\r\n\r\n### Actual results\r\nX hours are added to only one column, the one that is selected as the \"TIME COLUMN\" in the chart.\r\n\r\nNote, that in the screencast, the \"Expire Date\" of the bottom row is actually equal to the \"Agreement Creation Date\" of the top row, but they are displayed with a 4-hour difference either way, because of the \"HOURS OFFSET\" option set.\r\n\r\n#### Screenshots\r\nhttps://user-images.githubusercontent.com/43491361/220833739-32950223-19ba-40e4-be12-d09804c40fde.mp4\r\n\r\n   \r\nNote, that the \"Expire Date\" of the bottom row is actually equal to the \"Agreement Creation Date\" of the top row, but they are displayed with a 4-hour difference either way, because of the \"HOURS OFFSET\" option set.\r\n\r\n### Environment\r\n\r\n(please complete the following information):\r\n\r\n- browser type and version: Version 110.0.5481.112 (Official Build) (64-bit)\r\n- superset version: `latest` (checked on `latest-dev` too)\r\n- any feature flags active:\r\n\"DASHBOARD_CROSS_FILTERS\": True,\r\n\"ALERT_REPORTS\": True,\r\n\"ENABLE_TEMPLATE_PROCESSING\": True,\r\n\"ENABLE_TEMPLATE_REMOVE_FILTERS\": True,\r\n\"GENERIC_CHART_AXES\": True\r\n\r\n### Checklist\r\n\r\nMake sure to follow these steps before submitting your issue - thank you!\r\n\r\n- [x] I have checked the superset logs for python stacktraces and included it here as text if there are any.\r\n- [x] I have reproduced the issue with at least the latest released version of superset.\r\n- [x] I have checked the issue tracker for the same issue and I haven't found one similar.\r\n\r\n",
+          "issue_author": "saghatelian",
+          "issue_labels": [
+            "#bug"
+          ],
+          "closed_at": "2026-07-20T16:23:21Z",
+          "fix_pr_number": 41489,
+          "fix_pr_url": "https://github.com/apache/superset/pull/41489",
+          "fix_merged_at": "2026-07-20T16:23:20Z",
+          "fix_merge_commit": "f03a66db9c9d2ea2a20e48a8c3eb4298a58d00b1",
+          "pre_fix_commit": "515dfef9554776e2afa7e8092e836d715c69bc2f",
+          "ground_truth_files": [
+            "superset/models/helpers.py"
+          ],
+          "excluded_files": [
+            "tests/unit_tests/models/helpers_test.py"
+          ]
+        },
+        {
+          "issue_number": 21734,
+          "issue_url": "https://github.com/apache/superset/issues/21734",
+          "issue_title": "Uncertainty intervals of forecast are wrong when it goes negative.",
+          "issue_body": "Uncertainty intervals of forecast never goes negative.\r\n\r\n#### How to reproduce the bug\r\n\r\n1 Take any data that includes negative values.\r\n2 Run a forecast, including uncertainty interval\r\n\r\n### Expected results\r\n\r\nI'd expect the uncertainty to be around the forecast.\r\n\r\n### Actual results\r\n\r\nThe uncertainty interval is clipped from below at 0, and behaves oddly.\r\n\r\n#### Screenshots\r\n![Screenshot 2022-10-07 at 12-48-06 forecast](https://user-images.githubusercontent.com/1616942/194536526-10d5eb13-e0f6-4e98-bb30-4c8088ba2a17.png)\r\n\r\n\r\n### Environment\r\n\r\n(please complete the following information):\r\n\r\n- browser type and version: Firefox 105.0.2\r\n- superset version: 2.0.0\r\n- python version: 3.8.14\r\n- prophet version: 1.1.1\r\n- any feature flags active: run as per the tutorial\r\n\r\n### Checklist\r\n\r\nMake sure to follow these steps before submitting your issue - thank you!\r\n\r\n- [x] I have checked the superset logs for python stacktraces and included it here as text if there are any.\r\n- [x] I have reproduced the issue with at least the latest released version of superset.\r\n- [x] I have checked the issue tracker for the same issue and I haven't found one similar.\r\n\r\n### Additional context\r\n\r\n[Here](https://gist.github.com/Dapid/49a71bcd96c085bdd5081517d090c86a) is some data one can use. I used Date as the X axis and min(temperature) for Y (days, weeks, or months, work fine).\r\nNote that using max(temperature) instead yields nice-looking results, since almost all of it is positive.\r\n",
+          "issue_author": "Dapid",
+          "issue_labels": [
+            "#bug"
+          ],
+          "closed_at": "2026-07-17T04:25:08Z",
+          "fix_pr_number": 41311,
+          "fix_pr_url": "https://github.com/apache/superset/pull/41311",
+          "fix_merged_at": "2026-07-17T04:25:07Z",
+          "fix_merge_commit": "9f8e1508ca6226d1def91a4bcbc2d06c51b4aa9f",
+          "pre_fix_commit": "20e6dfd37df8a4055fce609bb50eddb1f13ae2b0",
+          "ground_truth_files": [
+            "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts"
+          ],
+          "excluded_files": [
+            "superset-frontend/plugins/plugin-chart-echarts/test/utils/forecast.test.ts"
+          ]
+        },
+        {
+          "issue_number": 20459,
+          "issue_url": "https://github.com/apache/superset/issues/20459",
+          "issue_title": "[DECK.GL MULTIPLE LAYERS] Categorical color from scatterplot not used",
+          "issue_body": "In a deck.gl multiple layers  I use a deck.gl scatterplot with a categorical color for the point color.\r\nIt's working fine except that the categories color in legend is not the same as the point on the map.\r\n\r\n#### How to reproduce the bug\r\n\r\n1. Create a deck.gl scatterplot chart\r\n2. Put something in \"Point Color > Categorical Color\" parameter\r\n3. Save chart\r\n4. Create a deck.gl Multple Layers chart\r\n5. Add previously created deck.gl scatterplot\r\n6. Run and see point color\r\n\r\n### Actual results\r\n\r\n![2022-06-21_17h57_08](https://user-images.githubusercontent.com/63049494/174844502-11582459-38c9-40d4-9f7f-e688c2cee844.png)\r\n\r\n### Expected results\r\n\r\nSame color as the configured one in deck.gl scatterplot \r\n\r\n![2022-06-21_17h58_22](https://user-images.githubusercontent.com/63049494/174844778-329af701-4bfe-4695-a139-8a2df4a475f9.png)\r\n\r\n\r\n### Environment\r\n\r\n(please complete the following information):\r\n\r\n- browser type and version: Firefox 91.10 esr\r\n- superset version: 1.5.0\r\n\r\n### Checklist\r\n\r\nMake sure to follow these steps before submitting your issue - thank you! \r\n- [X] I have reproduced the issue with at least the latest released version of superset.\r\n- [X] I have checked the issue tracker for the same issue and I haven't found one similar.\r\n\r\n",
+          "issue_author": "audelorAd",
+          "issue_labels": [
+            "validation:required",
+            "#bug"
+          ],
+          "closed_at": "2026-07-03T12:23:31Z",
+          "fix_pr_number": 41490,
+          "fix_pr_url": "https://github.com/apache/superset/pull/41490",
+          "fix_merged_at": "2026-07-03T12:23:30Z",
+          "fix_merge_commit": "0e6c5838e48875db38660778632d692a3b902697",
+          "pre_fix_commit": "4f37e955b54704324cd476d82facfd6d06b88d98",
+          "ground_truth_files": [
+            "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+            "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx",
+            "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.ts"
+          ],
+          "excluded_files": [
+            "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.test.tsx",
+            "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.color.test.tsx",
+            "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.test.ts"
+          ]
+        },
+        {
+          "issue_number": 22904,
+          "issue_url": "https://github.com/apache/superset/issues/22904",
+          "issue_title": "Russian (Cyrillic) text is improperly displayed when using array_agg in the SQL query (Postgres)",
+          "issue_body": "#### How to reproduce the bug\r\n\r\n1. Store Russian text in a Postgres database.\r\n2. Make sure you can fetch that textual data into Superset and properly display it via SQL lab or chart explorer.\r\n3. Modify the request: add a `group by` clause and use the `array_agg` function to create an array of strings of Russian text.\r\n4. **Problem**: the strings become \"unicode gibberish\". Example: `[\"\\u041b\\u043e\\u043d\\u0433\\u0441\\u043b\\u0438\\u0432\\u044b\", \"\\u0421\\u0432\\u0438\\u0442\\u0448\\u043e\\u0442\\u044b\"]`. They get displayed like this in the SQL Lab, in the Chart Explorer and on the dashboard.\r\n\r\n### Environment\r\n\r\n- browser type and version: updated Brave (Chome-base) and updated Libre Office (Firefox-based)\r\n- helm info:\r\n  - chart: `superset-0.7.7`\r\n  - app version: `1.0`\r\n\r\n### Checklist\r\n\r\nMake sure to follow these steps before submitting your issue - thank you!\r\n\r\n- [ ] I have checked the superset logs for python stacktraces and included it here as text if there are any.\r\n- [x] I have reproduced the issue with at least the latest released version of superset.\r\n- [x] I have checked the issue tracker for the same issue and I haven't found one similar.\r\n",
+          "issue_author": "m-ocean-it",
+          "issue_labels": [
+            "#bug"
+          ],
+          "closed_at": "2026-07-01T17:22:13Z",
+          "fix_pr_number": 41533,
+          "fix_pr_url": "https://github.com/apache/superset/pull/41533",
+          "fix_merged_at": "2026-07-01T17:22:12Z",
+          "fix_merge_commit": "2d2a72b721fc88fa3965414563d6262961790f1e",
+          "pre_fix_commit": "55b2da75f657c27ad85b675616e7cef8d316e788",
+          "ground_truth_files": [
+            "superset/result_set.py",
+            "superset/utils/json.py"
+          ],
+          "excluded_files": [
+            "tests/unit_tests/result_set_test.py",
+            "tests/unit_tests/utils/json_tests.py"
+          ]
+        }
+      ],
+      "rejected_sample": [
+        {
+          "ok": false,
+          "number": 18870,
+          "url": "https://github.com/apache/superset/issues/18870",
+          "reason": "fix_too_broad:14_files"
+        },
+        {
+          "ok": false,
+          "number": 42107,
+          "url": "https://github.com/apache/superset/issues/42107",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 24374,
+          "url": "https://github.com/apache/superset/issues/24374",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 21870,
+          "url": "https://github.com/apache/superset/issues/21870",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 33905,
+          "url": "https://github.com/apache/superset/issues/33905",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 23103,
+          "url": "https://github.com/apache/superset/issues/23103",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 19944,
+          "url": "https://github.com/apache/superset/issues/19944",
+          "reason": "ground_truth_empty_after_exclusions"
+        },
+        {
+          "ok": false,
+          "number": 13345,
+          "url": "https://github.com/apache/superset/issues/13345",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 16141,
+          "url": "https://github.com/apache/superset/issues/16141",
+          "reason": "ground_truth_empty_after_exclusions"
+        },
+        {
+          "ok": false,
+          "number": 23847,
+          "url": "https://github.com/apache/superset/issues/23847",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 20546,
+          "url": "https://github.com/apache/superset/issues/20546",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 22979,
+          "url": "https://github.com/apache/superset/issues/22979",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 20319,
+          "url": "https://github.com/apache/superset/issues/20319",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 19222,
+          "url": "https://github.com/apache/superset/issues/19222",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 20349,
+          "url": "https://github.com/apache/superset/issues/20349",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 24837,
+          "url": "https://github.com/apache/superset/issues/24837",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 17182,
+          "url": "https://github.com/apache/superset/issues/17182",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        }
+      ]
+    },
+    {
+      "language": "go",
+      "repo": "usememos/memos",
+      "license": "MIT",
+      "index_commit": "861b58cbf3a8bfc985c0f1aa64768ca762a971f6",
+      "index_commit_rationale": "parent of merge commit 122ac9427339d33d8db652648a06fa6305bce47d (fix for #5622, earliest selected)",
+      "candidates_examined": 60,
+      "qualifying_found": 5,
+      "cases": [
+        {
+          "issue_number": 5664,
+          "issue_url": "https://github.com/usememos/memos/issues/5664",
+          "issue_title": "Regression: Audio files showed as pure attachments, not as audio players",
+          "issue_body": "### Pre-submission Checklist\n\n- [x] I have searched the existing issues and this bug has not been reported yet\n- [x] I have tested this issue on the [demo site](https://demo.usememos.com) or the latest version\n\n### Where did you encounter this bug?\n\nDemo site (demo.usememos.com)\n\n### Memos Version\n\n0.26.2\n\n### Bug Description\n\nI expect that it should be possible to play supported audio files.\n\nBased on [this issue](https://github.com/usememos/memos/issues/4036) it seems like it used to be possible.\n\nI'm willing to add this functionality frontend wise if contributors will consider eventually checking the PR, as it seems like AI has higher priority than human contributors.\n\n### Steps to Reproduce\n\nUpload mp3 file. Doesn't matter if drag-n-drop or \"upload file\" used. The file will be only displayed as attachments.\n\n### Expected Behavior\n\nIf MP3/M4A (or other audio formats supported by browser) uploaded to a memo, it should instead show basic audio player.\n\n### Screenshots & Additional Context\n\n_No response_",
+          "issue_author": "C1C0",
+          "issue_labels": [
+            "bug"
+          ],
+          "closed_at": "2026-03-07T09:57:49Z",
+          "fix_pr_number": 5699,
+          "fix_pr_url": "https://github.com/usememos/memos/pull/5699",
+          "fix_merged_at": "2026-03-07T09:57:48Z",
+          "fix_merge_commit": "2ccb98a6cbc40544e81eeeca2a2cbbaf8348f45e",
+          "pre_fix_commit": "450367915564532b93e924445fd1fcddf4276ab1",
+          "ground_truth_files": [
+            "web/src/components/MemoView/components/metadata/AttachmentCard.tsx",
+            "web/src/components/MemoView/components/metadata/AttachmentList.tsx"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 5677,
+          "issue_url": "https://github.com/usememos/memos/issues/5677",
+          "issue_title": "webhook URL must not resolve to a reserved or private IP address",
+          "issue_body": "### Pre-submission Checklist\n\n- [x] I have searched the existing issues and this bug has not been reported yet\n- [x] I have tested this issue on the [demo site](https://demo.usememos.com) or the latest version\n\n### Where did you encounter this bug?\n\nLatest stable version (self-hosted)\n\n### Memos Version\n\nv0.26.2\n\n### Bug Description\n\nRecently, my n8n workflow with memos has stopped working. I get the following error:\n\n```\nCreate webhook: [invalid_argument] rpc error: code = InvalidArgument desc = webhook URL must not resolve to a reserved or private IP address\n```\n\nIs it possible to introduce an env variable here that allows IP addresses? \n\n### Steps to Reproduce\n\nAccording to AI, SSRF checking was introduced in the latest version, which is the reason for this. \nThis still works in version memos:0.22.1. \n\n### Expected Behavior\n\n_No response_\n\n### Screenshots & Additional Context\n\n_No response_",
+          "issue_author": "BitNike",
+          "issue_labels": [
+            "bug"
+          ],
+          "closed_at": "2026-03-07T05:46:04Z",
+          "fix_pr_number": 5694,
+          "fix_pr_url": "https://github.com/usememos/memos/pull/5694",
+          "fix_merged_at": "2026-03-07T05:46:03Z",
+          "fix_merge_commit": "cd5816c428931f56561f7d48b649a33858812539",
+          "pre_fix_commit": "851e090ff9bb86ce916c17a7e662672108087ea0",
+          "ground_truth_files": [
+            "cmd/memos/main.go",
+            "plugin/webhook/validate.go"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 5658,
+          "issue_url": "https://github.com/usememos/memos/issues/5658",
+          "issue_title": "Notes disappearing when returning to homepage",
+          "issue_body": "### Pre-submission Checklist\n\n- [x] I have searched the existing issues and this bug has not been reported yet\n- [x] I have tested this issue on the [demo site](https://demo.usememos.com) or the latest version\n\n### Where did you encounter this bug?\n\nLatest stable version (self-hosted)\n\n### Memos Version\n\nv0.26.2\n\n### Bug Description\n\nWhen leaving the page (browser tab) and returning after a while, the notes disappear. Checking the console shows that a request is sent to `/memos.api.v1.UserService/ListUserNotifications` which is failing with status 401.\nNotes return when refreshing the page.\n\n### Steps to Reproduce\n\n1. Open memos and login\n2. Go to the homepage where your notes are listed\n3. Leave the page by switching tabs and wait for a while, I would say more than 15 minutes at least\n4. Return to the page\n\n### Expected Behavior\n\nI expect the notes not to disappear and the user to stay authorized.\n\n### Screenshots & Additional Context\n\n- Google Chrome and Brave (happens on both)\n- Docker Image v0.26.2\n- Ubuntu\n- Proxied by Cloudlare Tunnel (cloudflared)",
+          "issue_author": "realChriss",
+          "issue_labels": [
+            "bug"
+          ],
+          "closed_at": "2026-03-05T11:29:22Z",
+          "fix_pr_number": 5681,
+          "fix_pr_url": "https://github.com/usememos/memos/pull/5681",
+          "fix_merged_at": "2026-03-05T11:29:21Z",
+          "fix_merge_commit": "3010f10eafb49af5aadd71a94b3ef7a6ec71f617",
+          "pre_fix_commit": "334dfef714739ba4682a350ce11a65b9700636f5",
+          "ground_truth_files": [
+            "web/src/connect.ts",
+            "web/src/hooks/useTokenRefreshOnFocus.ts"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 5622,
+          "issue_url": "https://github.com/usememos/memos/issues/5622",
+          "issue_title": "Visibility selection in the submission form becomes \"Private\" after the post",
+          "issue_body": "### Pre-submission Checklist\n\n- [x] I have searched the existing issues and this bug has not been reported yet\n- [x] I have tested this issue on the [demo site](https://demo.usememos.com) or the latest version\n\n### Where did you encounter this bug?\n\nLatest stable version (self-hosted)\n\n### Memos Version\n\nv0.26.1\n\n### Bug Description\n\nWhen `Default memo visibility` preference is not `Private` (`Protected` or `Public`), Visibility selection in the submission form becomes `Private` after submission.\n\n### Steps to Reproduce\n\n1. Set `Default memo visibility` to `Protected` or `Public`\n1. Access to the top page. Visibility in the submission form is set to the specified default setting.\n1. Write some memo and post it (click the `Save` button or Ctrl+Enter)\n1. The memo is posted with specified visibility (no problem).\n1. However, **Visibility in the form suddenly becomes `Private` after the post.**\n1. Reload the page and the Visibility is returned to the specified default setting.\n\n### Expected Behavior\n\nThe Visibility settings in the form should retain its selected value.\n\n### Screenshots & Additional Context\n\n![Image](https://github.com/user-attachments/assets/5aa6fe12-ac3d-4d42-ad9c-72df0abb7c1b)\n\n- Browser: Google Chrome | 144.0.7559.133 (Official Build) (64-bit) (cohort: Stable)\n- OS: Microsoft Windows [Version 10.0.26200.7705]\n- Environment: Docker and the Demo site",
+          "issue_author": "takeshik",
+          "issue_labels": [
+            "bug"
+          ],
+          "closed_at": "2026-02-14T08:58:59Z",
+          "fix_pr_number": 5623,
+          "fix_pr_url": "https://github.com/usememos/memos/pull/5623",
+          "fix_merged_at": "2026-02-14T08:58:58Z",
+          "fix_merge_commit": "122ac9427339d33d8db652648a06fa6305bce47d",
+          "pre_fix_commit": "861b58cbf3a8bfc985c0f1aa64768ca762a971f6",
+          "ground_truth_files": [
+            "web/src/components/MemoEditor/index.tsx"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 5462,
+          "issue_url": "https://github.com/usememos/memos/issues/5462",
+          "issue_title": "Search filter persists after clicking Shortcuts even when search box is empty",
+          "issue_body": "### Pre-submission Checklist\n\n- [x] I have searched the existing issues and this bug has not been reported yet\n- [x] I have tested this issue on the [demo site](https://demo.usememos.com) or the latest version\n\n### Where did you encounter this bug?\n\nLatest stable version (self-hosted)\n\n### Memos Version\n\nv0.25.3\n\n### Bug Description\n\nThis issue can confuse users because after selecting a Shortcut, one would normally expect the previous search criteria to reset if the search input is empty. However, the old filter still influences results, creating misleading or unintended results.\n\n### Steps to Reproduce\n\n\n1. Go to the Memos application and perform a search using a keyword in the search box.\n2. Click on one of the Shortcuts items.\n3. Although the search box becomes empty after selecting the shortcut, the previous search filter still remains active, affecting the results displayed.\n\n### Expected Behavior\n\nAfter clicking a Shortcut, the old keyword search filter should be cleared if the search box is empty, and only the shortcut filter should take effect.\n\n### Screenshots & Additional Context\n\n_No response_",
+          "issue_author": "wancheng",
+          "issue_labels": [
+            "bug",
+            "Stale"
+          ],
+          "closed_at": "2026-01-30T08:06:47Z",
+          "fix_pr_number": 5499,
+          "fix_pr_url": "https://github.com/usememos/memos/pull/5499",
+          "fix_merged_at": "2026-03-04T14:12:41Z",
+          "fix_merge_commit": "2c3f9e3bfbe09e5d0028d1525c1df83c03f547c9",
+          "pre_fix_commit": "3ea6ea3108f58dc34f39fa6f21d761bd2e97732b",
+          "ground_truth_files": [
+            "web/src/contexts/MemoFilterContext.tsx"
+          ],
+          "excluded_files": []
+        }
+      ],
+      "rejected_sample": [
+        {
+          "ok": false,
+          "number": 5630,
+          "url": "https://github.com/usememos/memos/issues/5630",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5607,
+          "url": "https://github.com/usememos/memos/issues/5607",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5611,
+          "url": "https://github.com/usememos/memos/issues/5611",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5627,
+          "url": "https://github.com/usememos/memos/issues/5627",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5667,
+          "url": "https://github.com/usememos/memos/issues/5667",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5581,
+          "url": "https://github.com/usememos/memos/issues/5581",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5565,
+          "url": "https://github.com/usememos/memos/issues/5565",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5567,
+          "url": "https://github.com/usememos/memos/issues/5567",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5648,
+          "url": "https://github.com/usememos/memos/issues/5648",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5643,
+          "url": "https://github.com/usememos/memos/issues/5643",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5621,
+          "url": "https://github.com/usememos/memos/issues/5621",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5432,
+          "url": "https://github.com/usememos/memos/issues/5432",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5690,
+          "url": "https://github.com/usememos/memos/issues/5690",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5652,
+          "url": "https://github.com/usememos/memos/issues/5652",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5682,
+          "url": "https://github.com/usememos/memos/issues/5682",
+          "reason": "fix_too_broad:7_files"
+        },
+        {
+          "ok": false,
+          "number": 5628,
+          "url": "https://github.com/usememos/memos/issues/5628",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5674,
+          "url": "https://github.com/usememos/memos/issues/5674",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5678,
+          "url": "https://github.com/usememos/memos/issues/5678",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5668,
+          "url": "https://github.com/usememos/memos/issues/5668",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 5665,
+          "url": "https://github.com/usememos/memos/issues/5665",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "repo": "helix-editor/helix",
+      "license": "MPL-2.0",
+      "index_commit": "ba3ccb95b43908e6ba573ac08d5310b866b45f5e",
+      "index_commit_rationale": "parent of merge commit 9241cf92672256e29404732cac71cecff19ba462 (fix for #15922, earliest selected)",
+      "candidates_examined": 60,
+      "qualifying_found": 15,
+      "cases": [
+        {
+          "issue_number": 15591,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15591",
+          "issue_title": "golang regex injections not working",
+          "issue_body": "### Summary\n\nTitle\n\n### Reproduction Steps\n\nI tried this:\n\n1. Paste\n```go\nregexp.MustCompile(`[ab]`)\n```\ninto a buffer with `:lang go`\n2. run `:tree-sitter-layers`\n\nI expected this to happen: There should be `go` and `regex`\n\nInstead, this happened: Only `go`\n\nFor reference, regex injections work for Rust:\n```rust\nRegex::new(r\"[ab]\")\n```\n\n\n### Helix log\n\n<details><summary>~/.cache/helix/helix.log</summary>\n\n```\n```\n\n</details>\n\n\n### Platform\n\nLinux\n\n### Terminal Emulator\n\nIrrelevant. This must be a `queries` issue. See `:tree-sitter-subtree`\n\n### Installation Method\n\nsource\n\n### Helix Version\n\n25.07-661-g98ad",
+          "issue_author": "Rudxain",
+          "issue_labels": [
+            "C-bug"
+          ],
+          "closed_at": "2026-07-16T16:29:30Z",
+          "fix_pr_number": 15996,
+          "fix_pr_url": "https://github.com/helix-editor/helix/pull/15996",
+          "fix_merged_at": "2026-07-16T16:29:29Z",
+          "fix_merge_commit": "c677375706759ad24398a2fda2688a87c6df0edb",
+          "pre_fix_commit": "14d6bc0febed9c692048271a8ae2362ac969c6e0",
+          "ground_truth_files": [
+            "runtime/queries/go/injections.scm"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 15975,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15975",
+          "issue_title": "DAP: 'invalid type: map, expected unit' on configurationDone response when adapter returns body={}",
+          "issue_body": "### Summary\n\n`vscode-js-debug` (the DAP adapter Helix's `js-debug-dap` block is wired for) returns `body: {}` on the `configurationDone` response. Helix declares `ConfigurationDone::Result = ()` (unit type), so `serde_json::from_value::<()>(Value::Object({}))` fails with:\n\n```\nDebugger configuration failed: failed to parse: invalid type: map, expected unit\n```\n\nThe error is shown to the user via `Editor::set_error` in the `Initialized` event handler, but the debug session continues (`set_active_client` runs regardless). The adapter has already accepted the request and returned `success: true`, so the debugger is actually running — the error is misleading, not fatal.\n\n### Reproduction Steps\n\n**`~/.config/helix/languages.toml`**\n\n```toml\n[[language]]\nname = \"javascript\"\n\n[language.debugger]\nname = \"js-debug-dap\"\ntransport = \"tcp\"\nport-arg = \"{} 127.0.0.1\"\ncommand = \"node\"\nargs = [\"/path/to/js-debug/src/dapDebugServer.js\"]\nquirks = { absolute-paths = true }\n\n[[language.debugger.templates]]\nname = \"source\"\nrequest = \"launch\"\ncompletion = [{ name = \"main\", completion = \"filename\", default = \"index.js\" }]\nargs = { type = \"pwa-node\", program = \"{0}\", skipFiles = [\"<node_internals>/**\"] }\n```\n\n**Adapter install** (Microsoft's prebuilt `js-debug-dap` release tarball, not the VS Code extension):\n\n```bash\nmkdir -p ~/lib/js-debug && cd ~/lib/js-debug\ncurl -L -o js-debug-dap.tar.gz \\\n  https://github.com/microsoft/vscode-js-debug/releases/download/v1.117.0/js-debug-dap-v1.117.0.tar.gz\ntar -xzf js-debug-dap.tar.gz && rm js-debug-dap.tar.gz\n# Entry point: ~/lib/js-debug/js-debug/src/dapDebugServer.js\n```\n\n**Steps:**\n\n1. `echo 'console.log(\"hello\")' > /tmp/index.js`\n2. `hx /tmp/index.js`\n3. Set a breakpoint (`<space>gb` on line 1)\n4. `:debug-start source<ret>index.js<ret>`\n\n**Expected:** debug session starts, status bar shows \"Debugged application started\".\n\n**Actual:** status bar shows `Debugger configuration failed: failed to parse: invalid type: map, expected unit`. The debuggee actually starts, but the error message implies failure.\n\n## Captured raw DAP response\n\nVerified against the adapter directly (no Helix in the loop):\n\n```json\n{\"seq\": 2, \"type\": \"response\", \"request_seq\": 3, \"command\": \"configurationDone\", \"success\": true, \"body\": {}}\n```\n\nvscode-js-debug returns `body: {}` on every `configurationDone` response. This is technically non-DAP-compliant — the spec for `configurationDone`'s response has no body — but the same `{}` body shape is used by many other adapters (JDTLS, etc.) and Helix handles it elsewhere via `serde_json::Value` result types.\n\n\n### Helix log\n\n<details><summary>~/.cache/helix/helix.log</summary>\n\n```\nhelix_dap::transport [INFO] -> DAP {\"type\":\"request\",\"seq\":3,\"command\":\"configurationDone\",\"arguments\":{}}\nhelix_dap::transport [INFO] <- DAP {\"seq\":4,\"type\":\"response\",\"request_seq\":3,\"command\":\"configurationDone\",\"success\":true,\"body\":{}}\nhelix_dap::transport [INFO] <- DAP success in response to 3\nhelix_view::editor [ERROR] editor error: Debugger configuration failed: failed to parse: invalid type: map, expected unit\n```\n\n</details>\n\n\n### Platform\n\nLinux\n\n### Terminal Emulator\n\nalacritty 0.17.0 (94e7c887)\n\n### Installation Method\n\nsource\n\n### Helix Version\n\nhelix 25.07.1 (2868367c)",
+          "issue_author": "MAST1999",
+          "issue_labels": [
+            "C-bug"
+          ],
+          "closed_at": "2026-07-06T19:46:43Z",
+          "fix_pr_number": 15993,
+          "fix_pr_url": "https://github.com/helix-editor/helix/pull/15993",
+          "fix_merged_at": "2026-07-06T19:46:42Z",
+          "fix_merge_commit": "14d6bc0febed9c692048271a8ae2362ac969c6e0",
+          "pre_fix_commit": "39b3f22b1bf53f64bd4256b133f4563c4d0e43b0",
+          "ground_truth_files": [
+            "helix-dap/src/client.rs"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 15779,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15779",
+          "issue_title": "Diagnostics from roslyn-language-server don't appear until an edit",
+          "issue_body": "### Summary\n\nDiagnostics don't appear until an edit has been made in the buffer when using roslyn-language-server.\n\nThat's because helix fetches diagnostics only when the `Notification::Initialized` has been sent by the roslyn-language-server and not when `Notification::ProgressMessage` signals that work has finished.\n\nWhen `Notification::Initialized` is received, no diagnostics are returned. But after progress message signals work has finished, the language server returns diagnostics (if we request them).\n\n### Reproduction Steps\n\n<!-- Ideally provide a key sequence and/or asciinema.org recording. --> \n\nI tried this:\n\n```\nmkdir helix-roslyn\ncd helix-roslyn\ndotnet new sln\nmkdir src\ncd src\ndotnet new classlib -n Foo\ncd ..\ndotnet sln add src/Foo/Foo.csproj\necho \"public class Foo : Bar {  }\" >> src/Foo/Class1.cs\nhx src/Foo/Class1.cs\n```\n\nI expected this to happen:\nSee diagnostics for the non-existent class Bar after initialization finishes\nInstead, this happened:\nNo diagnostics  are shown until I make an edit\n\n### Helix log\n\n<details><summary>~/.cache/helix/helix.log</summary>\n\n```\nplease provide a copy of `~/.cache/helix/helix.log` here if possible, you may need to redact some of the lines\n```\n\n</details>\n\n\n### Platform\n\nLinux\n\n### Terminal Emulator\n\nGhostty 1.3.1\n\n### Installation Method\n\nsource\n\n### Helix Version\n\na62d374f",
+          "issue_author": "chrinkis",
+          "issue_labels": [
+            "C-bug"
+          ],
+          "closed_at": "2026-07-05T02:59:30Z",
+          "fix_pr_number": 15780,
+          "fix_pr_url": "https://github.com/helix-editor/helix/pull/15780",
+          "fix_merged_at": "2026-07-05T02:59:29Z",
+          "fix_merge_commit": "855c3bf03f0ab602c61e762761a887de75146990",
+          "pre_fix_commit": "67654112970dae18c8458abe9b9732488fe2d71b",
+          "ground_truth_files": [
+            "helix-term/src/application.rs",
+            "helix-term/src/handlers/diagnostics.rs"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 15883,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15883",
+          "issue_title": "editor_config: glob group followed by empty glob group does not get applied",
+          "issue_body": "### Summary\n\na glob group such a `*.{nix,yml}{,.foo}` in a `.editorconfig` does not get applied to `flake.nix` \n\nrelated: https://github.com/helix-editor/helix/pull/14107\n\n### Reproduction Steps\n\nWhen opening `flake.nix` in a directory with these two files:\n```ini\n# .editorconfig\nroot = true\n\n[*]\nindent_style = space\n\n[*.{nix,yml}{,.foo}]\nindent_size = 2\n```\n```nix\n# flake.nix\n{\n  inputs = {\n    nixpkgs = { };\n  };\n}\n```\n\nthe `*.{nix,yml}{,.foo}` glob does not get applied, which causes indent_size to be set to 4:\n\n```\nhelix_core::editor_config [INFO] applying EditorConfig from section '**/*' in file \"/home/da157/downloads/test/.editorconfig\"\n```\n\nwithout the `{,.foo}`, it works as expected:\n\n```\nhelix_core::editor_config [INFO] applying EditorConfig from section '**/*' in file \"/home/da157/downloads/test/.editorconfig\"\nhelix_core::editor_config [INFO] applying EditorConfig from section '**/*.{nix,html}' in file \"/home/da157/downloads/test/.editorconfig\" \n```\n\n\n### Helix log\n\n_No response_\n\n### Platform\n\nLinux (NixOS)\n\n### Terminal Emulator\n\nalacritty 0.17.0\n\n### Installation Method\n\nNixpkgs Unstable 331800de5053fcebacf6813adb5db9c9dca22a0c\n\n### Helix Version\n\nhelix 25.07.1",
+          "issue_author": "0xda157",
+          "issue_labels": [
+            "C-bug"
+          ],
+          "closed_at": "2026-07-05T02:43:49Z",
+          "fix_pr_number": 15939,
+          "fix_pr_url": "https://github.com/helix-editor/helix/pull/15939",
+          "fix_merged_at": "2026-07-05T02:43:48Z",
+          "fix_merge_commit": "3bc022d118086b854400d26b069a2723a2f96c6b",
+          "pre_fix_commit": "a98a16235c9d6f9348e73c9933eda5512026575f",
+          "ground_truth_files": [
+            "helix-core/src/editor_config.rs"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 15922,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15922",
+          "issue_title": "Highlighting of inline math equations in markdown",
+          "issue_body": "### Summary\n\nCertain flavors of markdown support inline equations written in latex syntax, e.g. `some text $E=mc^2$ more text`. While the markdown tree-sitter used by helix supports the injection of latex, it appears the dollar-sign delimiters are not passed along to the latex tree-sitter. In the example, this means the latex tree-sitter has no way to know that `E=mc^2` is an equation and should be highlighted accordingly. Instead, it is highlighted as ordinary text, which is easy to verify with a minimal `.tex` file.\n\nFixing the issue is as easy as replacing the last occurrence (and only the last occurrence) of `injection.include-unnamed-children` with `injection.include-children` in the file `runtime/queries/markdown.inline/injections.scm` since this will cause the dollar-sign delimiters to be passed to the latex tree-sitter. At least, this fixed the problem for me.\n\n**NB** Since `include-unnamed-children` is a helix extension of tree-sitter, this is a bug with helix and not a bug with tree-sitter.\n\n### Reproduction Steps\n\nRun the commands below then open `test.md` and `test.tex` in helix to compare syntax highlighting. Make sure to apply a theme that uses a special color for `@markup.raw` since that is the scope applied to latex equations.\n\n```bash\necho 'some text $E=mc^2$ more text' > test.md\ncat > test.tex << 'EOF'\n\\documentclass{article}\n\\begin{document}\n\nE=mc^2 (this is how equations appear in markdown files)\n\n$E=mc^2$ (this is how equations should appear in markdown files)\n\n\\end{document}\nEOF\n```\n\n### Helix log\n\nN/A\n\n### Platform\n\nLinux (NixOS Yarara)\n\n### Terminal Emulator\n\nkitty 0.47.0\n\n### Installation Method\n\nnixpkgs stable 26.05\n\n### Helix Version\n\nhelix 25.07.1",
+          "issue_author": "mmuhleisen",
+          "issue_labels": [
+            "C-bug"
+          ],
+          "closed_at": "2026-07-04T19:37:33Z",
+          "fix_pr_number": 15965,
+          "fix_pr_url": "https://github.com/helix-editor/helix/pull/15965",
+          "fix_merged_at": "2026-07-04T19:37:32Z",
+          "fix_merge_commit": "9241cf92672256e29404732cac71cecff19ba462",
+          "pre_fix_commit": "ba3ccb95b43908e6ba573ac08d5310b866b45f5e",
+          "ground_truth_files": [
+            "runtime/queries/markdown.inline/injections.scm"
+          ],
+          "excluded_files": []
+        }
+      ],
+      "rejected_sample": [
+        {
+          "ok": false,
+          "number": 12676,
+          "url": "https://github.com/helix-editor/helix/issues/12676",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15969,
+          "url": "https://github.com/helix-editor/helix/issues/15969",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 16037,
+          "url": "https://github.com/helix-editor/helix/issues/16037",
+          "reason": "fix_too_broad:6_files"
+        },
+        {
+          "ok": false,
+          "number": 16018,
+          "url": "https://github.com/helix-editor/helix/issues/16018",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 16017,
+          "url": "https://github.com/helix-editor/helix/issues/16017",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 16007,
+          "url": "https://github.com/helix-editor/helix/issues/16007",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15751,
+          "url": "https://github.com/helix-editor/helix/issues/15751",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15847,
+          "url": "https://github.com/helix-editor/helix/issues/15847",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15941,
+          "url": "https://github.com/helix-editor/helix/issues/15941",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15935,
+          "url": "https://github.com/helix-editor/helix/issues/15935",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15934,
+          "url": "https://github.com/helix-editor/helix/issues/15934",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15931,
+          "url": "https://github.com/helix-editor/helix/issues/15931",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15877,
+          "url": "https://github.com/helix-editor/helix/issues/15877",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15928,
+          "url": "https://github.com/helix-editor/helix/issues/15928",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15918,
+          "url": "https://github.com/helix-editor/helix/issues/15918",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15916,
+          "url": "https://github.com/helix-editor/helix/issues/15916",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15808,
+          "url": "https://github.com/helix-editor/helix/issues/15808",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 11888,
+          "url": "https://github.com/helix-editor/helix/issues/11888",
+          "reason": "fix_too_broad:14_files"
+        },
+        {
+          "ok": false,
+          "number": 15874,
+          "url": "https://github.com/helix-editor/helix/issues/15874",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 15867,
+          "url": "https://github.com/helix-editor/helix/issues/15867",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        }
+      ]
+    }
+  ],
+  "skipped_repositories": [
+    {
+      "language": "ruby",
+      "repo": "mastodon/mastodon",
+      "reason": "insufficient_qualifying_cases",
+      "qualifying": 0,
+      "candidates_examined": 1
+    },
+    {
+      "language": "ruby",
+      "repo": "chatwoot/chatwoot",
+      "reason": "license_not_osi:NOASSERTION",
+      "qualifying": 0
+    },
+    {
+      "language": "ruby",
+      "repo": "discourse/discourse",
+      "reason": "no_defect_label_in_taxonomy",
+      "qualifying": 0
+    },
+    {
+      "language": "ruby",
+      "repo": null,
+      "reason": "no_repo_in_pool_qualified",
+      "qualifying": 0
+    }
+  ],
+  "total_cases": 20
+}
