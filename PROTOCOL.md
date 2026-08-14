@@ -175,6 +175,26 @@ Indexing at a single pre-fix commit rather than per-case is a cost decision, dis
 conservative in one direction — for the later cases in a repository, Watari searches a tree that is
 older than the report — and never favourable to Watari.
 
+### Amendment 2 — one workspace, four repositories (2026-08-14, before any run)
+
+All four repositories are indexed into a **single Watari workspace**, not one workspace each.
+
+This is the harder configuration and it is chosen deliberately. With four repositories in scope,
+Watari must first decide *which repository* the bug lives in before it can pick a file — so
+cross-repo routing becomes part of the measured task, and a routing error shows up as a file miss.
+Isolating each repository would produce a higher number that describes a setup no multi-repo
+customer actually runs.
+
+**Repo Routing @1** — whether the top-ranked location is in the correct repository, irrespective of
+file — is therefore reported as a fourth metric. It decomposes the failures: a case that missed on
+routing failed differently from one that reached the right repository and picked the wrong file.
+
+The four repositories are indexed from **forks pinned to the commits recorded in
+`sample.frozen.json`**, because Watari's GitHub App can only be installed on repositories the
+workspace controls. The forks are public and their default branches are reset to the pinned SHA, so
+a reader can inspect the exact tree that was indexed. Forking is a hosting mechanism only — no code
+is modified, and no pull request is opened against any upstream repository.
+
 ## Input
 
 The model receives the issue **title and body verbatim**, with no maintainer comments, no labels, no
@@ -192,6 +212,7 @@ Let `L` be Watari's ranked `code_locations` for a case and `G` the ground-truth 
 | **File Match @1** | `L[0].file_path ∈ G` |
 | **File Match @5** | `∃ l ∈ L[0..4] : l.file_path ∈ G` |
 | **Line Overlap @1** | File Match @1 **and** `[L[0].start_line, L[0].end_line]` intersects a hunk the fix modified, in pre-fix line numbers |
+| **Repo Routing @1** | `L[0]` is in the correct repository, irrespective of file (see Amendment 2) |
 | **No mapping** | Watari returned zero locations, or mapping failed |
 
 **Line Overlap @1 is a proxy for the literature's Func Match, and is reported under its own name
