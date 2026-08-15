@@ -225,6 +225,25 @@ worse than not reporting it. Re-pinning the index commit per case would remove t
 at 20 index runs instead of 4 — a real option, declined on cost, and disclosed here rather than
 buried.
 
+### Amendment 4 — how cases are injected (2026-08-14, before any run)
+
+Cases are injected by writing a ticket into the benchmark workspace and emitting the same
+`ticket/received` event a support-tool webhook emits. **Extraction and mapping are then the
+production Inngest functions, unmodified** — the same extraction prompt, the same embedding search,
+the same confidence-scored rerank that a customer's ticket runs through.
+
+What is skipped is the HTTP hop and signature check in front of `ticket/received`. That is transport,
+not localization, and this protocol measures localization in isolation.
+
+The practical reason is worth stating rather than dressing up: Watari has one Zendesk subdomain and
+it is already bound to a different workspace, so a dedicated benchmark workspace cannot have its own
+support-tool connection. Routing the benchmark through the existing workspace instead would mix 20
+synthetic cases into the tenant that holds the real end-to-end history.
+
+This does mean the benchmark says nothing about webhook intake, attachment handling, or
+support-tool-specific normalisation. Those are proven separately by recorded end-to-end runs and are
+not claimed here.
+
 ## Input
 
 The model receives the issue **title and body verbatim**, with no maintainer comments, no labels, no
