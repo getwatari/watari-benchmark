@@ -195,6 +195,36 @@ workspace controls. The forks are public and their default branches are reset to
 a reader can inspect the exact tree that was indexed. Forking is a hosting mechanism only — no code
 is modified, and no pull request is opened against any upstream repository.
 
+### Amendment 3 — files that do not exist yet, and line numbers that moved (2026-08-14, before any run)
+
+Extracting the hunk-level ground truth surfaced two facts about the frozen sample that the original
+protocol did not anticipate. Both are recorded here with the observed counts, before any run.
+
+**(a) Ground-truth files absent from the indexed tree — 2 cases.** In `apache/superset` #20459 and
+`usememos/memos` #5677 the merged fix *creates* a file (`utils/addColor.ts`, `plugin/webhook/validate.go`).
+That file cannot exist in the tree Watari indexed, so no localizer could ever return it.
+
+**Rule: a ground-truth file that does not exist at the index commit is dropped from the
+ground-truth set.** If dropping empties the set, the case is excluded and reported. Neither affected
+case empties — each has other ground-truth files that do exist, so both remain scored, on a
+*smaller* set of acceptable answers. This is strictly **harder** for Watari, not easier: there are
+now fewer files it is allowed to hit.
+
+**(b) Line numbers that may have moved — 6 cases.** The patch's line numbers describe the fix PR's
+base commit. Watari indexes at `index_commit`, which for every case except the earliest in each
+repository is an *earlier* commit. Where the ground-truth file is byte-identical between the two, the
+line numbers transfer exactly; where it is not, they may have drifted.
+
+**Rule: Line Overlap @1 is reported only over cases where every ground-truth file is byte-identical
+between `index_commit` and the fix PR's base — 13 of 20.** Its denominator is stated as 13 wherever
+it appears, never as 20. File Match @1/@5 and Repo Routing @1 are unaffected and remain over all 20;
+those metrics do not depend on line numbers.
+
+Reporting a line-level metric over cases whose line numbers are known to be unreliable would be
+worse than not reporting it. Re-pinning the index commit per case would remove the problem entirely
+at 20 index runs instead of 4 — a real option, declined on cost, and disclosed here rather than
+buried.
+
 ## Input
 
 The model receives the issue **title and body verbatim**, with no maintainer comments, no labels, no

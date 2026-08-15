@@ -1,0 +1,860 @@
+{
+  "protocol_version": 1,
+  "derived_from": "benchmarks/localization/sample.frozen.json",
+  "extracted_at": "2026-08-15T11:29:45.119Z",
+  "summary": {
+    "cases": 20,
+    "total_hunks": 52,
+    "cases_with_absent_ground_truth_file": 2,
+    "cases_with_possible_line_drift": 6,
+    "cases_line_overlap_scoreable": 13
+  },
+  "repositories": [
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "index_commit": "051ae77279dd573e544a4815b56599636fcf0839",
+      "cases": [
+        {
+          "issue_number": 21540,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/21540",
+          "fix_pr_number": 29940,
+          "fix_pr_base_sha": "b2c28a23ab5b53f2e3729657d23cccb50f64e18a",
+          "ground_truth_files": [
+            "packages/lib/getReplyToHeader.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/lib/getReplyToHeader.ts",
+              "start_line": 2,
+              "end_line": 33,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/lib/getReplyToHeader.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29684,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29684",
+          "fix_pr_number": 29685,
+          "fix_pr_base_sha": "53e32a5bbad43b262a5e1fef37f57fc67738afdb",
+          "ground_truth_files": [
+            "packages/features/bookings/lib/payment/processPaymentRefund.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/features/bookings/lib/payment/processPaymentRefund.ts",
+              "start_line": 26,
+              "end_line": 32,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/features/bookings/lib/payment/processPaymentRefund.ts",
+              "start_line": 80,
+              "end_line": 84,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/features/bookings/lib/payment/processPaymentRefund.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29567,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29567",
+          "fix_pr_number": 29673,
+          "fix_pr_base_sha": "b97cd6203de8889fb275a4bf5fb034b5f221eaf2",
+          "ground_truth_files": [
+            "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts",
+              "start_line": 1,
+              "end_line": 21,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts",
+              "start_line": 29,
+              "end_line": 35,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts",
+              "start_line": 54,
+              "end_line": 60,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts",
+              "start_line": 63,
+              "end_line": 71,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 4
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29575,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29575",
+          "fix_pr_number": 29580,
+          "fix_pr_base_sha": "ca90ca2c94536c7fac97e4e829cdfe18624c7f10",
+          "ground_truth_files": [
+            "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+              "start_line": 1,
+              "end_line": 14,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+              "start_line": 42,
+              "end_line": 51,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29628,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29628",
+          "fix_pr_number": 29639,
+          "fix_pr_base_sha": "051ae77279dd573e544a4815b56599636fcf0839",
+          "ground_truth_files": [
+            "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts",
+              "start_line": 275,
+              "end_line": 280,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "index_commit": "55b2da75f657c27ad85b675616e7cef8d316e788",
+      "cases": [
+        {
+          "issue_number": 33235,
+          "issue_url": "https://github.com/apache/superset/issues/33235",
+          "fix_pr_number": 41867,
+          "fix_pr_base_sha": "673f9285892dd09b5b3a0bfa24a4fa844b918266",
+          "ground_truth_files": [
+            "superset/db_engine_specs/clickhouse.py"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset/db_engine_specs/clickhouse.py",
+              "start_line": 56,
+              "end_line": 61,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset/db_engine_specs/clickhouse.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "superset/db_engine_specs/clickhouse.py"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 23167,
+          "issue_url": "https://github.com/apache/superset/issues/23167",
+          "fix_pr_number": 41489,
+          "fix_pr_base_sha": "6eb51105d0116fa13beb51455a08176b33e03ad5",
+          "ground_truth_files": [
+            "superset/models/helpers.py"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset/models/helpers.py",
+              "start_line": 1625,
+              "end_line": 1630,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/models/helpers.py",
+              "start_line": 1655,
+              "end_line": 1660,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset/models/helpers.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "superset/models/helpers.py"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 21734,
+          "issue_url": "https://github.com/apache/superset/issues/21734",
+          "fix_pr_number": 41311,
+          "fix_pr_base_sha": "5916ec4876a1d3594dbbe139b62a2fc5309a4c5a",
+          "ground_truth_files": [
+            "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts",
+              "start_line": 98,
+              "end_line": 112,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 20459,
+          "issue_url": "https://github.com/apache/superset/issues/20459",
+          "fix_pr_number": 41490,
+          "fix_pr_base_sha": "0a18779280ad929301ef46e1dfb7292361f4505e",
+          "ground_truth_files": [
+            "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+            "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx",
+            "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+              "start_line": 47,
+              "end_line": 61,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+              "start_line": 70,
+              "end_line": 76,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+              "start_line": 150,
+              "end_line": 229,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx",
+              "start_line": 49,
+              "end_line": 54,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx",
+              "start_line": 98,
+              "end_line": 103,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx",
+              "start_line": 225,
+              "end_line": 239,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.ts",
+              "start_line": 0,
+              "end_line": 0,
+              "pure_addition": true
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.ts",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.ts"
+          ],
+          "line_numbers_may_have_drifted": [
+            "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 22904,
+          "issue_url": "https://github.com/apache/superset/issues/22904",
+          "fix_pr_number": 41533,
+          "fix_pr_base_sha": "a4d5b15955da974351f6c5f4b4da032d91d6e6ec",
+          "ground_truth_files": [
+            "superset/result_set.py",
+            "superset/utils/json.py"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset/result_set.py",
+              "start_line": 60,
+              "end_line": 66,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "start_line": 195,
+              "end_line": 200,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "start_line": 207,
+              "end_line": 212,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "start_line": 220,
+              "end_line": 225,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset/result_set.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    },
+    {
+      "repo": "usememos/memos",
+      "language": "go",
+      "index_commit": "861b58cbf3a8bfc985c0f1aa64768ca762a971f6",
+      "cases": [
+        {
+          "issue_number": 5664,
+          "issue_url": "https://github.com/usememos/memos/issues/5664",
+          "fix_pr_number": 5699,
+          "fix_pr_base_sha": "450367915564532b93e924445fd1fcddf4276ab1",
+          "ground_truth_files": [
+            "web/src/components/MemoView/components/metadata/AttachmentCard.tsx",
+            "web/src/components/MemoView/components/metadata/AttachmentList.tsx"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "web/src/components/MemoView/components/metadata/AttachmentCard.tsx",
+              "start_line": 28,
+              "end_line": 33,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web/src/components/MemoView/components/metadata/AttachmentList.tsx",
+              "start_line": 1,
+              "end_line": 4,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web/src/components/MemoView/components/metadata/AttachmentList.tsx",
+              "start_line": 11,
+              "end_line": 35,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web/src/components/MemoView/components/metadata/AttachmentList.tsx",
+              "start_line": 60,
+              "end_line": 75,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web/src/components/MemoView/components/metadata/AttachmentList.tsx",
+              "start_line": 84,
+              "end_line": 98,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web/src/components/MemoView/components/metadata/AttachmentList.tsx",
+              "start_line": 107,
+              "end_line": 112,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web/src/components/MemoView/components/metadata/AttachmentList.tsx",
+              "start_line": 115,
+              "end_line": 124,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web/src/components/MemoView/components/metadata/AttachmentList.tsx",
+              "start_line": 131,
+              "end_line": 147,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "web/src/components/MemoView/components/metadata/AttachmentCard.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "web/src/components/MemoView/components/metadata/AttachmentList.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 7
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "web/src/components/MemoView/components/metadata/AttachmentList.tsx"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 5677,
+          "issue_url": "https://github.com/usememos/memos/issues/5677",
+          "fix_pr_number": 5694,
+          "fix_pr_base_sha": "851e090ff9bb86ce916c17a7e662672108087ea0",
+          "ground_truth_files": [
+            "cmd/memos/main.go",
+            "plugin/webhook/validate.go"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "cmd/memos/main.go",
+              "start_line": 15,
+              "end_line": 20,
+              "pure_addition": false
+            },
+            {
+              "file_path": "cmd/memos/main.go",
+              "start_line": 36,
+              "end_line": 41,
+              "pure_addition": false
+            },
+            {
+              "file_path": "cmd/memos/main.go",
+              "start_line": 105,
+              "end_line": 110,
+              "pure_addition": false
+            },
+            {
+              "file_path": "cmd/memos/main.go",
+              "start_line": 130,
+              "end_line": 135,
+              "pure_addition": false
+            },
+            {
+              "file_path": "plugin/webhook/validate.go",
+              "start_line": 35,
+              "end_line": 42,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "cmd/memos/main.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 4
+            },
+            {
+              "file_path": "plugin/webhook/validate.go",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "plugin/webhook/validate.go"
+          ],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 5658,
+          "issue_url": "https://github.com/usememos/memos/issues/5658",
+          "fix_pr_number": 5681,
+          "fix_pr_base_sha": "0729779e0427c68bdbc5b6b711a5683f66ba9bbc",
+          "ground_truth_files": [
+            "web/src/connect.ts",
+            "web/src/hooks/useTokenRefreshOnFocus.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "web/src/connect.ts",
+              "start_line": 1,
+              "end_line": 7,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web/src/connect.ts",
+              "start_line": 124,
+              "end_line": 130,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web/src/hooks/useTokenRefreshOnFocus.ts",
+              "start_line": 1,
+              "end_line": 5,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web/src/hooks/useTokenRefreshOnFocus.ts",
+              "start_line": 20,
+              "end_line": 28,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "web/src/connect.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "web/src/hooks/useTokenRefreshOnFocus.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "web/src/connect.ts",
+            "web/src/hooks/useTokenRefreshOnFocus.ts"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 5622,
+          "issue_url": "https://github.com/usememos/memos/issues/5622",
+          "fix_pr_number": 5623,
+          "fix_pr_base_sha": "861b58cbf3a8bfc985c0f1aa64768ca762a971f6",
+          "ground_truth_files": [
+            "web/src/components/MemoEditor/index.tsx"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "web/src/components/MemoEditor/index.tsx",
+              "start_line": 96,
+              "end_line": 101,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "web/src/components/MemoEditor/index.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 5462,
+          "issue_url": "https://github.com/usememos/memos/issues/5462",
+          "fix_pr_number": 5499,
+          "fix_pr_base_sha": "c36934f34884be1e92120c506897cfa633562b85",
+          "ground_truth_files": [
+            "web/src/contexts/MemoFilterContext.tsx"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "web/src/contexts/MemoFilterContext.tsx",
+              "start_line": 117,
+              "end_line": 122,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "web/src/contexts/MemoFilterContext.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "index_commit": "ba3ccb95b43908e6ba573ac08d5310b866b45f5e",
+      "cases": [
+        {
+          "issue_number": 15591,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15591",
+          "fix_pr_number": 15996,
+          "fix_pr_base_sha": "39b3f22b1bf53f64bd4256b133f4563c4d0e43b0",
+          "ground_truth_files": [
+            "runtime/queries/go/injections.scm"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "runtime/queries/go/injections.scm",
+              "start_line": 40,
+              "end_line": 48,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "runtime/queries/go/injections.scm",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 15975,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15975",
+          "fix_pr_number": 15993,
+          "fix_pr_base_sha": "39b3f22b1bf53f64bd4256b133f4563c4d0e43b0",
+          "ground_truth_files": [
+            "helix-dap/src/client.rs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "helix-dap/src/client.rs",
+              "start_line": 463,
+              "end_line": 470,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "helix-dap/src/client.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 15779,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15779",
+          "fix_pr_number": 15780,
+          "fix_pr_base_sha": "a62d374fcb489f83bddd3a775df250ff4b9b34a9",
+          "ground_truth_files": [
+            "helix-term/src/application.rs",
+            "helix-term/src/handlers/diagnostics.rs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "helix-term/src/application.rs",
+              "start_line": 875,
+              "end_line": 880,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-term/src/application.rs",
+              "start_line": 919,
+              "end_line": 924,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-term/src/application.rs",
+              "start_line": 1107,
+              "end_line": 1128,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-term/src/handlers/diagnostics.rs",
+              "start_line": 258,
+              "end_line": 263,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "helix-term/src/application.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "helix-term/src/handlers/diagnostics.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "helix-term/src/application.rs"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 15883,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15883",
+          "fix_pr_number": 15939,
+          "fix_pr_base_sha": "6b7c7c6e0784d7c34295c24064deb36418c0b4b5",
+          "ground_truth_files": [
+            "helix-core/src/editor_config.rs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "helix-core/src/editor_config.rs",
+              "start_line": 331,
+              "end_line": 334,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "helix-core/src/editor_config.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 15922,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15922",
+          "fix_pr_number": 15965,
+          "fix_pr_base_sha": "2868367c80019d8ec54ec52b84d3e4f7a2f94814",
+          "ground_truth_files": [
+            "runtime/queries/markdown.inline/injections.scm"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "runtime/queries/markdown.inline/injections.scm",
+              "start_line": 4,
+              "end_line": 7,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "runtime/queries/markdown.inline/injections.scm",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    }
+  ]
+}
