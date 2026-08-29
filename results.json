@@ -1,0 +1,1324 @@
+{
+  "protocol_version": 1,
+  "protocol": "benchmarks/localization/PROTOCOL.md",
+  "sample": "benchmarks/localization/sample.frozen.json",
+  "run_at": "2026-08-29T14:42:43.318Z",
+  "injection_transport": "mcp-capture",
+  "capture": "benchmarks/localization/capture.json",
+  "overall": {
+    "n": 17,
+    "fileMatchAt1": 8,
+    "fileMatchAt5": 10,
+    "repoRoutingAt1": 16,
+    "noMapping": 0,
+    "fileMatchAt1Rate": 0.47058823529411764,
+    "fileMatchAt5Rate": 0.5882352941176471,
+    "repoRoutingAt1Rate": 0.9411764705882353,
+    "lineOverlapAt1": 4,
+    "lineOverlapScoreableN": 12,
+    "lineOverlapAt1Rate": 0.3333333333333333,
+    "file_match_at_1_ci95": {
+      "lower": 0.26164801196088106,
+      "upper": 0.6903710268845051
+    },
+    "file_match_at_5_ci95": {
+      "lower": 0.3600507438551554,
+      "upper": 0.7838921396086861
+    }
+  },
+  "by_repository": [
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "n": 4,
+      "fileMatchAt1": 4,
+      "fileMatchAt5": 4,
+      "repoRoutingAt1": 4,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 1,
+      "fileMatchAt5Rate": 1,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 4,
+      "lineOverlapScoreableN": 4,
+      "lineOverlapAt1Rate": 1
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "n": 4,
+      "fileMatchAt1": 1,
+      "fileMatchAt5": 2,
+      "repoRoutingAt1": 4,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.25,
+      "fileMatchAt5Rate": 0.5,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 0,
+      "lineOverlapScoreableN": 2,
+      "lineOverlapAt1Rate": 0
+    },
+    {
+      "repo": "usememos/memos",
+      "language": "go",
+      "n": 4,
+      "fileMatchAt1": 1,
+      "fileMatchAt5": 1,
+      "repoRoutingAt1": 3,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.25,
+      "fileMatchAt5Rate": 0.25,
+      "repoRoutingAt1Rate": 0.75,
+      "lineOverlapAt1": 0,
+      "lineOverlapScoreableN": 2,
+      "lineOverlapAt1Rate": 0
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "n": 5,
+      "fileMatchAt1": 2,
+      "fileMatchAt5": 3,
+      "repoRoutingAt1": 5,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.4,
+      "fileMatchAt5Rate": 0.6,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 0,
+      "lineOverlapScoreableN": 4,
+      "lineOverlapAt1Rate": 0
+    }
+  ],
+  "cases": [
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "issue_number": 21540,
+      "issue_url": "https://github.com/calcom/cal.diy/issues/21540",
+      "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29940",
+      "ground_truth_files": [
+        "packages/lib/getReplyToHeader.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.92,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/lib/getReplyToHeader.ts",
+          "lines": [
+            5,
+            33
+          ],
+          "function": "getReplyToHeader",
+          "confidence": 0.95
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/lib/getReplyToEmail.ts",
+          "lines": [
+            6,
+            19
+          ],
+          "function": "getReplyToEmail",
+          "confidence": 0.85
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/emails/templates/organizer-request-email.ts",
+          "lines": [
+            17,
+            58
+          ],
+          "function": null,
+          "confidence": 0.68
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/emails/templates/organizer-request-reminder-email.ts",
+          "lines": [
+            7,
+            30
+          ],
+          "function": null,
+          "confidence": 0.65
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/emails/templates/organizer-rescheduled-email.ts",
+          "lines": [
+            9,
+            45
+          ],
+          "function": null,
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "issue_number": 29684,
+      "issue_url": "https://github.com/calcom/cal.diy/issues/29684",
+      "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29685",
+      "ground_truth_files": [
+        "packages/features/bookings/lib/payment/processPaymentRefund.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.99,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/payment/processPaymentRefund.ts",
+          "lines": [
+            9,
+            84
+          ],
+          "function": "processPaymentRefund",
+          "confidence": 0.95
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/handleSeats/cancel/cancelAttendeeSeat.ts",
+          "lines": [
+            23,
+            187
+          ],
+          "function": "cancelAttendeeSeat",
+          "confidence": 0.72
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "apps/web/modules/bookings/hooks/usePaymentStatus.ts",
+          "lines": [
+            38,
+            86
+          ],
+          "function": "message",
+          "confidence": 0.58
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "apps/api/v2/src/platform/bookings/2024-08-13/services/input.service.ts",
+          "lines": [
+            854,
+            866
+          ],
+          "function": "transformInputCancelSeatedBooking",
+          "confidence": 0.55
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/app-store/stripepayment/lib/PaymentService.ts",
+          "lines": [
+            336,
+            375
+          ],
+          "function": "refund",
+          "confidence": 0.51
+        }
+      ]
+    },
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "issue_number": 29575,
+      "issue_url": "https://github.com/calcom/cal.diy/issues/29575",
+      "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29580",
+      "ground_truth_files": [
+        "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.95,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+          "lines": [
+            30,
+            72
+          ],
+          "function": "handleEvents",
+          "confidence": 0.95
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+          "lines": [
+            79,
+            148
+          ],
+          "function": "cancelBooking",
+          "confidence": 0.78
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+          "lines": [
+            154,
+            235
+          ],
+          "function": "rescheduleBooking",
+          "confidence": 0.78
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/emails/lib/getICalUID.ts",
+          "lines": [
+            14,
+            36
+          ],
+          "function": "getICalUID",
+          "confidence": 0.65
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+          "lines": [
+            16,
+            236
+          ],
+          "function": null,
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "issue_number": 29628,
+      "issue_url": "https://github.com/calcom/cal.diy/issues/29628",
+      "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29639",
+      "ground_truth_files": [
+        "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.95,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts",
+          "lines": [
+            116,
+            291
+          ],
+          "function": "createNewSeat",
+          "confidence": 0.95
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts",
+          "lines": [
+            41,
+            114
+          ],
+          "function": "addSeatToBooking",
+          "confidence": 0.72
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/handleSeats/reschedule/attendee/attendeeRescheduleSeatedBooking.ts",
+          "lines": [
+            14,
+            122
+          ],
+          "function": "attendeeRescheduleSeatedBooking",
+          "confidence": 0.58
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/handleSeats/reschedule/rescheduleSeatedBooking.ts",
+          "lines": [
+            20,
+            150
+          ],
+          "function": "rescheduleSeatedBooking",
+          "confidence": 0.55
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/handleSeats/reschedule/owner/combineTwoSeatedBookings.ts",
+          "lines": [
+            16,
+            163
+          ],
+          "function": "combineTwoSeatedBookings",
+          "confidence": 0.52
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 23167,
+      "issue_url": "https://github.com/apache/superset/issues/23167",
+      "fix_pr_url": "https://github.com/apache/superset/pull/41489",
+      "ground_truth_files": [
+        "superset/models/helpers.py"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.95,
+      "top_confidence": 0.82,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/utils/test_core.py",
+          "lines": [
+            292,
+            304
+          ],
+          "function": "test_normalize_dttm_col_with_offset",
+          "confidence": 0.82
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/common/test_query_context_processor.py",
+          "lines": [
+            932,
+            1024
+          ],
+          "function": "test_processing_time_offsets_updates_temporal_filter_with_adhoc_x_axis",
+          "confidence": 0.75
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/packages/superset-ui-chart-controls/src/utils/getTemporalColumns.ts",
+          "lines": [
+            32,
+            64
+          ],
+          "function": "getTemporalColumns",
+          "confidence": 0.68
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/src/explore/components/ControlPanelsContainer.tsx",
+          "lines": [
+            209,
+            210
+          ],
+          "function": "hasTimeColumn",
+          "confidence": 0.62
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/src/dashboard/components/nativeFilters/FiltersConfigModal/FiltersConfigForm/utils.ts",
+          "lines": [
+            82,
+            89
+          ],
+          "function": "hasTemporalColumns",
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 21734,
+      "issue_url": "https://github.com/apache/superset/issues/21734",
+      "fix_pr_url": "https://github.com/apache/superset/pull/41311",
+      "ground_truth_files": [
+        "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.95,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/pandas_postprocessing/test_prophet.py",
+          "lines": [
+            227,
+            296
+          ],
+          "function": "test_prophet_uncertainty_lower_bound_can_be_negative_for_negative_series",
+          "confidence": 0.95
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/pandas_postprocessing/test_prophet.py",
+          "lines": [
+            299,
+            341
+          ],
+          "function": "test_prophet_does_not_clamp_yhat_below_zero_for_negative_actuals",
+          "confidence": 0.92
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "apps/api/v2/src/lib/pagination/pagination.ts",
+          "lines": [
+            76,
+            78
+          ],
+          "function": "clamp",
+          "confidence": 0.72
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts",
+          "lines": [
+            120,
+            152
+          ],
+          "function": "rebaseForecastDatum",
+          "confidence": 0.58
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts",
+          "lines": [
+            86,
+            118
+          ],
+          "function": "formatForecastTooltipSeries",
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 20459,
+      "issue_url": "https://github.com/apache/superset/issues/20459",
+      "fix_pr_url": "https://github.com/apache/superset/pull/41490",
+      "ground_truth_files": [
+        "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+        "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx"
+      ],
+      "dropped_absent_files": [
+        "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.ts"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.85,
+      "top_confidence": 0.82,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+          "lines": [
+            103,
+            352
+          ],
+          "function": "CategoricalDeckGLContainer",
+          "confidence": 0.82
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/plugins/preset-chart-deckgl/src/factory.tsx",
+          "lines": [
+            220,
+            259
+          ],
+          "function": "createCategoricalDeckGLComponent",
+          "confidence": 0.78
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/packages/superset-ui-core/src/color/LabelsColorMapSingleton.ts",
+          "lines": [
+            51,
+            80
+          ],
+          "function": "updateColorMap",
+          "confidence": 0.75
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/plugins/preset-chart-deckgl/src/utilities/Shared_DeckGL.tsx",
+          "lines": [
+            811,
+            843
+          ],
+          "function": "generateDeckGLColorSchemeControls",
+          "confidence": 0.68
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/viz.py",
+          "lines": [
+            2123,
+            2179
+          ],
+          "function": null,
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 22904,
+      "issue_url": "https://github.com/apache/superset/issues/22904",
+      "fix_pr_url": "https://github.com/apache/superset/pull/41533",
+      "ground_truth_files": [
+        "superset/result_set.py",
+        "superset/utils/json.py"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.85,
+      "top_confidence": 0.72,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/src/explore/components/controls/MetricControl/AdhocMetric.ts",
+          "lines": [
+            133,
+            162
+          ],
+          "function": "translateToSql",
+          "confidence": 0.72
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/sql/dialects/pinot_tests.py",
+          "lines": [
+            186,
+            213
+          ],
+          "function": "test_aggregate_functions",
+          "confidence": 0.65
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/sql/dialects/opensearch_tests.py",
+          "lines": [
+            164,
+            191
+          ],
+          "function": "test_aggregate_functions",
+          "confidence": 0.64
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/result_set_test.py",
+          "lines": [
+            394,
+            419
+          ],
+          "function": "test_uuid_column_is_stringified",
+          "confidence": 0.58
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/models/test_virtual_dataset_format.py",
+          "lines": [
+            91,
+            164
+          ],
+          "function": null,
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "repo": "usememos/memos",
+      "language": "go",
+      "issue_number": 5664,
+      "issue_url": "https://github.com/usememos/memos/issues/5664",
+      "fix_pr_url": "https://github.com/usememos/memos/pull/5699",
+      "ground_truth_files": [
+        "web/src/components/MemoView/components/metadata/AttachmentCard.tsx",
+        "web/src/components/MemoView/components/metadata/AttachmentList.tsx"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.85,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "usememos/memos",
+          "file": "web/src/components/MemoView/components/metadata/AttachmentList.tsx",
+          "lines": [
+            17,
+            17
+          ],
+          "function": "isMediaAttachment",
+          "confidence": 0.85
+        },
+        {
+          "repo": "usememos/memos",
+          "file": "web/src/components/MemoEditor/types/attachment.ts",
+          "lines": [
+            68,
+            81
+          ],
+          "function": "separateMediaAndDocs",
+          "confidence": 0.82
+        },
+        {
+          "repo": "usememos/memos",
+          "file": "web/src/components/MemoEditor/types/attachment.ts",
+          "lines": [
+            30,
+            44
+          ],
+          "function": "attachmentToItem",
+          "confidence": 0.78
+        },
+        {
+          "repo": "usememos/memos",
+          "file": "web/src/components/MemoView/components/metadata/AttachmentList.tsx",
+          "lines": [
+            110,
+            156
+          ],
+          "function": "AttachmentList",
+          "confidence": 0.75
+        },
+        {
+          "repo": "usememos/memos",
+          "file": "web/src/utils/attachment.ts",
+          "lines": [
+            15,
+            39
+          ],
+          "function": "getAttachmentType",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "usememos/memos",
+      "language": "go",
+      "issue_number": 5658,
+      "issue_url": "https://github.com/usememos/memos/issues/5658",
+      "fix_pr_url": "https://github.com/usememos/memos/pull/5681",
+      "ground_truth_files": [
+        "web/src/connect.ts",
+        "web/src/hooks/useTokenRefreshOnFocus.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.85,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "usememos/memos",
+          "file": "web/src/hooks/useMemoQueries.ts",
+          "lines": [
+            29,
+            47
+          ],
+          "function": "useInfiniteMemos",
+          "confidence": 0.85
+        },
+        {
+          "repo": "usememos/memos",
+          "file": "web/src/hooks/useMemoQueries.ts",
+          "lines": [
+            19,
+            27
+          ],
+          "function": "useMemos",
+          "confidence": 0.82
+        },
+        {
+          "repo": "usememos/memos",
+          "file": "web/src/contexts/AuthContext.tsx",
+          "lines": [
+            97,
+            114
+          ],
+          "function": "logout",
+          "confidence": 0.68
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/src/embedded/index.tsx",
+          "lines": [
+            167,
+            184
+          ],
+          "function": "guestUnauthorizedHandler",
+          "confidence": 0.55
+        },
+        {
+          "repo": "usememos/memos",
+          "file": "server/router/api/v1/memo_service.go",
+          "lines": [
+            147,
+            287
+          ],
+          "function": "ListMemos",
+          "confidence": 0.52
+        }
+      ]
+    },
+    {
+      "repo": "usememos/memos",
+      "language": "go",
+      "issue_number": 5622,
+      "issue_url": "https://github.com/usememos/memos/issues/5622",
+      "fix_pr_url": "https://github.com/usememos/memos/pull/5623",
+      "ground_truth_files": [
+        "web/src/components/MemoEditor/index.tsx"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.95,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "usememos/memos",
+          "file": "web/src/components/Settings/PreferencesSection.tsx",
+          "lines": [
+            37,
+            46
+          ],
+          "function": "handleDefaultMemoVisibilityChanged",
+          "confidence": 0.85
+        },
+        {
+          "repo": "usememos/memos",
+          "file": "proto/gen/store/user_setting.pb.go",
+          "lines": [
+            284,
+            289
+          ],
+          "function": "GetMemoVisibility",
+          "confidence": 0.68
+        },
+        {
+          "repo": "usememos/memos",
+          "file": "store/migration/sqlite/0.12/00__user_setting.sql",
+          "lines": [
+            1,
+            6
+          ],
+          "function": null,
+          "confidence": 0.62
+        },
+        {
+          "repo": "usememos/memos",
+          "file": "store/migration/sqlite/0.3/00__memo_visibility_protected.sql",
+          "lines": [
+            1,
+            3
+          ],
+          "function": null,
+          "confidence": 0.48
+        },
+        {
+          "repo": "usememos/memos",
+          "file": "store/test/memo_test.go",
+          "lines": [
+            327,
+            368
+          ],
+          "function": "TestMemoUpdateVisibility",
+          "confidence": 0.45
+        }
+      ]
+    },
+    {
+      "repo": "usememos/memos",
+      "language": "go",
+      "issue_number": 5462,
+      "issue_url": "https://github.com/usememos/memos/issues/5462",
+      "fix_pr_url": "https://github.com/usememos/memos/pull/5499",
+      "ground_truth_files": [
+        "web/src/contexts/MemoFilterContext.tsx"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "wrong_repo",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": false,
+      "extraction_confidence": 0.95,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/src/explore/components/controls/VizTypeControl/VizTypeGallery.tsx",
+          "lines": [
+            615,
+            621
+          ],
+          "function": "stopSearching",
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/src/explore/components/controls/VizTypeControl/VizTypeGallery.tsx",
+          "lines": [
+            596,
+            601
+          ],
+          "function": "focusSearch",
+          "confidence": 0.72
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/src/dashboard/components/filterscope/FilterScopeSelector.tsx",
+          "lines": [
+            550,
+            586
+          ],
+          "function": "filterTree",
+          "confidence": 0.68
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/src/dashboard/components/filterscope/FilterScopeSelector.tsx",
+          "lines": [
+            551,
+            584
+          ],
+          "function": "useCallback",
+          "confidence": 0.67
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/src/components/Datasource/ChangeDatasourceModal/index.tsx",
+          "lines": [
+            168,
+            172
+          ],
+          "function": "changeSearch",
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15591,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15591",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15996",
+      "ground_truth_files": [
+        "runtime/queries/go/injections.scm"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.85,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/commands/typed.rs",
+          "lines": [
+            2027,
+            2075
+          ],
+          "function": "tree_sitter_layers",
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/syntax.rs",
+          "lines": [
+            520,
+            702
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/indent.rs",
+          "lines": [
+            978,
+            1039
+          ],
+          "function": "treesitter_indent_for_pos",
+          "confidence": 0.65
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/commands/typed.rs",
+          "lines": [
+            1959,
+            2025
+          ],
+          "function": "tree_sitter_highlight_name",
+          "confidence": 0.6
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/tests/test/movement.rs",
+          "lines": [
+            790,
+            844
+          ],
+          "function": "tree_sitter_motions_work_across_injections",
+          "confidence": 0.45
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15975,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15975",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15993",
+      "ground_truth_files": [
+        "helix-dap/src/client.rs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.95,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-view/src/handlers/dap.rs",
+          "lines": [
+            147,
+            585
+          ],
+          "function": "handle_debugger_message",
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-view/src/handlers/dap.rs",
+          "lines": [
+            146,
+            586
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-dap/src/transport.rs",
+          "lines": [
+            185,
+            201
+          ],
+          "function": "process_response",
+          "confidence": 0.75
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/commands/dap.rs",
+          "lines": [
+            116,
+            198
+          ],
+          "function": "dap_start_impl",
+          "confidence": 0.55
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-dap/src/client.rs",
+          "lines": [
+            52,
+            578
+          ],
+          "function": null,
+          "confidence": 0.5
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15779,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15779",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15780",
+      "ground_truth_files": [
+        "helix-term/src/application.rs",
+        "helix-term/src/handlers/diagnostics.rs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.95,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/application.rs",
+          "lines": [
+            777,
+            1190
+          ],
+          "function": "handle_language_server_message",
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/handlers/diagnostics.rs",
+          "lines": [
+            162,
+            259
+          ],
+          "function": "request_document_diagnostics_for_language_severs",
+          "confidence": 0.78
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/handlers/diagnostics.rs",
+          "lines": [
+            261,
+            272
+          ],
+          "function": "request_document_diagnostics",
+          "confidence": 0.75
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-view/src/handlers/lsp.rs",
+          "lines": [
+            284,
+            370
+          ],
+          "function": "handle_lsp_diagnostics",
+          "confidence": 0.62
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-view/src/editor.rs",
+          "lines": [
+            2380,
+            2420
+          ],
+          "function": "doc_diagnostics_with_filter",
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15883,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15883",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15939",
+      "ground_truth_files": [
+        "helix-core/src/editor_config.rs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.95,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/editor_config.rs",
+          "lines": [
+            284,
+            296
+          ],
+          "function": "editor_config",
+          "confidence": 0.95
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/editor_config.rs",
+          "lines": [
+            194,
+            255
+          ],
+          "function": null,
+          "confidence": 0.88
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/editor_config.rs",
+          "lines": [
+            40,
+            178
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/editor_config.rs",
+          "lines": [
+            258,
+            271
+          ],
+          "function": "is_glob_relative",
+          "confidence": 0.62
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-loader/src/workspace_trust.rs",
+          "lines": [
+            133,
+            148
+          ],
+          "function": "build_trusted_globs",
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15922,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15922",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15965",
+      "ground_truth_files": [
+        "runtime/queries/markdown.inline/injections.scm"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "extraction_confidence": 0.95,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/tests/test/commands.rs",
+          "lines": [
+            726,
+            782
+          ],
+          "function": "test_toggle_comments_inside_comment_injection",
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/commands/typed.rs",
+          "lines": [
+            1959,
+            2025
+          ],
+          "function": "tree_sitter_highlight_name",
+          "confidence": 0.72
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/ui/markdown.rs",
+          "lines": [
+            31,
+            138
+          ],
+          "function": "highlighted_code_block",
+          "confidence": 0.68
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/ui/markdown.rs",
+          "lines": [
+            149,
+            366
+          ],
+          "function": null,
+          "confidence": 0.62
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/ui/markdown.rs",
+          "lines": [
+            368,
+            392
+          ],
+          "function": null,
+          "confidence": 0.55
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "repo": "calcom/cal.diy",
+      "issue": 29567,
+      "reason": "extraction_split_into_3_bugs:0bff62ec-5084-43bd-8b21-96ec01a36132,7a1c0291-89a6-4d78-924e-d2febc76525b,b31007f7-ecbb-4105-a4c9-6c011d49eae3"
+    },
+    {
+      "repo": "apache/superset",
+      "issue": 33235,
+      "reason": "extraction_split_into_2_bugs:90bd1a73-fcb7-4f8b-b1bf-be7cd05a3e44,f14fe86b-88c1-4e94-b552-9dd14d03b0fa"
+    },
+    {
+      "repo": "usememos/memos",
+      "issue": 5677,
+      "reason": "extraction_split_into_2_bugs:8c2528bb-d5aa-4fea-83e0-3c5e366c9e98,efd26e6d-979f-43e8-bbf5-844f41e025e4"
+    }
+  ]
+}

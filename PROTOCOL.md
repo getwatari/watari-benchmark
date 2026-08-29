@@ -278,6 +278,41 @@ Index as built, for reference (all four repositories, zero chunks missing embedd
 | usememos/memos | 542 | 4,066 | 0 |
 | helix-editor/helix | 300 | 6,037 | 0 |
 
+### Amendment 6 - injection transport, and what it does not change (2026-08-29, at run time)
+
+The run of 2026-08-29 injected its cases through the Supabase and Inngest MCP servers rather than
+through `run-benchmark.ts`'s own Supabase and Inngest clients. The production credentials that
+script needs live in Vercel behind the Sensitive flag and cannot be read back, so using it would
+have meant routing a production service-role key through the tooling that runs the benchmark.
+
+**What was substituted:** writing the `tickets` row, and emitting `ticket/received`.
+
+**What was NOT substituted:** anything downstream of that. Extraction and mapping are the
+unmodified production Inngest functions, as Amendment 4 already required. Scoring is the committed
+`scoreCase` / `aggregate` / `wilsonInterval` in `src/lib/proof/localization-score.ts`, reached
+through the same `--from-capture` path in the same runner, with the same Amendment 3(a) filtering
+and the same split and dedup handling.
+
+Two controls make the substitution checkable rather than asserted:
+
+1. **The injected ticket bodies were verified byte-for-byte against `sample.frozen.json`.** Every
+   one of the 20 was hashed on both sides and all 20 matched. This was not ceremony: the first
+   attempt at hand-transcribing the bodies got 5 of 10 wrong, from CRLF line endings and from one
+   case (superset#22904) whose body contains literal backslash-u escape sequences as its subject
+   matter. The bodies were re-injected base64-encoded and re-verified.
+2. **The capture was verified against the database by digest.** A digest over every case's repo,
+   issue, error, mapping status, extraction confidence and full ranked location list (path, line
+   range, confidence, function, repository) was computed independently in SQL and in the committed
+   capture file. They match at `cca52842da95e89e9ee0ea307ce0f252`.
+
+`results.json` records `injection_transport: "mcp-capture"` and names the capture file, so a reader
+sees this from the artifact rather than from this document.
+
+**One difference worth stating plainly:** the script injects cases serially, awaiting each before
+starting the next. This run submitted all 20 and let the platform's own per-organization
+concurrency schedule them. Nothing in the scoring depends on ordering, and bug-signature dedup is
+order-independent, but it is a difference and it is recorded rather than smoothed over.
+
 ## Input
 
 The model receives the issue **title and body verbatim**, with no maintainer comments, no labels, no
