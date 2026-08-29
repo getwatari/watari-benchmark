@@ -244,6 +244,40 @@ This does mean the benchmark says nothing about webhook intake, attachment handl
 support-tool-specific normalisation. Those are proven separately by recorded end-to-end runs and are
 not claimed here.
 
+### Amendment 5 — two ground-truth files are unindexable, measured (2026-08-29, before any run)
+
+The four repositories were indexed into the benchmark workspace on 2026-08-29. Before running a
+single case, every ground-truth file that survives Amendment 3(a) was checked against the index for
+whether it produced any chunk at all. **23 of 25 did. Two did not:**
+
+| case | ground-truth file | chunks |
+|---|---|---|
+| helix-editor/helix#15591 | `runtime/queries/go/injections.scm` | 0 |
+| helix-editor/helix#15922 | `runtime/queries/markdown.inline/injections.scm` | 0 |
+
+These are the two `.scm` files already flagged when the sample was frozen: tree-sitter query files,
+outside the grammar set Watari parses, so no chunk exists and no vector search can return them. Both
+cases have `.scm` as their *only* ground truth, which makes them **unwinnable by construction** on
+every file-level metric.
+
+**They stay in the sample and they are scored as misses.** Removing them after seeing that they
+cannot be won is precisely the move pre-registration exists to prevent, and the honest number
+includes the corpus we cannot yet read. Recorded here, before any result exists, so the reason is
+on the record rather than offered afterwards.
+
+The forward-looking version of this is a coverage claim, not a scoring one: Watari indexes 22
+languages, and query/DSL files are not among them. Two of twenty cases, 10% of the sample, are
+therefore a ceiling on File Match @1 of 90% for reasons that have nothing to do with ranking.
+
+Index as built, for reference (all four repositories, zero chunks missing embeddings):
+
+| repository | source files chunked | chunks | anonymous chunks |
+|---|---|---|---|
+| calcom/cal.diy | 4,122 | 14,097 | 0 |
+| apache/superset | 4,191 | 29,426 | 0 |
+| usememos/memos | 542 | 4,066 | 0 |
+| helix-editor/helix | 300 | 6,037 | 0 |
+
 ## Input
 
 The model receives the issue **title and body verbatim**, with no maintainer comments, no labels, no
