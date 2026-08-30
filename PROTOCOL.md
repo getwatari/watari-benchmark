@@ -470,3 +470,32 @@ The headline v2 figure is reported over all 60. **The 45 never-seen cases are re
 as the out-of-sample estimate**, and that second number is the one that should be believed if the
 two disagree. Publishing only the favourable one of the two would be the exact failure this protocol
 exists to prevent.
+
+## Amendment 10 - the v2 runner, and two things declared before it runs (2026-08-30)
+
+The offline transport Amendment 7 declares is `scripts/probe/run-benchmark-offline.mjs`, committed
+before any v2 case is scored. It drives the real `extractBugsFromTicket`, the real `expandBugQuery`,
+the real `generateEmbeddings`, the production retrieval constants, and the ranking prompt imported
+from `mapping.service.ts`, then scores with the committed `scoreCase` / `aggregate` /
+`wilsonInterval`. Only candidate selection is reimplemented, because in production it is two
+pgvector RPCs that cannot run against a local vector file; its constants are mirrored from
+`map-bug-to-code.ts` and named in the results file so a reader can check them against the code.
+
+Two declarations, both made before the run rather than after seeing it.
+
+**(a) A pessimistic bound is reported next to every headline figure.** Cases excluded under the
+extraction-split rule leave the denominator, and an exclusion rule that happens to fire on hard
+cases flatters the result. Changing the rule after seeing which cases it caught would be the worse
+sin, so instead `results.v2.json` carries `if_errors_counted_as_misses`: the same numerator over a
+denominator that includes every excluded case. If the protocol figure and the pessimistic bound tell
+different stories, both are published and the gap is the story.
+
+**(b) Erratum on `ground-truth.v2.json`'s provenance fields.** It is stamped
+`protocol_version: 1` and `derived_from: benchmarks/localization/sample.frozen.json`. Both labels are
+wrong: its 60 cases are v2's, extracted from `sample.v2.frozen.json`. The generator took its input
+path from an environment variable but hard-coded the two fields that describe it, so the artefact
+mislabels itself while its contents are correct. The generator is fixed
+(`scripts/proof/extract-ground-truth.mjs` now derives both from the actual input). **The frozen
+artefact is deliberately NOT edited**: it was committed before the run, and rewriting a
+pre-registered file to correct a label is exactly the move a pre-registration exists to make
+impossible. The erratum lives here instead.
