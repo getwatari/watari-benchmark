@@ -499,3 +499,40 @@ mislabels itself while its contents are correct. The generator is fixed
 artefact is deliberately NOT edited**: it was committed before the run, and rewriting a
 pre-registered file to correct a label is exactly the move a pre-registration exists to make
 impossible. The erratum lives here instead.
+
+## Amendment 11 - seven answers were not in the index, measured after the run (2026-08-30)
+
+**The published v2 figure is unchanged by this amendment.** 58.9% File Match @1 over 56 cases,
+57.1% over the 42 never-seen. Nothing below re-scores anything.
+
+Reading the 23 misses turned up a pattern, so it was measured rather than eyeballed: for each case,
+does any ground-truth file have a single chunk in the corpus at all? In **7 of the 56 scored cases it
+does not**, because the merged fix touched a file type the indexer does not chunk.
+
+    apache/superset#43399      docs/src/pages/community.tsx
+    navidrome/navidrome#5950   resources/mime_types.yaml
+    navidrome/navidrome#5905   contrib/navidrome            (no extension)
+    helix-editor/helix#15591   runtime/queries/go/injections.scm
+    helix-editor/helix#15922   runtime/queries/markdown.inline/injections.scm
+    nextcloud/server#63409     core/src/views/UnifiedSearch.vue
+    keycloak/keycloak#51943    operator/pom.xml, operator/scripts/post-process-helm-chart.sh
+
+No localizer could return those files, because they are not in the searchable set. Excluding them
+would give 33/49 = **67.3%**, and that number is recorded here as a **diagnostic only**. It is not
+published as the result and it does not replace anything, for one reason: this was measured AFTER
+seeing which cases missed. v1 ran the identical check (Amendment 5, two unindexable `.scm` files) and
+made the identical decision the other way round in time, before its run, and still scored those cases
+as misses. Applying the same rule to a favourable slice discovered afterwards would be the move this
+document exists to prevent.
+
+**Scoring them as misses is also defensible on the merits, not merely on procedure.** A customer who
+reports the navidrome MIME-type bug gets a wrong answer from Watari today. That the reason is
+"YAML is not indexed" rather than "ranking put it fourth" matters for what we fix next; it does not
+matter to the person reading the wrong file path. The 7 cases are a real product limitation, and
+tree-sitter query files, Vue single-file components, YAML config, POM files and shell scripts are a
+reasonable roadmap item rather than a scoring artefact.
+
+**Committed for v3:** this check runs at SELECTION time and its result is recorded in the frozen
+sample, so the composition is known before any case is run, as Amendment 5 managed and this run did
+not. A reader should be able to see how many answers were reachable before they see how many were
+found.
