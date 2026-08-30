@@ -371,3 +371,102 @@ npx tsx scripts/proof/run-benchmark.mts     # runs the frozen sample, writes res
 Re-running selection after the freeze would defeat the pre-registration. If the sample must change,
 that is a **version 2** of this protocol with its own commit and its own frozen sample, and version 1
 results stay published.
+
+---
+
+# Protocol version 2 (2026-08-30, declared before any v2 case is selected or run)
+
+Version 1 stays published exactly as it is. Its numbers are not restated, revised or withdrawn by
+this document. This is a second sample under a second version, as the Re-running section requires.
+
+## Why v2 exists
+
+v1 measured File Match @1 at 8/17 = 47.1%, with a 95% Wilson interval of **26.2% to 69.0%**.
+
+That interval, not the point estimate, is the problem. A 43-point spread sizes a direction and
+nothing finer, and it is the first thing an informed reader will attack. n is the only lever that
+narrows it.
+
+v1 also drew from four repositories across four languages. That is a narrow base from which to say
+anything about a product that indexes whatever a customer connects.
+
+## What changes
+
+Two selector parameters, and nothing else:
+
+| | v1 | v2 |
+|---|---|---|
+| target languages | 4 | 7 (the whole pre-declared pool) |
+| cases per repository | 5 | 10 |
+
+Everything else is held fixed and re-derived by the same code: the pre-declared pool and its order,
+the maintainers'-own-defect-label rule, `merged_on_or_after` 2026-01-01, the 200-character body
+minimum, the 1-to-5-file fix ceiling, 60 candidates examined per repository, the path exclusions,
+the metrics, and `src/lib/proof/localization-score.ts`.
+
+**Observed on selection, recorded here before the run:** the pool yields **60 cases across 6
+repositories and 6 languages**. Ruby qualified no repository and is absent, which the selector
+re-derived independently rather than inheriting from Amendment 1: mastodon 0 qualifying, chatwoot
+excluded on a non-OSI licence, discourse has no defect label in its taxonomy. Go moves from memos to
+navidrome, because memos yields only 5 qualifying issues and the rule now requires 10.
+
+## What this costs, stated so it cannot be quietly skipped
+
+Raising cases per repository moves each repository's pinned index commit EARLIER, because the pin is
+the parent of the merge commit of the earliest selected fix. Indexing at a later commit would search
+a codebase in which the bug is **already fixed**, which would silently invalidate every affected
+case. So all six repositories are indexed afresh at new pins. No v1 corpus is reused.
+
+## Amendment 7 - the run is executed offline, and why that is sound
+
+v1 ran against production. v2 runs against `scripts/probe/`, which reproduces the pipeline locally:
+the real chunker, the real extraction (`extractBugsFromTicket`), the real query expansion, the real
+retrieval policy, and the real ranking prompt imported from `mapping.service.ts`.
+
+This is not a convenience. A production run requires re-indexing every benchmark repository into the
+live workspace, which is a code-search degradation window for each and pushes the shared vector index
+to roughly 140% of `shared_buffers`. That cost is what kept v1 a single run.
+
+The substitution is only sound if it is measured, so it was:
+
+- chunk counts match production within **0.03%** on all four v1 repositories
+- similarity scores match to three decimals (memos#5658's top hit at 0.4867 against 0.487 in prod)
+- extraction agrees with production on bug count in **19 of 20** v1 cases, mean bug-text cosine
+  similarity **0.961**
+- replaying v1's configuration through the simulator reproduces its File Match @5 of 10/15, and its
+  "not retrieved" set is exactly v1's five winnable misses
+
+Scoring remains the committed `scoreCase` / `aggregate` / `wilsonInterval`. Only the transport
+changes, as in Amendment 6.
+
+## Amendment 8 - n is not fixed, because extraction is sampled
+
+v1 excluded 3 of 20 cases because extraction split one issue into several bugs, and a single issue
+cannot be scored against several.
+
+**That split is not deterministic.** Re-running extraction over the frozen v1 sample reproduced two
+of the three splits and not the third: memos#5677 split into two bugs in the committed run and
+extracted as one offline, which would have made it scoreable.
+
+So the excluded set, and therefore n, varies between runs of the same sample. This does not
+invalidate v1, whose rule was pre-registered and applied consistently. It does mean:
+
+- every published figure carries its own denominator and its own excluded list
+- no figure inherits a denominator from another run
+- a v1-to-v2 comparison is a comparison of two runs, not of one number to another
+
+## Amendment 9 - 15 of the 60 cases are not out-of-sample, and are reported separately
+
+Between v1 and v2, two product changes were made and measured against v1's cases: query expansion
+(#385) and per-repository search depth (#388). The choice between variants was made by looking at
+those results. That is selection on test data, however sound each individual measurement was.
+
+v2's 10-most-recent rule is a superset of v1's 5-most-recent rule, so for cal.diy, superset and
+helix, **v1's 5 cases each are inside v2's 10**. Fifteen of v2's sixty cases have therefore been
+seen. The other forty-five have not: navidrome, nextcloud and keycloak are new repositories, and the
+second five in each retained repository were never examined.
+
+The headline v2 figure is reported over all 60. **The 45 never-seen cases are reported alongside it
+as the out-of-sample estimate**, and that second number is the one that should be believed if the
+two disagree. Publishing only the favourable one of the two would be the exact failure this protocol
+exists to prevent.
