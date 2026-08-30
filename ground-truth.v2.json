@@ -1,0 +1,3146 @@
+{
+  "protocol_version": 1,
+  "derived_from": "benchmarks/localization/sample.frozen.json",
+  "extracted_at": "2026-08-30T04:57:59.439Z",
+  "summary": {
+    "cases": 60,
+    "total_hunks": 218,
+    "cases_with_absent_ground_truth_file": 7,
+    "cases_with_possible_line_drift": 22,
+    "cases_line_overlap_scoreable": 35
+  },
+  "repositories": [
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "index_commit": "ca03f007df5dc6281da88a670a43a843dd4de5f6",
+      "cases": [
+        {
+          "issue_number": 21540,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/21540",
+          "fix_pr_number": 29940,
+          "fix_pr_base_sha": "b2c28a23ab5b53f2e3729657d23cccb50f64e18a",
+          "ground_truth_files": [
+            "packages/lib/getReplyToHeader.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/lib/getReplyToHeader.ts",
+              "start_line": 2,
+              "end_line": 33,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/lib/getReplyToHeader.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29684,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29684",
+          "fix_pr_number": 29685,
+          "fix_pr_base_sha": "53e32a5bbad43b262a5e1fef37f57fc67738afdb",
+          "ground_truth_files": [
+            "packages/features/bookings/lib/payment/processPaymentRefund.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/features/bookings/lib/payment/processPaymentRefund.ts",
+              "start_line": 26,
+              "end_line": 32,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/features/bookings/lib/payment/processPaymentRefund.ts",
+              "start_line": 80,
+              "end_line": 84,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/features/bookings/lib/payment/processPaymentRefund.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29567,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29567",
+          "fix_pr_number": 29673,
+          "fix_pr_base_sha": "b97cd6203de8889fb275a4bf5fb034b5f221eaf2",
+          "ground_truth_files": [
+            "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts",
+              "start_line": 1,
+              "end_line": 21,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts",
+              "start_line": 29,
+              "end_line": 35,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts",
+              "start_line": 54,
+              "end_line": 60,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts",
+              "start_line": 63,
+              "end_line": 71,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/trpc/server/routers/loggedInViewer/addNotificationsSubscription.handler.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 4
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29575,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29575",
+          "fix_pr_number": 29580,
+          "fix_pr_base_sha": "ca90ca2c94536c7fac97e4e829cdfe18624c7f10",
+          "ground_truth_files": [
+            "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+              "start_line": 1,
+              "end_line": 14,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+              "start_line": 42,
+              "end_line": 51,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29628,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29628",
+          "fix_pr_number": 29639,
+          "fix_pr_base_sha": "051ae77279dd573e544a4815b56599636fcf0839",
+          "ground_truth_files": [
+            "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts",
+              "start_line": 275,
+              "end_line": 280,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29587,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29587",
+          "fix_pr_number": 29588,
+          "fix_pr_base_sha": "1599dfd5158b20d098c1bf52e48b0d778f50e324",
+          "ground_truth_files": [
+            "packages/ui/components/dialog/Dialog.tsx"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/ui/components/dialog/Dialog.tsx",
+              "start_line": 98,
+              "end_line": 112,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/ui/components/dialog/Dialog.tsx",
+              "start_line": 120,
+              "end_line": 143,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/ui/components/dialog/Dialog.tsx",
+              "start_line": 198,
+              "end_line": 201,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/ui/components/dialog/Dialog.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29500,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29500",
+          "fix_pr_number": 29529,
+          "fix_pr_base_sha": "4e529cbad1e8ab3959cf1f62404bf6e9c6853701",
+          "ground_truth_files": [
+            "packages/trpc/server/routers/viewer/availability/schedule/getScheduleByEventTypeSlug.handler.ts",
+            "packages/trpc/server/routers/viewer/eventTypes/heavy/duplicate.handler.ts",
+            "packages/trpc/server/routers/viewer/eventTypes/heavy/update.handler.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/trpc/server/routers/viewer/availability/schedule/getScheduleByEventTypeSlug.handler.ts",
+              "start_line": 1,
+              "end_line": 5,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/viewer/availability/schedule/getScheduleByEventTypeSlug.handler.ts",
+              "start_line": 57,
+              "end_line": 63,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/viewer/eventTypes/heavy/duplicate.handler.ts",
+              "start_line": 39,
+              "end_line": 46,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/viewer/eventTypes/heavy/update.handler.ts",
+              "start_line": 608,
+              "end_line": 618,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/viewer/eventTypes/heavy/update.handler.ts",
+              "start_line": 724,
+              "end_line": 732,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/trpc/server/routers/viewer/availability/schedule/getScheduleByEventTypeSlug.handler.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "packages/trpc/server/routers/viewer/eventTypes/heavy/duplicate.handler.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "packages/trpc/server/routers/viewer/eventTypes/heavy/update.handler.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29590,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29590",
+          "fix_pr_number": 29593,
+          "fix_pr_base_sha": "561cf889abc776d8553f9c692a16c47b5d1a5a03",
+          "ground_truth_files": [
+            "apps/web/modules/users/components/UsersTable.tsx",
+            "packages/features/users/repositories/UserRepository.ts",
+            "packages/trpc/server/routers/viewer/admin/listPaginated.handler.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/modules/users/components/UsersTable.tsx",
+              "start_line": 109,
+              "end_line": 124,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/features/users/repositories/UserRepository.ts",
+              "start_line": 1587,
+              "end_line": 1590,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/viewer/admin/listPaginated.handler.ts",
+              "start_line": 1,
+              "end_line": 5,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/trpc/server/routers/viewer/admin/listPaginated.handler.ts",
+              "start_line": 10,
+              "end_line": 92,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/modules/users/components/UsersTable.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "packages/features/users/repositories/UserRepository.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "packages/trpc/server/routers/viewer/admin/listPaginated.handler.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "packages/features/users/repositories/UserRepository.ts"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 28835,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/28835",
+          "fix_pr_number": 29541,
+          "fix_pr_base_sha": "70a883b1915224630bbec4635cd2478e131d06d5",
+          "ground_truth_files": [
+            "apps/web/lib/daily-webhook/getBooking.ts",
+            "packages/features/bookings/repositories/BookingRepository.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/lib/daily-webhook/getBooking.ts",
+              "start_line": 1,
+              "end_line": 42,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/features/bookings/repositories/BookingRepository.ts",
+              "start_line": 2137,
+              "end_line": 2140,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/lib/daily-webhook/getBooking.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "packages/features/bookings/repositories/BookingRepository.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 29543,
+          "issue_url": "https://github.com/calcom/cal.diy/issues/29543",
+          "fix_pr_number": 29544,
+          "fix_pr_base_sha": "4026669e687c47207a91462d52028b660a73b352",
+          "ground_truth_files": [
+            "apps/web/modules/settings/security/password-view.tsx"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/modules/settings/security/password-view.tsx",
+              "start_line": 122,
+              "end_line": 127,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/modules/settings/security/password-view.tsx",
+              "start_line": 131,
+              "end_line": 152,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/modules/settings/security/password-view.tsx",
+              "start_line": 157,
+              "end_line": 163,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/modules/settings/security/password-view.tsx",
+              "start_line": 196,
+              "end_line": 212,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/modules/settings/security/password-view.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 4
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "index_commit": "fb606623538bf63bc5cddfc88154c0b45290d3f5",
+      "cases": [
+        {
+          "issue_number": 43399,
+          "issue_url": "https://github.com/apache/superset/issues/43399",
+          "fix_pr_number": 43403,
+          "fix_pr_base_sha": "03eac279e5faaef60adbe01773e340f576db7d42",
+          "ground_truth_files": [
+            "docs/src/pages/community.tsx"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "docs/src/pages/community.tsx",
+              "start_line": 67,
+              "end_line": 73,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "docs/src/pages/community.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 33235,
+          "issue_url": "https://github.com/apache/superset/issues/33235",
+          "fix_pr_number": 41867,
+          "fix_pr_base_sha": "673f9285892dd09b5b3a0bfa24a4fa844b918266",
+          "ground_truth_files": [
+            "superset/db_engine_specs/clickhouse.py"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset/db_engine_specs/clickhouse.py",
+              "start_line": 56,
+              "end_line": 61,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset/db_engine_specs/clickhouse.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "superset/db_engine_specs/clickhouse.py"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 23167,
+          "issue_url": "https://github.com/apache/superset/issues/23167",
+          "fix_pr_number": 41489,
+          "fix_pr_base_sha": "6eb51105d0116fa13beb51455a08176b33e03ad5",
+          "ground_truth_files": [
+            "superset/models/helpers.py"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset/models/helpers.py",
+              "start_line": 1625,
+              "end_line": 1630,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/models/helpers.py",
+              "start_line": 1655,
+              "end_line": 1660,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset/models/helpers.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "superset/models/helpers.py"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 21734,
+          "issue_url": "https://github.com/apache/superset/issues/21734",
+          "fix_pr_number": 41311,
+          "fix_pr_base_sha": "5916ec4876a1d3594dbbe139b62a2fc5309a4c5a",
+          "ground_truth_files": [
+            "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts",
+              "start_line": 98,
+              "end_line": 112,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 20459,
+          "issue_url": "https://github.com/apache/superset/issues/20459",
+          "fix_pr_number": 41490,
+          "fix_pr_base_sha": "0a18779280ad929301ef46e1dfb7292361f4505e",
+          "ground_truth_files": [
+            "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+            "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx",
+            "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+              "start_line": 47,
+              "end_line": 61,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+              "start_line": 70,
+              "end_line": 76,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+              "start_line": 150,
+              "end_line": 229,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx",
+              "start_line": 49,
+              "end_line": 54,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx",
+              "start_line": 98,
+              "end_line": 103,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx",
+              "start_line": 225,
+              "end_line": 239,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.ts",
+              "start_line": 0,
+              "end_line": 0,
+              "pure_addition": true
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.ts",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.ts"
+          ],
+          "line_numbers_may_have_drifted": [
+            "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+            "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 22904,
+          "issue_url": "https://github.com/apache/superset/issues/22904",
+          "fix_pr_number": 41533,
+          "fix_pr_base_sha": "a4d5b15955da974351f6c5f4b4da032d91d6e6ec",
+          "ground_truth_files": [
+            "superset/result_set.py",
+            "superset/utils/json.py"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset/result_set.py",
+              "start_line": 60,
+              "end_line": 66,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "start_line": 195,
+              "end_line": 200,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "start_line": 207,
+              "end_line": 212,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "start_line": 220,
+              "end_line": 225,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset/result_set.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "superset/result_set.py",
+            "superset/utils/json.py"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 19388,
+          "issue_url": "https://github.com/apache/superset/issues/19388",
+          "fix_pr_number": 41533,
+          "fix_pr_base_sha": "a4d5b15955da974351f6c5f4b4da032d91d6e6ec",
+          "ground_truth_files": [
+            "superset/result_set.py",
+            "superset/utils/json.py"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset/result_set.py",
+              "start_line": 60,
+              "end_line": 66,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "start_line": 195,
+              "end_line": 200,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "start_line": 207,
+              "end_line": 212,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "start_line": 220,
+              "end_line": 225,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset/result_set.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "superset/utils/json.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "superset/result_set.py",
+            "superset/utils/json.py"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 20604,
+          "issue_url": "https://github.com/apache/superset/issues/20604",
+          "fix_pr_number": 21769,
+          "fix_pr_base_sha": "3ff90bd532c903347dd81ad612aa347c2f31cc12",
+          "ground_truth_files": [
+            "superset-frontend/src/pages/SavedQueryList/index.tsx",
+            "superset/queries/saved_queries/api.py",
+            "superset/queries/saved_queries/filters.py"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset-frontend/src/pages/SavedQueryList/index.tsx",
+              "start_line": 62,
+              "end_line": 67,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/src/pages/SavedQueryList/index.tsx",
+              "start_line": 91,
+              "end_line": 96,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/src/pages/SavedQueryList/index.tsx",
+              "start_line": 435,
+              "end_line": 446,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset-frontend/src/pages/SavedQueryList/index.tsx",
+              "start_line": 589,
+              "end_line": 594,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/queries/saved_queries/api.py",
+              "start_line": 183,
+              "end_line": 192,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/queries/saved_queries/filters.py",
+              "start_line": 16,
+              "end_line": 27,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/queries/saved_queries/filters.py",
+              "start_line": 82,
+              "end_line": 91,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset-frontend/src/pages/SavedQueryList/index.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 4
+            },
+            {
+              "file_path": "superset/queries/saved_queries/api.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "superset/queries/saved_queries/filters.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "superset/queries/saved_queries/api.py"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 24180,
+          "issue_url": "https://github.com/apache/superset/issues/24180",
+          "fix_pr_number": 40139,
+          "fix_pr_base_sha": "379435b7eb5b76f393836f1e7f195da5a959d1c8",
+          "ground_truth_files": [
+            "superset/extensions/ssh.py"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset/extensions/ssh.py",
+              "start_line": 25,
+              "end_line": 31,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/extensions/ssh.py",
+              "start_line": 40,
+              "end_line": 45,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/extensions/ssh.py",
+              "start_line": 171,
+              "end_line": 176,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/extensions/ssh.py",
+              "start_line": 203,
+              "end_line": 213,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset/extensions/ssh.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 4
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "superset/extensions/ssh.py"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 21000,
+          "issue_url": "https://github.com/apache/superset/issues/21000",
+          "fix_pr_number": 40136,
+          "fix_pr_base_sha": "2b71d964cc32c7a99ef30398ccdef2d4a91df86e",
+          "ground_truth_files": [
+            "superset/commands/dashboard/export.py",
+            "superset/commands/dashboard/importers/v1/utils.py",
+            "superset/dashboards/schemas.py"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "superset/commands/dashboard/export.py",
+              "start_line": 185,
+              "end_line": 190,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/commands/dashboard/importers/v1/utils.py",
+              "start_line": 256,
+              "end_line": 261,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/commands/dashboard/importers/v1/utils.py",
+              "start_line": 271,
+              "end_line": 274,
+              "pure_addition": false
+            },
+            {
+              "file_path": "superset/dashboards/schemas.py",
+              "start_line": 519,
+              "end_line": 524,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "superset/commands/dashboard/export.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "superset/commands/dashboard/importers/v1/utils.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "superset/dashboards/schemas.py",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "superset/commands/dashboard/importers/v1/utils.py"
+          ],
+          "line_overlap_scoreable": false
+        }
+      ]
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "index_commit": "7e16b6acb5c11e283fcd320a0abb82372a8ab0dd",
+      "cases": [
+        {
+          "issue_number": 6045,
+          "issue_url": "https://github.com/navidrome/navidrome/issues/6045",
+          "fix_pr_number": 6046,
+          "fix_pr_base_sha": "b5f530e90cc57c798e3b8277f96dbcda557a4df3",
+          "ground_truth_files": [
+            "core/storage/local/deviceid_unix.go",
+            "core/storage/local/deviceid_windows.go",
+            "core/storage/local/local.go"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "core/storage/local/deviceid_unix.go",
+              "start_line": 0,
+              "end_line": 0,
+              "pure_addition": true
+            },
+            {
+              "file_path": "core/storage/local/deviceid_windows.go",
+              "start_line": 0,
+              "end_line": 0,
+              "pure_addition": true
+            },
+            {
+              "file_path": "core/storage/local/local.go",
+              "start_line": 6,
+              "end_line": 11,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/storage/local/local.go",
+              "start_line": 61,
+              "end_line": 66,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/storage/local/local.go",
+              "start_line": 84,
+              "end_line": 90,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/storage/local/local.go",
+              "start_line": 95,
+              "end_line": 109,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "core/storage/local/deviceid_unix.go",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "core/storage/local/deviceid_windows.go",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "core/storage/local/local.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 4
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "core/storage/local/deviceid_unix.go",
+            "core/storage/local/deviceid_windows.go"
+          ],
+          "line_numbers_may_have_drifted": [
+            "core/storage/local/local.go"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 5871,
+          "issue_url": "https://github.com/navidrome/navidrome/issues/5871",
+          "fix_pr_number": 5872,
+          "fix_pr_base_sha": "3da2b590e780722df6c2a35e10fd38dfaf83098a",
+          "ground_truth_files": [
+            "model/tag.go"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "model/tag.go",
+              "start_line": 24,
+              "end_line": 36,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/tag.go",
+              "start_line": 42,
+              "end_line": 48,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "model/tag.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "model/tag.go"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 5995,
+          "issue_url": "https://github.com/navidrome/navidrome/issues/5995",
+          "fix_pr_number": 5996,
+          "fix_pr_base_sha": "3d3c3ed60186deb95461cd80b052e564fb9d2055",
+          "ground_truth_files": [
+            "cmd/pls.go"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "cmd/pls.go",
+              "start_line": 6,
+              "end_line": 11,
+              "pure_addition": false
+            },
+            {
+              "file_path": "cmd/pls.go",
+              "start_line": 141,
+              "end_line": 154,
+              "pure_addition": false
+            },
+            {
+              "file_path": "cmd/pls.go",
+              "start_line": 157,
+              "end_line": 163,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "cmd/pls.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "cmd/pls.go"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 5907,
+          "issue_url": "https://github.com/navidrome/navidrome/issues/5907",
+          "fix_pr_number": 5908,
+          "fix_pr_base_sha": "4b1218eec0068ba8b119a970385aea5b0605660b",
+          "ground_truth_files": [
+            "core/playlists/import.go",
+            "core/playlists/rest_adapter.go",
+            "db/migrations/20260818002312_add_playlist_imported_hash.sql",
+            "model/playlist.go",
+            "persistence/playlist_repository.go"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "core/playlists/import.go",
+              "start_line": 12,
+              "end_line": 19,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/playlists/import.go",
+              "start_line": 57,
+              "end_line": 66,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/playlists/import.go",
+              "start_line": 138,
+              "end_line": 152,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/playlists/import.go",
+              "start_line": 179,
+              "end_line": 184,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/playlists/import.go",
+              "start_line": 187,
+              "end_line": 192,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/playlists/rest_adapter.go",
+              "start_line": 136,
+              "end_line": 141,
+              "pure_addition": false
+            },
+            {
+              "file_path": "db/migrations/20260818002312_add_playlist_imported_hash.sql",
+              "start_line": 0,
+              "end_line": 0,
+              "pure_addition": true
+            },
+            {
+              "file_path": "model/playlist.go",
+              "start_line": 31,
+              "end_line": 36,
+              "pure_addition": false
+            },
+            {
+              "file_path": "persistence/playlist_repository.go",
+              "start_line": 39,
+              "end_line": 44,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "core/playlists/import.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 5
+            },
+            {
+              "file_path": "core/playlists/rest_adapter.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "db/migrations/20260818002312_add_playlist_imported_hash.sql",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "model/playlist.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "persistence/playlist_repository.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "db/migrations/20260818002312_add_playlist_imported_hash.sql"
+          ],
+          "line_numbers_may_have_drifted": [
+            "core/playlists/import.go",
+            "core/playlists/rest_adapter.go",
+            "model/playlist.go",
+            "persistence/playlist_repository.go"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 5842,
+          "issue_url": "https://github.com/navidrome/navidrome/issues/5842",
+          "fix_pr_number": 5867,
+          "fix_pr_base_sha": "5b758fc20cc11e16f0fddab19e5bb0714007e1a6",
+          "ground_truth_files": [
+            "db/migrations/20260816180040_renormalize_album_created_at.sql",
+            "persistence/album_repository.go"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "db/migrations/20260816180040_renormalize_album_created_at.sql",
+              "start_line": 0,
+              "end_line": 0,
+              "pure_addition": true
+            },
+            {
+              "file_path": "persistence/album_repository.go",
+              "start_line": 329,
+              "end_line": 336,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "db/migrations/20260816180040_renormalize_album_created_at.sql",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "persistence/album_repository.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "db/migrations/20260816180040_renormalize_album_created_at.sql"
+          ],
+          "line_numbers_may_have_drifted": [
+            "persistence/album_repository.go"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 5950,
+          "issue_url": "https://github.com/navidrome/navidrome/issues/5950",
+          "fix_pr_number": 5952,
+          "fix_pr_base_sha": "aa0824e03bfd617caeddfe52a41a421a77e6289f",
+          "ground_truth_files": [
+            "core/artwork/processor.go",
+            "resources/mime_types.yaml"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "core/artwork/processor.go",
+              "start_line": 123,
+              "end_line": 134,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/artwork/processor.go",
+              "start_line": 234,
+              "end_line": 239,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/artwork/processor.go",
+              "start_line": 288,
+              "end_line": 293,
+              "pure_addition": false
+            },
+            {
+              "file_path": "resources/mime_types.yaml",
+              "start_line": 37,
+              "end_line": 42,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "core/artwork/processor.go",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "resources/mime_types.yaml",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "core/artwork/processor.go"
+          ],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 5943,
+          "issue_url": "https://github.com/navidrome/navidrome/issues/5943",
+          "fix_pr_number": 5947,
+          "fix_pr_base_sha": "752b38609c1599e15dc4fb3eef55fbb6f340f516",
+          "ground_truth_files": [
+            "model/scanner.go",
+            "scanner/scanner.go"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "model/scanner.go",
+              "start_line": 12,
+              "end_line": 18,
+              "pure_addition": false
+            },
+            {
+              "file_path": "scanner/scanner.go",
+              "start_line": 4,
+              "end_line": 9,
+              "pure_addition": false
+            },
+            {
+              "file_path": "scanner/scanner.go",
+              "start_line": 51,
+              "end_line": 56,
+              "pure_addition": false
+            },
+            {
+              "file_path": "scanner/scanner.go",
+              "start_line": 77,
+              "end_line": 84,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "model/scanner.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "scanner/scanner.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "scanner/scanner.go"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 5905,
+          "issue_url": "https://github.com/navidrome/navidrome/issues/5905",
+          "fix_pr_number": 5906,
+          "fix_pr_base_sha": "0f4c9b82121f870e5c925657458a9b87912f59ba",
+          "ground_truth_files": [
+            "contrib/navidrome"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "contrib/navidrome",
+              "start_line": 2,
+              "end_line": 8,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "contrib/navidrome",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 5599,
+          "issue_url": "https://github.com/navidrome/navidrome/issues/5599",
+          "fix_pr_number": 5596,
+          "fix_pr_base_sha": "3b958dd6a725b10d227ada78d7840c968d240972",
+          "ground_truth_files": [
+            "core/artwork/reader_album.go",
+            "model/folder.go",
+            "persistence/folder_repository.go"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "core/artwork/reader_album.go",
+              "start_line": 113,
+              "end_line": 140,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/artwork/reader_album.go",
+              "start_line": 159,
+              "end_line": 164,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/folder.go",
+              "start_line": 86,
+              "end_line": 91,
+              "pure_addition": false
+            },
+            {
+              "file_path": "persistence/folder_repository.go",
+              "start_line": 7,
+              "end_line": 12,
+              "pure_addition": false
+            },
+            {
+              "file_path": "persistence/folder_repository.go",
+              "start_line": 188,
+              "end_line": 193,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "core/artwork/reader_album.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "model/folder.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "persistence/folder_repository.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "core/artwork/reader_album.go"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 4826,
+          "issue_url": "https://github.com/navidrome/navidrome/issues/4826",
+          "fix_pr_number": 5450,
+          "fix_pr_base_sha": "7e16b6acb5c11e283fcd320a0abb82372a8ab0dd",
+          "ground_truth_files": [
+            "model/criteria/fields.go",
+            "model/criteria/json.go",
+            "model/criteria/operators.go",
+            "persistence/criteria_sql.go"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "model/criteria/fields.go",
+              "start_line": 8,
+              "end_line": 13,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/criteria/fields.go",
+              "start_line": 21,
+              "end_line": 27,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/criteria/fields.go",
+              "start_line": 31,
+              "end_line": 38,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/criteria/fields.go",
+              "start_line": 54,
+              "end_line": 74,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/criteria/json.go",
+              "start_line": 3,
+              "end_line": 8,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/criteria/json.go",
+              "start_line": 38,
+              "end_line": 43,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/criteria/json.go",
+              "start_line": 70,
+              "end_line": 82,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/criteria/operators.go",
+              "start_line": 1,
+              "end_line": 9,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/criteria/operators.go",
+              "start_line": 181,
+              "end_line": 200,
+              "pure_addition": false
+            },
+            {
+              "file_path": "persistence/criteria_sql.go",
+              "start_line": 220,
+              "end_line": 226,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "model/criteria/fields.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 4
+            },
+            {
+              "file_path": "model/criteria/json.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "model/criteria/operators.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "persistence/criteria_sql.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "index_commit": "10099915627248b001eef7c4a6bfb4f07004899d",
+      "cases": [
+        {
+          "issue_number": 15591,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15591",
+          "fix_pr_number": 15996,
+          "fix_pr_base_sha": "39b3f22b1bf53f64bd4256b133f4563c4d0e43b0",
+          "ground_truth_files": [
+            "runtime/queries/go/injections.scm"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "runtime/queries/go/injections.scm",
+              "start_line": 40,
+              "end_line": 48,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "runtime/queries/go/injections.scm",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 15975,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15975",
+          "fix_pr_number": 15993,
+          "fix_pr_base_sha": "39b3f22b1bf53f64bd4256b133f4563c4d0e43b0",
+          "ground_truth_files": [
+            "helix-dap/src/client.rs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "helix-dap/src/client.rs",
+              "start_line": 463,
+              "end_line": 470,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "helix-dap/src/client.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "helix-dap/src/client.rs"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 15779,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15779",
+          "fix_pr_number": 15780,
+          "fix_pr_base_sha": "a62d374fcb489f83bddd3a775df250ff4b9b34a9",
+          "ground_truth_files": [
+            "helix-term/src/application.rs",
+            "helix-term/src/handlers/diagnostics.rs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "helix-term/src/application.rs",
+              "start_line": 875,
+              "end_line": 880,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-term/src/application.rs",
+              "start_line": 919,
+              "end_line": 924,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-term/src/application.rs",
+              "start_line": 1107,
+              "end_line": 1128,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-term/src/handlers/diagnostics.rs",
+              "start_line": 258,
+              "end_line": 263,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "helix-term/src/application.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "helix-term/src/handlers/diagnostics.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 15883,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15883",
+          "fix_pr_number": 15939,
+          "fix_pr_base_sha": "6b7c7c6e0784d7c34295c24064deb36418c0b4b5",
+          "ground_truth_files": [
+            "helix-core/src/editor_config.rs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "helix-core/src/editor_config.rs",
+              "start_line": 331,
+              "end_line": 334,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "helix-core/src/editor_config.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 15922,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15922",
+          "fix_pr_number": 15965,
+          "fix_pr_base_sha": "2868367c80019d8ec54ec52b84d3e4f7a2f94814",
+          "ground_truth_files": [
+            "runtime/queries/markdown.inline/injections.scm"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "runtime/queries/markdown.inline/injections.scm",
+              "start_line": 4,
+              "end_line": 7,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "runtime/queries/markdown.inline/injections.scm",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 15971,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15971",
+          "fix_pr_number": 15940,
+          "fix_pr_base_sha": "6b7c7c6e0784d7c34295c24064deb36418c0b4b5",
+          "ground_truth_files": [
+            "helix-term/src/commands.rs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "helix-term/src/commands.rs",
+              "start_line": 3825,
+              "end_line": 3830,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-term/src/commands.rs",
+              "start_line": 3860,
+              "end_line": 3868,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-term/src/commands.rs",
+              "start_line": 4489,
+              "end_line": 4497,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "helix-term/src/commands.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "helix-term/src/commands.rs"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 13222,
+          "issue_url": "https://github.com/helix-editor/helix/issues/13222",
+          "fix_pr_number": 13634,
+          "fix_pr_base_sha": "bcb6c20a84b6ac6697bf2a4b5d0b78832bcfea62",
+          "ground_truth_files": [
+            "helix-core/src/snippets/active.rs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "helix-core/src/snippets/active.rs",
+              "start_line": 64,
+              "end_line": 85,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-core/src/snippets/active.rs",
+              "start_line": 110,
+              "end_line": 120,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-core/src/snippets/active.rs",
+              "start_line": 156,
+              "end_line": 168,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-core/src/snippets/active.rs",
+              "start_line": 172,
+              "end_line": 179,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "helix-core/src/snippets/active.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 4
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "helix-core/src/snippets/active.rs"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 14724,
+          "issue_url": "https://github.com/helix-editor/helix/issues/14724",
+          "fix_pr_number": 15553,
+          "fix_pr_base_sha": "460d3be574a514d327ea5e55a50dc4fea67d60fc",
+          "ground_truth_files": [
+            "helix-lsp/src/client.rs",
+            "helix-lsp/src/lib.rs",
+            "helix-lsp/src/transport.rs",
+            "helix-term/src/application.rs",
+            "helix-view/src/editor.rs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "helix-lsp/src/client.rs",
+              "start_line": 66,
+              "end_line": 71,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/client.rs",
+              "start_line": 243,
+              "end_line": 249,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/client.rs",
+              "start_line": 265,
+              "end_line": 270,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/client.rs",
+              "start_line": 788,
+              "end_line": 800,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/lib.rs",
+              "start_line": 667,
+              "end_line": 675,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/lib.rs",
+              "start_line": 699,
+              "end_line": 707,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/transport.rs",
+              "start_line": 8,
+              "end_line": 13,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/transport.rs",
+              "start_line": 44,
+              "end_line": 52,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/transport.rs",
+              "start_line": 57,
+              "end_line": 71,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/transport.rs",
+              "start_line": 81,
+              "end_line": 90,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/transport.rs",
+              "start_line": 210,
+              "end_line": 220,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/transport.rs",
+              "start_line": 236,
+              "end_line": 243,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/transport.rs",
+              "start_line": 340,
+              "end_line": 345,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/transport.rs",
+              "start_line": 375,
+              "end_line": 380,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/transport.rs",
+              "start_line": 424,
+              "end_line": 431,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-lsp/src/transport.rs",
+              "start_line": 436,
+              "end_line": 441,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-term/src/application.rs",
+              "start_line": 1345,
+              "end_line": 1356,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-view/src/editor.rs",
+              "start_line": 19,
+              "end_line": 25,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-view/src/editor.rs",
+              "start_line": 2348,
+              "end_line": 2357,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-view/src/editor.rs",
+              "start_line": 2360,
+              "end_line": 2375,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "helix-lsp/src/client.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 4
+            },
+            {
+              "file_path": "helix-lsp/src/lib.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "helix-lsp/src/transport.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 10
+            },
+            {
+              "file_path": "helix-term/src/application.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "helix-view/src/editor.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "helix-lsp/src/client.rs",
+            "helix-lsp/src/lib.rs",
+            "helix-lsp/src/transport.rs",
+            "helix-term/src/application.rs",
+            "helix-view/src/editor.rs"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 15691,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15691",
+          "fix_pr_number": 15695,
+          "fix_pr_base_sha": "6e0d8cce12406eb4d376b88c75b84684daf540c2",
+          "ground_truth_files": [
+            "helix-term/src/application.rs",
+            "helix-view/src/theme.rs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "helix-term/src/application.rs",
+              "start_line": 723,
+              "end_line": 736,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-view/src/theme.rs",
+              "start_line": 51,
+              "end_line": 109,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "helix-term/src/application.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "helix-view/src/theme.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 15429,
+          "issue_url": "https://github.com/helix-editor/helix/issues/15429",
+          "fix_pr_number": 15490,
+          "fix_pr_base_sha": "253e6195c8cae014da01abea6f741b12eeed674c",
+          "ground_truth_files": [
+            "helix-term/src/application.rs",
+            "helix-term/src/compositor.rs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "helix-term/src/application.rs",
+              "start_line": 1218,
+              "end_line": 1226,
+              "pure_addition": false
+            },
+            {
+              "file_path": "helix-term/src/compositor.rs",
+              "start_line": 220,
+              "end_line": 225,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "helix-term/src/application.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "helix-term/src/compositor.rs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "index_commit": "f2551461452e36eafd47f0dbbdd759f6cdff4fc1",
+      "cases": [
+        {
+          "issue_number": 56412,
+          "issue_url": "https://github.com/nextcloud/server/issues/56412",
+          "fix_pr_number": 63555,
+          "fix_pr_base_sha": "3b2e743c6c2df0295456367ad8a1f4a8c497f272",
+          "ground_truth_files": [
+            "core/Command/User/AuthTokens/Add.php"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "core/Command/User/AuthTokens/Add.php",
+              "start_line": 12,
+              "end_line": 19,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/Command/User/AuthTokens/Add.php",
+              "start_line": 25,
+              "end_line": 32,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/Command/User/AuthTokens/Add.php",
+              "start_line": 92,
+              "end_line": 103,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "core/Command/User/AuthTokens/Add.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 63504,
+          "issue_url": "https://github.com/nextcloud/server/issues/63504",
+          "fix_pr_number": 63510,
+          "fix_pr_base_sha": "0661f778d87e6ae55175db7ee1063a8d944be105",
+          "ground_truth_files": [
+            "apps/dav/lib/Connector/Sabre/File.php"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/dav/lib/Connector/Sabre/File.php",
+              "start_line": 208,
+              "end_line": 215,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/dav/lib/Connector/Sabre/File.php",
+              "start_line": 265,
+              "end_line": 271,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/dav/lib/Connector/Sabre/File.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 60718,
+          "issue_url": "https://github.com/nextcloud/server/issues/60718",
+          "fix_pr_number": 63562,
+          "fix_pr_base_sha": "0661f778d87e6ae55175db7ee1063a8d944be105",
+          "ground_truth_files": [
+            "apps/sharebymail/lib/ShareByMailProvider.php"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/sharebymail/lib/ShareByMailProvider.php",
+              "start_line": 711,
+              "end_line": 716,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/sharebymail/lib/ShareByMailProvider.php",
+              "start_line": 743,
+              "end_line": 748,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/sharebymail/lib/ShareByMailProvider.php",
+              "start_line": 755,
+              "end_line": 761,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/sharebymail/lib/ShareByMailProvider.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 63409,
+          "issue_url": "https://github.com/nextcloud/server/issues/63409",
+          "fix_pr_number": 63541,
+          "fix_pr_base_sha": "1add8ce1149a2f1df3196aff1dfe467d6fa87080",
+          "ground_truth_files": [
+            "core/src/views/UnifiedSearch.vue"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "core/src/views/UnifiedSearch.vue",
+              "start_line": 32,
+              "end_line": 37,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/src/views/UnifiedSearch.vue",
+              "start_line": 124,
+              "end_line": 133,
+              "pure_addition": false
+            },
+            {
+              "file_path": "core/src/views/UnifiedSearch.vue",
+              "start_line": 147,
+              "end_line": 193,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "core/src/views/UnifiedSearch.vue",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "core/src/views/UnifiedSearch.vue"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 63415,
+          "issue_url": "https://github.com/nextcloud/server/issues/63415",
+          "fix_pr_number": 63435,
+          "fix_pr_base_sha": "fdda6b10c1a7161f4407f69dde16a17ada477a02",
+          "ground_truth_files": [
+            "apps/dav/composer/composer/autoload_classmap.php",
+            "apps/dav/composer/composer/autoload_static.php",
+            "apps/dav/lib/Connector/Sabre/ServerFactory.php",
+            "apps/dav/lib/Connector/Sabre/StreamedPropFindNotFoundPlugin.php"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/dav/composer/composer/autoload_classmap.php",
+              "start_line": 268,
+              "end_line": 273,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/dav/composer/composer/autoload_static.php",
+              "start_line": 283,
+              "end_line": 288,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/dav/lib/Connector/Sabre/ServerFactory.php",
+              "start_line": 84,
+              "end_line": 89,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/dav/lib/Connector/Sabre/StreamedPropFindNotFoundPlugin.php",
+              "start_line": 0,
+              "end_line": 0,
+              "pure_addition": true
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/dav/composer/composer/autoload_classmap.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/dav/composer/composer/autoload_static.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/dav/lib/Connector/Sabre/ServerFactory.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/dav/lib/Connector/Sabre/StreamedPropFindNotFoundPlugin.php",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "apps/dav/lib/Connector/Sabre/StreamedPropFindNotFoundPlugin.php"
+          ],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 59249,
+          "issue_url": "https://github.com/nextcloud/server/issues/59249",
+          "fix_pr_number": 63417,
+          "fix_pr_base_sha": "bd37cafbbcb59dcf881bf61dd82e6b9380708da9",
+          "ground_truth_files": [
+            "lib/private/Files/ObjectStore/S3ConnectionTrait.php"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "lib/private/Files/ObjectStore/S3ConnectionTrait.php",
+              "start_line": 75,
+              "end_line": 80,
+              "pure_addition": false
+            },
+            {
+              "file_path": "lib/private/Files/ObjectStore/S3ConnectionTrait.php",
+              "start_line": 113,
+              "end_line": 120,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "lib/private/Files/ObjectStore/S3ConnectionTrait.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 59194,
+          "issue_url": "https://github.com/nextcloud/server/issues/59194",
+          "fix_pr_number": 59228,
+          "fix_pr_base_sha": "51568eaba7415471ab750ff418b4760178ec0522",
+          "ground_truth_files": [
+            "apps/files_reminders/lib/Service/ReminderService.php",
+            "apps/files_reminders/src/components/SetCustomReminderModal.vue",
+            "apps/files_reminders/src/files_actions/reminderStatusAction.ts",
+            "apps/files_reminders/src/services/reminderService.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/files_reminders/lib/Service/ReminderService.php",
+              "start_line": 74,
+              "end_line": 84,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/files_reminders/src/components/SetCustomReminderModal.vue",
+              "start_line": 8,
+              "end_line": 17,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/files_reminders/src/components/SetCustomReminderModal.vue",
+              "start_line": 33,
+              "end_line": 38,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/files_reminders/src/components/SetCustomReminderModal.vue",
+              "start_line": 132,
+              "end_line": 139,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/files_reminders/src/files_actions/reminderStatusAction.ts",
+              "start_line": 33,
+              "end_line": 39,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/files_reminders/src/services/reminderService.ts",
+              "start_line": 48,
+              "end_line": 54,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/files_reminders/lib/Service/ReminderService.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/files_reminders/src/components/SetCustomReminderModal.vue",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "apps/files_reminders/src/files_actions/reminderStatusAction.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/files_reminders/src/services/reminderService.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 49413,
+          "issue_url": "https://github.com/nextcloud/server/issues/49413",
+          "fix_pr_number": 63350,
+          "fix_pr_base_sha": "231ec6717cf77ebce4e55a2abd12e40ab9995430",
+          "ground_truth_files": [
+            "core/Migrations/Version30000Date20240717111406.php"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "core/Migrations/Version30000Date20240717111406.php",
+              "start_line": 34,
+              "end_line": 57,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "core/Migrations/Version30000Date20240717111406.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 62458,
+          "issue_url": "https://github.com/nextcloud/server/issues/62458",
+          "fix_pr_number": 62459,
+          "fix_pr_base_sha": "0417403bf5d0695936d83a042039cd34fc0860aa",
+          "ground_truth_files": [
+            "apps/files/src/newMenu/newFolder.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/files/src/newMenu/newFolder.ts",
+              "start_line": 49,
+              "end_line": 54,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/files/src/newMenu/newFolder.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 63348,
+          "issue_url": "https://github.com/nextcloud/server/issues/63348",
+          "fix_pr_number": 63376,
+          "fix_pr_base_sha": "aab07d3693632643b7d08092363dd72efdd0ee26",
+          "ground_truth_files": [
+            "lib/private/Preview/Generator.php",
+            "lib/private/Preview/Storage/IPreviewStorage.php",
+            "lib/private/Preview/Storage/LocalPreviewStorage.php",
+            "lib/private/Preview/Storage/ObjectStorePreviewStorage.php",
+            "lib/private/Preview/Storage/StorageFactory.php"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "lib/private/Preview/Generator.php",
+              "start_line": 594,
+              "end_line": 600,
+              "pure_addition": false
+            },
+            {
+              "file_path": "lib/private/Preview/Storage/IPreviewStorage.php",
+              "start_line": 35,
+              "end_line": 40,
+              "pure_addition": false
+            },
+            {
+              "file_path": "lib/private/Preview/Storage/LocalPreviewStorage.php",
+              "start_line": 69,
+              "end_line": 74,
+              "pure_addition": false
+            },
+            {
+              "file_path": "lib/private/Preview/Storage/ObjectStorePreviewStorage.php",
+              "start_line": 167,
+              "end_line": 172,
+              "pure_addition": false
+            },
+            {
+              "file_path": "lib/private/Preview/Storage/StorageFactory.php",
+              "start_line": 37,
+              "end_line": 42,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "lib/private/Preview/Generator.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "lib/private/Preview/Storage/IPreviewStorage.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "lib/private/Preview/Storage/LocalPreviewStorage.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "lib/private/Preview/Storage/ObjectStorePreviewStorage.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "lib/private/Preview/Storage/StorageFactory.php",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "index_commit": "7ae0b919b7e59311eecea5be68d3f8d18a68e251",
+      "cases": [
+        {
+          "issue_number": 51674,
+          "issue_url": "https://github.com/keycloak/keycloak/issues/51674",
+          "fix_pr_number": 51840,
+          "fix_pr_base_sha": "45d288b0177f1bad474f223422d7997df96f5d19",
+          "ground_truth_files": [
+            "server-spi/src/main/java/org/keycloak/models/PasswordPolicy.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "server-spi/src/main/java/org/keycloak/models/PasswordPolicy.java",
+              "start_line": 214,
+              "end_line": 220,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "server-spi/src/main/java/org/keycloak/models/PasswordPolicy.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 52074,
+          "issue_url": "https://github.com/keycloak/keycloak/issues/52074",
+          "fix_pr_number": 52077,
+          "fix_pr_base_sha": "0d569b63e5dc3a01e42ae7a8dce1eeb3ce7d0949",
+          "ground_truth_files": [
+            "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginPage.java",
+            "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginUsernamePage.java",
+            "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/PasswordPage.java",
+            "test-framework/ui/src/main/java/org/keycloak/testframework/ui/webdriver/WaitUtils.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginPage.java",
+              "start_line": 55,
+              "end_line": 61,
+              "pure_addition": false
+            },
+            {
+              "file_path": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginUsernamePage.java",
+              "start_line": 47,
+              "end_line": 53,
+              "pure_addition": false
+            },
+            {
+              "file_path": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/PasswordPage.java",
+              "start_line": 41,
+              "end_line": 47,
+              "pure_addition": false
+            },
+            {
+              "file_path": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/webdriver/WaitUtils.java",
+              "start_line": 7,
+              "end_line": 15,
+              "pure_addition": false
+            },
+            {
+              "file_path": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/webdriver/WaitUtils.java",
+              "start_line": 58,
+              "end_line": 63,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginPage.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginUsernamePage.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/PasswordPage.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/webdriver/WaitUtils.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 51920,
+          "issue_url": "https://github.com/keycloak/keycloak/issues/51920",
+          "fix_pr_number": 52083,
+          "fix_pr_base_sha": "9c2abca540b3ff6b627b8d8a74e3df1cfa5218eb",
+          "ground_truth_files": [
+            "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/logging/KeycloakLogFilter.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/logging/KeycloakLogFilter.java",
+              "start_line": 88,
+              "end_line": 93,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/logging/KeycloakLogFilter.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 51943,
+          "issue_url": "https://github.com/keycloak/keycloak/issues/51943",
+          "fix_pr_number": 52045,
+          "fix_pr_base_sha": "140df271eb5c8df606c76c2639a7e7a4de4c3b82",
+          "ground_truth_files": [
+            "operator/pom.xml",
+            "operator/scripts/post-process-helm-chart.sh"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "operator/pom.xml",
+              "start_line": 72,
+              "end_line": 84,
+              "pure_addition": false
+            },
+            {
+              "file_path": "operator/scripts/post-process-helm-chart.sh",
+              "start_line": 2,
+              "end_line": 24,
+              "pure_addition": false
+            },
+            {
+              "file_path": "operator/scripts/post-process-helm-chart.sh",
+              "start_line": 50,
+              "end_line": 56,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "operator/pom.xml",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "operator/scripts/post-process-helm-chart.sh",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 50796,
+          "issue_url": "https://github.com/keycloak/keycloak/issues/50796",
+          "fix_pr_number": 50809,
+          "fix_pr_base_sha": "c56216b81769de58d57b5c6d7a1721d1978476ee",
+          "ground_truth_files": [
+            "services/src/main/java/org/keycloak/services/managers/ClientManager.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "services/src/main/java/org/keycloak/services/managers/ClientManager.java",
+              "start_line": 26,
+              "end_line": 31,
+              "pure_addition": false
+            },
+            {
+              "file_path": "services/src/main/java/org/keycloak/services/managers/ClientManager.java",
+              "start_line": 415,
+              "end_line": 421,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "services/src/main/java/org/keycloak/services/managers/ClientManager.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 52038,
+          "issue_url": "https://github.com/keycloak/keycloak/issues/52038",
+          "fix_pr_number": 52039,
+          "fix_pr_base_sha": "a0a51f61b1ec279a852f6f0c28a310086bb7eec9",
+          "ground_truth_files": [
+            "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/UserSessionAdapter.java",
+            "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+            "model/storage-private/src/main/java/org/keycloak/models/session/PersistentAuthenticatedClientSessionAdapter.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/UserSessionAdapter.java",
+              "start_line": 270,
+              "end_line": 278,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+              "start_line": 20,
+              "end_line": 26,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+              "start_line": 140,
+              "end_line": 158,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+              "start_line": 221,
+              "end_line": 229,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+              "start_line": 542,
+              "end_line": 573,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+              "start_line": 656,
+              "end_line": 664,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+              "start_line": 699,
+              "end_line": 702,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/storage-private/src/main/java/org/keycloak/models/session/PersistentAuthenticatedClientSessionAdapter.java",
+              "start_line": 18,
+              "end_line": 24,
+              "pure_addition": false
+            },
+            {
+              "file_path": "model/storage-private/src/main/java/org/keycloak/models/session/PersistentAuthenticatedClientSessionAdapter.java",
+              "start_line": 240,
+              "end_line": 246,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/UserSessionAdapter.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 6
+            },
+            {
+              "file_path": "model/storage-private/src/main/java/org/keycloak/models/session/PersistentAuthenticatedClientSessionAdapter.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 52017,
+          "issue_url": "https://github.com/keycloak/keycloak/issues/52017",
+          "fix_pr_number": 52019,
+          "fix_pr_base_sha": "145ffecdcb05a3ce6d26b3850b5d3f4fa15da03f",
+          "ground_truth_files": [
+            "services/src/main/java/org/keycloak/protocol/saml/profile/ecp/SamlEcpProfileService.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "services/src/main/java/org/keycloak/protocol/saml/profile/ecp/SamlEcpProfileService.java",
+              "start_line": 104,
+              "end_line": 110,
+              "pure_addition": false
+            },
+            {
+              "file_path": "services/src/main/java/org/keycloak/protocol/saml/profile/ecp/SamlEcpProfileService.java",
+              "start_line": 114,
+              "end_line": 127,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "services/src/main/java/org/keycloak/protocol/saml/profile/ecp/SamlEcpProfileService.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 51531,
+          "issue_url": "https://github.com/keycloak/keycloak/issues/51531",
+          "fix_pr_number": 51565,
+          "fix_pr_base_sha": "b9b70f95f7e092ebadf898378948bab0971e015b",
+          "ground_truth_files": [
+            "services/src/main/java/org/keycloak/services/resources/admin/RoleMapperResource.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "services/src/main/java/org/keycloak/services/resources/admin/RoleMapperResource.java",
+              "start_line": 18,
+              "end_line": 25,
+              "pure_addition": false
+            },
+            {
+              "file_path": "services/src/main/java/org/keycloak/services/resources/admin/RoleMapperResource.java",
+              "start_line": 44,
+              "end_line": 49,
+              "pure_addition": false
+            },
+            {
+              "file_path": "services/src/main/java/org/keycloak/services/resources/admin/RoleMapperResource.java",
+              "start_line": 52,
+              "end_line": 57,
+              "pure_addition": false
+            },
+            {
+              "file_path": "services/src/main/java/org/keycloak/services/resources/admin/RoleMapperResource.java",
+              "start_line": 209,
+              "end_line": 219,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "services/src/main/java/org/keycloak/services/resources/admin/RoleMapperResource.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 4
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 51620,
+          "issue_url": "https://github.com/keycloak/keycloak/issues/51620",
+          "fix_pr_number": 51793,
+          "fix_pr_base_sha": "a416f8db154cf6473d997c58bd576b7165200ecb",
+          "ground_truth_files": [
+            "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginUpdateProfilePage.java",
+            "themes/src/main/resources/theme/keycloak.v2/login/login-update-profile.ftl",
+            "themes/src/main/resources/theme/keycloak.v2/login/login-verify-email.ftl",
+            "themes/src/main/resources/theme/keycloak.v2/login/resources/css/styles.css"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginUpdateProfilePage.java",
+              "start_line": 45,
+              "end_line": 51,
+              "pure_addition": false
+            },
+            {
+              "file_path": "themes/src/main/resources/theme/keycloak.v2/login/login-update-profile.ftl",
+              "start_line": 0,
+              "end_line": 0,
+              "pure_addition": true
+            },
+            {
+              "file_path": "themes/src/main/resources/theme/keycloak.v2/login/login-verify-email.ftl",
+              "start_line": 0,
+              "end_line": 0,
+              "pure_addition": true
+            },
+            {
+              "file_path": "themes/src/main/resources/theme/keycloak.v2/login/resources/css/styles.css",
+              "start_line": 97,
+              "end_line": 103,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginUpdateProfilePage.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "themes/src/main/resources/theme/keycloak.v2/login/login-update-profile.ftl",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "themes/src/main/resources/theme/keycloak.v2/login/login-verify-email.ftl",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "themes/src/main/resources/theme/keycloak.v2/login/resources/css/styles.css",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "themes/src/main/resources/theme/keycloak.v2/login/login-update-profile.ftl",
+            "themes/src/main/resources/theme/keycloak.v2/login/login-verify-email.ftl"
+          ],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 51113,
+          "issue_url": "https://github.com/keycloak/keycloak/issues/51113",
+          "fix_pr_number": 51291,
+          "fix_pr_base_sha": "0fb6a036fb4f2af675a2d7269ce0d1069f06b1f2",
+          "ground_truth_files": [
+            "docs/documentation/upgrading/topics/changes/changes-26_8_0.adoc",
+            "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/cli/command/ShowConfig.java",
+            "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/Configuration.java",
+            "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/KcEnvConfigSource.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "docs/documentation/upgrading/topics/changes/changes-26_8_0.adoc",
+              "start_line": 45,
+              "end_line": 50,
+              "pure_addition": false
+            },
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/cli/command/ShowConfig.java",
+              "start_line": 123,
+              "end_line": 130,
+              "pure_addition": false
+            },
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/Configuration.java",
+              "start_line": 27,
+              "end_line": 33,
+              "pure_addition": false
+            },
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/Configuration.java",
+              "start_line": 101,
+              "end_line": 107,
+              "pure_addition": false
+            },
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/KcEnvConfigSource.java",
+              "start_line": 19,
+              "end_line": 24,
+              "pure_addition": false
+            },
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/KcEnvConfigSource.java",
+              "start_line": 32,
+              "end_line": 47,
+              "pure_addition": false
+            },
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/KcEnvConfigSource.java",
+              "start_line": 50,
+              "end_line": 63,
+              "pure_addition": false
+            },
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/KcEnvConfigSource.java",
+              "start_line": 68,
+              "end_line": 80,
+              "pure_addition": false
+            },
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/KcEnvConfigSource.java",
+              "start_line": 108,
+              "end_line": 121,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "docs/documentation/upgrading/topics/changes/changes-26_8_0.adoc",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/cli/command/ShowConfig.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/Configuration.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/KcEnvConfigSource.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 5
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "docs/documentation/upgrading/topics/changes/changes-26_8_0.adoc"
+          ],
+          "line_overlap_scoreable": false
+        }
+      ]
+    }
+  ]
+}
