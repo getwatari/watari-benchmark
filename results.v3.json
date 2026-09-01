@@ -1,0 +1,4432 @@
+{
+  "protocol_version": 3,
+  "protocol": "benchmarks/localization/PROTOCOL.md",
+  "sample": "benchmarks/localization/sample.v2.frozen.json",
+  "ground_truth": "benchmarks/localization/ground-truth.v2.json",
+  "run_at": "2026-09-01T06:41:35.611Z",
+  "injection_transport": "offline-harness (scripts/probe/run-benchmark-offline.mjs)",
+  "retrieval_policy": {
+    "route_threshold": 0.3,
+    "route_count": 30,
+    "search_threshold": 0.3,
+    "search_count_per_repo": 30,
+    "candidate_cap": 80,
+    "query_expansion_samples": 3
+  },
+  "corpus_chunks": 186605,
+  "overall": {
+    "n": 56,
+    "fileMatchAt1": 36,
+    "fileMatchAt5": 44,
+    "repoRoutingAt1": 55,
+    "noMapping": 0,
+    "fileMatchAt1Rate": 0.6428571428571429,
+    "fileMatchAt5Rate": 0.7857142857142857,
+    "repoRoutingAt1Rate": 0.9821428571428571,
+    "lineOverlapAt1": 19,
+    "lineOverlapScoreableN": 32,
+    "lineOverlapAt1Rate": 0.59375,
+    "file_match_at_1_ci95": {
+      "lower": 0.5119364571733127,
+      "upper": 0.7554360729729401
+    },
+    "file_match_at_5_ci95": {
+      "lower": 0.6618028634399505,
+      "upper": 0.8729421968525549
+    }
+  },
+  "out_of_sample_available": false,
+  "out_of_sample_note": "NOT out-of-sample for #394: its file-type list and its .snapshots/ exclusion were chosen against all of these cases. v2 holds the standing out-of-sample estimate.",
+  "out_of_sample": {
+    "note": "cases never examined while choosing #385 or #388",
+    "n": 42,
+    "fileMatchAt1": 28,
+    "fileMatchAt5": 33,
+    "repoRoutingAt1": 41,
+    "noMapping": 0,
+    "fileMatchAt1Rate": 0.6666666666666666,
+    "fileMatchAt5Rate": 0.7857142857142857,
+    "repoRoutingAt1Rate": 0.9761904761904762,
+    "lineOverlapAt1": 13,
+    "lineOverlapScoreableN": 23,
+    "lineOverlapAt1Rate": 0.5652173913043478,
+    "file_match_at_1_ci95": {
+      "lower": 0.5155222701166692,
+      "upper": 0.7898771923802769
+    },
+    "file_match_at_5_ci95": {
+      "lower": 0.6405986210195627,
+      "upper": 0.8829433146894876
+    }
+  },
+  "seen_in_v1": {
+    "note": "inside v1, therefore inside the set used to choose #385 and #388",
+    "n": 14,
+    "fileMatchAt1": 8,
+    "fileMatchAt5": 11,
+    "repoRoutingAt1": 14,
+    "noMapping": 0,
+    "fileMatchAt1Rate": 0.5714285714285714,
+    "fileMatchAt5Rate": 0.7857142857142857,
+    "repoRoutingAt1Rate": 1,
+    "lineOverlapAt1": 6,
+    "lineOverlapScoreableN": 9,
+    "lineOverlapAt1Rate": 0.6666666666666666,
+    "file_match_at_1_ci95": {
+      "lower": 0.3259026690286935,
+      "upper": 0.7861949006959947
+    },
+    "file_match_at_5_ci95": {
+      "lower": 0.5241027622679172,
+      "upper": 0.9242875166308363
+    }
+  },
+  "if_errors_counted_as_misses": {
+    "overall": {
+      "n": 60,
+      "excluded_counted_as_miss": 4,
+      "fileMatchAt1": 36,
+      "fileMatchAt1Rate": 0.6,
+      "file_match_at_1_ci95": {
+        "lower": 0.47365824394206846,
+        "upper": 0.7143069699623449
+      },
+      "fileMatchAt5": 44,
+      "fileMatchAt5Rate": 0.7333333333333333
+    },
+    "out_of_sample": {
+      "n": 45,
+      "excluded_counted_as_miss": 3,
+      "fileMatchAt1": 28,
+      "fileMatchAt1Rate": 0.6222222222222222,
+      "file_match_at_1_ci95": {
+        "lower": 0.4762967000646754,
+        "upper": 0.7489211470165014
+      },
+      "fileMatchAt5": 33,
+      "fileMatchAt5Rate": 0.7333333333333333
+    }
+  },
+  "by_repository": [
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "n": 6,
+      "fileMatchAt1": 5,
+      "fileMatchAt5": 6,
+      "repoRoutingAt1": 6,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.8333333333333334,
+      "fileMatchAt5Rate": 1,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 5,
+      "lineOverlapScoreableN": 6,
+      "lineOverlapAt1Rate": 0.8333333333333334
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "n": 10,
+      "fileMatchAt1": 5,
+      "fileMatchAt5": 7,
+      "repoRoutingAt1": 10,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.5,
+      "fileMatchAt5Rate": 0.7,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 0,
+      "lineOverlapScoreableN": 2,
+      "lineOverlapAt1Rate": 0
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "n": 10,
+      "fileMatchAt1": 5,
+      "fileMatchAt5": 7,
+      "repoRoutingAt1": 9,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.5,
+      "fileMatchAt5Rate": 0.7,
+      "repoRoutingAt1Rate": 0.9,
+      "lineOverlapAt1": 0,
+      "lineOverlapScoreableN": 2,
+      "lineOverlapAt1Rate": 0
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "n": 10,
+      "fileMatchAt1": 7,
+      "fileMatchAt5": 9,
+      "repoRoutingAt1": 10,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.7,
+      "fileMatchAt5Rate": 0.9,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 4,
+      "lineOverlapScoreableN": 6,
+      "lineOverlapAt1Rate": 0.6666666666666666
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "n": 10,
+      "fileMatchAt1": 7,
+      "fileMatchAt5": 7,
+      "repoRoutingAt1": 10,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.7,
+      "fileMatchAt5Rate": 0.7,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 5,
+      "lineOverlapScoreableN": 8,
+      "lineOverlapAt1Rate": 0.625
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "n": 10,
+      "fileMatchAt1": 7,
+      "fileMatchAt5": 8,
+      "repoRoutingAt1": 10,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.7,
+      "fileMatchAt5Rate": 0.8,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 5,
+      "lineOverlapScoreableN": 8,
+      "lineOverlapAt1Rate": 0.625
+    }
+  ],
+  "cases": [
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "issue_number": 21540,
+      "issue_url": "https://github.com/calcom/cal.diy/issues/21540",
+      "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29940",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "packages/lib/getReplyToHeader.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/lib/getReplyToHeader.ts",
+          "lines": [
+            5,
+            33
+          ],
+          "function": "getReplyToHeader",
+          "confidence": 0.95
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/lib/getReplyToEmail.ts",
+          "lines": [
+            6,
+            19
+          ],
+          "function": "getReplyToEmail",
+          "confidence": 0.88
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/emails/templates/organizer-request-email.ts",
+          "lines": [
+            17,
+            58
+          ],
+          "function": null,
+          "confidence": 0.72
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/emails/templates/organizer-request-reminder-email.ts",
+          "lines": [
+            7,
+            30
+          ],
+          "function": null,
+          "confidence": 0.7
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/emails/templates/organizer-rescheduled-email.ts",
+          "lines": [
+            9,
+            45
+          ],
+          "function": null,
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "issue_number": 29684,
+      "issue_url": "https://github.com/calcom/cal.diy/issues/29684",
+      "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29685",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "packages/features/bookings/lib/payment/processPaymentRefund.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/payment/processPaymentRefund.ts",
+          "lines": [
+            9,
+            84
+          ],
+          "function": "processPaymentRefund",
+          "confidence": 0.95
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/payment/processNoShowFeeOnCancellation.ts",
+          "lines": [
+            10,
+            82
+          ],
+          "function": "processNoShowFeeOnCancellation",
+          "confidence": 0.72
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/handleSeats/cancel/cancelAttendeeSeat.ts",
+          "lines": [
+            23,
+            187
+          ],
+          "function": "cancelAttendeeSeat",
+          "confidence": 0.68
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "apps/api/v2/src/platform/bookings/2024-08-13/services/bookings.service.ts",
+          "lines": [
+            894,
+            932
+          ],
+          "function": "cancelBooking",
+          "confidence": 0.65
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "apps/web/modules/bookings/hooks/usePaymentStatus.ts",
+          "lines": [
+            38,
+            86
+          ],
+          "function": "message",
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "issue_number": 29575,
+      "issue_url": "https://github.com/calcom/cal.diy/issues/29575",
+      "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29580",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+          "lines": [
+            30,
+            72
+          ],
+          "function": "handleEvents",
+          "confidence": 0.92
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+          "lines": [
+            154,
+            235
+          ],
+          "function": "rescheduleBooking",
+          "confidence": 0.88
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+          "lines": [
+            79,
+            148
+          ],
+          "function": "cancelBooking",
+          "confidence": 0.88
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/calendar-subscription/lib/sync/CalendarSyncService.ts",
+          "lines": [
+            16,
+            236
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/calendar-subscription/lib/CalendarSubscriptionService.ts",
+          "lines": [
+            45,
+            101
+          ],
+          "function": "subscribe",
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "issue_number": 29628,
+      "issue_url": "https://github.com/calcom/cal.diy/issues/29628",
+      "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29639",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/handleSeats/create/createNewSeat.ts",
+          "lines": [
+            116,
+            291
+          ],
+          "function": "createNewSeat",
+          "confidence": 0.95
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/handlePayment.ts",
+          "lines": [
+            16,
+            203
+          ],
+          "function": "handlePayment",
+          "confidence": 0.92
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/handleSeats/handleSeats.ts",
+          "lines": [
+            13,
+            134
+          ],
+          "function": "handleSeats",
+          "confidence": 0.65
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/service/RegularBookingService.ts",
+          "lines": [
+            486,
+            2578
+          ],
+          "function": "handler",
+          "confidence": 0.62
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/features/bookings/lib/service/RegularBookingService.ts",
+          "lines": [
+            2585,
+            2690
+          ],
+          "function": null,
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "issue_number": 29587,
+      "issue_url": "https://github.com/calcom/cal.diy/issues/29587",
+      "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29588",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "packages/ui/components/dialog/Dialog.tsx"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "calcom/cal.diy",
+          "file": "apps/web/components/ui/UsernameAvailability/index.tsx",
+          "lines": [
+            44,
+            91
+          ],
+          "function": "UsernameAvailabilityField",
+          "confidence": 0.85
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "apps/web/components/ui/UsernameAvailability/UsernameTextfield.tsx",
+          "lines": [
+            85,
+            108
+          ],
+          "function": "ActionButtons",
+          "confidence": 0.79
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "apps/web/components/ui/UsernameAvailability/UsernameTextfield.tsx",
+          "lines": [
+            32,
+            211
+          ],
+          "function": "UsernameTextfield",
+          "confidence": 0.76
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/ui/components/dialog/Dialog.tsx",
+          "lines": [
+            56,
+            118
+          ],
+          "function": "DialogContent",
+          "confidence": 0.68
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "packages/coss-ui/src/components/dialog.tsx",
+          "lines": [
+            116,
+            136
+          ],
+          "function": "DialogFooter",
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "calcom/cal.diy",
+      "language": "typescript",
+      "issue_number": 29543,
+      "issue_url": "https://github.com/calcom/cal.diy/issues/29543",
+      "fix_pr_url": "https://github.com/calcom/cal.diy/pull/29544",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/web/modules/settings/security/password-view.tsx"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "calcom/cal.diy",
+          "file": "apps/web/modules/settings/security/password-view.tsx",
+          "lines": [
+            51,
+            300
+          ],
+          "function": "PasswordView",
+          "confidence": 0.92
+        },
+        {
+          "repo": "calcom/cal.diy",
+          "file": "apps/web/modules/settings/security/password-view.tsx",
+          "lines": [
+            131,
+            153
+          ],
+          "function": "handleSubmit",
+          "confidence": 0.88
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "js/libs/ui-shared/src/buttons/FormSubmitButton.tsx",
+          "lines": [
+            26,
+            46
+          ],
+          "function": "FormSubmitButton",
+          "confidence": 0.72
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "js/apps/admin-ui/src/clients/credentials/Credentials.tsx",
+          "lines": [
+            48,
+            266
+          ],
+          "function": "Credentials",
+          "confidence": 0.65
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "js/apps/admin-ui/src/user/user-credentials/ResetPasswordDialog.tsx",
+          "lines": [
+            41,
+            212
+          ],
+          "function": "ResetPasswordDialog",
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 43399,
+      "issue_url": "https://github.com/apache/superset/issues/43399",
+      "fix_pr_url": "https://github.com/apache/superset/pull/43403",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "docs/src/pages/community.tsx"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.75,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset/views/redirect.py",
+          "lines": [
+            44,
+            76
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/src/features/databases/DatabaseModal/ModalHeader.tsx",
+          "lines": [
+            46,
+            64
+          ],
+          "function": "documentationLink",
+          "confidence": 0.65
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/src/views/CRUD/hooks.ts",
+          "lines": [
+            765,
+            766
+          ],
+          "function": "getDatabaseDocumentationLinks",
+          "confidence": 0.6
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/mcp_service/utils/url_utils.py",
+          "lines": [
+            42,
+            57
+          ],
+          "function": "get_superset_base_url",
+          "confidence": 0.55
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/initialization/__init__.py",
+          "lines": [
+            147,
+            549
+          ],
+          "function": "init_views",
+          "confidence": 0.5
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 33235,
+      "issue_url": "https://github.com/apache/superset/issues/33235",
+      "fix_pr_url": "https://github.com/apache/superset/pull/41867",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "superset/db_engine_specs/clickhouse.py"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset/db_engine_specs/base.py",
+          "lines": [
+            1473,
+            1491
+          ],
+          "function": "handle_boolean_filter",
+          "confidence": 0.95
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/db_engine_specs/test_snowflake.py",
+          "lines": [
+            388,
+            394
+          ],
+          "function": "test_use_equality_for_boolean_filters_property",
+          "confidence": 0.92
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/db_engine_specs/test_snowflake.py",
+          "lines": [
+            355,
+            385
+          ],
+          "function": "test_handle_boolean_filter",
+          "confidence": 0.88
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/db_engine_specs/test_trino.py",
+          "lines": [
+            1448,
+            1489
+          ],
+          "function": "test_handle_boolean_filter",
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/db_engine_specs/test_presto.py",
+          "lines": [
+            347,
+            388
+          ],
+          "function": "test_handle_boolean_filter",
+          "confidence": 0.82
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 23167,
+      "issue_url": "https://github.com/apache/superset/issues/23167",
+      "fix_pr_url": "https://github.com/apache/superset/pull/41489",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "superset/models/helpers.py"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset/models/helpers.py",
+          "lines": [
+            1355,
+            1647
+          ],
+          "function": "processing_time_offsets",
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/utils/test_core.py",
+          "lines": [
+            291,
+            303
+          ],
+          "function": "test_normalize_dttm_col_with_offset",
+          "confidence": 0.78
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/packages/superset-ui-chart-controls/src/utils/getTemporalColumns.ts",
+          "lines": [
+            32,
+            64
+          ],
+          "function": "getTemporalColumns",
+          "confidence": 0.72
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/utils/core.py",
+          "lines": [
+            1835,
+            1879
+          ],
+          "function": "get_time_filter_status",
+          "confidence": 0.68
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/datasets/datetime_format_detector.py",
+          "lines": [
+            166,
+            212
+          ],
+          "function": "detect_all_formats",
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 21734,
+      "issue_url": "https://github.com/apache/superset/issues/21734",
+      "fix_pr_url": "https://github.com/apache/superset/pull/41311",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/pandas_postprocessing/test_prophet.py",
+          "lines": [
+            189,
+            258
+          ],
+          "function": "test_prophet_uncertainty_lower_bound_can_be_negative_for_negative_series",
+          "confidence": 0.95
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/pandas_postprocessing/test_prophet.py",
+          "lines": [
+            261,
+            303
+          ],
+          "function": "test_prophet_does_not_clamp_yhat_below_zero_for_negative_actuals",
+          "confidence": 0.92
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/utils/pandas_postprocessing/prophet.py",
+          "lines": [
+            43,
+            77
+          ],
+          "function": "_prophet_fit_and_predict",
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/utils/pandas_postprocessing/prophet.py",
+          "lines": [
+            80,
+            170
+          ],
+          "function": "prophet",
+          "confidence": 0.82
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/plugins/plugin-chart-echarts/src/utils/forecast.ts",
+          "lines": [
+            86,
+            118
+          ],
+          "function": "formatForecastTooltipSeries",
+          "confidence": 0.45
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 20459,
+      "issue_url": "https://github.com/apache/superset/issues/20459",
+      "fix_pr_url": "https://github.com/apache/superset/pull/41490",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+        "superset-frontend/plugins/preset-chart-deckgl/src/Multi/Multi.tsx"
+      ],
+      "dropped_absent_files": [
+        "superset-frontend/plugins/preset-chart-deckgl/src/utils/addColor.ts"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset/viz.py",
+          "lines": [
+            1572,
+            1698
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+          "lines": [
+            229,
+            285
+          ],
+          "function": "getLayers",
+          "confidence": 0.82
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/plugins/preset-chart-deckgl/src/CategoricalDeckGLContainer.tsx",
+          "lines": [
+            102,
+            351
+          ],
+          "function": "CategoricalDeckGLContainer",
+          "confidence": 0.78
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/viz.py",
+          "lines": [
+            2009,
+            2065
+          ],
+          "function": null,
+          "confidence": 0.72
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset-frontend/plugins/preset-chart-deckgl/src/factory.tsx",
+          "lines": [
+            123,
+            157
+          ],
+          "function": "computeLayers",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 22904,
+      "issue_url": "https://github.com/apache/superset/issues/22904",
+      "fix_pr_url": "https://github.com/apache/superset/pull/41533",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "superset/result_set.py",
+        "superset/utils/json.py"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset/sql_lab.py",
+          "lines": [
+            336,
+            371
+          ],
+          "function": "_serialize_and_expand_data",
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/sql_lab.py",
+          "lines": [
+            374,
+            684
+          ],
+          "function": "execute_sql_statements",
+          "confidence": 0.79
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/commands/sql_lab/results.py",
+          "lines": [
+            42,
+            168
+          ],
+          "function": null,
+          "confidence": 0.72
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/sql/execution/executor.py",
+          "lines": [
+            96,
+            185
+          ],
+          "function": "execute_sql_with_cursor",
+          "confidence": 0.68
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/unit_tests/mcp_service/sql_lab/tool/test_execute_sql.py",
+          "lines": [
+            1114,
+            1119
+          ],
+          "function": "test_sanitize_utf8_bytes",
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 19388,
+      "issue_url": "https://github.com/apache/superset/issues/19388",
+      "fix_pr_url": "https://github.com/apache/superset/pull/41533",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "superset/result_set.py",
+        "superset/utils/json.py"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset/result_set.py",
+          "lines": [
+            134,
+            313
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/result_set.py",
+          "lines": [
+            135,
+            231
+          ],
+          "function": "__init__",
+          "confidence": 0.82
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/sql_lab.py",
+          "lines": [
+            336,
+            371
+          ],
+          "function": "_serialize_and_expand_data",
+          "confidence": 0.76
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/connectors/sqla/utils.py",
+          "lines": [
+            145,
+            166
+          ],
+          "function": "get_columns_description",
+          "confidence": 0.72
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/integration_tests/result_set_tests.py",
+          "lines": [
+            203,
+            242
+          ],
+          "function": "test_nested_types",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 20604,
+      "issue_url": "https://github.com/apache/superset/issues/20604",
+      "fix_pr_url": "https://github.com/apache/superset/pull/21769",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "superset-frontend/src/pages/SavedQueryList/index.tsx",
+        "superset/queries/saved_queries/api.py",
+        "superset/queries/saved_queries/filters.py"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset/queries/saved_queries/filters.py",
+          "lines": [
+            83,
+            91
+          ],
+          "function": "apply",
+          "confidence": 0.95
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/queries/saved_queries/filters.py",
+          "lines": [
+            82,
+            91
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/queries/saved_queries/api.py",
+          "lines": [
+            68,
+            432
+          ],
+          "function": null,
+          "confidence": 0.7
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/views/sql_lab/views.py",
+          "lines": [
+            40,
+            47
+          ],
+          "function": null,
+          "confidence": 0.6
+        },
+        {
+          "repo": "apache/superset",
+          "file": "tests/integration_tests/queries/saved_queries/api_tests.py",
+          "lines": [
+            200,
+            229
+          ],
+          "function": "test_get_list_saved_query",
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 24180,
+      "issue_url": "https://github.com/apache/superset/issues/24180",
+      "fix_pr_url": "https://github.com/apache/superset/pull/40139",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "superset/extensions/ssh.py"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset/extensions/ssh.py",
+          "lines": [
+            51,
+            80
+          ],
+          "function": "create_tunnel",
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/databases/schemas.py",
+          "lines": [
+            448,
+            479
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/databases/schemas.py",
+          "lines": [
+            926,
+            985
+          ],
+          "function": "validate_ssh_tunnel_credentials",
+          "confidence": 0.7
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/databases/ssh_tunnel/models.py",
+          "lines": [
+            37,
+            102
+          ],
+          "function": null,
+          "confidence": 0.65
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/commands/database/test_connection.py",
+          "lines": [
+            254,
+            259
+          ],
+          "function": "validate",
+          "confidence": 0.6
+        }
+      ]
+    },
+    {
+      "repo": "apache/superset",
+      "language": "python",
+      "issue_number": 21000,
+      "issue_url": "https://github.com/apache/superset/issues/21000",
+      "fix_pr_url": "https://github.com/apache/superset/pull/40136",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "superset/commands/dashboard/export.py",
+        "superset/commands/dashboard/importers/v1/utils.py",
+        "superset/dashboards/schemas.py"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "apache/superset",
+          "file": "superset/commands/dashboard/export.py",
+          "lines": [
+            119,
+            196
+          ],
+          "function": "_file_content",
+          "confidence": 0.92
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/commands/dashboard/export.py",
+          "lines": [
+            108,
+            264
+          ],
+          "function": null,
+          "confidence": 0.88
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/commands/dashboard/export.py",
+          "lines": [
+            200,
+            264
+          ],
+          "function": "_export",
+          "confidence": 0.75
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/models/dashboard.py",
+          "lines": [
+            355,
+            423
+          ],
+          "function": "export_dashboards",
+          "confidence": 0.68
+        },
+        {
+          "repo": "apache/superset",
+          "file": "superset/importexport/api.py",
+          "lines": [
+            37,
+            239
+          ],
+          "function": null,
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "issue_number": 6045,
+      "issue_url": "https://github.com/navidrome/navidrome/issues/6045",
+      "fix_pr_url": "https://github.com/navidrome/navidrome/pull/6046",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "core/storage/local/local.go"
+      ],
+      "dropped_absent_files": [
+        "core/storage/local/deviceid_unix.go",
+        "core/storage/local/deviceid_windows.go"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "navidrome/navidrome",
+          "file": "core/storage/local/local.go",
+          "lines": [
+            89,
+            94
+          ],
+          "function": "BirthTime",
+          "confidence": 0.92
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "scanner/metadata_old/metadata.go",
+          "lines": [
+            196,
+            201
+          ],
+          "function": "BirthTime",
+          "confidence": 0.88
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "model/metadata/metadata.go",
+          "lines": [
+            89,
+            89
+          ],
+          "function": "BirthTime",
+          "confidence": 0.85
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "model/metadata/map_mediafile.go",
+          "lines": [
+            16,
+            105
+          ],
+          "function": "ToMediaFile",
+          "confidence": 0.72
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "adapters/gotaglib/end_to_end_test.go",
+          "lines": [
+            20,
+            25
+          ],
+          "function": "BirthTime",
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "issue_number": 5871,
+      "issue_url": "https://github.com/navidrome/navidrome/issues/5871",
+      "fix_pr_url": "https://github.com/navidrome/navidrome/pull/5872",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "model/tag.go"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.72,
+      "returned_locations": [
+        {
+          "repo": "navidrome/navidrome",
+          "file": "ui/src/song/SongList.jsx",
+          "lines": [
+            131,
+            248
+          ],
+          "function": "SongList",
+          "confidence": 0.72
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "ui/src/album/AlbumSongs.jsx",
+          "lines": [
+            90,
+            215
+          ],
+          "function": "AlbumSongs",
+          "confidence": 0.71
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "ui/src/album/AlbumInfo.jsx",
+          "lines": [
+            35,
+            146
+          ],
+          "function": "AlbumInfo",
+          "confidence": 0.68
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "ui/src/playlist/PlaylistSongs.jsx",
+          "lines": [
+            93,
+            246
+          ],
+          "function": "PlaylistSongs",
+          "confidence": 0.65
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "ui/src/album/AlbumDetails.jsx",
+          "lines": [
+            143,
+            152
+          ],
+          "function": "GenreList",
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "issue_number": 5995,
+      "issue_url": "https://github.com/navidrome/navidrome/issues/5995",
+      "fix_pr_url": "https://github.com/navidrome/navidrome/pull/5996",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "cmd/pls.go"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "navidrome/navidrome",
+          "file": "cmd/pls.go",
+          "lines": [
+            155,
+            220
+          ],
+          "function": "runExport",
+          "confidence": 0.95
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "cmd/pls.go",
+          "lines": [
+            141,
+            153
+          ],
+          "function": "runExporter",
+          "confidence": 0.88
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "cmd/pls.go",
+          "lines": [
+            44,
+            62
+          ],
+          "function": "init",
+          "confidence": 0.72
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "cmd/root.go",
+          "lines": [
+            350,
+            407
+          ],
+          "function": "init",
+          "confidence": 0.65
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "model/playlist.go",
+          "lines": [
+            74,
+            76
+          ],
+          "function": "ToM3U8",
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "issue_number": 5907,
+      "issue_url": "https://github.com/navidrome/navidrome/issues/5907",
+      "fix_pr_url": "https://github.com/navidrome/navidrome/pull/5908",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "core/playlists/import.go",
+        "core/playlists/rest_adapter.go",
+        "model/playlist.go",
+        "persistence/playlist_repository.go"
+      ],
+      "dropped_absent_files": [
+        "db/migrations/20260818002312_add_playlist_imported_hash.sql"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "navidrome/navidrome",
+          "file": "persistence/playlist_repository.go",
+          "lines": [
+            249,
+            279
+          ],
+          "function": "refreshCounters",
+          "confidence": 0.85
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "core/playlists/import.go",
+          "lines": [
+            21,
+            69
+          ],
+          "function": "ImportFile",
+          "confidence": 0.78
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "core/playlists/import.go",
+          "lines": [
+            110,
+            128
+          ],
+          "function": "ImportM3U",
+          "confidence": 0.72
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "core/playlists/import.go",
+          "lines": [
+            169,
+            200
+          ],
+          "function": "updatePlaylist",
+          "confidence": 0.68
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "persistence/playlist_repository.go",
+          "lines": [
+            135,
+            152
+          ],
+          "function": "GetWithTracks",
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "issue_number": 5842,
+      "issue_url": "https://github.com/navidrome/navidrome/issues/5842",
+      "fix_pr_url": "https://github.com/navidrome/navidrome/pull/5867",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "persistence/album_repository.go"
+      ],
+      "dropped_absent_files": [
+        "db/migrations/20260816180040_renormalize_album_created_at.sql"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "navidrome/navidrome",
+          "file": "db/migrations/20260316000000_normalize_timestamps.sql",
+          "lines": [
+            1,
+            64
+          ],
+          "function": null,
+          "confidence": 0.92
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "server/subsonic/filter/filters.go",
+          "lines": [
+            29,
+            31
+          ],
+          "function": "AlbumsByRecent",
+          "confidence": 0.85
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "server/subsonic/album_lists.go",
+          "lines": [
+            19,
+            88
+          ],
+          "function": "getAlbumList",
+          "confidence": 0.78
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "persistence/album_repository.go",
+          "lines": [
+            97,
+            115
+          ],
+          "function": "NewAlbumRepository",
+          "confidence": 0.72
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "persistence/album_repository.go",
+          "lines": [
+            198,
+            211
+          ],
+          "function": "Put",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "issue_number": 5950,
+      "issue_url": "https://github.com/navidrome/navidrome/issues/5950",
+      "fix_pr_url": "https://github.com/navidrome/navidrome/pull/5952",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "resources/mime_types.yaml"
+      ],
+      "dropped_absent_files": [
+        "core/artwork/processor.go"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "navidrome/navidrome",
+          "file": "core/artwork/artwork.go",
+          "lines": [
+            60,
+            74
+          ],
+          "function": "Get",
+          "confidence": 0.85
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "core/artwork/artwork.go",
+          "lines": [
+            110,
+            134
+          ],
+          "function": "getArtworkReader",
+          "confidence": 0.82
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "core/artwork/sources.go",
+          "lines": [
+            27,
+            42
+          ],
+          "function": "selectImageReader",
+          "confidence": 0.78
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "core/artwork/cache_warmer.go",
+          "lines": [
+            27,
+            51
+          ],
+          "function": "NewCacheWarmer",
+          "confidence": 0.65
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "server/subsonic/media_retrieval.go",
+          "lines": [
+            56,
+            92
+          ],
+          "function": "GetCoverArt",
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "issue_number": 5943,
+      "issue_url": "https://github.com/navidrome/navidrome/issues/5943",
+      "fix_pr_url": "https://github.com/navidrome/navidrome/pull/5947",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "model/scanner.go",
+        "scanner/scanner.go"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "navidrome/navidrome",
+          "file": "scanner/phase_1_folders.go",
+          "lines": [
+            62,
+            92
+          ],
+          "function": "newScanJob",
+          "confidence": 0.85
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "scanner/scanner.go",
+          "lines": [
+            57,
+            186
+          ],
+          "function": "scanFolders",
+          "confidence": 0.82
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "model/scanner.go",
+          "lines": [
+            44,
+            81
+          ],
+          "function": "ParseTargets",
+          "confidence": 0.78
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "scanner/controller.go",
+          "lines": [
+            56,
+            71
+          ],
+          "function": "CallScan",
+          "confidence": 0.75
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "cmd/scan.go",
+          "lines": [
+            74,
+            109
+          ],
+          "function": "runScanner",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "issue_number": 5905,
+      "issue_url": "https://github.com/navidrome/navidrome/issues/5905",
+      "fix_pr_url": "https://github.com/navidrome/navidrome/pull/5906",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "contrib/navidrome"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "wrong_repo",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": false,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.05,
+      "returned_locations": [
+        {
+          "repo": "nextcloud/server",
+          "file": "autotest-external.sh",
+          "lines": [
+            93,
+            237
+          ],
+          "function": "execute_tests",
+          "confidence": 0.05
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "psalm-strict.xml",
+          "lines": [
+            1,
+            100
+          ],
+          "function": null,
+          "confidence": 0.05
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "core/css/server.css",
+          "lines": [
+            46,
+            57
+          ],
+          "function": null,
+          "confidence": 0.05
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "core/css/server.css",
+          "lines": [
+            47,
+            57
+          ],
+          "function": null,
+          "confidence": 0.05
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "conf/configuration.go",
+          "lines": [
+            298,
+            462
+          ],
+          "function": "Load",
+          "confidence": 0.08
+        }
+      ]
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "issue_number": 5599,
+      "issue_url": "https://github.com/navidrome/navidrome/issues/5599",
+      "fix_pr_url": "https://github.com/navidrome/navidrome/pull/5596",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "core/artwork/reader_album.go",
+        "model/folder.go",
+        "persistence/folder_repository.go"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "navidrome/navidrome",
+          "file": "core/artwork/reader_album.go",
+          "lines": [
+            106,
+            157
+          ],
+          "function": "loadAlbumFoldersPaths",
+          "confidence": 0.85
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "core/artwork/reader_album.go",
+          "lines": [
+            34,
+            62
+          ],
+          "function": "newAlbumArtworkReader",
+          "confidence": 0.82
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "core/artwork/reader_artist.go",
+          "lines": [
+            42,
+            101
+          ],
+          "function": "newArtistArtworkReader",
+          "confidence": 0.72
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "model/mediafile.go",
+          "lines": [
+            135,
+            137
+          ],
+          "function": "AlbumCoverArtID",
+          "confidence": 0.65
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "ui/src/subsonic/index.js",
+          "lines": [
+            83,
+            104
+          ],
+          "function": "getCoverArtUrl",
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "navidrome/navidrome",
+      "language": "go",
+      "issue_number": 4826,
+      "issue_url": "https://github.com/navidrome/navidrome/issues/4826",
+      "fix_pr_url": "https://github.com/navidrome/navidrome/pull/5450",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "model/criteria/fields.go",
+        "model/criteria/json.go",
+        "model/criteria/operators.go",
+        "persistence/criteria_sql.go"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "navidrome/navidrome",
+          "file": "persistence/criteria_sql.go",
+          "lines": [
+            129,
+            198
+          ],
+          "function": "exprSQL",
+          "confidence": 0.92
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "persistence/smart_playlist_repository.go",
+          "lines": [
+            149,
+            159
+          ],
+          "function": "buildSmartPlaylistQuery",
+          "confidence": 0.85
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "persistence/smart_playlist_repository.go",
+          "lines": [
+            172,
+            186
+          ],
+          "function": "addSmartPlaylistAnnotationJoins",
+          "confidence": 0.78
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "persistence/smart_playlist_repository.go",
+          "lines": [
+            19,
+            72
+          ],
+          "function": "refreshSmartPlaylist",
+          "confidence": 0.72
+        },
+        {
+          "repo": "navidrome/navidrome",
+          "file": "persistence/smart_playlist_repository.go",
+          "lines": [
+            190,
+            203
+          ],
+          "function": "addCriteria",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15591,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15591",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15996",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "runtime/queries/go/injections.scm"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "runtime/queries/go/injections.scm",
+          "lines": [
+            1,
+            93
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "runtime/queries/rust/injections.scm",
+          "lines": [
+            1,
+            218
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "runtime/queries/python/injections.scm",
+          "lines": [
+            1,
+            15
+          ],
+          "function": null,
+          "confidence": 0.7
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "runtime/queries/kotlin/injections.scm",
+          "lines": [
+            1,
+            43
+          ],
+          "function": null,
+          "confidence": 0.65
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "runtime/queries/lua/injections.scm",
+          "lines": [
+            1,
+            53
+          ],
+          "function": null,
+          "confidence": 0.6
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15975,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15975",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15993",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "helix-dap/src/client.rs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-dap-types/src/lib.rs",
+          "lines": [
+            459,
+            463
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-dap/src/client.rs",
+          "lines": [
+            299,
+            310
+          ],
+          "function": "request",
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-dap/src/client.rs",
+          "lines": [
+            436,
+            439
+          ],
+          "function": "configuration_done",
+          "confidence": 0.82
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-view/src/handlers/dap.rs",
+          "lines": [
+            147,
+            545
+          ],
+          "function": "handle_debugger_message",
+          "confidence": 0.75
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-dap/src/transport.rs",
+          "lines": [
+            185,
+            201
+          ],
+          "function": "process_response",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15779,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15779",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15780",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "helix-term/src/application.rs",
+        "helix-term/src/handlers/diagnostics.rs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/application.rs",
+          "lines": [
+            764,
+            1177
+          ],
+          "function": "handle_language_server_message",
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/handlers/diagnostics.rs",
+          "lines": [
+            261,
+            272
+          ],
+          "function": "request_document_diagnostics",
+          "confidence": 0.82
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/handlers/diagnostics.rs",
+          "lines": [
+            162,
+            259
+          ],
+          "function": "request_document_diagnostics_for_language_severs",
+          "confidence": 0.78
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/handlers/diagnostics.rs",
+          "lines": [
+            25,
+            100
+          ],
+          "function": "register_hooks",
+          "confidence": 0.72
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-view/src/editor.rs",
+          "lines": [
+            1640,
+            1725
+          ],
+          "function": "launch_language_servers",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15883,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15883",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15939",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "helix-core/src/editor_config.rs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/editor_config.rs",
+          "lines": [
+            284,
+            296
+          ],
+          "function": "editor_config",
+          "confidence": 0.92
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/editor_config.rs",
+          "lines": [
+            194,
+            255
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/editor_config.rs",
+          "lines": [
+            197,
+            254
+          ],
+          "function": "from_str",
+          "confidence": 0.82
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/editor_config.rs",
+          "lines": [
+            258,
+            271
+          ],
+          "function": "is_glob_relative",
+          "confidence": 0.68
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/editor_config.rs",
+          "lines": [
+            40,
+            178
+          ],
+          "function": null,
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15922,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15922",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15965",
+      "seen_in_v1": true,
+      "ground_truth_files": [
+        "runtime/queries/markdown.inline/injections.scm"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "runtime/queries/markdown/injections.scm",
+          "lines": [
+            1,
+            23
+          ],
+          "function": null,
+          "confidence": 0.92
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "runtime/queries/markdown.inline/highlights.scm",
+          "lines": [
+            1,
+            40
+          ],
+          "function": null,
+          "confidence": 0.78
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/ui/markdown.rs",
+          "lines": [
+            172,
+            365
+          ],
+          "function": "parse",
+          "confidence": 0.65
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/ui/markdown.rs",
+          "lines": [
+            149,
+            366
+          ],
+          "function": null,
+          "confidence": 0.58
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "runtime/queries/latex/highlights.scm",
+          "lines": [
+            1,
+            240
+          ],
+          "function": null,
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15971,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15971",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15940",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "helix-term/src/commands.rs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/commands.rs",
+          "lines": [
+            3800,
+            3918
+          ],
+          "function": "open",
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/commands.rs",
+          "lines": [
+            5446,
+            5463
+          ],
+          "function": "toggle_comments_impl",
+          "confidence": 0.75
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/syntax/config.rs",
+          "lines": [
+            25,
+            106
+          ],
+          "function": null,
+          "confidence": 0.72
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/comment.rs",
+          "lines": [
+            82,
+            117
+          ],
+          "function": "toggle_line_comments",
+          "confidence": 0.68
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/tests/test/helpers.rs",
+          "lines": [
+            225,
+            234
+          ],
+          "function": "test_syntax_loader",
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 13222,
+      "issue_url": "https://github.com/helix-editor/helix/issues/13222",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/13634",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "helix-core/src/snippets/active.rs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/commands.rs",
+          "lines": [
+            6797,
+            6828
+          ],
+          "function": "goto_next_tabstop_impl",
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/snippets/active.rs",
+          "lines": [
+            174,
+            196
+          ],
+          "function": "activate_tabstop",
+          "confidence": 0.82
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/snippets/elaborate.rs",
+          "lines": [
+            105,
+            117
+          ],
+          "function": "ensure_last_tabstop",
+          "confidence": 0.78
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-core/src/snippets/active.rs",
+          "lines": [
+            33,
+            226
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/commands.rs",
+          "lines": [
+            4324,
+            4351
+          ],
+          "function": "smart_tab",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 14724,
+      "issue_url": "https://github.com/helix-editor/helix/issues/14724",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15553",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "helix-lsp/src/client.rs",
+        "helix-lsp/src/lib.rs",
+        "helix-lsp/src/transport.rs",
+        "helix-term/src/application.rs",
+        "helix-view/src/editor.rs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-view/src/editor.rs",
+          "lines": [
+            2261,
+            2283
+          ],
+          "function": "close_language_servers",
+          "confidence": 0.92
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-lsp/src/client.rs",
+          "lines": [
+            787,
+            793
+          ],
+          "function": "force_shutdown",
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-lsp/src/client.rs",
+          "lines": [
+            770,
+            772
+          ],
+          "function": "shutdown",
+          "confidence": 0.79
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/application.rs",
+          "lines": [
+            764,
+            1177
+          ],
+          "function": "handle_language_server_message",
+          "confidence": 0.72
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/application.rs",
+          "lines": [
+            1322,
+            1350
+          ],
+          "function": "close",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15691,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15691",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15695",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "helix-term/src/application.rs",
+        "helix-view/src/theme.rs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/application.rs",
+          "lines": [
+            694,
+            762
+          ],
+          "function": "handle_terminal_events",
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/application.rs",
+          "lines": [
+            464,
+            500
+          ],
+          "function": "load_configured_theme",
+          "confidence": 0.82
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/application.rs",
+          "lines": [
+            416,
+            461
+          ],
+          "function": "refresh_config",
+          "confidence": 0.78
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-tui/src/backend/termina.rs",
+          "lines": [
+            616,
+            618
+          ],
+          "function": "get_theme_mode",
+          "confidence": 0.75
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-view/src/editor.rs",
+          "lines": [
+            1503,
+            1528
+          ],
+          "function": "set_theme_impl",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "helix-editor/helix",
+      "language": "rust",
+      "issue_number": 15429,
+      "issue_url": "https://github.com/helix-editor/helix/issues/15429",
+      "fix_pr_url": "https://github.com/helix-editor/helix/pull/15490",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "helix-term/src/application.rs",
+        "helix-term/src/compositor.rs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/application.rs",
+          "lines": [
+            1189,
+            1251
+          ],
+          "function": "handle_show_document",
+          "confidence": 0.95
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-lsp-types/src/window.rs",
+          "lines": [
+            138,
+            161
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-term/src/commands/lsp.rs",
+          "lines": [
+            130,
+            160
+          ],
+          "function": "jump_to_position",
+          "confidence": 0.72
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-view/src/editor.rs",
+          "lines": [
+            2100,
+            2124
+          ],
+          "function": "focus",
+          "confidence": 0.68
+        },
+        {
+          "repo": "helix-editor/helix",
+          "file": "helix-view/src/editor.rs",
+          "lines": [
+            2433,
+            2451
+          ],
+          "function": "jump_to",
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "issue_number": 56412,
+      "issue_url": "https://github.com/nextcloud/server/issues/56412",
+      "fix_pr_url": "https://github.com/nextcloud/server/pull/63555",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "core/Command/User/AuthTokens/Add.php"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Authentication/Token/PublicKeyTokenProvider.php",
+          "lines": [
+            508,
+            517
+          ],
+          "function": "markPasswordInvalid",
+          "confidence": 0.92
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Authentication/Token/PublicKeyTokenProvider.php",
+          "lines": [
+            308,
+            324
+          ],
+          "function": "updateTokenActivity",
+          "confidence": 0.78
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Authentication/Token/PublicKeyTokenProvider.php",
+          "lines": [
+            197,
+            210
+          ],
+          "function": "checkToken",
+          "confidence": 0.75
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Authentication/Token/PublicKeyTokenProvider.php",
+          "lines": [
+            275,
+            292
+          ],
+          "function": "invalidateOldTokens",
+          "confidence": 0.68
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Authentication/Token/PublicKeyTokenProvider.php",
+          "lines": [
+            31,
+            582
+          ],
+          "function": null,
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "issue_number": 63504,
+      "issue_url": "https://github.com/nextcloud/server/issues/63504",
+      "fix_pr_url": "https://github.com/nextcloud/server/pull/63510",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/dav/lib/Connector/Sabre/File.php"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/dav/lib/Connector/Sabre/File.php",
+          "lines": [
+            114,
+            352
+          ],
+          "function": "put",
+          "confidence": 0.95
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Files/ObjectStore/ObjectStoreStorage.php",
+          "lines": [
+            478,
+            592
+          ],
+          "function": "writeStream",
+          "confidence": 0.88
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/dav/lib/Upload/ChunkingV2Plugin.php",
+          "lines": [
+            338,
+            372
+          ],
+          "function": "completeChunkedWrite",
+          "confidence": 0.72
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Files/ObjectStore/ObjectStoreStorage.php",
+          "lines": [
+            850,
+            892
+          ],
+          "function": "completeChunkedWrite",
+          "confidence": 0.65
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Files/ObjectStore/ObjectStoreStorage.php",
+          "lines": [
+            41,
+            950
+          ],
+          "function": null,
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "issue_number": 60718,
+      "issue_url": "https://github.com/nextcloud/server/issues/60718",
+      "fix_pr_url": "https://github.com/nextcloud/server/pull/63562",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/sharebymail/lib/ShareByMailProvider.php"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/sharebymail/lib/ShareByMailProvider.php",
+          "lines": [
+            226,
+            248
+          ],
+          "function": "createMailShare",
+          "confidence": 0.85
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/sharebymail/lib/ShareByMailProvider.php",
+          "lines": [
+            49,
+            1275
+          ],
+          "function": null,
+          "confidence": 0.82
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/sharebymail/lib/ShareByMailProvider.php",
+          "lines": [
+            86,
+            124
+          ],
+          "function": "create",
+          "confidence": 0.8
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Share20/DefaultShareProvider.php",
+          "lines": [
+            97,
+            206
+          ],
+          "function": "create",
+          "confidence": 0.75
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Share20/Manager.php",
+          "lines": [
+            659,
+            796
+          ],
+          "function": "updateShare",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "issue_number": 63409,
+      "issue_url": "https://github.com/nextcloud/server/issues/63409",
+      "fix_pr_url": "https://github.com/nextcloud/server/pull/63541",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "core/src/views/UnifiedSearch.vue"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "nextcloud/server",
+          "file": "core/src/views/UnifiedSearch.vue",
+          "lines": [
+            241,
+            337
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "core/src/tests/components/UnifiedSearch.spec.ts",
+          "lines": [
+            36,
+            41
+          ],
+          "function": "pressCtrl",
+          "confidence": 0.88
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "core/src/views/UnifiedSearch.vue",
+          "lines": [
+            1,
+            252
+          ],
+          "function": null,
+          "confidence": 0.82
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "core/src/components/UnifiedSearch/UnifiedSearchInput.vue",
+          "lines": [
+            1,
+            223
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "core/src/views/LegacyUnifiedSearch.vue",
+          "lines": [
+            1,
+            316
+          ],
+          "function": null,
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "issue_number": 63415,
+      "issue_url": "https://github.com/nextcloud/server/issues/63415",
+      "fix_pr_url": "https://github.com/nextcloud/server/pull/63435",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/dav/composer/composer/autoload_classmap.php",
+        "apps/dav/composer/composer/autoload_static.php",
+        "apps/dav/lib/Connector/Sabre/ServerFactory.php"
+      ],
+      "dropped_absent_files": [
+        "apps/dav/lib/Connector/Sabre/StreamedPropFindNotFoundPlugin.php"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/dav/lib/Connector/Sabre/Server.php",
+          "lines": [
+            26,
+            294
+          ],
+          "function": null,
+          "confidence": 0.92
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/dav/lib/Server.php",
+          "lines": [
+            113,
+            455
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/dav/lib/DAV/CustomPropertiesBackend.php",
+          "lines": [
+            178,
+            276
+          ],
+          "function": "propFind",
+          "confidence": 0.68
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/dav/lib/Connector/Sabre/DavAclPlugin.php",
+          "lines": [
+            73,
+            93
+          ],
+          "function": "propFind",
+          "confidence": 0.62
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/dav/lib/Connector/Sabre/FilesPlugin.php",
+          "lines": [
+            303,
+            545
+          ],
+          "function": "handleGetProperties",
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "issue_number": 59249,
+      "issue_url": "https://github.com/nextcloud/server/issues/59249",
+      "fix_pr_url": "https://github.com/nextcloud/server/pull/63417",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "lib/private/Files/ObjectStore/S3ConnectionTrait.php"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Files/ObjectStore/S3ConnectionTrait.php",
+          "lines": [
+            30,
+            416
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Files/ObjectStore/S3ConnectionTrait.php",
+          "lines": [
+            413,
+            415
+          ],
+          "function": "isUsePresignedUrl",
+          "confidence": 0.92
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Files/ObjectStore/S3ConnectionTrait.php",
+          "lines": [
+            94,
+            217
+          ],
+          "function": "getConnection",
+          "confidence": 0.85
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/files_external/lib/Lib/Storage/AmazonS3.php",
+          "lines": [
+            790,
+            818
+          ],
+          "function": "getDirectDownload",
+          "confidence": 0.78
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Files/ObjectStore/S3ObjectTrait.php",
+          "lines": [
+            305,
+            322
+          ],
+          "function": "preSignedUrl",
+          "confidence": 0.76
+        }
+      ]
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "issue_number": 59194,
+      "issue_url": "https://github.com/nextcloud/server/issues/59194",
+      "fix_pr_url": "https://github.com/nextcloud/server/pull/59228",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/files_reminders/lib/Service/ReminderService.php",
+        "apps/files_reminders/src/components/SetCustomReminderModal.vue",
+        "apps/files_reminders/src/files_actions/reminderStatusAction.ts",
+        "apps/files_reminders/src/services/reminderService.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/files_reminders/src/services/reminderService.ts",
+          "lines": [
+            49,
+            54
+          ],
+          "function": "clearReminder",
+          "confidence": 0.92
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/files_reminders/lib/Controller/ApiController.php",
+          "lines": [
+            121,
+            134
+          ],
+          "function": "remove",
+          "confidence": 0.88
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/files_reminders/lib/Service/ReminderService.php",
+          "lines": [
+            134,
+            141
+          ],
+          "function": "remove",
+          "confidence": 0.85
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/files_reminders/lib/Service/ReminderService.php",
+          "lines": [
+            201,
+            204
+          ],
+          "function": "deleteReminder",
+          "confidence": 0.82
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/files_reminders/lib/Service/ReminderService.php",
+          "lines": [
+            67,
+            88
+          ],
+          "function": "getDueForUser",
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "issue_number": 49413,
+      "issue_url": "https://github.com/nextcloud/server/issues/49413",
+      "fix_pr_url": "https://github.com/nextcloud/server/pull/63350",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "core/Migrations/Version30000Date20240717111406.php"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "nextcloud/server",
+          "file": "core/Migrations/Version30000Date20240717111406.php",
+          "lines": [
+            23,
+            57
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "core/Migrations/Version30000Date20240906095113.php",
+          "lines": [
+            19,
+            38
+          ],
+          "function": null,
+          "confidence": 0.72
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "core/Migrations/Version30000Date20240708160048.php",
+          "lines": [
+            23,
+            69
+          ],
+          "function": null,
+          "confidence": 0.68
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "core/Migrations/Version33000Date20251013110519.php",
+          "lines": [
+            23,
+            50
+          ],
+          "function": null,
+          "confidence": 0.65
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "core/Migrations/Version33000Date20251126152410.php",
+          "lines": [
+            20,
+            48
+          ],
+          "function": null,
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "issue_number": 62458,
+      "issue_url": "https://github.com/nextcloud/server/issues/62458",
+      "fix_pr_url": "https://github.com/nextcloud/server/pull/62459",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/files/src/newMenu/newFolder.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/files_sharing/src/models/Share.ts",
+          "lines": [
+            12,
+            517
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/files_sharing/src/components/SharingEntryLink.vue",
+          "lines": [
+            742,
+            1011
+          ],
+          "function": null,
+          "confidence": 0.82
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/files_sharing/src/components/SharingEntryLink.vue",
+          "lines": [
+            514,
+            753
+          ],
+          "function": null,
+          "confidence": 0.78
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/files_sharing/src/views/SharingDetailsTab.vue",
+          "lines": [
+            683,
+            964
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "apps/files_sharing/src/mixins/ShareRequests.js",
+          "lines": [
+            35,
+            49
+          ],
+          "function": "createShare",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "nextcloud/server",
+      "language": "php",
+      "issue_number": 63348,
+      "issue_url": "https://github.com/nextcloud/server/issues/63348",
+      "fix_pr_url": "https://github.com/nextcloud/server/pull/63376",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "lib/private/Preview/Generator.php",
+        "lib/private/Preview/Storage/IPreviewStorage.php",
+        "lib/private/Preview/Storage/LocalPreviewStorage.php",
+        "lib/private/Preview/Storage/ObjectStorePreviewStorage.php",
+        "lib/private/Preview/Storage/StorageFactory.php"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Preview/Generator.php",
+          "lines": [
+            575,
+            615
+          ],
+          "function": "savePreview",
+          "confidence": 0.85
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Preview/PreviewService.php",
+          "lines": [
+            31,
+            34
+          ],
+          "function": "deletePreview",
+          "confidence": 0.82
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Preview/Storage/StorageFactory.php",
+          "lines": [
+            35,
+            38
+          ],
+          "function": "deletePreview",
+          "confidence": 0.78
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Preview/Storage/LocalPreviewStorage.php",
+          "lines": [
+            64,
+            70
+          ],
+          "function": "deletePreview",
+          "confidence": 0.75
+        },
+        {
+          "repo": "nextcloud/server",
+          "file": "lib/private/Preview/Storage/ObjectStorePreviewStorage.php",
+          "lines": [
+            77,
+            94
+          ],
+          "function": "deletePreview",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "issue_number": 51674,
+      "issue_url": "https://github.com/keycloak/keycloak/issues/51674",
+      "fix_pr_url": "https://github.com/keycloak/keycloak/pull/51840",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "server-spi/src/main/java/org/keycloak/models/PasswordPolicy.java"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.82,
+      "returned_locations": [
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/authentication/requiredactions/UpdatePassword.java",
+          "lines": [
+            60,
+            220
+          ],
+          "function": null,
+          "confidence": 0.82
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/credential/PasswordCredentialProvider.java",
+          "lines": [
+            53,
+            353
+          ],
+          "function": null,
+          "confidence": 0.81
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/credential/PasswordCredentialProvider.java",
+          "lines": [
+            277,
+            310
+          ],
+          "function": "rehashPasswordIfRequired",
+          "confidence": 0.78
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "server-spi-private/src/main/java/org/keycloak/policy/LengthPasswordPolicyProvider.java",
+          "lines": [
+            27,
+            57
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "server-spi-private/src/main/java/org/keycloak/credential/hash/Pbkdf2PasswordHashProvider.java",
+          "lines": [
+            39,
+            145
+          ],
+          "function": null,
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "issue_number": 52074,
+      "issue_url": "https://github.com/keycloak/keycloak/issues/52074",
+      "fix_pr_url": "https://github.com/keycloak/keycloak/pull/52077",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginPage.java",
+        "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginUsernamePage.java",
+        "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/PasswordPage.java",
+        "test-framework/ui/src/main/java/org/keycloak/testframework/ui/webdriver/WaitUtils.java"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "keycloak/keycloak",
+          "file": "tests/webauthn/src/test/java/org/keycloak/tests/webauthn/passwordless/PasskeysUsernameFormTest.java",
+          "lines": [
+            52,
+            529
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/EnterRecoveryAuthnCodePage.java",
+          "lines": [
+            46,
+            54
+          ],
+          "function": "waitUntilReloaded",
+          "confidence": 0.85
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginPage.java",
+          "lines": [
+            12,
+            167
+          ],
+          "function": null,
+          "confidence": 0.72
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "testsuite/integration-arquillian/tests/base/src/main/java/org/keycloak/testsuite/util/WaitUtils.java",
+          "lines": [
+            55,
+            195
+          ],
+          "function": null,
+          "confidence": 0.68
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "tests/webauthn/src/test/java/org/keycloak/tests/webauthn/passwordless/PasskeysUsernamePasswordFormTest.java",
+          "lines": [
+            47,
+            514
+          ],
+          "function": null,
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "issue_number": 51920,
+      "issue_url": "https://github.com/keycloak/keycloak/issues/51920",
+      "fix_pr_url": "https://github.com/keycloak/keycloak/pull/52083",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/logging/KeycloakLogFilter.java"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": false,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "keycloak/keycloak",
+          "file": "model/jpa/src/main/java/org/keycloak/connections/jpa/updater/liquibase/custom/JpaUpdate26_6_0_OfflineClientSessionRealm.java",
+          "lines": [
+            95,
+            101
+          ],
+          "function": "generateUpdateQueryForMySQL",
+          "confidence": 0.85
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "model/jpa/src/main/java/org/keycloak/connections/jpa/updater/liquibase/custom/JpaUpdate26_6_0_OfflineClientSessionRealm.java",
+          "lines": [
+            26,
+            111
+          ],
+          "function": null,
+          "confidence": 0.82
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "model/jpa/src/main/java/org/keycloak/connections/jpa/updater/liquibase/custom/JpaUpdate26_6_0_OfflineClientSessionRealm.java",
+          "lines": [
+            28,
+            57
+          ],
+          "function": "generateStatementsImpl",
+          "confidence": 0.78
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "model/jpa/src/main/java/org/keycloak/connections/jpa/updater/liquibase/custom/RemoveDuplicateOfflineSessions.java",
+          "lines": [
+            77,
+            125
+          ],
+          "function": "generateStatementsImpl",
+          "confidence": 0.72
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "model/jpa/src/main/java/org/keycloak/connections/jpa/updater/liquibase/custom/JpaUpdate4_7_0_OfflineSessionsTimestamps.java",
+          "lines": [
+            33,
+            49
+          ],
+          "function": "generateStatementsImpl",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "issue_number": 51943,
+      "issue_url": "https://github.com/keycloak/keycloak/issues/51943",
+      "fix_pr_url": "https://github.com/keycloak/keycloak/pull/52045",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "operator/pom.xml",
+        "operator/scripts/post-process-helm-chart.sh"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "keycloak/keycloak",
+          "file": "operator/pom.xml",
+          "lines": [
+            1,
+            219
+          ],
+          "function": null,
+          "confidence": 0.92
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "operator/pom.xml",
+          "lines": [
+            208,
+            383
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "quarkus/deployment/pom.xml",
+          "lines": [
+            1,
+            204
+          ],
+          "function": null,
+          "confidence": 0.68
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "quarkus/runtime/pom.xml",
+          "lines": [
+            1,
+            225
+          ],
+          "function": null,
+          "confidence": 0.62
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "quarkus/pom.xml",
+          "lines": [
+            1,
+            66
+          ],
+          "function": null,
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "issue_number": 50796,
+      "issue_url": "https://github.com/keycloak/keycloak/issues/50796",
+      "fix_pr_url": "https://github.com/keycloak/keycloak/pull/50809",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "services/src/main/java/org/keycloak/services/managers/ClientManager.java"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/services/managers/ClientManager.java",
+          "lines": [
+            415,
+            431
+          ],
+          "function": "isInternalClient",
+          "confidence": 0.95
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/services/resources/admin/fgap/ClientPermissions.java",
+          "lines": [
+            719,
+            729
+          ],
+          "function": "isInternal",
+          "confidence": 0.85
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "server-spi-private/src/main/java/org/keycloak/models/utils/ModelToRepresentation.java",
+          "lines": [
+            948,
+            963
+          ],
+          "function": "isRealmClient",
+          "confidence": 0.82
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "server-spi-private/src/main/java/org/keycloak/models/AdminRoles.java",
+          "lines": [
+            111,
+            116
+          ],
+          "function": "isAdminClient",
+          "confidence": 0.75
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/services/resources/admin/fgap/MgmtPermissions.java",
+          "lines": [
+            467,
+            473
+          ],
+          "function": "getRealmManagementClient",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "issue_number": 52038,
+      "issue_url": "https://github.com/keycloak/keycloak/issues/52038",
+      "fix_pr_url": "https://github.com/keycloak/keycloak/pull/52039",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/UserSessionAdapter.java",
+        "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+        "model/storage-private/src/main/java/org/keycloak/models/session/PersistentAuthenticatedClientSessionAdapter.java"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "keycloak/keycloak",
+          "file": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+          "lines": [
+            124,
+            254
+          ],
+          "function": "mergeClientSession",
+          "confidence": 0.95
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+          "lines": [
+            541,
+            701
+          ],
+          "function": "mergeUserSession",
+          "confidence": 0.88
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/changes/JpaChangesPerformer.java",
+          "lines": [
+            54,
+            702
+          ],
+          "function": null,
+          "confidence": 0.82
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "model/jpa/src/main/java/org/keycloak/models/jpa/session/JpaUserSessionPersisterProvider.java",
+          "lines": [
+            70,
+            893
+          ],
+          "function": null,
+          "confidence": 0.68
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "model/infinispan/src/main/java/org/keycloak/models/sessions/infinispan/entities/AuthenticatedClientSessionEntity.java",
+          "lines": [
+            40,
+            203
+          ],
+          "function": null,
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "issue_number": 52017,
+      "issue_url": "https://github.com/keycloak/keycloak/issues/52017",
+      "fix_pr_url": "https://github.com/keycloak/keycloak/pull/52019",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "services/src/main/java/org/keycloak/protocol/saml/profile/ecp/SamlEcpProfileService.java"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.82,
+      "returned_locations": [
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/protocol/saml/profile/ecp/SamlEcpProfileService.java",
+          "lines": [
+            77,
+            126
+          ],
+          "function": "authenticate",
+          "confidence": 0.82
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/protocol/saml/profile/ecp/SamlEcpProfileService.java",
+          "lines": [
+            56,
+            197
+          ],
+          "function": null,
+          "confidence": 0.81
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/protocol/saml/profile/ecp/SamlEcpProfileService.java",
+          "lines": [
+            135,
+            188
+          ],
+          "function": "createEcpSamlProtocol",
+          "confidence": 0.76
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "adapters/saml/core/src/main/java/org/keycloak/adapters/saml/profile/ecp/EcpAuthenticationHandler.java",
+          "lines": [
+            51,
+            172
+          ],
+          "function": null,
+          "confidence": 0.72
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/protocol/saml/profile/ecp/SamlEcpProfileService.java",
+          "lines": [
+            159,
+            168
+          ],
+          "function": "createRequestAuthenticatedHeader",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "issue_number": 51531,
+      "issue_url": "https://github.com/keycloak/keycloak/issues/51531",
+      "fix_pr_url": "https://github.com/keycloak/keycloak/pull/51565",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "services/src/main/java/org/keycloak/services/resources/admin/RoleMapperResource.java"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/services/resources/admin/RoleMapperResource.java",
+          "lines": [
+            200,
+            218
+          ],
+          "function": "getCompositeRealmRoleMappings",
+          "confidence": 0.95
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/services/resources/admin/RoleMapperResource.java",
+          "lines": [
+            84,
+            358
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "model/infinispan/src/main/java/org/keycloak/models/cache/infinispan/RoleAdapter.java",
+          "lines": [
+            41,
+            264
+          ],
+          "function": null,
+          "confidence": 0.8
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/services/resources/admin/ClientRoleMappingsResource.java",
+          "lines": [
+            124,
+            144
+          ],
+          "function": "getCompositeClientRoleMappings",
+          "confidence": 0.7
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/services/resources/admin/ScopeMappedResource.java",
+          "lines": [
+            189,
+            208
+          ],
+          "function": "getCompositeRealmScopeMappings",
+          "confidence": 0.6
+        }
+      ]
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "issue_number": 51620,
+      "issue_url": "https://github.com/keycloak/keycloak/issues/51620",
+      "fix_pr_url": "https://github.com/keycloak/keycloak/pull/51793",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "test-framework/ui/src/main/java/org/keycloak/testframework/ui/page/LoginUpdateProfilePage.java",
+        "themes/src/main/resources/theme/keycloak.v2/login/resources/css/styles.css"
+      ],
+      "dropped_absent_files": [
+        "themes/src/main/resources/theme/keycloak.v2/login/login-update-profile.ftl",
+        "themes/src/main/resources/theme/keycloak.v2/login/login-verify-email.ftl"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "keycloak/keycloak",
+          "file": "themes/src/main/resources/theme/keycloak.v2/login/resources/css/styles.css",
+          "lines": [
+            1,
+            187
+          ],
+          "function": null,
+          "confidence": 0.92
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "themes/src/main/resources/theme/keycloak/login/resources/css/login.css",
+          "lines": [
+            1,
+            458
+          ],
+          "function": null,
+          "confidence": 0.88
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "services/src/main/java/org/keycloak/forms/login/freemarker/Templates.java",
+          "lines": [
+            25,
+            96
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/forms/ThemeSelectorTest.java",
+          "lines": [
+            51,
+            60
+          ],
+          "function": "detectTheme",
+          "confidence": 0.72
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/forms/ThemeSelectorTest.java",
+          "lines": [
+            14,
+            62
+          ],
+          "function": null,
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "repo": "keycloak/keycloak",
+      "language": "java",
+      "issue_number": 51113,
+      "issue_url": "https://github.com/keycloak/keycloak/issues/51113",
+      "fix_pr_url": "https://github.com/keycloak/keycloak/pull/51291",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "docs/documentation/upgrading/topics/changes/changes-26_8_0.adoc",
+        "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/cli/command/ShowConfig.java",
+        "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/Configuration.java",
+        "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/KcEnvConfigSource.java"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "keycloak/keycloak",
+          "file": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/KcEnvConfigSource.java",
+          "lines": [
+            40,
+            121
+          ],
+          "function": null,
+          "confidence": 0.92
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/MicroProfileConfigProvider.java",
+          "lines": [
+            36,
+            124
+          ],
+          "function": null,
+          "confidence": 0.88
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/cli/command/ShowConfig.java",
+          "lines": [
+            61,
+            121
+          ],
+          "function": "runCommand",
+          "confidence": 0.85
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/mappers/PropertyMappers.java",
+          "lines": [
+            40,
+            436
+          ],
+          "function": null,
+          "confidence": 0.78
+        },
+        {
+          "repo": "keycloak/keycloak",
+          "file": "quarkus/runtime/src/main/java/org/keycloak/quarkus/runtime/configuration/PropertyMappingInterceptor.java",
+          "lines": [
+            60,
+            223
+          ],
+          "function": null,
+          "confidence": 0.72
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "repo": "calcom/cal.diy",
+      "issue": 29567,
+      "reason": "extraction_split_into_3_bugs",
+      "seen_in_v1": true
+    },
+    {
+      "repo": "calcom/cal.diy",
+      "issue": 29500,
+      "reason": "extraction_split_into_5_bugs",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "calcom/cal.diy",
+      "issue": 29590,
+      "reason": "extraction_split_into_2_bugs",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "calcom/cal.diy",
+      "issue": 28835,
+      "reason": "no_bug_produced",
+      "seen_in_v1": false
+    }
+  ]
+}
