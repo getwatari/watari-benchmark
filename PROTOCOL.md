@@ -536,3 +536,119 @@ reasonable roadmap item rather than a scoring artefact.
 sample, so the composition is known before any case is run, as Amendment 5 managed and this run did
 not. A reader should be able to see how many answers were reachable before they see how many were
 found.
+
+---
+
+# Protocol version 3 (2026-09-01, declared before any v3 case is run)
+
+Versions 1 and 2 stay published exactly as they are. Their numbers are not restated, revised or
+withdrawn by this document, and v2's out-of-sample figure in particular is not superseded by
+anything below (Amendment 12 says why).
+
+## Why v3 exists
+
+v3 changes one input: **the corpus**. `#394` taught the indexer the file types a fix actually
+edits, and fixed a chunker that returned nothing for a type it had no branch for.
+
+v2 measured a corpus in which **7 of its 56 scored cases had no ground-truth chunk at all**
+(Amendment 11). Four of those seven are chunked now. A benchmark that keeps citing the old corpus
+describes a product we no longer ship, in the direction that flatters nobody: it understates us.
+
+So v3 re-runs the **same frozen sample, the same ground truth and the same repository pins**
+against the corpus the shipped indexer produces today.
+
+## What changes, and what does not
+
+| | v2 | v3 |
+|---|---|---|
+| frozen sample | `sample.v2.frozen.json` | same file, unchanged |
+| ground truth | `ground-truth.v2.json` | same file, unchanged |
+| repository pins | six `index_commit` values | same six, verified against the local clones |
+| chunker | production at 2026-08-30 | production at `35bd6c54`, which includes `#394` |
+| retrieval policy | route 30 / per-repo 30 / cap 80 | unchanged |
+| extraction, expansion, ranking prompt | production modules | unchanged |
+| scoring | `scoreCase` / `aggregate` / `wilsonInterval` | unchanged |
+
+**v3 measures ONE change, not four.** The chunker blind-spot fix (`#380`, merged 2026-08-29), query
+expansion (`#385`) and per-repository search depth (`#388`, both merged 2026-08-30) were all already
+in the product when v2 ran, and v2's corpus was chunked with `#380` in it. Only `#394` is new.
+
+n does not move either. The sample is the same 60 cases, so v3 inherits v2's interval width of
+roughly 25 points. **Anything that narrows the interval requires more cases, which is a new sample
+and therefore a v4.**
+
+## Amendment 12 - v3 has NO out-of-sample cases, declared before the run
+
+`#394`'s file-type list and its exclusion of `.snapshots/` were both chosen while looking at these
+same 56 cases: candidate-set containment was measured on them, and the `.snapshots/` regression was
+found on navidrome#5871, one of them. That is selection on test data, exactly the situation
+Amendment 9 handled for v2 by carving out the never-seen cases.
+
+For v3 there is nothing to carve out. **Every case is in-sample.** Two consequences, both binding:
+
+1. **v3's headline is an upper bound on this change, not an estimate of how it generalizes.** Any
+   surface that prints a v3 figure prints that caveat beside it.
+2. **v2's out-of-sample figure, 24 of 42 = 57.1%, remains the standing generalization claim.** It is
+   published unchanged next to any v3 number, and it is the one to believe if the two disagree.
+
+The remedy is a fresh sample, not a re-analysis of this one. A v4 that selects repositories never
+examined, under the same selector and the same rules, restores an out-of-sample estimate and is also
+the only way to narrow the interval. Publishing v3 as though it were out-of-sample would be the
+precise failure this protocol exists to prevent, and it would be a worse one than v2's, because here
+we already know the answer.
+
+## Amendment 13 - indexability measured BEFORE the run, as Amendment 11 committed
+
+Amendment 11 committed v3 to checking corpus composition before results rather than after. Run
+against the v3 corpus (186,605 chunks) by `scripts/probe/indexability.mjs`, output committed as
+`benchmarks/localization/indexability.v3.json` before any case is scored:
+
+| | v2 corpus | v3 corpus |
+|---|---|---|
+| cases with at least one ground-truth chunk | 53 of 60 | **57 of 60** |
+| cases with none | 7 | **3** |
+
+The three that remain, with the reason each is unreachable:
+
+    apache/superset#43399      docs/src/pages/community.tsx     `docs/` is a deliberately skipped
+                                                                directory (semantic collision with
+                                                                bug descriptions)
+    navidrome/navidrome#5950   core/artwork/processor.go        does not exist at the pinned commit
+                               resources/mime_types.yaml        YAML is still not indexed
+    navidrome/navidrome#5905   contrib/navidrome                no extension, so not a supported type
+
+**These three are still scored as misses if they are missed.** No case leaves the denominator for
+being unreachable, in v3 as in v1 and v2. A customer who reports that bug gets a wrong answer, and
+the reason it is wrong does not change what they receive.
+
+## Amendment 14 - the corpus is re-chunked, and its vectors are reused where the content is identical
+
+The corpus is chunked afresh from the six local clones at their pinned commits, with the chunker
+that shipped, by `scripts/probe/chunk-local-repo.ts`. That is what makes it the shipped product's
+corpus rather than a described one, and it caught a real difference: an earlier measurement of
+`#394` predates the `.snapshots/` exclusion, so its navidrome corpus carries 62 chunks the shipped
+indexer does not produce. Those chunks are absent here.
+
+Vectors are NOT re-bought for chunks whose content did not change. `scripts/probe/reuse-vectors.mjs`
+copies the v2 vector for any chunk whose content is byte identical and embeds only the rest. This is
+sound because the production embedding input is the chunk's raw content and nothing else, so
+identical content has an identical embedding input. It is verified rather than assumed: every reused
+row is matched against v2's own `chunks.index.json` on repository, path and line range and the run is
+refused on the first mismatch, an all-zero row from a failed v2 batch is never reused, and the
+finished file is swept for all-zero rows before it is written.
+
+Measured for this run: **183,894 of 186,605 rows reused, 2,711 embedded, 0 zero rows in the source.**
+
+## What is published, and what would have to be published if it went badly
+
+Unchanged from v1 and v2, restated because it binds hardest when the result is bad:
+
+- `results.v3.json` is committed **unedited**, every case including every miss.
+- The pessimistic bound (Amendment 10a) ships next to every headline figure: the same numerator over
+  a denominator including every excluded case.
+- Every figure rendered on `/proof` derives from the committed artefact through
+  `src/lib/proof/benchmark-data.ts`, and `src/__tests__/proof/proof-page.test.tsx` fails the build on
+  any percentage without a source. **If v3 is worse than v2, v3 is the number that ships.**
+- The commits are merged without squashing. Ordering is the pre-registration: this amendment must
+  provably predate the results. `#390` was squash-merged and had to be rebuilt from its unsquashed
+  branch for exactly this reason.
