@@ -3,23 +3,32 @@
 How often does Watari read a bug report and point at the file that actually has to change?
 
 This repository holds the protocol, the frozen samples, the ground truth, the unedited results and
-the scoring code for two runs of that measurement. It exists so the claim on
+the scoring code for three runs of that measurement. It exists so the claim on
 [watari.ai/proof](https://watari.ai/proof) can be checked rather than believed.
 
 ## The numbers
 
-| | v1 (2026-08-29) | v2 (2026-08-30) |
-|---|---|---|
-| File Match at rank 1 | 8 of 17, 47.1% (95% CI 26.2% to 69.0%) | **33 of 56, 58.9% (95% CI 45.9% to 70.8%)** |
-| File Match at rank 1, never-seen cases | n/a | 24 of 42, 57.1% (95% CI 42.2% to 70.9%) |
-| File Match in the top 5 | 10 of 17, 58.8% | 41 of 56, 73.2% |
-| Repository routing at rank 1 | 16 of 17, 94.1% | 56 of 56, 100% |
-| Line overlap at rank 1 | 4 of 12, 33.3% | 15 of 32, 46.9% |
-| Repositories, languages | 4, 4 | 6, 6 |
+| | v1 (2026-08-29) | v2 (2026-08-30) | v3 (2026-09-01) |
+|---|---|---|---|
+| File Match at rank 1 | 8 of 17, 47.1% (95% CI 26.2% to 69.0%) | 33 of 56, 58.9% (95% CI 45.9% to 70.8%) | **36 of 56, 64.3% (95% CI 51.2% to 75.5%)** |
+| File Match at rank 1, out-of-sample | n/a | **24 of 42, 57.1% (95% CI 42.2% to 70.9%)** | none exists, see below |
+| File Match in the top 5 | 10 of 17, 58.8% | 41 of 56, 73.2% | 44 of 56, 78.6% |
+| Repository routing at rank 1 | 16 of 17, 94.1% | 56 of 56, 100% | 55 of 56, 98.2% |
+| Line overlap at rank 1 | 4 of 12, 33.3% | 15 of 32, 46.9% | 19 of 32, 59.4% |
+| Repositories, languages | 4, 4 | 6, 6 | 6, 6 |
+| Indexed chunks searched | n/a | 183,894 | 186,605 |
 
-Every rate here carries its denominator, and the two Line overlap figures carry a smaller one than
-the rest because only some cases have line numbers that survive the gap between the indexed commit
-and the fix. v1 is not revised or withdrawn by v2. They are two runs of two samples.
+Every rate here carries its denominator, and the Line overlap figures carry a smaller one than the
+rest because only some cases have line numbers that survive the gap between the indexed commit and
+the fix. No run revises or withdraws an earlier one. They are separate runs, and v3 re-uses v2's
+sample deliberately: the only thing that changed is the corpus.
+
+**Read v3 with its caveat, which is the most important sentence in this file.** v3 measures one
+change, an indexer that now reads file types it used to skip. Which file types to add was decided by
+looking at these same 56 cases, so **v3 has no out-of-sample cases at all** (PROTOCOL.md Amendment
+12). Its headline is the ceiling for that change, not evidence it holds up elsewhere. The standing
+out-of-sample estimate is still v2's 57.1%, and restoring one, like narrowing the roughly 25 point
+interval, needs repositories nobody at Watari has examined.
 
 ## What this measures, and what it does not
 
@@ -46,6 +55,11 @@ For v1: `pre-register the ... protocol` then `freeze the 20-case ... sample befo
 
 For v2: `pre-register protocol v2, before any v2 case is selected` then `freeze the v2 sample and
 its ground truth, before any v2 run` then `protocol v2 results, committed unedited`.
+
+For v3: `pre-register protocol v3, and measure the corpus before the run` then `protocol v3 results,
+committed unedited`. v3 reuses v2's frozen sample, so there is no third sample commit; what had to
+land first is the amendment declaring that v3 has no out-of-sample set, and the measurement of which
+answers were in the index at all.
 
 You can confirm no sample file changed after its results landed:
 
@@ -77,7 +91,8 @@ customer prose. Publishing it would add risk and no evidence.
 | `PROTOCOL.md` | The pre-registration, with every amendment, each dated and marked as made before or after the run it affects |
 | `sample.frozen.json`, `sample.v2.frozen.json` | The selected issues, frozen before the run |
 | `ground-truth.json`, `ground-truth.v2.json` | Files and line ranges each merged fix changed, plus per-file checks against the indexed commit |
-| `results.json`, `results.v2.json` | The unedited output, every case published, hits and misses alike |
+| `results.json`, `results.v2.json`, `results.v3.json` | The unedited output, every case published, hits and misses alike |
+| `indexability.v3.json` | Which cases have a ground-truth file in the index at all, measured before v3 ran rather than after |
 | `capture.json` | v1 only: what the production pipeline returned, so scoring inputs are auditable rather than asserted |
 | `localization-score.ts` | The scoring code. `PROTOCOL.md` is the specification; if the two disagree, the protocol is right and the code is a bug |
 
@@ -85,18 +100,25 @@ customer prose. Publishing it would add risk and no evidence.
 
 Stated here rather than left for a reader to find.
 
-- **The intervals are wide.** 45.9% to 70.8% at n=56 sizes a direction, not a decimal place. Do not
-  quote 58.9% without it.
-- **Fifteen of v2's sixty cases are not out-of-sample.** Two retrieval changes were chosen by looking
-  at v1's results, and those cases sit inside v2. That is why the never-seen figure is reported
-  separately, and why it is the one to believe if the two ever disagree.
-- **Four v2 cases are excluded** because extraction split one issue into several bugs, and one issue
-  cannot be scored against several. `results.v2.json` also carries the pessimistic figure with all
-  four counted as misses: 33 of 60, 55.0%.
-- **Seven v2 cases were unwinnable by construction.** The fix touched a file type the indexer does
-  not read, so the right answer was never in the searchable set. Excluding them would give 33 of 49,
-  67.3%. That is recorded in Amendment 11 as a diagnostic and is deliberately NOT the published
-  number, because it was found after seeing which cases missed.
+- **The intervals are wide.** 51.2% to 75.5% at n=56 sizes a direction, not a decimal place. Do not
+  quote 64.3% without it. n has not moved since v2, so neither has the width.
+- **None of v3's cases is out-of-sample.** The indexing change it measures was chosen against these
+  cases. We say so in Amendment 12, on the page, and here. If you want a figure with no
+  self-selection in it, use v2's 57.1% over 42 never-examined cases.
+- **Fifteen of v2's sixty cases were not out-of-sample either**, for the earlier reason: two
+  retrieval changes were chosen by looking at v1's results, and those cases sit inside v2. That is
+  why v2 reports the never-seen figure separately.
+- **Four cases are excluded** because extraction split one issue into several bugs, and one issue
+  cannot be scored against several. Each results file also carries the pessimistic figure with all
+  four counted as misses: 33 of 60, 55.0% for v2, and 36 of 60, 60.0% for v3.
+- **Three v3 cases are unwinnable by construction**, down from seven in v2. The fix touches a file
+  type the indexer does not read, so the right answer is not in the searchable set. They are scored
+  as misses anyway. Unlike v2, this was measured BEFORE the run and committed as
+  `indexability.v3.json`, so you can check the composition without taking our word for the order.
+- **Six cases went from miss to hit and three went the other way** between v2 and v3. Ranking is a
+  sampled model call, so some of that movement is noise in both directions.
+- **Routing got worse**, 56 of 56 to 55 of 56, on a case whose answer was not in the index either
+  way. A larger corpus is not free.
 - **The runs are ours.** Nobody has independently reproduced them. The inputs are public, the scoring
   code is here, and we would rather someone checked.
 
