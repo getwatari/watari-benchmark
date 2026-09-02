@@ -3,32 +3,41 @@
 How often does Watari read a bug report and point at the file that actually has to change?
 
 This repository holds the protocol, the frozen samples, the ground truth, the unedited results and
-the scoring code for three runs of that measurement. It exists so the claim on
+the scoring code for four runs of that measurement. It exists so the claim on
 [watari.ai/proof](https://watari.ai/proof) can be checked rather than believed.
 
 ## The numbers
 
-| | v1 (2026-08-29) | v2 (2026-08-30) | v3 (2026-09-01) |
-|---|---|---|---|
-| File Match at rank 1 | 8 of 17, 47.1% (95% CI 26.2% to 69.0%) | 33 of 56, 58.9% (95% CI 45.9% to 70.8%) | **36 of 56, 64.3% (95% CI 51.2% to 75.5%)** |
-| File Match at rank 1, out-of-sample | n/a | **24 of 42, 57.1% (95% CI 42.2% to 70.9%)** | none exists, see below |
-| File Match in the top 5 | 10 of 17, 58.8% | 41 of 56, 73.2% | 44 of 56, 78.6% |
-| Repository routing at rank 1 | 16 of 17, 94.1% | 56 of 56, 100% | 55 of 56, 98.2% |
-| Line overlap at rank 1 | 4 of 12, 33.3% | 15 of 32, 46.9% | 19 of 32, 59.4% |
-| Repositories, languages | 4, 4 | 6, 6 | 6, 6 |
-| Indexed chunks searched | n/a | 183,894 | 186,605 |
+| | v1 (2026-08-29) | v2 (2026-08-30) | v3 (2026-09-01) | v4 (2026-09-03) |
+|---|---|---|---|---|
+| File Match at rank 1 | 8 of 17, 47.1% (95% CI 26.2% to 69.0%) | 33 of 56, 58.9% (95% CI 45.9% to 70.8%) | 36 of 56, 64.3% (95% CI 51.2% to 75.5%) | **61 of 108, 56.5% (95% CI 47.1% to 65.5%)** |
+| File Match at rank 1, out-of-sample | n/a | 24 of 42, 57.1% (95% CI 42.2% to 70.9%) | none exists, see below | **all of it: 61 of 108** |
+| File Match in the top 5 | 10 of 17, 58.8% | 41 of 56, 73.2% | 44 of 56, 78.6% | 77 of 108, 71.3% |
+| Repository routing at rank 1 | 16 of 17, 94.1% | 56 of 56, 100% | 55 of 56, 98.2% | 102 of 108, 94.4% |
+| Line overlap at rank 1 | 4 of 12, 33.3% | 15 of 32, 46.9% | 19 of 32, 59.4% | 26 of 56, 46.4% |
+| Every exclusion counted as a miss | n/a | n/a | 36 of 60, 60.0% | 61 of 120, 50.8% |
+| Repositories, languages | 4, 4 | 6, 6 | 6, 6 | 8, 6 |
+| Indexed chunks searched | n/a | 183,894 | 186,605 | 130,826 |
 
 Every rate here carries its denominator, and the Line overlap figures carry a smaller one than the
 rest because only some cases have line numbers that survive the gap between the indexed commit and
 the fix. No run revises or withdraws an earlier one. They are separate runs, and v3 re-uses v2's
 sample deliberately: the only thing that changed is the corpus.
 
-**Read v3 with its caveat, which is the most important sentence in this file.** v3 measures one
-change, an indexer that now reads file types it used to skip. Which file types to add was decided by
-looking at these same 56 cases, so **v3 has no out-of-sample cases at all** (PROTOCOL.md Amendment
-12). Its headline is the ceiling for that change, not evidence it holds up elsewhere. The standing
-out-of-sample estimate is still v2's 57.1%, and restoring one, like narrowing the roughly 25 point
-interval, needs repositories nobody at Watari has examined.
+**v4 is the run to read, and the reason is not that it is newest.** Every one of its 108 scored
+cases is out-of-sample: all eight repositories are new to this benchmark and none was examined while
+choosing any change Watari has shipped. v2's out-of-sample estimate was 57.1% on 42 cases; v4
+measures 56.5% on 108 cases from repositories that share none of them. That is a second measurement
+of the same claim on different data rather than a re-analysis of the same data, and the interval it
+narrows to, 18.4 points, is the other half of why the sample was made bigger.
+
+**v3 is a ceiling and stays published as one.** v3 measured one change, an indexer that now reads
+file types it used to skip, and which file types to add was decided by looking at those same 56
+cases, so **v3 has no out-of-sample cases at all** (PROTOCOL.md Amendment 12). Its 64.3% is the
+higher number here and it is not the one to quote. Out of sample the same product scores 7.8 points
+lower, which is what a ceiling means.
+
+v4 also carries two file types v3 did not have to: it is the first run to include C# and PHP.
 
 ## What this measures, and what it does not
 
@@ -60,6 +69,16 @@ For v3: `pre-register protocol v3, and measure the corpus before the run` then `
 committed unedited`. v3 reuses v2's frozen sample, so there is no third sample commit; what had to
 land first is the amendment declaring that v3 has no out-of-sample set, and the measurement of which
 answers were in the index at all.
+
+For v4: `pre-register benchmark protocol v4` then `freeze the v4 sample` then `amendment 15, reject a
+fix PR that merged in another repository` then `re-freeze the v4 sample under amendment 15` then
+`v4 ground truth and indexability, both before any case runs` then `v4 results, unedited`. There are
+two sample commits on purpose. Extracting the ground truth found that one selected issue was closed
+by a pull request in a DIFFERENT repository, which makes it unscoreable and, because it was the
+earliest selected fix, pinned its repository to a commit that does not exist there. The amendment
+argues why re-freezing was legitimate at that point (nothing had been extracted, retrieved, ranked or
+scored) and the first freeze stays in the history so you can diff the two and see that exactly one
+case moved.
 
 You can confirm no sample file changed after its results landed:
 
