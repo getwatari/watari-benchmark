@@ -652,3 +652,194 @@ Unchanged from v1 and v2, restated because it binds hardest when the result is b
 - The commits are merged without squashing. Ordering is the pre-registration: this amendment must
   provably predate the results. `#390` was squash-merged and had to be rebuilt from its unsquashed
   branch for exactly this reason.
+
+---
+
+# Protocol version 4 (2026-09-02, declared before any v4 case is selected or run)
+
+Versions 1, 2 and 3 stay published exactly as they are. Their numbers are not restated, revised or
+withdrawn by this document.
+
+## Why v4 exists
+
+Amendment 12 named the remedy and this is it. v3 re-ran the v2 sample against a corpus whose
+file-type list had been chosen by looking at those same cases, so **every v3 case is in-sample** and
+64.3% is a ceiling on that change rather than an estimate of how it generalizes. The standing
+generalization claim is still v2's out-of-sample 24 of 42 = 57.1%.
+
+Two things are wrong with that state and one sample fixes both:
+
+1. **No current out-of-sample estimate.** v2's 42 never-seen cases have since been examined, in the
+   miss taxonomy and in the `#394` file-type work. Nothing is held out any more.
+2. **The interval, not the point estimate.** n has been 56 since v2, which leaves a 95% Wilson
+   interval about 25 points wide. Market comparison puts our number at or above published state of
+   the art for user-written bug reports, so the spread is the part an informed reader attacks first.
+   n is the only lever.
+
+v4 is therefore a **fresh sample of repositories nobody here has examined**, selected by the same
+rules and scored by the same committed code.
+
+## Selector parameters
+
+| | v3 | v4 |
+|---|---|---|
+| sample | v2's, re-run | **new, selected fresh** |
+| repositories | 6 | **8** |
+| cases per repository | 10 | **15** |
+| candidates examined per repository | 60 | **100** |
+| total cases | 60 | **120 target** |
+| out-of-sample share | 0 of 60 | **120 of 120** |
+
+Everything else is held fixed and re-derived by the same code: the maintainers' own defect-label
+rule, `merged_on_or_after` 2026-01-01, the 200-character body minimum, the 1-to-5-file fix ceiling,
+the path exclusions, the metrics, and `src/lib/proof/localization-score.ts`.
+
+`candidates_examined_per_repo` rises from 60 to 100 because 15 qualifying cases cannot reliably be
+found in 60 candidates. 100 is the GraphQL search page ceiling, so this is the maximum the existing
+one-query-per-repository selector can examine, not a tuned number.
+
+## Repositories already examined are excluded by name
+
+A repository whose issue tracker has been read is not out of sample, whichever cases were drawn from
+it. The selector is given the repositories used by v1, v2 and v3 and walks **past** them to the next
+entry in the same pool:
+
+    calcom/cal.com, calcom/cal.diy, apache/superset, usememos/memos,
+    helix-editor/helix, navidrome/navidrome, nextcloud/server, keycloak/keycloak
+
+Both the pre-rename and post-rename names of cal.com are listed, because matching only the pool entry
+would let a rename slip an examined repository back in.
+
+## The original pool is exhausted, measured before selection
+
+Running the selector over the v1 pool with those exclusions, 100 candidates per repository, reports:
+
+| language | next unexamined entry | observed |
+|---|---|---|
+| TypeScript | `formbricks/formbricks` | licence `NOASSERTION` |
+| TypeScript | `twentyhq/twenty` | licence `NOASSERTION` |
+| Ruby | `mastodon/mastodon` | 1 candidate, 0 qualifying |
+| Ruby | `chatwoot/chatwoot` | licence `NOASSERTION` |
+| Ruby | `discourse/discourse` | no defect label in taxonomy |
+| Python | `PostHog/posthog` | licence `NOASSERTION` |
+| Python | `langflow-ai/langflow` | **20 qualifying** |
+| Go | `pocketbase/pocketbase` | 0 candidates since the cutoff |
+| Rust | `meilisearch/meilisearch` | licence `NOASSERTION` |
+| PHP | `filamentphp/filament` | **47 qualifying** |
+| Java | `apache/dolphinscheduler` | **54 qualifying** |
+
+Three usable repositories, which is a narrower base than v2's six and cannot carry a claim about
+repositories in general. So the pool is **extended**, before selection and with everything observed
+recorded here.
+
+## Pool extension, and the discretion it carries
+
+Candidate names were chosen against the repository criteria already in this document, unchanged:
+public, OSI-approved licence, a primary language in Watari's grammar set, under the file ceiling, and
+a **user-facing product rather than a library**, so its tracker carries symptom reports. They were
+then probed for licence, defect label and qualifying count. **No issue body, ground truth, patch or
+result was examined at any point in choosing them**, and this section is committed before
+`sample.v4.frozen.json` exists.
+
+That is the same standard Amendment 1 set when the Ruby pool failed: amending after feasibility data
+is legitimate, amending after outcome data is not.
+
+The extension pool, per language, in the order probed, with every observation:
+
+| language | pool, in order | observed |
+|---|---|---|
+| TypeScript | `immich-app/immich` | no defect label in taxonomy |
+| | `appsmithorg/appsmith` | 20 candidates, 8 qualifying |
+| | `documenso/documenso` | 5 candidates, 0 qualifying |
+| | `element-hq/element-web` | **54 qualifying** |
+| | `RocketChat/Rocket.Chat` | licence `NOASSERTION` |
+| | `nocodb/nocodb` | licence `NOASSERTION` |
+| | `laurent22/joplin` | licence `NOASSERTION` |
+| | `excalidraw/excalidraw` | 13 candidates, 2 qualifying |
+| | `TryGhost/Ghost` | **24 qualifying** |
+| Python | `home-assistant/core` | 5 candidates, 2 qualifying |
+| | `paperless-ngx/paperless-ngx` | **37 qualifying** |
+| | `langflow-ai/langflow` | **20 qualifying** |
+| Go | `go-gitea/gitea` | **36 qualifying** |
+| | `grafana/grafana` | **30 qualifying** |
+| | `syncthing/syncthing` | 9 qualifying |
+| Rust | `zed-industries/zed` | licence `NOASSERTION` |
+| | `alacritty/alacritty` | 12 candidates, 1 qualifying |
+| | `lapce/lapce` | 9 candidates, 1 qualifying |
+| C# | `jellyfin/jellyfin` | **21 qualifying** |
+| | `files-community/Files` | no defect label in taxonomy |
+| | `bitwarden/server` | licence `NOASSERTION` |
+| Java | `apache/dolphinscheduler` | **54 qualifying** |
+| | `signalapp/Signal-Android` | no defect label in taxonomy |
+| PHP | `filamentphp/filament` | **47 qualifying** |
+| | `matomo-org/matomo` | 86 candidates, 19 qualifying |
+
+**The TypeScript row is the one that needs stating plainly.** The first three names were written
+down together with the rest, and all three failed: no defect label, then 8 qualifying, then 5
+candidates. Six further names were probed only after that, which is a second pass made after seeing a
+feasibility result. It is recorded as such rather than presented as one list. The alternative was a
+v4 with no TypeScript repository at all, in the language most of our prospective customers write.
+
+**Rust qualifies no repository in either pool** and is dropped, the same treatment Amendment 1 gave
+Ruby. Rust is carried by `helix-editor/helix` in v1, v2 and v3, which stay published. Relaxing the
+licence criterion to admit `zed-industries/zed` would be changing a repository criterion in order to
+reach a composition we wanted, which is the move this document exists to prevent.
+
+**C# enters the benchmark for the first time**, through `jellyfin/jellyfin`. It is the language of
+the largest repository Watari indexes in production, and no published figure has ever covered it.
+
+## Selection rule for v4, declared before it runs
+
+Language order: **TypeScript, Python, Go, C#, Java, PHP**. Ruby and Rust are dropped on the
+observations above.
+
+1. Round one takes the **first repository in each language's pool order that yields at least 15
+   qualifying cases**.
+2. Round two takes the **second such repository per language**, in the same language order.
+3. It stops at **8 repositories**. Repositories that qualify but do not fit the cap are recorded in
+   the frozen sample as selected out, with their counts.
+4. Within a repository, the **15 most recently closed** qualifying issues, as in every earlier
+   version. Most-recent is deterministic, needs no seed, and maximises contamination distance.
+
+Applying it to the counts above yields, before the selector runs: `element-hq/element-web`,
+`paperless-ngx/paperless-ngx`, `go-gitea/gitea`, `jellyfin/jellyfin`, `apache/dolphinscheduler`,
+`filamentphp/filament`, then `TryGhost/Ghost` and `langflow-ai/langflow`. `grafana/grafana` and
+`matomo-org/matomo` qualify and are excluded by the cap. Writing the expected outcome here is the
+point: the frozen sample either matches it or the difference is visible.
+
+## What this costs, stated so it cannot be quietly skipped
+
+Eight repositories never chunked before means **no vector reuse**. Amendment 14's trick worked
+because v3 re-chunked the same six trees; here every chunk is new and every vector is bought. The run
+is a day of wall clock and single-digit dollars rather than v3's five cents, and that is the price of
+an out-of-sample number.
+
+Cases per repository rising to 15 moves each pin earlier, as Protocol v2 recorded when it went to 10:
+the pin is the parent of the merge commit of the **earliest** selected fix, so later cases search a
+tree older than their report. That is conservative against Watari and never in its favour.
+
+## Composition is not a language split
+
+Repeating v1's observation because it binds harder at 8 repositories: selecting repositories by
+primary language does not produce cases balanced by language. A Go product carries a TypeScript front
+end and its maintainers' bug label does not distinguish. The honest claim v4 supports is **eight
+repositories across six primary languages**, and the per-repository breakdown is what carries the
+language signal.
+
+## Held from earlier versions, restated because they bind hardest when the result is bad
+
+- **Indexability is measured at selection time, before any case is scored** (Amendment 11's
+  commitment, honoured by Amendment 13), and committed as `indexability.v4.json`. A reader sees how
+  many answers were reachable before they see how many were found.
+- **No case leaves the denominator for being unreachable.** A ground-truth file the indexer cannot
+  chunk is scored as a miss, as in v1, v2 and v3. The customer gets a wrong answer either way.
+- **A pessimistic bound ships next to every headline figure** (Amendment 10a): the same numerator
+  over a denominator that includes every excluded case.
+- **n is not fixed** (Amendment 8): extraction is sampled, so the excluded set varies between runs.
+  Every figure carries its own denominator and inherits none.
+- **`results.v4.json` is committed unedited**, every case including every miss, and every figure on
+  `/proof` derives from it through `src/lib/proof/benchmark-data.ts`. **If v4 is worse than v2 or v3,
+  v4 is the number that ships**, and it becomes the standing generalization claim in place of v2's
+  57.1% because it is the out-of-sample one.
+- **The commits are merged without squashing.** Ordering is the pre-registration: this section must
+  provably predate `sample.v4.frozen.json`, which must predate `results.v4.json`.
