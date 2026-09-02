@@ -843,3 +843,41 @@ language signal.
   57.1% because it is the out-of-sample one.
 - **The commits are merged without squashing.** Ordering is the pre-registration: this section must
   provably predate `sample.v4.frozen.json`, which must predate `results.v4.json`.
+
+## Amendment 15 - a fix that merged in a DIFFERENT repository, and the pin it poisoned
+
+Found while extracting ground truth for the first v4 freeze, before any case was run and before any
+result existed. Recorded with what was observed, and the freeze redone rather than patched.
+
+GitHub's `closedByPullRequestsReferences` does not restrict itself to the repository the issue is in.
+`element-hq/element-web` #34139 is closed by **`electron/electron` #52712**, an upstream fix in a
+dependency. Every earlier version of this protocol drew from repositories that happen to fix their
+own bugs in their own tree, so the case never arose.
+
+It is not a scoring edge case, it is a case that cannot be scored at all. Its ground-truth files live
+in a repository Watari never indexed, so no localizer could return them, and unlike the unindexable
+files of Amendments 5, 11 and 13 the reason is not a product limitation we should be charged for. The
+ground truth is simply not in the search space the protocol defines.
+
+**It also broke the repository pin, which is the part that made it unmissable.** The pin is the parent
+of the merge commit of the earliest selected fix, and #34139 was the earliest, so `element-hq/element-web`
+was pinned to `632eef1ff78241afc50423c32fa636d0339b4868`, a commit in `electron/electron`. GitHub
+answers `422 No commit found for SHA` for it. Left in, it would have failed the clone rather than
+quietly skewing a number, but the same defect on a later case would have been silent.
+
+**Rule, added to § Case selection criteria as criterion 5:** the merged fix PR must be **in the same
+repository as the issue**. A cross-repository fix is rejected at selection with
+`fix_pr_in_other_repository:<owner/repo>` and, like every other rejection, is recorded rather than
+discarded.
+
+Measured across the first freeze: **1 of 120 cases**, in one of the eight repositories. The other
+seven are unaffected.
+
+**The v4 sample is therefore re-selected under the corrected criterion.** Re-selecting after a freeze
+is what § Re-running forbids, so the grounds have to be stated exactly: no case had been run, no
+extraction, retrieval, ranking or scoring had happened, and the only artefacts in existence were the
+frozen sample and this document. The thing pre-registration protects against is choosing a sample
+after seeing how it scores, and nothing here has been scored. The first freeze stays in the git
+history at its own commit, so a reader can diff the two and see that exactly one case moved:
+`element-hq/element-web` loses #34139 and gains the sixteenth most recent qualifying issue, and its
+pin moves to the parent of the merge commit of the next-earliest selected fix.
