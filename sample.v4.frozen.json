@@ -1,7 +1,7 @@
 {
   "protocol_version": 4,
   "protocol": "benchmarks/localization/PROTOCOL.md",
-  "frozen_at": "2026-09-02T17:57:36.925Z",
+  "frozen_at": "2026-09-02T18:02:29.039Z",
   "constraints": {
     "merged_on_or_after": "2026-01-01",
     "cases_per_repo": 15,
@@ -63,10 +63,10 @@
       "language": "typescript",
       "repo": "element-hq/element-web",
       "license": "AGPL-3.0",
-      "index_commit": "632eef1ff78241afc50423c32fa636d0339b4868",
-      "index_commit_rationale": "parent of merge commit 6bfb5cfe243092df070a524956ac2a60b106834b (fix for #34139, earliest selected)",
+      "index_commit": "0d01034c0f3a4fe1953e1ffd52525c3e9cbce909",
+      "index_commit_rationale": "parent of merge commit d4cb9619ea82ebc4471c2d1a9546d1ec49f71b7a (fix for #20588, earliest selected)",
       "candidates_examined": 100,
-      "qualifying_found": 54,
+      "qualifying_found": 53,
       "cases": [
         {
           "issue_number": 34663,
@@ -93,32 +93,6 @@
           "excluded_files": [
             "apps/web/src/components/structures/SpaceHierarchy.test.tsx"
           ]
-        },
-        {
-          "issue_number": 34139,
-          "issue_url": "https://github.com/element-hq/element-web/issues/34139",
-          "issue_title": "Spellcheck inactive after restart when de-DE dictionary cache exists on Linux",
-          "issue_body": "### Steps to reproduce\n\n1. Make sure Element Desktop is not running:\n\n   pkill -f element-desktop\n \n2. Remove the local Electron dictionary cache:\n\n   rm -rf ~/.config/Element/Dictionaries\n\n3. Start Element Desktop.\n\n4. Type intentionally misspelled German words in a message composer.\n\n5. Observe that spellcheck works immediately in this session.\n\n6. Quit Element Desktop completely again:\n\n   pkill -f element-desktop\n\n7. Verify that Element recreated the dictionary cache:\n\n   find ~/.config/Element -maxdepth 3 -type f \\( -name \"*.bdic\" -o -name \"*.dic\" -o -name \"*.aff\" \\)\n\n   In my case this shows:\n\n   ~/.config/Element/Dictionaries/de-DE-3-0.bdic\n\n8. Start Element Desktop again:\n\n   element-desktop\n\n9. Type the same misspelled German words again - Spellcheck inactive!\n\n[system.txt](https://github.com/user-attachments/files/29673917/system.txt)\n\n[config.txt](https://github.com/user-attachments/files/29673921/config.txt)\n\n<img width=\"457\" height=\"442\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/af41f304-17be-44cd-9ca3-effceedf2d49\" />\n\n\n### Outcome\n\nActual result:\n\nAfter the second start, spellcheck is inactive. Misspelled German words are not underlined.\n\nIf I open Settings → Preferences and toggle \"Allow spell check\" off and on once, spellcheck immediately starts working again.\n\nThe problem returns after the next restart.\n\nAdditional observation:\n\nThe issue only happens when the cached dictionary file exists:\n\n~/.config/Element/Dictionaries/de-DE-3-0.bdic\n\nIf I remove the whole dictionary cache before starting Element:\n\nrm -rf ~/.config/Element/Dictionaries\n\nthen spellcheck works immediately for that session.\n\nAfter Element recreates de-DE-3-0.bdic and the app is restarted, the problem returns.\n\nExpected result:\n\nSpellcheck should work immediately after every application start when spellcheck is enabled and de-DE is configured as the spellcheck dictionary.\n\n### Operating system\n\nLinux Mint 22.3 / Ubuntu Noble base\n\n### Application version\n\nElement Desktop: 1.12.22 Krypto-Version: Rust SDK 0.18.0 (6fe03c1), Vodozemac 0.10.0\n\n### How did you install the app?\n\nhttps://element.io/de/download#linux\n\n### Homeserver\n\nyatrix.org\n\n### Will you send logs?\n\nYes",
-          "issue_author": "Buntfunk",
-          "issue_labels": [
-            "T-Defect",
-            "S-Minor",
-            "A-Electron",
-            "Z-Upstream",
-            "O-Occasional",
-            "Z-ProductPolish"
-          ],
-          "closed_at": "2026-08-27T16:41:48Z",
-          "fix_pr_number": 52712,
-          "fix_pr_url": "https://github.com/electron/electron/pull/52712",
-          "fix_merged_at": "2026-08-08T22:41:32Z",
-          "fix_merge_commit": "6bfb5cfe243092df070a524956ac2a60b106834b",
-          "pre_fix_commit": "632eef1ff78241afc50423c32fa636d0339b4868",
-          "ground_truth_files": [
-            "patches/chromium/.patches",
-            "patches/chromium/fix_do_not_skip_still-launching_renderers_when_initializing_spellcheck.patch"
-          ],
-          "excluded_files": []
         },
         {
           "issue_number": 34720,
@@ -486,6 +460,32 @@
           "excluded_files": [
             "apps/web/test/unit-tests/components/views/settings/tabs/room/RolesRoomSettingsTab-test.tsx"
           ]
+        },
+        {
+          "issue_number": 20588,
+          "issue_url": "https://github.com/element-hq/element-web/issues/20588",
+          "issue_title": "All Rooms shows '1' but it should be '!'",
+          "issue_body": "### Steps to reproduce\n\n1. Turn off internet\r\n2. Send a message into a room of a space\n\n### Outcome\n\n![image](https://user-images.githubusercontent.com/25297359/149769653-d1392831-7d4f-46c5-86fc-078c8047c5f2.png)\r\n\r\nExpected: Both should show a '!'\n\n### Operating system\n\n_No response_\n\n### Browser information\n\n_No response_\n\n### URL for webapp\n\n_No response_\n\n### Application version\n\napp.element.io\n\n### Homeserver\n\n_No response_\n\n### Will you send logs?\n\nNo",
+          "issue_author": "timokoesters",
+          "issue_labels": [
+            "T-Defect",
+            "S-Minor",
+            "A-Notifications",
+            "O-Occasional",
+            "Z-GetYourUpdates"
+          ],
+          "closed_at": "2026-08-14T11:08:37Z",
+          "fix_pr_number": 34498,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/34498",
+          "fix_merged_at": "2026-08-14T11:08:36Z",
+          "fix_merge_commit": "d4cb9619ea82ebc4471c2d1a9546d1ec49f71b7a",
+          "pre_fix_commit": "0d01034c0f3a4fe1953e1ffd52525c3e9cbce909",
+          "ground_truth_files": [
+            "apps/web/src/stores/notifications/SummarizedNotificationState.ts"
+          ],
+          "excluded_files": [
+            "apps/web/src/stores/notifications/SummarizedNotificationState.test.ts"
+          ]
         }
       ],
       "rejected_sample": [
@@ -536,6 +536,12 @@
           "number": 34709,
           "url": "https://github.com/element-hq/element-web/issues/34709",
           "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 34139,
+          "url": "https://github.com/element-hq/element-web/issues/34139",
+          "reason": "fix_pr_in_other_repository:electron/electron"
         },
         {
           "ok": false,
@@ -601,12 +607,6 @@
           "ok": false,
           "number": 32276,
           "url": "https://github.com/element-hq/element-web/issues/32276",
-          "reason": "no_merged_fix_pr_after_cutoff"
-        },
-        {
-          "ok": false,
-          "number": 33514,
-          "url": "https://github.com/element-hq/element-web/issues/33514",
           "reason": "no_merged_fix_pr_after_cutoff"
         }
       ]
@@ -2080,7 +2080,7 @@
       "index_commit": "3cfee610644b007211eacaaca92b8dd16f27569c",
       "index_commit_rationale": "parent of merge commit 8592557809d2d041d9d727371c090aef82e4dcae (fix for #18378, earliest selected)",
       "candidates_examined": 100,
-      "qualifying_found": 54,
+      "qualifying_found": 53,
       "cases": [
         {
           "issue_number": 18604,
@@ -2501,6 +2501,12 @@
         },
         {
           "ok": false,
+          "number": 18324,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18324",
+          "reason": "fix_pr_in_other_repository:apache/dolphinscheduler-website"
+        },
+        {
+          "ok": false,
           "number": 18318,
           "url": "https://github.com/apache/dolphinscheduler/issues/18318",
           "reason": "no_merged_fix_pr_after_cutoff"
@@ -2569,12 +2575,6 @@
           "ok": false,
           "number": 18200,
           "url": "https://github.com/apache/dolphinscheduler/issues/18200",
-          "reason": "no_merged_fix_pr_after_cutoff"
-        },
-        {
-          "ok": false,
-          "number": 15820,
-          "url": "https://github.com/apache/dolphinscheduler/issues/15820",
           "reason": "no_merged_fix_pr_after_cutoff"
         }
       ]
@@ -4112,7 +4112,7 @@
       "language": "go",
       "repo": "grafana/grafana",
       "reason": "qualifies_but_over_repository_cap",
-      "qualifying": 30,
+      "qualifying": 26,
       "candidates_examined": 100
     },
     {
