@@ -1,0 +1,144 @@
+{
+  "measured_at": "2026-09-08",
+  "question": "Does binary quantization (pgvector binary_quantize + exact rerank) preserve retrieval quality on the frozen v4 corpus?",
+  "corpus": {
+    "vectors": 130826,
+    "dims": 1536
+  },
+  "bytes_per_vector": {
+    "halfvec": 3072,
+    "binary": 192
+  },
+  "geometric_probe": {
+    "cases": 114,
+    "exact": {
+      "truthInTop1": 21,
+      "truthInTop10": 51,
+      "truthInTop40": 70
+    },
+    "shortlists": {
+      "40": {
+        "recallAt1": 0.9825,
+        "recallAt10": 0.9132,
+        "recallAt40": 0.6263,
+        "truthInTop1": 21,
+        "truthInTop10": 51,
+        "truthInTop40": 69
+      },
+      "80": {
+        "recallAt1": 1,
+        "recallAt10": 0.9711,
+        "recallAt40": 0.8138,
+        "truthInTop1": 21,
+        "truthInTop10": 51,
+        "truthInTop40": 66
+      },
+      "120": {
+        "recallAt1": 1,
+        "recallAt10": 0.9877,
+        "recallAt40": 0.8965,
+        "truthInTop1": 21,
+        "truthInTop10": 51,
+        "truthInTop40": 66
+      },
+      "200": {
+        "recallAt1": 1,
+        "recallAt10": 0.9947,
+        "recallAt40": 0.9572,
+        "truthInTop1": 21,
+        "truthInTop10": 52,
+        "truthInTop40": 67
+      },
+      "400": {
+        "recallAt1": 1,
+        "recallAt10": 0.9982,
+        "recallAt40": 0.9888,
+        "truthInTop1": 21,
+        "truthInTop10": 51,
+        "truthInTop40": 70
+      },
+      "800": {
+        "recallAt1": 1,
+        "recallAt10": 0.9991,
+        "recallAt40": 0.9978,
+        "truthInTop1": 21,
+        "truthInTop10": 51,
+        "truthInTop40": 70
+      }
+    },
+    "note": "raw issue body as the query, no expansion, no rerank"
+  },
+  "pipeline_stage_a": {
+    "cases": 110,
+    "exact_truth_in_candidates": 86,
+    "shortlists": {
+      "400": {
+        "identicalOrder": 63,
+        "identicalSet": 63,
+        "top1Same": 110,
+        "meanCandidateOverlap": 0.9532,
+        "truthInCandidates": 86,
+        "discordantCases": 47
+      },
+      "800": {
+        "identicalOrder": 83,
+        "identicalSet": 83,
+        "top1Same": 110,
+        "meanCandidateOverlap": 0.9831,
+        "truthInCandidates": 86,
+        "discordantCases": 27
+      },
+      "1600": {
+        "identicalOrder": 99,
+        "identicalSet": 99,
+        "top1Same": 110,
+        "meanCandidateOverlap": 0.9944,
+        "truthInCandidates": 86,
+        "discordantCases": 11
+      },
+      "3200": {
+        "identicalOrder": 105,
+        "identicalSet": 105,
+        "top1Same": 110,
+        "meanCandidateOverlap": 0.998,
+        "truthInCandidates": 86,
+        "discordantCases": 5
+      }
+    },
+    "note": "real expandBugQuery + real selectCandidates, paired on the query vector"
+  },
+  "pipeline_stage_b": {
+    "shortlist": 800,
+    "discordantCases": 27,
+    "concordantCases": 83,
+    "at1": {
+      "exact": 14,
+      "binary": 15,
+      "missToHit": 1,
+      "hitToMiss": 0
+    },
+    "at5": {
+      "exact": 18,
+      "binary": 18,
+      "missToHit": 0,
+      "hitToMiss": 0
+    },
+    "netAt1": 1,
+    "netAt5": 0
+  },
+  "stage_b_flips": [
+    {
+      "key": "element-hq/element-web#34663",
+      "exact": {
+        "at1": false,
+        "at5": true,
+        "outcome": "file_match_at_5_only"
+      },
+      "binary": {
+        "at1": true,
+        "at5": true,
+        "outcome": "file_match_at_1"
+      }
+    }
+  ]
+}

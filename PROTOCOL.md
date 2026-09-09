@@ -881,3 +881,38 @@ after seeing how it scores, and nothing here has been scored. The first freeze s
 history at its own commit, so a reader can diff the two and see that exactly one case moved:
 `element-hq/element-web` loses #34139 and gains the sixteenth most recent qualifying issue, and its
 pin moves to the parent of the merge commit of the next-earliest selected fix.
+
+## Addendum, 2026-09-09: retrieval changed, the ceiling was re-measured, no v5
+
+The vector index moved from `halfvec(1536)` to a binary-quantized `bit(1536)` HNSW with an exact
+rerank of the shortlist (migration `20260909120000`). That is a change to the retrieval layer the
+benchmark scores, so it needed measuring before it shipped, and the measurement is recorded at
+`benchmarks/localization/probes/binary-quantization.json`.
+
+**This is deliberately NOT a v5.** A protocol version exists to carry a new pre-registered sample or
+a moved number. This change moved neither, and publishing "still 56.5%" under a new version would
+add a version and no information. It would also invite exactly the cross-run comparison that
+§ Re-running warns about: the binary arm scored 110 cases (the prep cache's own denominator, with
+extraction splits excluded) and v4 scored a different set, so the two headlines are not each other's
+control even though they share a corpus.
+
+What was measured, paired on the query vector, so the only difference between the arms is the
+retrieval policy:
+
+| | exact `halfvec` | binary + rerank |
+|---|---|---|
+| ground-truth file reachable in candidates | 86 / 110 | 86 / 110 |
+| top candidate | identical in 110 / 110 | |
+| File Match @1, on the 27 cases whose candidate list differed | 14 | 15 |
+| File Match @5, same 27 cases | 18 | 18 |
+
+Reachability is the ceiling on everything downstream of retrieval, and it did not move at any
+shortlist from 400 to 3,200. The single @1 flip is one sampled model call in one direction and is
+not claimed as an improvement.
+
+The 83 cases whose candidate list was byte-identical were not reranked, on purpose: an identical
+candidate list is an identical prompt, so its outcome is identical by construction and re-buying it
+would have sampled the model's variance rather than measured this change.
+
+A v5 is published when there is a reason: a fresh out-of-sample repository set, or a change that
+moves @1.
