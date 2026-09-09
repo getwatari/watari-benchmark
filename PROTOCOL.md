@@ -916,3 +916,11 @@ would have sampled the model's variance rather than measured this change.
 
 A v5 is published when there is a reason: a fresh out-of-sample repository set, or a change that
 moves @1.
+
+**Follow-up, same day: the old index was dropped** (migration `20260909180000`). It had been kept
+alive purely so the change above could be reverted, and by then no live search function could reach
+it: both order the shortlist by the bit expression and rerank over a CTE, and a CTE scan cannot use
+a table index. So this removes 218 MB of prod index and changes nothing the benchmark measures.
+Re-running any arm from here reads the binary path, which is what the numbers above already
+describe. There is no exact-`halfvec` arm to re-run against any more; the paired measurement in
+`probes/binary-quantization.json` is the record of it.
