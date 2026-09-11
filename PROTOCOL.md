@@ -924,3 +924,135 @@ a table index. So this removes 218 MB of prod index and changes nothing the benc
 Re-running any arm from here reads the binary path, which is what the numbers above already
 describe. There is no exact-`halfvec` arm to re-run against any more; the paired measurement in
 `probes/binary-quantization.json` is the record of it.
+
+# Protocol version 5, the feature-request arm (2026-09-11, declared before any v5 case is selected or run)
+
+Versions 1 to 4 stay published exactly as they are. Nothing here restates, revises or withdraws them.
+
+## Why v5 exists
+
+The Addendum above says a v5 is published when there is a reason. This is one: a different kind of
+input. Every earlier version measured **bug reports**. Watari now also maps **feature requests** that
+extraction judges code-actionable (`isCodeActionableFeatureRequest`: `implementation_scope` of
+`bounded` AND extraction confidence of at least 0.7), and it drafts pull requests for them. That
+mapping is currently **unmetered**, and the published 56.5% (v4) says nothing about it. This arm is
+the measurement a decision to meter it would rest on, and the measurement a rename of "Mapped Bug"
+would rest on.
+
+The task is the same one the earlier versions score: given the text a customer wrote, name the file
+the maintainers changed. The ground truth is the same kind of fact: the files the merged pull request
+touched. Only the kind of issue differs.
+
+## Selection
+
+The pool is **v4's eight repositories**, in v4's language order (TypeScript, Python, Go, C#, Java,
+PHP), two rounds per language, cap 8. They were examined in v4 for their DEFECT issues; their feature
+issues have never been read by anyone here, and no shipped change was chosen against them.
+
+Changed from v4, and only these:
+
+- **Issue label:** the maintainers' own **feature** label instead of their defect label. The rule is
+  `/(^|[^a-z])(features?|enhancements?|improvements?)([^a-z]|$)|feature[- _]?requests?/i`, applied to
+  each repository's label list, and the matching labels are recorded in the frozen sample.
+- **An issue that also carries a defect label is rejected** as `also_labelled_defect`: the maintainers
+  filed it as both, so it cannot stand for either kind.
+- **Fewest qualifying cases to select a repository: 5** (v4: 15).
+- **Cases taken per repository: up to 15**, as v4.
+
+Held fixed and re-derived by the same code: `merged_on_or_after` 2026-01-01, the 200-character body
+minimum, the 1-to-5 source-file ceiling, the path exclusions, criterion 5 (fix PR in the same
+repository), 100 candidates examined per repository, most-recently-closed first, and the pin rule
+(the parent of the merge commit of the earliest selected fix).
+
+The minimum is lowered from 15 to 5 because feature issues close through a merged pull request far
+less often than defects do, which the feasibility run below measures directly. The 1-to-5-file
+ceiling is deliberately NOT relaxed, although it rejects many feature pull requests: a change that
+spans twenty files has no single file to find, so admitting it would measure something else.
+
+## Feasibility, observed before selection
+
+`select-sample.mjs --dry-run` with the v5 parameters and a minimum of 1, so that every repository
+reports its count. It prints counts and rejection reasons only; no issue title, body, patch or ground
+truth was read.
+
+| repository | candidates | qualifying | largest rejection |
+|---|---|---|---|
+| `apache/dolphinscheduler` | 100 | 27 | no merged fix PR after cutoff (48) |
+| `element-hq/element-web` | 100 | 13 | no merged fix PR after cutoff (58) |
+| `jellyfin/jellyfin` | 13 | 7 | no merged fix PR after cutoff (3) |
+| `go-gitea/gitea` | 100 | 5 | no merged fix PR after cutoff (77) |
+| `langflow-ai/langflow` | 57 | 1 | no merged fix PR after cutoff (45) |
+| `TryGhost/Ghost` | 4 | 0 | no merged fix PR after cutoff (3) |
+| `filamentphp/filament` | 1 | 0 | body too short (1) |
+| `paperless-ngx/paperless-ngx` | 0 | 0 | no closed feature-labelled issue since the cutoff |
+
+Applying the rule to these counts, before the selector runs: **`element-hq/element-web` (13),
+`go-gitea/gitea` (5), `jellyfin/jellyfin` (7) and `apache/dolphinscheduler` (15 of 27)**, about 40
+cases. Python and PHP qualify no repository and are absent. The frozen sample governs if issues closed
+between this run and the freeze move a count; any difference is visible by comparing the two.
+
+**The pool is not extended.** Extending it would buy n, and it is the discretion v4 had to argue for.
+This arm is small and says so instead.
+
+## Repository state
+
+As v4: each selected repository is indexed at its own pin, and the selected repositories are searched
+together as one workspace (Amendment 2), so a routing error is a file miss. The corpus is re-chunked by
+the shipped chunker at the new pins, and a chunk whose content is byte-identical to a v4 chunk reuses
+v4's vector (Amendment 14's method, `reuse-vectors.mjs`). Indexability is measured and committed as
+`indexability.v5.json` before any case is scored (Amendment 11). Amendment 3(a) applies unchanged: a
+ground-truth file the pull request CREATES is dropped, which matters more here because feature work
+adds files, and a case whose every ground-truth file is created is excluded as
+`ground_truth_empty_at_index_commit`.
+
+## Input and extraction
+
+The title and body verbatim, exactly as every earlier version. The real `extractBugsFromTicket` runs
+over it. Then, in this order:
+
+1. Extraction produces **exactly one feature request and no bug**: the case proceeds. Anything else
+   is an exclusion with its own reason: `no_item_produced`, `extracted_as_bug` (one bug and no
+   feature request), or `extraction_split_into_<f>_features_<b>_bugs`. As Amendment 8 records,
+   extraction is sampled, so this set varies between runs.
+2. The real `isCodeActionableFeatureRequest` decides. A feature request it rejects is a **refusal**:
+   production would not map it, so nothing is retrieved or ranked. A refusal is not an exclusion and
+   not a miss; it is reported as its own outcome.
+3. A code-actionable request is mapped the way `map-bug-to-code` maps one: the search text is the
+   description, a blank line, then `desired_behavior`, and that same text is what query expansion,
+   retrieval and the ranking prompt receive.
+
+## Metrics, and which figure is the headline
+
+Scoring is the committed `localization-score.ts`, unchanged.
+
+- **Headline: File Match @1 over code-actionable cases.** That is exactly the population metering
+  would charge for, which is why it is the headline (decided before selection, by the founder).
+- **Actionable rate:** code-actionable cases over all cases that produced exactly one feature request.
+- **Pessimistic bound:** the same numerator over every selected case, with every exclusion AND every
+  refusal counted as a miss. It ships next to the headline wherever the headline appears.
+- File Match @5, Repo Routing @1 and Line Overlap @1 (with its own denominator) as before.
+
+## Decision rule, declared now so it cannot be fitted to the result
+
+**If fewer than 20 code-actionable cases are scored, the arm is reported as underpowered.** An
+underpowered result informs the metering decision but does not by itself justify metering, whatever it
+shows. At n = 20 the 95% Wilson interval is still about 40 points wide, so a smaller n cannot tell a
+good localizer from a mediocre one.
+
+Nothing maps this number onto a pricing change automatically. It is compared to the bug figure in
+prose, with both denominators, and the metering decision is taken by a person with the result in hand.
+
+## What this costs, stated so it cannot be quietly skipped
+
+About 40 cases x (1 extraction + 3 query expansions + 1 rerank) is at most 200 model calls, on the
+probe keys only, under the 400-call ceiling in `probe-env.mjs`. A refused case stops after extraction.
+Embeddings are bought only for chunks whose content changed between the v4 pins and the v5 pins.
+
+## Publication
+
+`sample.v5.frozen.json`, `ground-truth.v5.json`, `indexability.v5.json` and `results.v5.json` are
+committed **unedited, whatever they show**, in that order and without squashing, after this section.
+Every refusal, exclusion and miss stays in the file. Whether the figure appears on `/proof` or in the
+public benchmark repository is a separate decision, taken after the result is read, because this arm
+exists to inform a pricing decision rather than to make a marketing claim. If it is published, the
+pessimistic bound and the underpowered flag travel with it.
