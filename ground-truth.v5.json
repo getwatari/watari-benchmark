@@ -1,0 +1,2769 @@
+{
+  "protocol_version": 5,
+  "derived_from": "benchmarks/localization/sample.v5.frozen.json",
+  "extracted_at": "2026-09-11T11:37:52.814Z",
+  "summary": {
+    "cases": 40,
+    "total_hunks": 217,
+    "cases_with_absent_ground_truth_file": 6,
+    "cases_with_possible_line_drift": 21,
+    "cases_line_overlap_scoreable": 18
+  },
+  "repositories": [
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "index_commit": "60a7a22c7b46ad77b44471dc7c68eddbeea49d59",
+      "cases": [
+        {
+          "issue_number": 30968,
+          "issue_url": "https://github.com/element-hq/element-web/issues/30968",
+          "fix_pr_number": 34753,
+          "fix_pr_base_sha": "a664fabc563afba905239e2cc59a7a142f01532d",
+          "ground_truth_files": [
+            "apps/web/src/ContentMessages.ts",
+            "apps/web/src/Lifecycle.ts",
+            "apps/web/src/utils/MediaEventHelper.ts",
+            "apps/web/src/utils/UploadedMediaCache.ts",
+            "apps/web/src/viewmodels/message-body/ImageBodyViewModel.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/src/ContentMessages.ts",
+              "start_line": 56,
+              "end_line": 61,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/ContentMessages.ts",
+              "start_line": 378,
+              "end_line": 383,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/ContentMessages.ts",
+              "start_line": 396,
+              "end_line": 401,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/Lifecycle.ts",
+              "start_line": 67,
+              "end_line": 72,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/Lifecycle.ts",
+              "start_line": 1109,
+              "end_line": 1114,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/utils/MediaEventHelper.ts",
+              "start_line": 15,
+              "end_line": 20,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/utils/MediaEventHelper.ts",
+              "start_line": 46,
+              "end_line": 60,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/utils/MediaEventHelper.ts",
+              "start_line": 63,
+              "end_line": 69,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/utils/MediaEventHelper.ts",
+              "start_line": 74,
+              "end_line": 79,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/utils/MediaEventHelper.ts",
+              "start_line": 91,
+              "end_line": 96,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/utils/UploadedMediaCache.ts",
+              "start_line": 0,
+              "end_line": 0,
+              "pure_addition": true
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/message-body/ImageBodyViewModel.ts",
+              "start_line": 343,
+              "end_line": 349,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/src/ContentMessages.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "apps/web/src/Lifecycle.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "apps/web/src/utils/MediaEventHelper.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 5
+            },
+            {
+              "file_path": "apps/web/src/utils/UploadedMediaCache.ts",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/message-body/ImageBodyViewModel.ts",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "apps/web/src/utils/UploadedMediaCache.ts",
+            "apps/web/src/viewmodels/message-body/ImageBodyViewModel.ts"
+          ],
+          "line_numbers_may_have_drifted": [
+            "apps/web/src/ContentMessages.ts",
+            "apps/web/src/Lifecycle.ts",
+            "apps/web/src/utils/MediaEventHelper.ts"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 34369,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34369",
+          "fix_pr_number": 34643,
+          "fix_pr_base_sha": "a73f8c389b30066e51932e126586cdfd58090a1f",
+          "ground_truth_files": [
+            "packages/shared-components/src/resize/separator/SeparatorView.module.css",
+            "packages/shared-components/src/resize/separator/SeparatorView.tsx"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "packages/shared-components/src/resize/separator/SeparatorView.module.css",
+              "start_line": 15,
+              "end_line": 20,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/shared-components/src/resize/separator/SeparatorView.module.css",
+              "start_line": 86,
+              "end_line": 88,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/shared-components/src/resize/separator/SeparatorView.tsx",
+              "start_line": 60,
+              "end_line": 74,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "packages/shared-components/src/resize/separator/SeparatorView.module.css",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "packages/shared-components/src/resize/separator/SeparatorView.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "packages/shared-components/src/resize/separator/SeparatorView.module.css",
+            "packages/shared-components/src/resize/separator/SeparatorView.tsx"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 34463,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34463",
+          "fix_pr_number": 34566,
+          "fix_pr_base_sha": "313d5097a091d0efcdb02be6a11bf860d36010df",
+          "ground_truth_files": [
+            "apps/web/res/css/views/right_panel/_ThreadPanel.pcss"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/res/css/views/right_panel/_ThreadPanel.pcss",
+              "start_line": 11,
+              "end_line": 17,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/res/css/views/right_panel/_ThreadPanel.pcss",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "apps/web/res/css/views/right_panel/_ThreadPanel.pcss"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 34347,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34347",
+          "fix_pr_number": 34350,
+          "fix_pr_base_sha": "6c2c96258863ae97a8a3c5f4a91b500ffd270f4d",
+          "ground_truth_files": [
+            "apps/web/src/toasts/MobileGuideToast.ts",
+            "apps/web/src/vector/index.ts",
+            "apps/web/src/vector/mobile_guide/index.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/src/toasts/MobileGuideToast.ts",
+              "start_line": 16,
+              "end_line": 22,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/toasts/MobileGuideToast.ts",
+              "start_line": 29,
+              "end_line": 35,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/vector/index.ts",
+              "start_line": 152,
+              "end_line": 158,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/vector/mobile_guide/index.ts",
+              "start_line": 15,
+              "end_line": 22,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/src/toasts/MobileGuideToast.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "apps/web/src/vector/index.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/web/src/vector/mobile_guide/index.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "apps/web/src/vector/index.ts"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 34317,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34317",
+          "fix_pr_number": 34351,
+          "fix_pr_base_sha": "6c2c96258863ae97a8a3c5f4a91b500ffd270f4d",
+          "ground_truth_files": [
+            "apps/web/src/settings/Settings.tsx",
+            "apps/web/src/stores/room-list-v3/section.ts",
+            "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+            "apps/web/src/viewmodels/room-list/RoomListViewModel.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/src/settings/Settings.tsx",
+              "start_line": 53,
+              "end_line": 59,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/Settings.tsx",
+              "start_line": 364,
+              "end_line": 369,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/Settings.tsx",
+              "start_line": 1349,
+              "end_line": 1354,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+              "start_line": 132,
+              "end_line": 137,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+              "start_line": 24,
+              "end_line": 29,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+              "start_line": 48,
+              "end_line": 59,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+              "start_line": 64,
+              "end_line": 70,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+              "start_line": 78,
+              "end_line": 86,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+              "start_line": 97,
+              "end_line": 103,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+              "start_line": 110,
+              "end_line": 116,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "start_line": 753,
+              "end_line": 758,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "start_line": 782,
+              "end_line": 793,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "start_line": 970,
+              "end_line": 988,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/src/settings/Settings.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 6
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "apps/web/src/stores/room-list-v3/section.ts"
+          ],
+          "line_numbers_may_have_drifted": [
+            "apps/web/src/settings/Settings.tsx",
+            "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+            "apps/web/src/viewmodels/room-list/RoomListViewModel.ts"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 34216,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34216",
+          "fix_pr_number": 34224,
+          "fix_pr_base_sha": "c6b52b8a73d43e57b5a9d2c4ef642397fd7c2425",
+          "ground_truth_files": [
+            "apps/web/res/css/views/elements/_CopyableText.pcss",
+            "apps/web/res/css/views/right_panel/_UserInfo.pcss",
+            "apps/web/res/css/views/rooms/_EventTile.pcss",
+            "apps/web/src/components/views/elements/CopyableText.tsx",
+            "packages/shared-components/src/room-list/RoomListHeaderView/RoomListHeaderView.tsx"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/res/css/views/elements/_CopyableText.pcss",
+              "start_line": 8,
+              "end_line": 14,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/res/css/views/elements/_CopyableText.pcss",
+              "start_line": 20,
+              "end_line": 46,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/res/css/views/right_panel/_UserInfo.pcss",
+              "start_line": 126,
+              "end_line": 144,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/res/css/views/rooms/_EventTile.pcss",
+              "start_line": 869,
+              "end_line": 876,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/components/views/elements/CopyableText.tsx",
+              "start_line": 10,
+              "end_line": 19,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/components/views/elements/CopyableText.tsx",
+              "start_line": 29,
+              "end_line": 35,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/components/views/elements/CopyableText.tsx",
+              "start_line": 43,
+              "end_line": 59,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/shared-components/src/room-list/RoomListHeaderView/RoomListHeaderView.tsx",
+              "start_line": 191,
+              "end_line": 197,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/res/css/views/elements/_CopyableText.pcss",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "apps/web/res/css/views/right_panel/_UserInfo.pcss",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/web/res/css/views/rooms/_EventTile.pcss",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/web/src/components/views/elements/CopyableText.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "packages/shared-components/src/room-list/RoomListHeaderView/RoomListHeaderView.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "apps/web/res/css/views/elements/_CopyableText.pcss",
+            "apps/web/res/css/views/rooms/_EventTile.pcss",
+            "apps/web/src/components/views/elements/CopyableText.tsx",
+            "packages/shared-components/src/room-list/RoomListHeaderView/RoomListHeaderView.tsx"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 34147,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34147",
+          "fix_pr_number": 34162,
+          "fix_pr_base_sha": "48bd69a8b6809f3343340312601c9add641663ad",
+          "ground_truth_files": [
+            "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+            "packages/shared-components/src/i18n/strings/en_EN.json",
+            "packages/shared-components/src/room-list/RoomListPrimaryFilters/RoomListPrimaryFilters.tsx",
+            "packages/shared-components/src/room-list/RoomListPrimaryFilters/useVisibleFilters.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "start_line": 64,
+              "end_line": 73,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "start_line": 144,
+              "end_line": 150,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "start_line": 214,
+              "end_line": 219,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "start_line": 249,
+              "end_line": 254,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/shared-components/src/i18n/strings/en_EN.json",
+              "start_line": 148,
+              "end_line": 154,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/shared-components/src/room-list/RoomListPrimaryFilters/RoomListPrimaryFilters.tsx",
+              "start_line": 26,
+              "end_line": 35,
+              "pure_addition": false
+            },
+            {
+              "file_path": "packages/shared-components/src/room-list/RoomListPrimaryFilters/useVisibleFilters.ts",
+              "start_line": 11,
+              "end_line": 17,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 4
+            },
+            {
+              "file_path": "packages/shared-components/src/i18n/strings/en_EN.json",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "packages/shared-components/src/room-list/RoomListPrimaryFilters/RoomListPrimaryFilters.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "packages/shared-components/src/room-list/RoomListPrimaryFilters/useVisibleFilters.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+            "packages/shared-components/src/i18n/strings/en_EN.json",
+            "packages/shared-components/src/room-list/RoomListPrimaryFilters/RoomListPrimaryFilters.tsx",
+            "packages/shared-components/src/room-list/RoomListPrimaryFilters/useVisibleFilters.ts"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 32853,
+          "issue_url": "https://github.com/element-hq/element-web/issues/32853",
+          "fix_pr_number": 33680,
+          "fix_pr_base_sha": "35484e518332eaabe854bfa709d871965621718c",
+          "ground_truth_files": [
+            "apps/web/src/utils/exportUtils/Exporter.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/src/utils/exportUtils/Exporter.ts",
+              "start_line": 56,
+              "end_line": 62,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/utils/exportUtils/Exporter.ts",
+              "start_line": 77,
+              "end_line": 88,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/src/utils/exportUtils/Exporter.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 32858,
+          "issue_url": "https://github.com/element-hq/element-web/issues/32858",
+          "fix_pr_number": 33172,
+          "fix_pr_base_sha": "384db1faaf7d50d9881b27873947fda5b23ff83b",
+          "ground_truth_files": [
+            "apps/web/src/@types/matrix-js-sdk.d.ts",
+            "apps/web/src/emojipicker/recent.ts",
+            "apps/web/src/settings/handlers/AccountSettingsHandler.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/src/@types/matrix-js-sdk.d.ts",
+              "start_line": 71,
+              "end_line": 79,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/emojipicker/recent.ts",
+              "start_line": 8,
+              "end_line": 67,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+              "start_line": 15,
+              "end_line": 25,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+              "start_line": 65,
+              "end_line": 72,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+              "start_line": 76,
+              "end_line": 105,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+              "start_line": 109,
+              "end_line": 123,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+              "start_line": 128,
+              "end_line": 140,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+              "start_line": 150,
+              "end_line": 160,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+              "start_line": 175,
+              "end_line": 181,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+              "start_line": 186,
+              "end_line": 206,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+              "start_line": 220,
+              "end_line": 232,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+              "start_line": 243,
+              "end_line": 246,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/src/@types/matrix-js-sdk.d.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/web/src/emojipicker/recent.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 10
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "apps/web/src/emojipicker/recent.ts"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 33470,
+          "issue_url": "https://github.com/element-hq/element-web/issues/33470",
+          "fix_pr_number": 33475,
+          "fix_pr_base_sha": "8400f56004a1e64fbcc9d2e19ce23c74a72f06ae",
+          "ground_truth_files": [
+            "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+            "apps/web/src/stores/room-list-v3/section.ts",
+            "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+            "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+            "apps/web/src/viewmodels/room-list/RoomListViewModel.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+              "start_line": 40,
+              "end_line": 46,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+              "start_line": 522,
+              "end_line": 528,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+              "start_line": 14,
+              "end_line": 21,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+              "start_line": 27,
+              "end_line": 38,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+              "start_line": 58,
+              "end_line": 75,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+              "start_line": 83,
+              "end_line": 98,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+              "start_line": 103,
+              "end_line": 109,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+              "start_line": 127,
+              "end_line": 133,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+              "start_line": 138,
+              "end_line": 145,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+              "start_line": 39,
+              "end_line": 46,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+              "start_line": 424,
+              "end_line": 430,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+              "start_line": 17,
+              "end_line": 23,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+              "start_line": 139,
+              "end_line": 146,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "start_line": 36,
+              "end_line": 45,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "start_line": 287,
+              "end_line": 294,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "start_line": 692,
+              "end_line": 702,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 7
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "apps/web/src/stores/room-list-v3/section.ts"
+          ],
+          "line_numbers_may_have_drifted": [
+            "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+            "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+            "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+            "apps/web/src/viewmodels/room-list/RoomListViewModel.ts"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 33277,
+          "issue_url": "https://github.com/element-hq/element-web/issues/33277",
+          "fix_pr_number": 33278,
+          "fix_pr_base_sha": "8f9953f419021e5918f45c7aa1ce380d2d0e1323",
+          "ground_truth_files": [
+            "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+              "start_line": 423,
+              "end_line": 430,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 32456,
+          "issue_url": "https://github.com/element-hq/element-web/issues/32456",
+          "fix_pr_number": 33240,
+          "fix_pr_base_sha": "12df09bd4b002facb148db3fba924ba07683f548",
+          "ground_truth_files": [
+            "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+            "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+              "start_line": 491,
+              "end_line": 500,
+              "pure_addition": false
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+              "start_line": 400,
+              "end_line": 407,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+            "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 32454,
+          "issue_url": "https://github.com/element-hq/element-web/issues/32454",
+          "fix_pr_number": 33077,
+          "fix_pr_base_sha": "121c2d18e97baf5a777dc636edfd197e5801bee7",
+          "ground_truth_files": [
+            "apps/web/src/viewmodels/room-list/RoomListViewModel.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "start_line": 182,
+              "end_line": 187,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "language": "go",
+      "index_commit": "4a6db5a7c2410fdab8fe61b14d62d1814de34e96",
+      "cases": [
+        {
+          "issue_number": 38981,
+          "issue_url": "https://github.com/go-gitea/gitea/issues/38981",
+          "fix_pr_number": 38988,
+          "fix_pr_base_sha": "c9193adb68dd3a85eeefc7981529a04f36b8f8dc",
+          "ground_truth_files": [
+            "models/issues/review.go",
+            "routers/web/repo/issue_page_meta.go",
+            "services/issue/pull.go",
+            "services/issue/review_request.go",
+            "templates/repo/issue/sidebar/reviewer_list.tmpl"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "models/issues/review.go",
+              "start_line": 223,
+              "end_line": 229,
+              "pure_addition": false
+            },
+            {
+              "file_path": "routers/web/repo/issue_page_meta.go",
+              "start_line": 351,
+              "end_line": 363,
+              "pure_addition": false
+            },
+            {
+              "file_path": "services/issue/pull.go",
+              "start_line": 182,
+              "end_line": 188,
+              "pure_addition": false
+            },
+            {
+              "file_path": "services/issue/review_request.go",
+              "start_line": 103,
+              "end_line": 108,
+              "pure_addition": false
+            },
+            {
+              "file_path": "templates/repo/issue/sidebar/reviewer_list.tmpl",
+              "start_line": 66,
+              "end_line": 72,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "models/issues/review.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "routers/web/repo/issue_page_meta.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "services/issue/pull.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "services/issue/review_request.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "templates/repo/issue/sidebar/reviewer_list.tmpl",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "models/issues/review.go",
+            "routers/web/repo/issue_page_meta.go",
+            "services/issue/pull.go",
+            "services/issue/review_request.go"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 15663,
+          "issue_url": "https://github.com/go-gitea/gitea/issues/15663",
+          "fix_pr_number": 39204,
+          "fix_pr_base_sha": "c285440e03331b2187ef69ba227ed0a9ea362075",
+          "ground_truth_files": [
+            "templates/repo/issue/fields/textarea.tmpl",
+            "templates/repo/upload.tmpl",
+            "web_src/css/editor/combomarkdowneditor.css",
+            "web_src/js/features/comp/ComboMarkdownEditor.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "templates/repo/issue/fields/textarea.tmpl",
+              "start_line": 16,
+              "end_line": 22,
+              "pure_addition": false
+            },
+            {
+              "file_path": "templates/repo/upload.tmpl",
+              "start_line": 1,
+              "end_line": 5,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web_src/css/editor/combomarkdowneditor.css",
+              "start_line": 95,
+              "end_line": 97,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web_src/js/features/comp/ComboMarkdownEditor.ts",
+              "start_line": 86,
+              "end_line": 91,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web_src/js/features/comp/ComboMarkdownEditor.ts",
+              "start_line": 117,
+              "end_line": 127,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web_src/js/features/comp/ComboMarkdownEditor.ts",
+              "start_line": 170,
+              "end_line": 178,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web_src/js/features/comp/ComboMarkdownEditor.ts",
+              "start_line": 210,
+              "end_line": 216,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web_src/js/features/comp/ComboMarkdownEditor.ts",
+              "start_line": 222,
+              "end_line": 233,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web_src/js/features/comp/ComboMarkdownEditor.ts",
+              "start_line": 249,
+              "end_line": 255,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "templates/repo/issue/fields/textarea.tmpl",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "templates/repo/upload.tmpl",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "web_src/css/editor/combomarkdowneditor.css",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "web_src/js/features/comp/ComboMarkdownEditor.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 6
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "web_src/css/editor/combomarkdowneditor.css",
+            "web_src/js/features/comp/ComboMarkdownEditor.ts"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 6058,
+          "issue_url": "https://github.com/go-gitea/gitea/issues/6058",
+          "fix_pr_number": 38995,
+          "fix_pr_base_sha": "fa5d876171f4527f96238a6e5c56c4b095d164b1",
+          "ground_truth_files": [
+            "web_src/js/components/ActivityHeatmap.vue"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "web_src/js/components/ActivityHeatmap.vue",
+              "start_line": 7,
+              "end_line": 12,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web_src/js/components/ActivityHeatmap.vue",
+              "start_line": 47,
+              "end_line": 56,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web_src/js/components/ActivityHeatmap.vue",
+              "start_line": 95,
+              "end_line": 103,
+              "pure_addition": false
+            },
+            {
+              "file_path": "web_src/js/components/ActivityHeatmap.vue",
+              "start_line": 162,
+              "end_line": 170,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "web_src/js/components/ActivityHeatmap.vue",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 4
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "web_src/js/components/ActivityHeatmap.vue"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 36299,
+          "issue_url": "https://github.com/go-gitea/gitea/issues/36299",
+          "fix_pr_number": 38021,
+          "fix_pr_base_sha": "7684221ed47b49d572e2177cc2258e66a4fcdf99",
+          "ground_truth_files": [
+            "modules/indexer/issues/bleve/bleve.go",
+            "modules/indexer/issues/elasticsearch/elasticsearch.go",
+            "modules/indexer/issues/internal/model.go",
+            "modules/indexer/issues/meilisearch/meilisearch.go",
+            "modules/indexer/issues/util.go"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "modules/indexer/issues/bleve/bleve.go",
+              "start_line": 11,
+              "end_line": 17,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/bleve/bleve.go",
+              "start_line": 27,
+              "end_line": 33,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/bleve/bleve.go",
+              "start_line": 86,
+              "end_line": 92,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/bleve/bleve.go",
+              "start_line": 258,
+              "end_line": 271,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/elasticsearch/elasticsearch.go",
+              "start_line": 16,
+              "end_line": 22,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/elasticsearch/elasticsearch.go",
+              "start_line": 57,
+              "end_line": 63,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/elasticsearch/elasticsearch.go",
+              "start_line": 177,
+              "end_line": 190,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/internal/model.go",
+              "start_line": 34,
+              "end_line": 40,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/meilisearch/meilisearch.go",
+              "start_line": 20,
+              "end_line": 26,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/meilisearch/meilisearch.go",
+              "start_line": 74,
+              "end_line": 80,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/meilisearch/meilisearch.go",
+              "start_line": 195,
+              "end_line": 208,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/util.go",
+              "start_line": 87,
+              "end_line": 92,
+              "pure_addition": false
+            },
+            {
+              "file_path": "modules/indexer/issues/util.go",
+              "start_line": 112,
+              "end_line": 118,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "modules/indexer/issues/bleve/bleve.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 4
+            },
+            {
+              "file_path": "modules/indexer/issues/elasticsearch/elasticsearch.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "modules/indexer/issues/internal/model.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "modules/indexer/issues/meilisearch/meilisearch.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "modules/indexer/issues/util.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "modules/indexer/issues/bleve/bleve.go",
+            "modules/indexer/issues/elasticsearch/elasticsearch.go",
+            "modules/indexer/issues/internal/model.go",
+            "modules/indexer/issues/meilisearch/meilisearch.go",
+            "modules/indexer/issues/util.go"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 25042,
+          "issue_url": "https://github.com/go-gitea/gitea/issues/25042",
+          "fix_pr_number": 37826,
+          "fix_pr_base_sha": "4a6db5a7c2410fdab8fe61b14d62d1814de34e96",
+          "ground_truth_files": [
+            "models/actions/run_list.go",
+            "routers/web/repo/actions/actions.go",
+            "routers/web/repo/actions/view.go",
+            "templates/repo/actions/list.tmpl",
+            "templates/repo/actions/workflow_dispatch.tmpl"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "models/actions/run_list.go",
+              "start_line": 132,
+              "end_line": 137,
+              "pure_addition": false
+            },
+            {
+              "file_path": "routers/web/repo/actions/actions.go",
+              "start_line": 7,
+              "end_line": 13,
+              "pure_addition": false
+            },
+            {
+              "file_path": "routers/web/repo/actions/actions.go",
+              "start_line": 286,
+              "end_line": 291,
+              "pure_addition": false
+            },
+            {
+              "file_path": "routers/web/repo/actions/actions.go",
+              "start_line": 295,
+              "end_line": 301,
+              "pure_addition": false
+            },
+            {
+              "file_path": "routers/web/repo/actions/actions.go",
+              "start_line": 313,
+              "end_line": 318,
+              "pure_addition": false
+            },
+            {
+              "file_path": "routers/web/repo/actions/actions.go",
+              "start_line": 393,
+              "end_line": 398,
+              "pure_addition": false
+            },
+            {
+              "file_path": "routers/web/repo/actions/actions.go",
+              "start_line": 509,
+              "end_line": 511,
+              "pure_addition": false
+            },
+            {
+              "file_path": "routers/web/repo/actions/view.go",
+              "start_line": 1103,
+              "end_line": 1116,
+              "pure_addition": false
+            },
+            {
+              "file_path": "templates/repo/actions/list.tmpl",
+              "start_line": 8,
+              "end_line": 16,
+              "pure_addition": false
+            },
+            {
+              "file_path": "templates/repo/actions/list.tmpl",
+              "start_line": 54,
+              "end_line": 64,
+              "pure_addition": false
+            },
+            {
+              "file_path": "templates/repo/actions/list.tmpl",
+              "start_line": 73,
+              "end_line": 94,
+              "pure_addition": false
+            },
+            {
+              "file_path": "templates/repo/actions/workflow_dispatch.tmpl",
+              "start_line": 7,
+              "end_line": 13,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "models/actions/run_list.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "routers/web/repo/actions/actions.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 6
+            },
+            {
+              "file_path": "routers/web/repo/actions/view.go",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "templates/repo/actions/list.tmpl",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "templates/repo/actions/workflow_dispatch.tmpl",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "language": "csharp",
+      "index_commit": "bfae788a44d7c5640bd23c6f433533ef16f30107",
+      "cases": [
+        {
+          "issue_number": 15515,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/15515",
+          "fix_pr_number": 15516,
+          "fix_pr_base_sha": "0beb07c40756aca5ab6a6ba4f8494bc5147e3c2b",
+          "ground_truth_files": [
+            "Emby.Server.Implementations/Collections/CollectionManager.cs",
+            "Jellyfin.Api/Controllers/LibraryController.cs",
+            "Jellyfin.Server.Implementations/Item/LinkedChildrenService.cs",
+            "MediaBrowser.Controller/Collections/ICollectionManager.cs",
+            "MediaBrowser.Controller/Persistence/ILinkedChildrenService.cs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "Emby.Server.Implementations/Collections/CollectionManager.cs",
+              "start_line": 4,
+              "end_line": 15,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Emby.Server.Implementations/Collections/CollectionManager.cs",
+              "start_line": 29,
+              "end_line": 34,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Emby.Server.Implementations/Collections/CollectionManager.cs",
+              "start_line": 42,
+              "end_line": 61,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Emby.Server.Implementations/Collections/CollectionManager.cs",
+              "start_line": 120,
+              "end_line": 125,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Jellyfin.Api/Controllers/LibraryController.cs",
+              "start_line": 17,
+              "end_line": 22,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Jellyfin.Api/Controllers/LibraryController.cs",
+              "start_line": 50,
+              "end_line": 55,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Jellyfin.Api/Controllers/LibraryController.cs",
+              "start_line": 64,
+              "end_line": 69,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Jellyfin.Api/Controllers/LibraryController.cs",
+              "start_line": 75,
+              "end_line": 80,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Jellyfin.Api/Controllers/LibraryController.cs",
+              "start_line": 86,
+              "end_line": 91,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Jellyfin.Api/Controllers/LibraryController.cs",
+              "start_line": 704,
+              "end_line": 709,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Jellyfin.Server.Implementations/Item/LinkedChildrenService.cs",
+              "start_line": 91,
+              "end_line": 104,
+              "pure_addition": false
+            },
+            {
+              "file_path": "MediaBrowser.Controller/Collections/ICollectionManager.cs",
+              "start_line": 57,
+              "end_line": 62,
+              "pure_addition": false
+            },
+            {
+              "file_path": "MediaBrowser.Controller/Persistence/ILinkedChildrenService.cs",
+              "start_line": 1,
+              "end_line": 5,
+              "pure_addition": false
+            },
+            {
+              "file_path": "MediaBrowser.Controller/Persistence/ILinkedChildrenService.cs",
+              "start_line": 29,
+              "end_line": 36,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "Emby.Server.Implementations/Collections/CollectionManager.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 4
+            },
+            {
+              "file_path": "Jellyfin.Api/Controllers/LibraryController.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 6
+            },
+            {
+              "file_path": "Jellyfin.Server.Implementations/Item/LinkedChildrenService.cs",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "MediaBrowser.Controller/Collections/ICollectionManager.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "MediaBrowser.Controller/Persistence/ILinkedChildrenService.cs",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "Jellyfin.Server.Implementations/Item/LinkedChildrenService.cs",
+            "MediaBrowser.Controller/Persistence/ILinkedChildrenService.cs"
+          ],
+          "line_numbers_may_have_drifted": [
+            "Emby.Server.Implementations/Collections/CollectionManager.cs",
+            "Jellyfin.Api/Controllers/LibraryController.cs"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 14928,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/14928",
+          "fix_pr_number": 16433,
+          "fix_pr_base_sha": "bc074b5283add16818ce598890f53ce9432cd4ad",
+          "ground_truth_files": [
+            "Emby.Server.Implementations/Library/PathExtensions.cs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "Emby.Server.Implementations/Library/PathExtensions.cs",
+              "start_line": 70,
+              "end_line": 75,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "Emby.Server.Implementations/Library/PathExtensions.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "Emby.Server.Implementations/Library/PathExtensions.cs"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 13840,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/13840",
+          "fix_pr_number": 16478,
+          "fix_pr_base_sha": "9c09e7113e9eaadcf691e0fae68256a940a8b989",
+          "ground_truth_files": [
+            "Emby.Server.Implementations/AppBase/BaseApplicationPaths.cs",
+            "Emby.Server.Implementations/AppBase/BaseConfigurationManager.cs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "Emby.Server.Implementations/AppBase/BaseApplicationPaths.cs",
+              "start_line": 90,
+              "end_line": 95,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Emby.Server.Implementations/AppBase/BaseApplicationPaths.cs",
+              "start_line": 100,
+              "end_line": 105,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Emby.Server.Implementations/AppBase/BaseConfigurationManager.cs",
+              "start_line": 228,
+              "end_line": 233,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "Emby.Server.Implementations/AppBase/BaseApplicationPaths.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "Emby.Server.Implementations/AppBase/BaseConfigurationManager.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 15354,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/15354",
+          "fix_pr_number": 15355,
+          "fix_pr_base_sha": "ffe82be7a7a2ea6ab6d0e543f58ecd01df4085ef",
+          "ground_truth_files": [
+            "src/Jellyfin.Database/Jellyfin.Database.Providers.Sqlite/SqliteDatabaseProvider.cs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "src/Jellyfin.Database/Jellyfin.Database.Providers.Sqlite/SqliteDatabaseProvider.cs",
+              "start_line": 61,
+              "end_line": 67,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "src/Jellyfin.Database/Jellyfin.Database.Providers.Sqlite/SqliteDatabaseProvider.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "src/Jellyfin.Database/Jellyfin.Database.Providers.Sqlite/SqliteDatabaseProvider.cs"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 13310,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/13310",
+          "fix_pr_number": 16368,
+          "fix_pr_base_sha": "eb3f8b93d0026be3c255c3683ad99a32846f3215",
+          "ground_truth_files": [
+            "MediaBrowser.Model/Extensions/EnumerableExtensions.cs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "MediaBrowser.Model/Extensions/EnumerableExtensions.cs",
+              "start_line": 11,
+              "end_line": 17,
+              "pure_addition": false
+            },
+            {
+              "file_path": "MediaBrowser.Model/Extensions/EnumerableExtensions.cs",
+              "start_line": 28,
+              "end_line": 49,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "MediaBrowser.Model/Extensions/EnumerableExtensions.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 15137,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/15137",
+          "fix_pr_number": 15138,
+          "fix_pr_base_sha": "3b6985986709473c69ba785460c702c6bbe3771d",
+          "ground_truth_files": [
+            "Emby.Server.Implementations/Playlists/PlaylistManager.cs",
+            "Jellyfin.Api/Controllers/PlaylistsController.cs",
+            "MediaBrowser.Controller/Playlists/IPlaylistManager.cs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "Emby.Server.Implementations/Playlists/PlaylistManager.cs",
+              "start_line": 198,
+              "end_line": 214,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Emby.Server.Implementations/Playlists/PlaylistManager.cs",
+              "start_line": 243,
+              "end_line": 249,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Jellyfin.Api/Controllers/PlaylistsController.cs",
+              "start_line": 359,
+              "end_line": 364,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Jellyfin.Api/Controllers/PlaylistsController.cs",
+              "start_line": 371,
+              "end_line": 376,
+              "pure_addition": false
+            },
+            {
+              "file_path": "Jellyfin.Api/Controllers/PlaylistsController.cs",
+              "start_line": 388,
+              "end_line": 394,
+              "pure_addition": false
+            },
+            {
+              "file_path": "MediaBrowser.Controller/Playlists/IPlaylistManager.cs",
+              "start_line": 61,
+              "end_line": 69,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "Emby.Server.Implementations/Playlists/PlaylistManager.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "Jellyfin.Api/Controllers/PlaylistsController.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "MediaBrowser.Controller/Playlists/IPlaylistManager.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 15915,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/15915",
+          "fix_pr_number": 15916,
+          "fix_pr_base_sha": "d28ee6d71415b4c1f5c158f30f427b6952b8d65b",
+          "ground_truth_files": [
+            "MediaBrowser.Model/Extensions/StringHelper.cs"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "MediaBrowser.Model/Extensions/StringHelper.cs",
+              "start_line": 1,
+              "end_line": 3,
+              "pure_addition": false
+            },
+            {
+              "file_path": "MediaBrowser.Model/Extensions/StringHelper.cs",
+              "start_line": 25,
+              "end_line": 38,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "MediaBrowser.Model/Extensions/StringHelper.cs",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "language": "java",
+      "index_commit": "18ea0cf1093871c8778a791f60fb8d25b7b1bde5",
+      "cases": [
+        {
+          "issue_number": 17883,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/17883",
+          "fix_pr_number": 18574,
+          "fix_pr_base_sha": "fb5c2d66d45e2e41df0f664e752c9355024a4fca",
+          "ground_truth_files": [
+            "dolphinscheduler-common/src/main/java/org/apache/dolphinscheduler/common/utils/NetUtils.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-common/src/main/java/org/apache/dolphinscheduler/common/utils/NetUtils.java",
+              "start_line": 94,
+              "end_line": 100,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-common/src/main/java/org/apache/dolphinscheduler/common/utils/NetUtils.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 18589,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18589",
+          "fix_pr_number": 18590,
+          "fix_pr_base_sha": "45c274941d2b1f05aec969ad1fed919871d9d36d",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ClusterController.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/ClusterService.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceImpl.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ClusterController.java",
+              "start_line": 136,
+              "end_line": 142,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ClusterController.java",
+              "start_line": 164,
+              "end_line": 170,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ClusterController.java",
+              "start_line": 201,
+              "end_line": 207,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ClusterController.java",
+              "start_line": 221,
+              "end_line": 227,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/ClusterService.java",
+              "start_line": 47,
+              "end_line": 55,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/ClusterService.java",
+              "start_line": 73,
+              "end_line": 98,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceImpl.java",
+              "start_line": 106,
+              "end_line": 118,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceImpl.java",
+              "start_line": 136,
+              "end_line": 145,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceImpl.java",
+              "start_line": 157,
+              "end_line": 166,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceImpl.java",
+              "start_line": 270,
+              "end_line": 280,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ClusterController.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 4
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/ClusterService.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceImpl.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 4
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 18580,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18580",
+          "fix_pr_number": 18581,
+          "fix_pr_base_sha": "511823be90edb050c256d09a49df12972fde10e4",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+              "start_line": 385,
+              "end_line": 391,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 18563,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18563",
+          "fix_pr_number": 18564,
+          "fix_pr_base_sha": "a247ec5f940afee5fb4eb73004872231d67bc794",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/DataSourceService.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/vo/DataSourceSimpleInfoVO.java",
+            "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/DataSourceMapper.xml"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+              "start_line": 39,
+              "end_line": 44,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+              "start_line": 286,
+              "end_line": 292,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+              "start_line": 295,
+              "end_line": 304,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+              "start_line": 307,
+              "end_line": 313,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+              "start_line": 316,
+              "end_line": 324,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/DataSourceService.java",
+              "start_line": 19,
+              "end_line": 24,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/DataSourceService.java",
+              "start_line": 126,
+              "end_line": 143,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+              "start_line": 25,
+              "end_line": 30,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+              "start_line": 315,
+              "end_line": 329,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+              "start_line": 338,
+              "end_line": 350,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/vo/DataSourceSimpleInfoVO.java",
+              "start_line": 0,
+              "end_line": 0,
+              "pure_addition": true
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/DataSourceMapper.xml",
+              "start_line": 68,
+              "end_line": 80,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 5
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/DataSourceService.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/vo/DataSourceSimpleInfoVO.java",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/DataSourceMapper.xml",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/vo/DataSourceSimpleInfoVO.java"
+          ],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 18441,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18441",
+          "fix_pr_number": 18442,
+          "fix_pr_base_sha": "d6ff33adb91b90fd30b1b3b3c31022ccbb7788bc",
+          "ground_truth_files": [
+            "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml",
+              "start_line": 30,
+              "end_line": 35,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml",
+              "start_line": 125,
+              "end_line": 131,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml",
+              "start_line": 134,
+              "end_line": 140,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml",
+              "start_line": 153,
+              "end_line": 159,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml",
+              "start_line": 196,
+              "end_line": 202,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml",
+              "start_line": 236,
+              "end_line": 242,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 6
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [
+            "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 18439,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18439",
+          "fix_pr_number": 18440,
+          "fix_pr_base_sha": "db695440b764bd0f2b2125e9b7e67de83ca766d2",
+          "ground_truth_files": [
+            "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_h2.sql",
+            "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_mysql.sql",
+            "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_postgresql.sql",
+            "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/mysql/dolphinscheduler_ddl.sql",
+            "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/postgresql/dolphinscheduler_ddl.sql"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_h2.sql",
+              "start_line": 636,
+              "end_line": 642,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_h2.sql",
+              "start_line": 936,
+              "end_line": 944,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_mysql.sql",
+              "start_line": 646,
+              "end_line": 652,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_mysql.sql",
+              "start_line": 938,
+              "end_line": 944,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_postgresql.sql",
+              "start_line": 589,
+              "end_line": 594,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_postgresql.sql",
+              "start_line": 859,
+              "end_line": 865,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/mysql/dolphinscheduler_ddl.sql",
+              "start_line": 16,
+              "end_line": 19,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/postgresql/dolphinscheduler_ddl.sql",
+              "start_line": 16,
+              "end_line": 18,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_h2.sql",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_mysql.sql",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_postgresql.sql",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": false,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/mysql/dolphinscheduler_ddl.sql",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/postgresql/dolphinscheduler_ddl.sql",
+              "exists_at_index_commit": false,
+              "identical_at_index_commit": false,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [
+            "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/mysql/dolphinscheduler_ddl.sql",
+            "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/postgresql/dolphinscheduler_ddl.sql"
+          ],
+          "line_numbers_may_have_drifted": [
+            "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_h2.sql",
+            "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_mysql.sql",
+            "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_postgresql.sql"
+          ],
+          "line_overlap_scoreable": false
+        },
+        {
+          "issue_number": 18388,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18388",
+          "fix_pr_number": 18407,
+          "fix_pr_base_sha": "cf5704616fb9046ddf3958651cd3d55703e39f08",
+          "ground_truth_files": [
+            "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/AbstractCommandExecutor.java",
+            "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/AbstractTask.java",
+            "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/TaskConstants.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/AbstractCommandExecutor.java",
+              "start_line": 21,
+              "end_line": 26,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/AbstractCommandExecutor.java",
+              "start_line": 151,
+              "end_line": 158,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/AbstractTask.java",
+              "start_line": 141,
+              "end_line": 147,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/TaskConstants.java",
+              "start_line": 40,
+              "end_line": 45,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/AbstractCommandExecutor.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 2
+            },
+            {
+              "file_path": "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/AbstractTask.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/TaskConstants.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 18412,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18412",
+          "fix_pr_number": 18411,
+          "fix_pr_base_sha": "0e8db82a96935ee5f6b1dd314356b3dd4243651e",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ResourcesController.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/validator/resource/FetchFileContentDtoValidator.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ResourcesController.java",
+              "start_line": 314,
+              "end_line": 320,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/validator/resource/FetchFileContentDtoValidator.java",
+              "start_line": 37,
+              "end_line": 42,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ResourcesController.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/validator/resource/FetchFileContentDtoValidator.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 18403,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18403",
+          "fix_pr_number": 18404,
+          "fix_pr_base_sha": "17ce56905b3f7760636dc4b7f1a719c9abb137c7",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/UsersServiceImpl.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/UsersServiceImpl.java",
+              "start_line": 847,
+              "end_line": 853,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/UsersServiceImpl.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 17933,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/17933",
+          "fix_pr_number": 18368,
+          "fix_pr_base_sha": "8592557809d2d041d9d727371c090aef82e4dcae",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/AuditLogController.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/AuditService.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/AuditServiceImpl.java",
+            "dolphinscheduler-dao/src/main/java/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.java",
+            "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.xml"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/AuditLogController.java",
+              "start_line": 93,
+              "end_line": 98,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/AuditService.java",
+              "start_line": 20,
+              "end_line": 25,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/AuditService.java",
+              "start_line": 36,
+              "end_line": 41,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/AuditService.java",
+              "start_line": 46,
+              "end_line": 52,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/AuditServiceImpl.java",
+              "start_line": 22,
+              "end_line": 28,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/AuditServiceImpl.java",
+              "start_line": 59,
+              "end_line": 64,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/AuditServiceImpl.java",
+              "start_line": 70,
+              "end_line": 76,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/AuditServiceImpl.java",
+              "start_line": 83,
+              "end_line": 92,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/java/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.java",
+              "start_line": 35,
+              "end_line": 40,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.xml",
+              "start_line": 50,
+              "end_line": 55,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/AuditLogController.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/AuditService.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 3
+            },
+            {
+              "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/AuditServiceImpl.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 4
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/java/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.xml",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 18359,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18359",
+          "fix_pr_number": 18360,
+          "fix_pr_base_sha": "7a102f34f8ccf7ac77664c98f5b916ec2d845978",
+          "ground_truth_files": [
+            "dolphinscheduler-ui/src/views/security/cluster-manage/components/cluster-modal.tsx",
+            "dolphinscheduler-ui/src/views/security/cluster-manage/components/use-modal.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-ui/src/views/security/cluster-manage/components/cluster-modal.tsx",
+              "start_line": 136,
+              "end_line": 142,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-ui/src/views/security/cluster-manage/components/use-modal.ts",
+              "start_line": 49,
+              "end_line": 60,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-ui/src/views/security/cluster-manage/components/cluster-modal.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "dolphinscheduler-ui/src/views/security/cluster-manage/components/use-modal.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 17794,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/17794",
+          "fix_pr_number": 18352,
+          "fix_pr_base_sha": "a06a05f9e2d10a59fc9362371dd92e3526da94e7",
+          "ground_truth_files": [
+            "dolphinscheduler-master/src/main/java/org/apache/dolphinscheduler/server/master/engine/workflow/trigger/WorkflowInstanceRepeatTrigger.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-master/src/main/java/org/apache/dolphinscheduler/server/master/engine/workflow/trigger/WorkflowInstanceRepeatTrigger.java",
+              "start_line": 46,
+              "end_line": 51,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-master/src/main/java/org/apache/dolphinscheduler/server/master/engine/workflow/trigger/WorkflowInstanceRepeatTrigger.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 18354,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18354",
+          "fix_pr_number": 18355,
+          "fix_pr_base_sha": "76e6963bf02c3f8dd4e300ffe99493230c03d081",
+          "ground_truth_files": [
+            "dolphinscheduler-ui/src/views/security/environment-manage/components/environment-modal.tsx",
+            "dolphinscheduler-ui/src/views/security/environment-manage/components/use-modal.ts"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-ui/src/views/security/environment-manage/components/environment-modal.tsx",
+              "start_line": 128,
+              "end_line": 136,
+              "pure_addition": false
+            },
+            {
+              "file_path": "dolphinscheduler-ui/src/views/security/environment-manage/components/use-modal.ts",
+              "start_line": 60,
+              "end_line": 76,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-ui/src/views/security/environment-manage/components/environment-modal.tsx",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "dolphinscheduler-ui/src/views/security/environment-manage/components/use-modal.ts",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 17563,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/17563",
+          "fix_pr_number": 18336,
+          "fix_pr_base_sha": "adb0c7d95132cf6126ba834bb1437ca37d7713e5",
+          "ground_truth_files": [
+            "deploy/kubernetes/dolphinscheduler/Chart.yaml",
+            "deploy/kubernetes/dolphinscheduler/values.yaml"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "deploy/kubernetes/dolphinscheduler/Chart.yaml",
+              "start_line": 51,
+              "end_line": 57,
+              "pure_addition": false
+            },
+            {
+              "file_path": "deploy/kubernetes/dolphinscheduler/values.yaml",
+              "start_line": 111,
+              "end_line": 117,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "deploy/kubernetes/dolphinscheduler/Chart.yaml",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            },
+            {
+              "file_path": "deploy/kubernetes/dolphinscheduler/values.yaml",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        },
+        {
+          "issue_number": 18332,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18332",
+          "fix_pr_number": 18333,
+          "fix_pr_base_sha": "18ea0cf1093871c8778a791f60fb8d25b7b1bde5",
+          "ground_truth_files": [
+            "dolphinscheduler-datasource-plugin/dolphinscheduler-datasource-api/src/main/java/org/apache/dolphinscheduler/plugin/datasource/api/utils/PasswordUtils.java"
+          ],
+          "changed_hunks": [
+            {
+              "file_path": "dolphinscheduler-datasource-plugin/dolphinscheduler-datasource-api/src/main/java/org/apache/dolphinscheduler/plugin/datasource/api/utils/PasswordUtils.java",
+              "start_line": 77,
+              "end_line": 83,
+              "pure_addition": false
+            }
+          ],
+          "file_checks": [
+            {
+              "file_path": "dolphinscheduler-datasource-plugin/dolphinscheduler-datasource-api/src/main/java/org/apache/dolphinscheduler/plugin/datasource/api/utils/PasswordUtils.java",
+              "exists_at_index_commit": true,
+              "identical_at_index_commit": true,
+              "hunk_count": 1
+            }
+          ],
+          "files_absent_at_index_commit": [],
+          "line_numbers_may_have_drifted": [],
+          "line_overlap_scoreable": true
+        }
+      ]
+    }
+  ]
+}
