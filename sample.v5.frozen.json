@@ -1,0 +1,1547 @@
+{
+  "protocol_version": 5,
+  "protocol": "benchmarks/localization/PROTOCOL.md",
+  "frozen_at": "2026-09-11T11:31:43.004Z",
+  "constraints": {
+    "merged_on_or_after": "2026-01-01",
+    "cases_per_repo": 15,
+    "min_cases_per_repo": 5,
+    "min_body_chars": 200,
+    "max_fix_files": 5,
+    "candidates_examined_per_repo": 100,
+    "target_languages": 8,
+    "max_repositories": 8,
+    "rounds_per_language": 2,
+    "excluded_repositories": [],
+    "label_kind": "feature",
+    "feature_label_rule": "/(^|[^a-z])(features?|enhancements?|improvements?)([^a-z]|$)|feature[- _]?requests?/i"
+  },
+  "pool": {
+    "typescript": [
+      "element-hq/element-web",
+      "TryGhost/Ghost"
+    ],
+    "python": [
+      "paperless-ngx/paperless-ngx",
+      "langflow-ai/langflow"
+    ],
+    "go": [
+      "go-gitea/gitea"
+    ],
+    "csharp": [
+      "jellyfin/jellyfin"
+    ],
+    "java": [
+      "apache/dolphinscheduler"
+    ],
+    "php": [
+      "filamentphp/filament"
+    ]
+  },
+  "selected_repositories": [
+    {
+      "language": "typescript",
+      "repo": "element-hq/element-web",
+      "license": "AGPL-3.0",
+      "index_commit": "60a7a22c7b46ad77b44471dc7c68eddbeea49d59",
+      "index_commit_rationale": "parent of merge commit a5e09ebb53e7a9d1bcf8b421f13cb8432a1d9110 (fix for #32454, earliest selected)",
+      "candidates_examined": 100,
+      "qualifying_found": 13,
+      "cases": [
+        {
+          "issue_number": 30968,
+          "issue_url": "https://github.com/element-hq/element-web/issues/30968",
+          "issue_title": "Uploaded images aren't cached, meaning they don't display until they have been re-downloaded from the server, wasting bandwidth.",
+          "issue_body": "### Steps to reproduce\n\n1. Upload a largeish image\n2. Watch as you send a bunch of data to the server.\n3. Try to view the image you just uploaded\n4. Discover the client burns a bunch of time and data first downloading it from the server.\n\n### Outcome\n\n#### What did you expect?\n\nGiven you just uploaded it, the client already has the data available and shouldn't need to re-download it from the server.\n\n#### What happened instead?\n\nWe waste bandwidth re-downloading something we already have to hand.\n\n### Operating system\n\n_No response_\n\n### Application version\n\nElement Nightly version: 2025100701 Crypto version: Rust SDK 0.14.0 (c3b7918), Vodozemac 0.9.0\n\n### How did you install the app?\n\n_No response_\n\n### Homeserver\n\n_No response_\n\n### Will you send logs?\n\nNo",
+          "issue_author": "ara4n",
+          "issue_labels": [
+            "S-Minor",
+            "A-Media",
+            "T-Enhancement",
+            "O-Frequent"
+          ],
+          "closed_at": "2026-09-03T14:05:55Z",
+          "fix_pr_number": 34753,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/34753",
+          "fix_merged_at": "2026-09-03T14:05:53Z",
+          "fix_merge_commit": "d99eb665e94b764cc74934dccb118ddfce2756c5",
+          "pre_fix_commit": "105ee942f8a69c31d66b5b678645e21b41960512",
+          "ground_truth_files": [
+            "apps/web/src/ContentMessages.ts",
+            "apps/web/src/Lifecycle.ts",
+            "apps/web/src/utils/MediaEventHelper.ts",
+            "apps/web/src/utils/UploadedMediaCache.ts",
+            "apps/web/src/viewmodels/message-body/ImageBodyViewModel.ts"
+          ],
+          "excluded_files": [
+            "apps/web/src/ContentMessages.test.ts",
+            "apps/web/src/utils/MediaEventHelper.test.ts",
+            "apps/web/src/utils/UploadedMediaCache.test.ts",
+            "apps/web/src/viewmodels/message-body/ImageBodyViewModel.test.ts"
+          ]
+        },
+        {
+          "issue_number": 34369,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34369",
+          "issue_title": "Collapsed Room List",
+          "issue_body": "### Your use case\n\n1/ When in collapsed mode, have the tooltip \"Click or drag to expand\" to appear in the middle of the bar handle even if pointer is not in the middle of the bar handle.\n2/ When hovering on the middle handle button, display the hand pointer. When hovering outside of the middle handle button, have the expand icon to appear\n\n\n### Have you considered any alternatives?\n\n_No response_\n\n### Additional context\n\n_No response_",
+          "issue_author": "gaelledel",
+          "issue_labels": [
+            "T-Enhancement",
+            "A-Left-Panel"
+          ],
+          "closed_at": "2026-08-17T08:49:12Z",
+          "fix_pr_number": 34643,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/34643",
+          "fix_merged_at": "2026-08-17T08:49:11Z",
+          "fix_merge_commit": "11d770aedf92b1425ebee55a409678cd4afc4b67",
+          "pre_fix_commit": "dd9aded7dfd13cbc6aa9591596f9f2ca36a686e5",
+          "ground_truth_files": [
+            "packages/shared-components/src/resize/separator/SeparatorView.module.css",
+            "packages/shared-components/src/resize/separator/SeparatorView.tsx"
+          ],
+          "excluded_files": [
+            "packages/shared-components/src/resize/separator/__snapshots__/SeparatorView.test.tsx.snap"
+          ]
+        },
+        {
+          "issue_number": 34463,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34463",
+          "issue_title": "Right panel > Threads > Update Mark all as read button + Show filter container size to 64px tall",
+          "issue_body": "### Description:\n\nWhen viewing the [Threads list in the right panel](https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=6623-54464&t=1FJ5BIYhx7F2lKyL-4), the height of the container with the \"Mark all as read\" button and \"Show\" dropdown is currently 60px tall. Meanwhile, the size of the Pinned Messages banner is 64px. So when the Threads panel is open in a room with pinned messages, the bottom separators don't match up b/c there's a 4px difference.\n\n### Solution:\n\nPlease change the height to 64px.\n\n<img width=\"320\" height=\"396\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/44c35e53-d979-4863-8e13-2f95bd02467b\" />",
+          "issue_author": "americanrefugee",
+          "issue_labels": [
+            "T-Enhancement",
+            "A-Right-Panel",
+            "A-Threads"
+          ],
+          "closed_at": "2026-08-07T17:17:55Z",
+          "fix_pr_number": 34566,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/34566",
+          "fix_merged_at": "2026-08-07T17:17:54Z",
+          "fix_merge_commit": "9826a664dc23c8fab7432a47b29c5ced44fbd4dc",
+          "pre_fix_commit": "f6e88f46994085c9dc40968a7079ad153a190f1c",
+          "ground_truth_files": [
+            "apps/web/res/css/views/right_panel/_ThreadPanel.pcss"
+          ],
+          "excluded_files": [
+            "apps/web/playwright/e2e/threads/threads.spec.ts",
+            "apps/web/playwright/snapshots/threads/threads.spec.ts/thread-panel-linux.png"
+          ]
+        },
+        {
+          "issue_number": 34347,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34347",
+          "issue_title": "Store mobile-guide redirect preference in localStorage instead of a cookie",
+          "issue_body": "### Your use case\n\n#### What would you like to do?\n\nStop storing non-essential client-side preferences in cookies, starting with the mobile-guide redirect preference. Element Web currently stores this in a cookie (element_mobile_redirect_to_guide, 4-hour max-age), set in MobileGuideToast.ts and mobile_guide/index.ts and read in vector/index.ts.\n\n#### Why would you like to do it?\n\nBecause it's a cookie, the browser sends the value to app.element.io on every request, even though it's only ever read client-side and the server has no use for it. Keeping non-essential preferences out of cookies reduces unnecessary data sent to the web server and keeps the set of cookies we have to account for as small as possible. Since the app already relies on localStorage, sessionStorage and IndexedDB for its client-side state it would make sense to do this. \n\n#### How would you like to achieve it?\n\nMove the preference from a cookie to localStorage (or sessionStorage).\n\n### Have you considered any alternatives?\n\nN/A\n\n### Additional context\n\n_No response_",
+          "issue_author": "deniseal",
+          "issue_labels": [
+            "T-Task",
+            "T-Enhancement",
+            "A-Storage",
+            "Z-ProductPolish"
+          ],
+          "closed_at": "2026-07-29T16:25:17Z",
+          "fix_pr_number": 34350,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/34350",
+          "fix_merged_at": "2026-07-29T16:25:16Z",
+          "fix_merge_commit": "0ae908b851715be2a9f2330020dabb876dee6a4a",
+          "pre_fix_commit": "3621caaa1d5b7a140478f198b5910633a17ce0a5",
+          "ground_truth_files": [
+            "apps/web/src/toasts/MobileGuideToast.ts",
+            "apps/web/src/vector/index.ts",
+            "apps/web/src/vector/mobile_guide/index.ts"
+          ],
+          "excluded_files": [
+            "apps/web/src/toasts/MobileGuideToast.test.ts",
+            "apps/web/src/vector/mobile_guide/index.test.ts"
+          ]
+        },
+        {
+          "issue_number": 34317,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34317",
+          "issue_title": "Room List: Let sections remember last state",
+          "issue_body": "### Your use case\n\nCollapse a section > Reboot app > Section is expanded\n#### What would you like to do?\nLet section remember last state (expanded / collapsed).\n#### Why would you like to do it?\nCurrently disrupts organisation.\n\n\n\n### Have you considered any alternatives?\n\n_No response_\n\n### Additional context\n\n_No response_",
+          "issue_author": "TemoCrevlis",
+          "issue_labels": [
+            "A-Room-List",
+            "X-Needs-Product",
+            "T-Enhancement"
+          ],
+          "closed_at": "2026-07-29T14:23:44Z",
+          "fix_pr_number": 34351,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/34351",
+          "fix_merged_at": "2026-07-29T14:23:42Z",
+          "fix_merge_commit": "7f8c4cef8076996c7fb68e385c7a581b11e786ad",
+          "pre_fix_commit": "1683525c5b078fb1c99e14ffe6693cadbce8e23e",
+          "ground_truth_files": [
+            "apps/web/src/settings/Settings.tsx",
+            "apps/web/src/stores/room-list-v3/section.ts",
+            "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+            "apps/web/src/viewmodels/room-list/RoomListViewModel.ts"
+          ],
+          "excluded_files": [
+            "apps/web/playwright/e2e/left-panel/room-list-panel/room-list-sections.spec.ts",
+            "apps/web/test/unit-tests/stores/room-list-v3/section-test.ts",
+            "apps/web/test/viewmodels/room-list/RoomListSectionHeaderViewModel-test.ts",
+            "apps/web/test/viewmodels/room-list/RoomListViewModel-test.ts"
+          ]
+        },
+        {
+          "issue_number": 34216,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34216",
+          "issue_title": "Update space between username and Copy link",
+          "issue_body": "### Description\n\nCurrently, there is an 8px margin between the roomname/username and Copy link button. This makes the component float weirdly, as though it's nudged to the left of center.\n\nPlease reduce the spacing to 4px.\n\n<img width=\"320\" height=\"363\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/e0249c62-de63-408c-8582-f3fb8379b398\" />\n<img width=\"320\" height=\"449\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/52bca246-f6b8-4ed3-8154-4742ec62c621\" />\n\n",
+          "issue_author": "americanrefugee",
+          "issue_labels": [
+            "A-User-Info",
+            "T-Enhancement"
+          ],
+          "closed_at": "2026-07-17T15:18:43Z",
+          "fix_pr_number": 34224,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/34224",
+          "fix_merged_at": "2026-07-17T15:18:41Z",
+          "fix_merge_commit": "d0a70fb1da8e1ac1174ac2fcfa8a9150cdbc1b7f",
+          "pre_fix_commit": "67fc33ad98ef986824e75cd657f122cbc788caf1",
+          "ground_truth_files": [
+            "apps/web/res/css/views/elements/_CopyableText.pcss",
+            "apps/web/res/css/views/right_panel/_UserInfo.pcss",
+            "apps/web/res/css/views/rooms/_EventTile.pcss",
+            "apps/web/src/components/views/elements/CopyableText.tsx",
+            "packages/shared-components/src/room-list/RoomListHeaderView/RoomListHeaderView.tsx"
+          ],
+          "excluded_files": [
+            "apps/web/playwright/snapshots/devtools/devtools.spec.ts/devtools-dialog-linux.png",
+            "apps/web/playwright/snapshots/invite/invite-dialog.spec.ts/invite-dialog-dm-with-user-pill-linux.png",
+            "apps/web/playwright/snapshots/invite/invite-dialog.spec.ts/invite-dialog-dm-without-user-linux.png",
+            "apps/web/playwright/snapshots/right-panel/right-panel.spec.ts/with-long-name-linux.png",
+            "apps/web/playwright/snapshots/settings/account-user-settings-tab.spec.ts/account-linux.png",
+            "apps/web/playwright/snapshots/settings/account-user-settings-tab.spec.ts/account-manage-account-button-linux.png",
+            "apps/web/playwright/snapshots/settings/account-user-settings-tab.spec.ts/account-smallscreen-linux.png",
+            "apps/web/playwright/snapshots/timeline/timeline.spec.ts/edited-code-block-linux.png",
+            "apps/web/playwright/snapshots/user-view/user-view.spec.ts/user-info-linux.png",
+            "apps/web/test/unit-tests/components/views/beacon/__snapshots__/BeaconListItem-test.tsx.snap",
+            "apps/web/test/unit-tests/components/views/beacon/__snapshots__/DialogSidebar-test.tsx.snap",
+            "apps/web/test/unit-tests/components/views/beacon/__snapshots__/ShareLatestLocation-test.tsx.snap",
+            "apps/web/test/unit-tests/components/views/dialogs/DevtoolsDialog-test.tsx",
+            "apps/web/test/unit-tests/components/views/dialogs/__snapshots__/DevtoolsDialog-test.tsx.snap",
+            "apps/web/test/unit-tests/components/views/dialogs/devtools/__snapshots__/Users-test.tsx.snap",
+            "apps/web/test/unit-tests/components/views/messages/__snapshots__/TextualBody-test.tsx.snap",
+            "apps/web/test/unit-tests/components/views/right_panel/__snapshots__/UserInfo-test.tsx.snap",
+            "apps/web/test/unit-tests/components/views/right_panel/user_info/__snapshots__/UserInfoHeaderView-test.tsx.snap",
+            "apps/web/test/unit-tests/components/views/settings/tabs/room/__snapshots__/AdvancedRoomSettingsTab-test.tsx.snap",
+            "apps/web/test/unit-tests/components/views/settings/tabs/user/__snapshots__/AccountUserSettingsTab-test.tsx.snap"
+          ]
+        },
+        {
+          "issue_number": 34147,
+          "issue_url": "https://github.com/element-hq/element-web/issues/34147",
+          "issue_title": "Sections: Add a toggle to preferences that hides Sections in the room list",
+          "issue_body": "### Your use case\n\nIntroduce a toggle in Preferences that shows or hides the sections if users do not wish to see their room list segmented\n\nThe toggle should be set such that users disable sections (sections are enabled by default)\n\nThe toggle impacts all section types: default and custom.\n\n### Have you considered any alternatives?\n\n_No response_\n\n### Additional context\n\n_No response_",
+          "issue_author": "daniellekirkwood",
+          "issue_labels": [
+            "A-Room-List",
+            "T-Enhancement"
+          ],
+          "closed_at": "2026-07-09T10:53:50Z",
+          "fix_pr_number": 34162,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/34162",
+          "fix_merged_at": "2026-07-09T10:53:49Z",
+          "fix_merge_commit": "f21a3f54139f1704c6a13e36f86f9cb79a7d79d3",
+          "pre_fix_commit": "707d5a43539c1fc21f3cd8955ad7d2e8007fea81",
+          "ground_truth_files": [
+            "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+            "packages/shared-components/src/i18n/strings/en_EN.json",
+            "packages/shared-components/src/room-list/RoomListPrimaryFilters/RoomListPrimaryFilters.tsx",
+            "packages/shared-components/src/room-list/RoomListPrimaryFilters/useVisibleFilters.ts"
+          ],
+          "excluded_files": [
+            "apps/web/playwright/e2e/left-panel/room-list-panel/room-list-sections.spec.ts",
+            "apps/web/test/viewmodels/room-list/RoomListViewModel-test.tsx"
+          ]
+        },
+        {
+          "issue_number": 32853,
+          "issue_url": "https://github.com/element-hq/element-web/issues/32853",
+          "issue_title": "Make 'Chat Export' functionality file template consistent",
+          "issue_body": "### Your use case\n\nExporting chat in a ZIP file and a JSON file results in a different file template.\nI think they should be consistent.\n\nElement - NICKNAME - Chat Export - 2026-03-18T01-13-09.169Z.zip\nmatrix - NICKNAME - Chat Export - 2026-03-18T01-14-26.213Z.json\n\n\n### Have you considered any alternatives?\n\n_No response_\n\n### Additional context\n\n_No response_",
+          "issue_author": "j1warren",
+          "issue_labels": [
+            "S-Tolerable",
+            "T-Enhancement",
+            "O-Uncommon",
+            "good first issue",
+            "A-Export-Chat"
+          ],
+          "closed_at": "2026-06-01T14:12:58Z",
+          "fix_pr_number": 33680,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/33680",
+          "fix_merged_at": "2026-06-01T14:12:56Z",
+          "fix_merge_commit": "210421ac47c5456b4fbe6384ab422557a1382d3e",
+          "pre_fix_commit": "531fc767268423e68984e42e17bba157da854038",
+          "ground_truth_files": [
+            "apps/web/src/utils/exportUtils/Exporter.ts"
+          ],
+          "excluded_files": [
+            "apps/web/test/unit-tests/utils/exportUtils/JSONExport-test.ts",
+            "apps/web/test/unit-tests/utils/exportUtils/PlainTextExport-test.ts",
+            "apps/web/test/unit-tests/utils/exportUtils/__snapshots__/JSONExport-test.ts.snap",
+            "apps/web/test/unit-tests/utils/exportUtils/__snapshots__/PlainTextExport-test.ts.snap"
+          ]
+        },
+        {
+          "issue_number": 32858,
+          "issue_url": "https://github.com/element-hq/element-web/issues/32858",
+          "issue_title": "Support `m.recent_emoji` for recent emoji",
+          "issue_body": "In the upcoming v1.18 release of the spec, https://spec.matrix.org/unstable/client-server-api/#recently-used-emoji will be available and supersedes `io.element.recent_emoji`. We should implement both, and remove `io.element.recent_emoji` after some time.\n",
+          "issue_author": "Half-Shot",
+          "issue_labels": [
+            "T-Enhancement",
+            "Z-Spec-Compliance",
+            "A-Emoji"
+          ],
+          "closed_at": "2026-05-26T08:58:56Z",
+          "fix_pr_number": 33172,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/33172",
+          "fix_merged_at": "2026-05-26T08:58:54Z",
+          "fix_merge_commit": "f0342ddbd22544fc32c5ef63cebd66bab2ed483b",
+          "pre_fix_commit": "5cfb68962d2c197ccc2f84cf237fe130eda9c164",
+          "ground_truth_files": [
+            "apps/web/src/@types/matrix-js-sdk.d.ts",
+            "apps/web/src/emojipicker/recent.ts",
+            "apps/web/src/settings/handlers/AccountSettingsHandler.ts"
+          ],
+          "excluded_files": [
+            "apps/web/test/unit-tests/components/views/emojipicker/EmojiPicker-test.tsx",
+            "apps/web/test/unit-tests/components/views/emojipicker/recent-test.tsx",
+            "apps/web/test/unit-tests/settings/handlers/AccountSettingsHandler-test.ts"
+          ]
+        },
+        {
+          "issue_number": 33470,
+          "issue_url": "https://github.com/element-hq/element-web/issues/33470",
+          "issue_title": "Room list: sections - P11 Make the room list robust for malformed custom sections",
+          "issue_body": "### Your use case\n\n#### What would you like to do?\nIf anything corrupts the user data about sections, the rooms should still be accessible on the room list\n\n#### Why would you like to do it?\n\n#### How would you like to achieve it?\n\n\n### Have you considered any alternatives?\n\n_No response_\n\n### Additional context\n\n_No response_",
+          "issue_author": "daniellekirkwood",
+          "issue_labels": [
+            "A-Room-List",
+            "T-Enhancement"
+          ],
+          "closed_at": "2026-05-13T16:16:17Z",
+          "fix_pr_number": 33475,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/33475",
+          "fix_merged_at": "2026-05-13T16:16:15Z",
+          "fix_merge_commit": "47f80126910ae037c25c77839d1c021b9d8e05b0",
+          "pre_fix_commit": "c4c32b83345b7287a00d3bda67e824c3cbeb43fa",
+          "ground_truth_files": [
+            "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+            "apps/web/src/stores/room-list-v3/section.ts",
+            "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+            "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+            "apps/web/src/viewmodels/room-list/RoomListViewModel.ts"
+          ],
+          "excluded_files": [
+            "apps/web/test/unit-tests/stores/room-list-v3/RoomListStoreV3-test.ts",
+            "apps/web/test/unit-tests/stores/room-list-v3/section-test.ts",
+            "apps/web/test/viewmodels/room-list/RoomListItemViewModel-test.tsx",
+            "apps/web/test/viewmodels/room-list/RoomListSectionHeaderViewModel-test.ts"
+          ]
+        },
+        {
+          "issue_number": 33277,
+          "issue_url": "https://github.com/element-hq/element-web/issues/33277",
+          "issue_title": "Remove default sections from the \"move to\" option for sections",
+          "issue_body": "### Your use case\n\n#### What would you like to do?\nThere are switches to move rooms into default sections. @gaelledel would like to maintain these switches but having both the switches and the 'move to' option next to each other is clutter (@daniellekirkwood) so we agreed that we would remove one...\n\n#### Why would you like to do it?\n\n#### How would you like to achieve it?\n\n\n### Have you considered any alternatives?\n\n_No response_\n\n### Additional context\n\n_No response_",
+          "issue_author": "daniellekirkwood",
+          "issue_labels": [
+            "A-Room-List",
+            "T-Enhancement"
+          ],
+          "closed_at": "2026-04-27T10:56:27Z",
+          "fix_pr_number": 33278,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/33278",
+          "fix_merged_at": "2026-04-27T10:56:26Z",
+          "fix_merge_commit": "cb6c1415804a50bbdb34c75444ef9f51994834c7",
+          "pre_fix_commit": "4682f62e523460d62389e72fb3cca361022d7f07",
+          "ground_truth_files": [
+            "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts"
+          ],
+          "excluded_files": [
+            "apps/web/test/viewmodels/room-list/RoomListItemViewModel-test.tsx"
+          ]
+        },
+        {
+          "issue_number": 32456,
+          "issue_url": "https://github.com/element-hq/element-web/issues/32456",
+          "issue_title": "Room list: sections - P5 organize content",
+          "issue_body": "[Figma design](https://www.figma.com/design/qurBlLqjf3mRNpyZ1ffamm/ER-213---Sections?node-id=1-14692&t=4j5gYnz4O4OuZxdz-4)\n\n1. https://github.com/element-hq/element-web/pull/33238\n2. https://github.com/element-hq/element-web/pull/33240",
+          "issue_author": "florianduros",
+          "issue_labels": [
+            "A-Room-List",
+            "T-Enhancement",
+            "T-Feature"
+          ],
+          "closed_at": "2026-04-23T10:47:19Z",
+          "fix_pr_number": 33240,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/33240",
+          "fix_merged_at": "2026-04-23T10:47:18Z",
+          "fix_merge_commit": "546083bca9b3e92d4808a0f7f701c609e54b8618",
+          "pre_fix_commit": "bb4a7e9613731f5d5afd044f553e6f5d3593d091",
+          "ground_truth_files": [
+            "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+            "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts"
+          ],
+          "excluded_files": [
+            "apps/web/playwright/e2e/left-panel/room-list-panel/room-list-custom-sections.spec.ts",
+            "apps/web/test/unit-tests/stores/room-list-v3/RoomListStoreV3-test.ts",
+            "apps/web/test/unit-tests/stores/room-list-v3/section-test.ts",
+            "apps/web/test/viewmodels/room-list/RoomListHeaderViewModel-test.ts",
+            "apps/web/test/viewmodels/room-list/RoomListItemViewModel-test.tsx"
+          ]
+        },
+        {
+          "issue_number": 32454,
+          "issue_url": "https://github.com/element-hq/element-web/issues/32454",
+          "issue_title": "Room list: sections - P3 applying filters with sections",
+          "issue_body": "[Figma design](https://www.figma.com/design/qurBlLqjf3mRNpyZ1ffamm/ER-213---Sections?node-id=1-14697&t=4j5gYnz4O4OuZxdz-4)\n\nWire up the behaviour between the filters and the sections.\nhttps://github.com/element-hq/element-web/pull/33077",
+          "issue_author": "florianduros",
+          "issue_labels": [
+            "A-Room-List",
+            "T-Enhancement",
+            "T-Feature"
+          ],
+          "closed_at": "2026-04-09T13:54:02Z",
+          "fix_pr_number": 33077,
+          "fix_pr_url": "https://github.com/element-hq/element-web/pull/33077",
+          "fix_merged_at": "2026-04-09T13:54:00Z",
+          "fix_merge_commit": "a5e09ebb53e7a9d1bcf8b421f13cb8432a1d9110",
+          "pre_fix_commit": "60a7a22c7b46ad77b44471dc7c68eddbeea49d59",
+          "ground_truth_files": [
+            "apps/web/src/viewmodels/room-list/RoomListViewModel.ts"
+          ],
+          "excluded_files": [
+            "apps/web/test/viewmodels/room-list/RoomListViewModel-test.tsx"
+          ]
+        }
+      ],
+      "rejected_sample": [
+        {
+          "ok": false,
+          "number": 35028,
+          "url": "https://github.com/element-hq/element-web/issues/35028",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 34977,
+          "url": "https://github.com/element-hq/element-web/issues/34977",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 34978,
+          "url": "https://github.com/element-hq/element-web/issues/34978",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 7897,
+          "url": "https://github.com/element-hq/element-web/issues/7897",
+          "reason": "body_too_short:76"
+        },
+        {
+          "ok": false,
+          "number": 34561,
+          "url": "https://github.com/element-hq/element-web/issues/34561",
+          "reason": "fix_too_broad:18_files"
+        },
+        {
+          "ok": false,
+          "number": 1880,
+          "url": "https://github.com/element-hq/element-web/issues/1880",
+          "reason": "body_too_short:33"
+        },
+        {
+          "ok": false,
+          "number": 34048,
+          "url": "https://github.com/element-hq/element-web/issues/34048",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 10127,
+          "url": "https://github.com/element-hq/element-web/issues/10127",
+          "reason": "body_too_short:71"
+        },
+        {
+          "ok": false,
+          "number": 22110,
+          "url": "https://github.com/element-hq/element-web/issues/22110",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 24083,
+          "url": "https://github.com/element-hq/element-web/issues/24083",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 26690,
+          "url": "https://github.com/element-hq/element-web/issues/26690",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 34732,
+          "url": "https://github.com/element-hq/element-web/issues/34732",
+          "reason": "fix_too_broad:19_files"
+        },
+        {
+          "ok": false,
+          "number": 34560,
+          "url": "https://github.com/element-hq/element-web/issues/34560",
+          "reason": "fix_too_broad:19_files"
+        },
+        {
+          "ok": false,
+          "number": 32638,
+          "url": "https://github.com/element-hq/element-web/issues/32638",
+          "reason": "fix_too_broad:19_files"
+        },
+        {
+          "ok": false,
+          "number": 30849,
+          "url": "https://github.com/element-hq/element-web/issues/30849",
+          "reason": "fix_too_broad:19_files"
+        },
+        {
+          "ok": false,
+          "number": 34870,
+          "url": "https://github.com/element-hq/element-web/issues/34870",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 34663,
+          "url": "https://github.com/element-hq/element-web/issues/34663",
+          "reason": "also_labelled_defect"
+        },
+        {
+          "ok": false,
+          "number": 34451,
+          "url": "https://github.com/element-hq/element-web/issues/34451",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 33798,
+          "url": "https://github.com/element-hq/element-web/issues/33798",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 24911,
+          "url": "https://github.com/element-hq/element-web/issues/24911",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        }
+      ]
+    },
+    {
+      "language": "go",
+      "repo": "go-gitea/gitea",
+      "license": "MIT",
+      "index_commit": "4a6db5a7c2410fdab8fe61b14d62d1814de34e96",
+      "index_commit_rationale": "parent of merge commit a03e0364ebd89204a8d6ee41a1bf4949e1c56b98 (fix for #25042, earliest selected)",
+      "candidates_examined": 100,
+      "qualifying_found": 5,
+      "cases": [
+        {
+          "issue_number": 38981,
+          "issue_url": "https://github.com/go-gitea/gitea/issues/38981",
+          "issue_title": "Uncounted review approvals should be retractable",
+          "issue_body": "Currently one can not retract a uncounted review approval. There should be a \"refresh\" icon button here like is already present for counted approvals:\n\n<img width=\"380\" height=\"83\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/7a1a8656-b835-425d-bd84-3203f9755c1d\" />",
+          "issue_author": "silverwind",
+          "issue_labels": [
+            "type/enhancement"
+          ],
+          "closed_at": "2026-09-08T15:59:08Z",
+          "fix_pr_number": 38988,
+          "fix_pr_url": "https://github.com/go-gitea/gitea/pull/38988",
+          "fix_merged_at": "2026-09-08T15:59:06Z",
+          "fix_merge_commit": "d93bd06d0c29c3f57783818e191b98c14494a836",
+          "pre_fix_commit": "c9193adb68dd3a85eeefc7981529a04f36b8f8dc",
+          "ground_truth_files": [
+            "models/issues/review.go",
+            "routers/web/repo/issue_page_meta.go",
+            "services/issue/pull.go",
+            "services/issue/review_request.go",
+            "templates/repo/issue/sidebar/reviewer_list.tmpl"
+          ],
+          "excluded_files": [
+            "services/issue/review_request_test.go",
+            "tests/e2e/pr-review.test.ts",
+            "tests/e2e/utils.ts",
+            "tests/integration/pull_review_test.go"
+          ]
+        },
+        {
+          "issue_number": 15663,
+          "issue_url": "https://github.com/go-gitea/gitea/issues/15663",
+          "issue_title": "Dropzone should disappear in \"Preview\"",
+          "issue_body": "- Gitea version (or commit ref): master (1.15.0+dev-192-gd7dbe4fee)\r\n- Operating system: Windows, Chrome, Firefox\r\n\r\n## Description\r\nThis is a bit subjective, it appears a bit odd that the dropzone stays when user clicks the \"Preview\" tab. More likely the dropzone should disappear and any files being uploaded should be rendered as if they were uploaded successfully.\r\n\r\n## Screenshots\r\n![image](https://user-images.githubusercontent.com/12700993/116580313-7c7a8400-a8d0-11eb-8541-d8f207676436.png)\r\n\r\n![image](https://user-images.githubusercontent.com/12700993/116580228-666cc380-a8d0-11eb-8921-941f8d5fc047.png)",
+          "issue_author": "kdumontnu",
+          "issue_labels": [
+            "type/enhancement",
+            "topic/ui"
+          ],
+          "closed_at": "2026-09-03T23:32:13Z",
+          "fix_pr_number": 39204,
+          "fix_pr_url": "https://github.com/go-gitea/gitea/pull/39204",
+          "fix_merged_at": "2026-09-03T23:32:12Z",
+          "fix_merge_commit": "c56b2d35ff23f785c14eb1799ad8076d0702dc33",
+          "pre_fix_commit": "c285440e03331b2187ef69ba227ed0a9ea362075",
+          "ground_truth_files": [
+            "templates/repo/issue/fields/textarea.tmpl",
+            "templates/repo/upload.tmpl",
+            "web_src/css/editor/combomarkdowneditor.css",
+            "web_src/js/features/comp/ComboMarkdownEditor.ts"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 6058,
+          "issue_url": "https://github.com/go-gitea/gitea/issues/6058",
+          "issue_title": "In some regions, monday is the first day of the week",
+          "issue_body": "Gitea version: 1.7.1, from single binary.\r\nThe high-level contribution overview starts the week at sunday. I'd prefer to make it start on monday and have sunday the bottom, as a feature-request.\r\n![image](https://user-images.githubusercontent.com/1901782/52721242-8c387700-2fa9-11e9-9950-8a09fbdc06b6.png)\r\n",
+          "issue_author": "mrvanes",
+          "issue_labels": [
+            "type/enhancement",
+            "issue/confirmed"
+          ],
+          "closed_at": "2026-08-20T07:10:16Z",
+          "fix_pr_number": 38995,
+          "fix_pr_url": "https://github.com/go-gitea/gitea/pull/38995",
+          "fix_merged_at": "2026-08-20T07:10:15Z",
+          "fix_merge_commit": "c778c6c9208f9abaa39f481e8d79d132443ed6d6",
+          "pre_fix_commit": "fa5d876171f4527f96238a6e5c56c4b095d164b1",
+          "ground_truth_files": [
+            "web_src/js/components/ActivityHeatmap.vue"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 36299,
+          "issue_url": "https://github.com/go-gitea/gitea/issues/36299",
+          "issue_title": "Searching in \"Assigned to you\" issues returns no results unless query is empty",
+          "issue_body": "### Description\n\nWhen browsing issues via **Issues → Assigned to you**, searching with a keyword\nreturns **no results**, even though there are clearly matching issues.\nThe issue list only appears when the search query is empty.\n\nThis behavior is confusing and inconsistent with other issue views.\n\n### Steps to Reproduce\n\n1. Go to the global Issues page\n2. Click **Assigned to you**\n3. Ensure there are assigned issues visible\n4. Enter a keyword in the search box (e.g. `test`)\n5. Observe the result list\n\n### Gitea Version\n\nmain branch\n\n### Can you reproduce the bug on the Gitea demo site?\n\nYes\n\n### Log Gist\n\n_No response_\n\n### Screenshots\n\n<img width=\"983\" height=\"393\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/d6c125f2-4da1-47ab-8cde-68de341dc864\" />\n<img width=\"981\" height=\"371\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/072816a6-acf7-42b1-bfae-af1c06bc6f1e\" />\n\n### Git Version\n\n_No response_\n\n### Operating System\n\n_No response_\n\n### How are you running Gitea?\n\nopenrc or command-line\n\n### Database\n\nPostgreSQL",
+          "issue_author": "tyroneyeh",
+          "issue_labels": [
+            "type/enhancement",
+            "issue/confirmed"
+          ],
+          "closed_at": "2026-06-22T05:45:26Z",
+          "fix_pr_number": 38021,
+          "fix_pr_url": "https://github.com/go-gitea/gitea/pull/38021",
+          "fix_merged_at": "2026-06-22T05:45:25Z",
+          "fix_merge_commit": "a4781dde89ee9cc2e5af73a2c4d2f4d32cda0aee",
+          "pre_fix_commit": "7684221ed47b49d572e2177cc2258e66a4fcdf99",
+          "ground_truth_files": [
+            "modules/indexer/issues/bleve/bleve.go",
+            "modules/indexer/issues/elasticsearch/elasticsearch.go",
+            "modules/indexer/issues/internal/model.go",
+            "modules/indexer/issues/meilisearch/meilisearch.go",
+            "modules/indexer/issues/util.go"
+          ],
+          "excluded_files": [
+            "modules/indexer/issues/bleve/bleve_test.go",
+            "modules/indexer/issues/internal/tests/tests.go"
+          ]
+        },
+        {
+          "issue_number": 25042,
+          "issue_url": "https://github.com/go-gitea/gitea/issues/25042",
+          "issue_title": "[Proposal] Add some filter dropdowns to action list",
+          "issue_body": "### Feature Description\r\n\r\nRight now in backend, we can get a list of user ids for the run list, so we might start with the Actor dropdown. And then add functionality to get status/event/branch(ref) list as well.\r\n\r\n<img width=\"1415\" alt=\"Screen Shot 2023-06-02 at 10 41 53\" src=\"https://github.com/go-gitea/gitea/assets/17645053/3782de90-e828-4956-84d8-f925200e9f51\">\r\n\r\n\r\n### Screenshots\r\n\r\n_No response_",
+          "issue_author": "HesterG",
+          "issue_labels": [
+            "type/proposal",
+            "type/feature",
+            "topic/gitea-actions"
+          ],
+          "closed_at": "2026-05-26T09:08:07Z",
+          "fix_pr_number": 37826,
+          "fix_pr_url": "https://github.com/go-gitea/gitea/pull/37826",
+          "fix_merged_at": "2026-05-26T09:08:06Z",
+          "fix_merge_commit": "a03e0364ebd89204a8d6ee41a1bf4949e1c56b98",
+          "pre_fix_commit": "4a6db5a7c2410fdab8fe61b14d62d1814de34e96",
+          "ground_truth_files": [
+            "models/actions/run_list.go",
+            "routers/web/repo/actions/actions.go",
+            "routers/web/repo/actions/view.go",
+            "templates/repo/actions/list.tmpl",
+            "templates/repo/actions/workflow_dispatch.tmpl"
+          ],
+          "excluded_files": [
+            "options/locale/locale_en-US.json",
+            "tests/integration/actions_list_filter_test.go"
+          ]
+        }
+      ],
+      "rejected_sample": [
+        {
+          "ok": false,
+          "number": 29083,
+          "url": "https://github.com/go-gitea/gitea/issues/29083",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 27862,
+          "url": "https://github.com/go-gitea/gitea/issues/27862",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 26248,
+          "url": "https://github.com/go-gitea/gitea/issues/26248",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 24819,
+          "url": "https://github.com/go-gitea/gitea/issues/24819",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 24607,
+          "url": "https://github.com/go-gitea/gitea/issues/24607",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 24243,
+          "url": "https://github.com/go-gitea/gitea/issues/24243",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 24227,
+          "url": "https://github.com/go-gitea/gitea/issues/24227",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 23594,
+          "url": "https://github.com/go-gitea/gitea/issues/23594",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 23156,
+          "url": "https://github.com/go-gitea/gitea/issues/23156",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 22749,
+          "url": "https://github.com/go-gitea/gitea/issues/22749",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 21909,
+          "url": "https://github.com/go-gitea/gitea/issues/21909",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 21499,
+          "url": "https://github.com/go-gitea/gitea/issues/21499",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 21157,
+          "url": "https://github.com/go-gitea/gitea/issues/21157",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 21073,
+          "url": "https://github.com/go-gitea/gitea/issues/21073",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 20692,
+          "url": "https://github.com/go-gitea/gitea/issues/20692",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 20067,
+          "url": "https://github.com/go-gitea/gitea/issues/20067",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 19638,
+          "url": "https://github.com/go-gitea/gitea/issues/19638",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 18935,
+          "url": "https://github.com/go-gitea/gitea/issues/18935",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 17458,
+          "url": "https://github.com/go-gitea/gitea/issues/17458",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 17454,
+          "url": "https://github.com/go-gitea/gitea/issues/17454",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        }
+      ]
+    },
+    {
+      "language": "csharp",
+      "repo": "jellyfin/jellyfin",
+      "license": "GPL-2.0",
+      "index_commit": "bfae788a44d7c5640bd23c6f433533ef16f30107",
+      "index_commit_rationale": "parent of merge commit ba4dbcf5a12ce30e2d7b10f201e0d261e9f76f8d (fix for #15915, earliest selected)",
+      "candidates_examined": 13,
+      "qualifying_found": 7,
+      "cases": [
+        {
+          "issue_number": 15515,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/15515",
+          "issue_title": "Add `Included In` section to item detail page",
+          "issue_body": " ## Problem\n\nWhen looking at a movie or episode in Jellyfin, there’s no quick way to see which collections (box sets) include that item. Users have to back out to the collections view or manually search, which is tedious.\n\nWith this feature, users can freely navigate between collections and items.\n\nThis is also a long-awaited (five years) feature with 445 votes: https://features.jellyfin.org/posts/540/list-all-collections-that-a-movie-belong-to-in-movie-details\n\n## Proposal\n\nAdd a new `Included In` section to the item detail page (above `More Like This`) that lists every collection containing the current item. Mirroring the existing carousels (like `Cast & Crew`).\n\nThis `Included In` term is copied from Emby.\n\n<img width=\"226\" height=\"259\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/c5f2d68f-2586-43ce-abf0-be48ce8be514\" />\n\n## Implementation Notes\n\n  - Server: expose GET `/Items/{itemId}/Collections` that returns all box sets containing the item. Invalidate the\n    collection folder cache whenever collections are created, edited, or deleted so results stay fresh.\n  - Web UI: fetch the new endpoint whenever an item detail loads, and render the returned collections in a scroller style. If the API returns no collections, keep the section hidden.\n\n## Bonus\n\nAny item (even a collection) that can be added to a collection can show the `Included In` section. So, it also works for nested collections. 😁\n\n## Preview\n\nThis is the screenshot of my local test build after implementing `Included In`\n\n<img width=\"2880\" height=\"3025\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/0d07da50-cd5b-483e-9b18-5570fd6225a6\" />",
+          "issue_author": "XSAM",
+          "issue_labels": [
+            "feature"
+          ],
+          "closed_at": "2026-05-29T18:00:36Z",
+          "fix_pr_number": 15516,
+          "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/15516",
+          "fix_merged_at": "2026-05-29T18:00:34Z",
+          "fix_merge_commit": "c9f71d8531d946f04d5395bd885f08128253559c",
+          "pre_fix_commit": "b6e26ba3d9656fe8c9e42f0a19ba04b575959046",
+          "ground_truth_files": [
+            "Emby.Server.Implementations/Collections/CollectionManager.cs",
+            "Jellyfin.Api/Controllers/LibraryController.cs",
+            "Jellyfin.Server.Implementations/Item/LinkedChildrenService.cs",
+            "MediaBrowser.Controller/Collections/ICollectionManager.cs",
+            "MediaBrowser.Controller/Persistence/ILinkedChildrenService.cs"
+          ],
+          "excluded_files": [
+            "tests/Jellyfin.Server.Integration.Tests/Controllers/LibraryControllerTests.cs"
+          ]
+        },
+        {
+          "issue_number": 14928,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/14928",
+          "issue_title": "Add support for other enclosing tags around filenames for tmdbid / imdbid",
+          "issue_body": "Trying to import / migrate my plex library into jellyfin, and had a fair number of mis-matches. I followed the general consensus and used series folders in the shape: `SeriesName {tmdbid-#####}`. Apparently JellyFin only supports brackets today.\n\nI added support for both curly braces and parenthesis in the parser to make migration easier for anyone else that comes along.\n\n#14927 addresses this, and the only functional change should be that `{}` and `()` are valid enclosers. I've kept all other restrictions in place.",
+          "issue_author": "nileshp87",
+          "issue_labels": [
+            "enhancement"
+          ],
+          "closed_at": "2026-05-07T18:04:30Z",
+          "fix_pr_number": 16433,
+          "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/16433",
+          "fix_merged_at": "2026-05-07T18:04:28Z",
+          "fix_merge_commit": "d636b82e83f20d4a0387673a4f11916a5ee13837",
+          "pre_fix_commit": "bc074b5283add16818ce598890f53ce9432cd4ad",
+          "ground_truth_files": [
+            "Emby.Server.Implementations/Library/PathExtensions.cs"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 13840,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/13840",
+          "issue_title": "Include CACHEDIR.tag in cache folder",
+          "issue_body": "Currently, by default, popular tools such as [Restic] will happily back up the cache folder. I propose to implement the [Cachedir] RFC to avoid this issue out of the box.\nIt would involve simply creating the textfile in the cache directory marking it for exclusion from backups.\n\n[Restic]: https://restic.net/\n[Cachedir]: https://bford.info/cachedir/",
+          "issue_author": "FlareFlo",
+          "issue_labels": [
+            "enhancement"
+          ],
+          "closed_at": "2026-05-04T17:12:42Z",
+          "fix_pr_number": 16478,
+          "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/16478",
+          "fix_merged_at": "2026-05-04T17:12:41Z",
+          "fix_merge_commit": "ec04313317bed62728b059108cd232e9744f6354",
+          "pre_fix_commit": "d87e9f96228ef8863426e2544cada67235186a18",
+          "ground_truth_files": [
+            "Emby.Server.Implementations/AppBase/BaseApplicationPaths.cs",
+            "Emby.Server.Implementations/AppBase/BaseConfigurationManager.cs"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 15354,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/15354",
+          "issue_title": "Enable moving location of jellyfin.db",
+          "issue_body": "I run jellyfin in a k3s cluster and use iscsi for the database. However, everything else I prefer to use nfs stores to go to my NAS. Currently, the data directory for jellyfin is where the database is as well as things like trickplay, subtitles, etc. Since iscsi shares need to be provisioned to a specific size, I've hit out of memory as trickplays get generated. To fix this, I'd like to move the database to its own directory so I can have a specific store for just the db.",
+          "issue_author": "twsouthwick",
+          "issue_labels": [
+            "feature"
+          ],
+          "closed_at": "2026-04-18T17:09:36Z",
+          "fix_pr_number": 15355,
+          "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/15355",
+          "fix_merged_at": "2026-04-18T17:09:34Z",
+          "fix_merge_commit": "96269ff177f6851041f15d7df365587f1f4a9ce8",
+          "pre_fix_commit": "365729d75f17b7c0a2cf94d53cb68a9f207969d5",
+          "ground_truth_files": [
+            "src/Jellyfin.Database/Jellyfin.Database.Providers.Sqlite/SqliteDatabaseProvider.cs"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 13310,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/13310",
+          "issue_title": "Sort and use the best rated pictures for primary pictures",
+          "issue_body": "### This issue respects the following points:\n\n- [x] This is a **bug**, not a question or a configuration issue; Please visit our forum or chat rooms first to troubleshoot with volunteers, before creating a report. The links can be found [here](https://jellyfin.org/contact/).\n- [x] This issue is **not** already reported on [GitHub](https://github.com/jellyfin/jellyfin/issues?q=is%3Aopen+is%3Aissue) _(I've searched it)_.\n- [x] I'm using an up to date version of Jellyfin Server stable, unstable or master; We generally do not support previous older versions. If possible, please update to the latest version before opening an issue.\n- [x] I agree to follow Jellyfin's [Code of Conduct](https://jellyfin.org/docs/general/community-standards.html#code-of-conduct).\n- [x] This report addresses only a single issue; If you encounter multiple issues, kindly create separate reports for each one.\n\n### Description of the bug\n\nWhen adding new series/movies to the libraries, the automated choice for primary pictures is always the worst.\nIt uses \"Unrated\" pictures that aren't as good as others, that also have a ranking.\nThe same can be seen, when you \"edit the pictures\" via the three-dot menu.\n\nTwo examples:\n![Image](https://github.com/user-attachments/assets/4451b0b8-0416-4cd0-baab-ddc7df7664d3)\n\n![Image](https://github.com/user-attachments/assets/2dad5c54-43d5-44c7-ab14-15087a090c10)\n\nYou can see, that the first pics in the row have a rating of \"Unrated\" or at least a lower rating and the better ones (with rating 8.0) are later on in the list - so they aren't used in the first place.\n\nIt seems to work just fine on logos, thumbnais and backgrounds.\n\nIt also should consider the language of the user (in my case 'de').\nSo the order should be:\n- highest rated to lowest rated in the current language\n- highest rated to lowest rated in the default or unknown language (perhaps always consider 'en', because most of the stuff is 'en')\n- Unrated  in the current language\n- Unrated  in the default or unknown language\n\n### Reproduction steps\n\n1. go to your library (movies or series)\n2. use the three-dot menu on an item\n3. \"edit pictures\"\n4. click on the search icon below \"primary\" picture\n\n### What is the current _bug_ behavior?\n\n==> no particularly order of the pictures, so the first one, that is taken, can be the worst...\n\n### What is the expected _correct_ behavior?\n\nThe best rated primary picture (in the current language) should be first in list and automatically used when a new series/movie is found in the library.\n\n### Jellyfin Server version\n\n10.10.0+\n\n### Specify commit id\n\n_No response_\n\n### Specify unstable release number\n\n_No response_\n\n### Specify version number\n\n10.10.3.0\n\n### Specify the build version\n\n 10.10.3\n\n### Environment\n\n```markdown\n- OS: Debian GNU/Linux 12 (bookworm)\n- Linux Kernel: Linux rpi4-1 6.1.21-v8+ #1642 SMP PREEMPT Mon Apr  3 17:24:16 BST 2023 aarch64 GNU/Linux\n- Virtualization: none\n- Clients: Web, Kodi on nVIDIA Shield\n- Browser: Chrome, always updated\n- FFmpeg Version: ffmpeg version 7.0.2-Jellyfin Copyright (c) 2000-2024 the FFmpeg developers\n- Playback Method: native\n```\n\n### Jellyfin logs\n\n```shell\nNothing in the logs for that issue.\nI can provide logs, when it makes sense (extra debug logs) - just need to know how to produce them.\n```\n\n### FFmpeg logs\n\n```shell\n\n```\n\n### Client / Browser logs\n\n_No response_\n\n### Relevant screenshots or videos\n\n_No response_\n\n### Additional information\n\n_No response_",
+          "issue_author": "sic6SaNdMaN",
+          "issue_labels": [
+            "enhancement"
+          ],
+          "closed_at": "2026-03-13T19:25:38Z",
+          "fix_pr_number": 16368,
+          "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/16368",
+          "fix_merged_at": "2026-03-13T19:25:36Z",
+          "fix_merge_commit": "4eead536a9a83c72e46d094f94bab641be3a0a51",
+          "pre_fix_commit": "6c8a5dc104f61666db83692fffcc123307b0dfb0",
+          "ground_truth_files": [
+            "MediaBrowser.Model/Extensions/EnumerableExtensions.cs"
+          ],
+          "excluded_files": [
+            "tests/Jellyfin.Model.Tests/Extensions/EnumerableExtensionsTests.cs"
+          ]
+        },
+        {
+          "issue_number": 15137,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/15137",
+          "issue_title": "Add position option to IPlaylistManager.AddItemToPlaylistAsync",
+          "issue_body": "I have some really big playlists and sometimes when I add a new item to a playlist, I want to move it to the top immediately; otherwise, I have to add it to the playlist, then go to the playlist and then scroll all the way down and then click the Move To Top option.\n\nI'd like to add a feature that adds an \"Add to top of playlist\" option in the \"Add to playlist\" dialog, so the first step for that is to add an option into the API.",
+          "issue_author": "kevgrig",
+          "issue_labels": [
+            "feature"
+          ],
+          "closed_at": "2026-02-14T11:08:01Z",
+          "fix_pr_number": 15138,
+          "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/15138",
+          "fix_merged_at": "2026-02-14T11:08:00Z",
+          "fix_merge_commit": "44d55f7fa3daab40367e33dec99269fd1156c2c9",
+          "pre_fix_commit": "3b6985986709473c69ba785460c702c6bbe3771d",
+          "ground_truth_files": [
+            "Emby.Server.Implementations/Playlists/PlaylistManager.cs",
+            "Jellyfin.Api/Controllers/PlaylistsController.cs",
+            "MediaBrowser.Controller/Playlists/IPlaylistManager.cs"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 15915,
+          "issue_url": "https://github.com/jellyfin/jellyfin/issues/15915",
+          "issue_title": "Optimize `StringHelper.FirstToUpper()`",
+          "issue_body": "This function currently builds a new string when necessary by copying characters from the original string char-by-char. A block copy like `Span<char>.CopyTo()` would likely yield some performance improvements. \n\nhttps://github.com/jellyfin/jellyfin/blob/master/MediaBrowser.Model/Extensions/StringHelper.cs#L32-L35",
+          "issue_author": "stevenaw",
+          "issue_labels": [
+            "feature"
+          ],
+          "closed_at": "2026-01-03T11:04:20Z",
+          "fix_pr_number": 15916,
+          "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/15916",
+          "fix_merged_at": "2026-01-03T11:04:19Z",
+          "fix_merge_commit": "ba4dbcf5a12ce30e2d7b10f201e0d261e9f76f8d",
+          "pre_fix_commit": "bfae788a44d7c5640bd23c6f433533ef16f30107",
+          "ground_truth_files": [
+            "MediaBrowser.Model/Extensions/StringHelper.cs"
+          ],
+          "excluded_files": []
+        }
+      ],
+      "rejected_sample": [
+        {
+          "ok": false,
+          "number": 11118,
+          "url": "https://github.com/jellyfin/jellyfin/issues/11118",
+          "reason": "also_labelled_defect"
+        },
+        {
+          "ok": false,
+          "number": 15365,
+          "url": "https://github.com/jellyfin/jellyfin/issues/15365",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 4975,
+          "url": "https://github.com/jellyfin/jellyfin/issues/4975",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 8010,
+          "url": "https://github.com/jellyfin/jellyfin/issues/8010",
+          "reason": "fix_pr_in_other_repository:jellyfin/jellyfin-web"
+        },
+        {
+          "ok": false,
+          "number": 12365,
+          "url": "https://github.com/jellyfin/jellyfin/issues/12365",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 12865,
+          "url": "https://github.com/jellyfin/jellyfin/issues/12865",
+          "reason": "fix_pr_over_file_page_limit"
+        }
+      ]
+    },
+    {
+      "language": "java",
+      "repo": "apache/dolphinscheduler",
+      "license": "Apache-2.0",
+      "index_commit": "18ea0cf1093871c8778a791f60fb8d25b7b1bde5",
+      "index_commit_rationale": "parent of merge commit adb0c7d95132cf6126ba834bb1437ca37d7713e5 (fix for #18332, earliest selected)",
+      "candidates_examined": 100,
+      "qualifying_found": 27,
+      "cases": [
+        {
+          "issue_number": 17883,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/17883",
+          "issue_title": "[Question] [Alert-http] Alert test sending failed, [Call method to Host(ip=dolphinscheduler-alert-67b7c695cb-v9b82, port=50052) failed]",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar issues.\n\n\n### What happened\n\n<img width=\"2734\" height=\"1612\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/0e4e5319-ecdb-422e-9400-afa748bcdf61\" />\n\n\n```\n2026-01-16 09:22:36.145 ERROR [qtp2106535660-36] o.a.d.a.s.i.AlertPluginInstanceServiceImpl:[316] - Send alert: AlertTestSendRequest(pluginDefineId=2, pluginInstanceParams=[{\"props\":{\"disabled\":null,\"type\":null,\"maxlength\":null,\"minlength\":null,\"clearable\":null,\"prefixIcon\":null,\"suffixIcon\":null,\"rows\":null,\"autosize\":null,\"autocomplete\":null,\"name\":null,\"readonly\":null,\"max\":null,\"min\":null,\"step\":null,\"resize\":null,\"autofocus\":null,\"form\":null,\"label\":null,\"tabindex\":null,\"validateEvent\":null,\"showPassword\":null,\"placeholder\":\"请输入请求的URL\",\"size\":\"small\"},\"field\":\"url\",\"name\":\"URL\",\"type\":\"input\",\"title\":\"$t('url')\",\"value\":\"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=f8ecd3a7-4735-4943-b687-92c5c745d99e\",\"validate\":[{\"required\":true,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null},{\"props\":null,\"field\":\"requestType\",\"name\":\"请求方式\",\"type\":\"radio\",\"title\":\"$t('requestType')\",\"value\":\"POST\",\"validate\":[{\"required\":true,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null,\"options\":[{\"label\":\"GET\",\"value\":\"GET\",\"disabled\":false},{\"label\":\"POST\",\"value\":\"POST\",\"disabled\":false},{\"label\":\"PUT\",\"value\":\"PUT\",\"disabled\":false}]},{\"props\":{\"disabled\":null,\"type\":null,\"maxlength\":null,\"minlength\":null,\"clearable\":null,\"prefixIcon\":null,\"suffixIcon\":null,\"rows\":null,\"autosize\":null,\"autocomplete\":null,\"name\":null,\"readonly\":null,\"max\":null,\"min\":null,\"step\":null,\"resize\":null,\"autofocus\":null,\"form\":null,\"label\":null,\"tabindex\":null,\"validateEvent\":null,\"showPassword\":null,\"placeholder\":\"请输入JSON格式的请求头\",\"size\":\"small\"},\"field\":\"headerParams\",\"name\":\"请求头\",\"type\":\"input\",\"title\":\"$t('headerParams')\",\"validate\":[{\"required\":false,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null},{\"props\":{\"disabled\":null,\"type\":null,\"maxlength\":null,\"minlength\":null,\"clearable\":null,\"prefixIcon\":null,\"suffixIcon\":null,\"rows\":null,\"autosize\":null,\"autocomplete\":null,\"name\":null,\"readonly\":null,\"max\":null,\"min\":null,\"step\":null,\"resize\":null,\"autofocus\":null,\"form\":null,\"label\":null,\"tabindex\":null,\"validateEvent\":null,\"showPassword\":null,\"placeholder\":\"请输入JSON格式的请求体\",\"size\":\"small\"},\"field\":\"bodyParams\",\"name\":\"请求体\",\"type\":\"input\",\"title\":\"$t('bodyParams')\",\"value\":\"{\\\"msgtype\\\":\\\"text\\\",\\\"text\\\":{\\\"content\\\":\\\"$msg\\\"}}\",\"validate\":[{\"required\":false,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null},{\"props\":null,\"field\":\"contentType\",\"name\":\"Content Type\",\"type\":\"radio\",\"title\":\"$t('contentType')\",\"value\":\"application/json\",\"validate\":[{\"required\":true,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null,\"options\":[{\"label\":\"application/json\",\"value\":\"application/json\",\"disabled\":false},{\"label\":\"application/x-www-form-urlencoded\",\"value\":\"application/x-www-form-urlencoded\",\"disabled\":false}]},{\"props\":null,\"field\":\"timeout\",\"name\":\"超时时间（秒）\",\"type\":\"input-number\",\"title\":\"$t('timeout')\",\"value\":120,\"validate\":[{\"required\":false,\"type\":\"number\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null}]) to: Host(ip=dolphinscheduler-alert-67b7c695cb-v9b82, port=50052) failed\norg.apache.dolphinscheduler.extract.base.exception.RemoteException: Call method to Host(ip=dolphinscheduler-alert-67b7c695cb-v9b82, port=50052) failed\n\tat org.apache.dolphinscheduler.extract.base.client.NettyRemotingClient.sendSync(NettyRemotingClient.java:147)\n\tat org.apache.dolphinscheduler.extract.base.client.SyncClientMethodInvoker.invoke(SyncClientMethodInvoker.java:51)\n\tat org.apache.dolphinscheduler.extract.base.client.ClientInvocationHandler.invoke(ClientInvocationHandler.java:56)\n\tat com.sun.proxy.$Proxy838.sendTestAlert(Unknown Source)\n\tat org.apache.dolphinscheduler.api.service.impl.AlertPluginInstanceServiceImpl.testSend(AlertPluginInstanceServiceImpl.java:313)\n\tat org.apache.dolphinscheduler.api.service.impl.AlertPluginInstanceServiceImpl$$FastClassBySpringCGLIB$$677cb7d7.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)\n\tat org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386)\n\tat org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85)\n\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:704)\n\tat org.apache.dolphinscheduler.api.service.impl.AlertPluginInstanceServiceImpl$$EnhancerBySpringCGLIB$$a8b79c59.testSend(<generated>)\n\tat org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController.testSendAlertPluginInstance(AlertPluginInstanceController.java:114)\n\tat org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController$$FastClassBySpringCGLIB$$40ae385d.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\n\tat org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\n\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)\n\tat org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController$$EnhancerBySpringCGLIB$$15ae0781.testSendAlertPluginInstance(<generated>)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070)\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)\n\tat org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:517)\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:584)\n\tat org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)\n\tat org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1656)\n\tat org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:552)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:505)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)\n\tat org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:772)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:516)\n\tat org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487)\n\tat org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732)\n\tat org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479)\n\tat org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)\n\tat org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)\n\tat org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)\n\tat org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)\n\tat org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)\n\tat java.lang.Thread.run(Thread.java:750)\nCaused by: java.net.UnknownHostException: dolphinscheduler-alert-67b7c695cb-v9b82\n\tat java.net.InetAddress$CachedAddresses.get(InetAddress.java:764)\n\tat java.net.InetAddress.getAllByName0(InetAddress.java:1291)\n\tat java.net.InetAddress.getAllByName(InetAddress.java:1144)\n\tat java.net.InetAddress.getAllByName(InetAddress.java:1065)\n\tat java.net.InetAddress.getByName(InetAddress.java:1015)\n\tat io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:156)\n\tat io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:153)\n\tat java.security.AccessController.doPrivileged(Native Method)\n\tat io.netty.util.internal.SocketUtils.addressByName(SocketUtils.java:153)\n\tat io.netty.resolver.DefaultNameResolver.doResolve(DefaultNameResolver.java:41)\n\tat io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:61)\n\tat io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:53)\n\tat io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:55)\n\tat io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:31)\n\tat io.netty.resolver.AbstractAddressResolver.resolve(AbstractAddressResolver.java:106)\n\tat io.netty.bootstrap.Bootstrap.doResolveAndConnect0(Bootstrap.java:206)\n\tat io.netty.bootstrap.Bootstrap.access$000(Bootstrap.java:46)\n\tat io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:180)\n\tat io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:166)\n\tat io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:577)\n\tat io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:551)\n\tat io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:490)\n\tat io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:615)\n\tat io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:604)\n\tat io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:104)\n\tat io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetSuccess(AbstractChannel.java:989)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:504)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:417)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:474)\n\tat io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)\n\tat io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:387)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\n\t... 1 common frames omitted\n2026-01-16 09:22:36.146 ERROR [qtp2106535660-36] o.a.d.a.e.ApiExceptionHandler:[40] - org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController#testSendAlertPluginInstance[2 args] Meet a ServiceException: alert测试发送失败，[Call method to Host(ip=dolphinscheduler-alert-67b7c695cb-v9b82, port=50052) failed]\n192.168.3.11 - - [16/Jan/2026:01:22:36 +0000] \"POST /dolphinscheduler/alert-plugin-instances/test-send HTTP/1.1\" 200 190 86ms\n[0:0:0:0:0:0:0:1] - - [16/Jan/2026:01:22:58 +0000] \"GET /dolphinscheduler/actuator/health/readiness HTTP/1.1\" 200 15 1ms\n[0:0:0:0:0:0:0:1] - - [16/Jan/2026:01:22:58 +0000] \"GET /dolphinscheduler/actuator/health/liveness HTTP/1.1\" 200 15 1ms\n2026-01-16 09:23:27.278 ERROR [qtp2106535660-36] o.a.d.a.s.i.AlertPluginInstanceServiceImpl:[316] - Send alert: AlertTestSendRequest(pluginDefineId=2, pluginInstanceParams=[{\"props\":{\"disabled\":null,\"type\":null,\"maxlength\":null,\"minlength\":null,\"clearable\":null,\"prefixIcon\":null,\"suffixIcon\":null,\"rows\":null,\"autosize\":null,\"autocomplete\":null,\"name\":null,\"readonly\":null,\"max\":null,\"min\":null,\"step\":null,\"resize\":null,\"autofocus\":null,\"form\":null,\"label\":null,\"tabindex\":null,\"validateEvent\":null,\"showPassword\":null,\"placeholder\":\"input request URL\",\"size\":\"small\"},\"field\":\"url\",\"name\":\"URL\",\"type\":\"input\",\"title\":\"$t('url')\",\"value\":\"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=f8ecd3a7-4735-4943-b687-92c5c745d99e\",\"validate\":[{\"required\":true,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null},{\"props\":null,\"field\":\"requestType\",\"name\":\"Request Type\",\"type\":\"radio\",\"title\":\"$t('requestType')\",\"value\":\"POST\",\"validate\":[{\"required\":true,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null,\"options\":[{\"label\":\"GET\",\"value\":\"GET\",\"disabled\":false},{\"label\":\"POST\",\"value\":\"POST\",\"disabled\":false},{\"label\":\"PUT\",\"value\":\"PUT\",\"disabled\":false}]},{\"props\":{\"disabled\":null,\"type\":null,\"maxlength\":null,\"minlength\":null,\"clearable\":null,\"prefixIcon\":null,\"suffixIcon\":null,\"rows\":null,\"autosize\":null,\"autocomplete\":null,\"name\":null,\"readonly\":null,\"max\":null,\"min\":null,\"step\":null,\"resize\":null,\"autofocus\":null,\"form\":null,\"label\":null,\"tabindex\":null,\"validateEvent\":null,\"showPassword\":null,\"placeholder\":\"input request headers as JSON format\",\"size\":\"small\"},\"field\":\"headerParams\",\"name\":\"Headers\",\"type\":\"input\",\"title\":\"$t('headerParams')\",\"validate\":[{\"required\":false,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null},{\"props\":{\"disabled\":null,\"type\":null,\"maxlength\":null,\"minlength\":null,\"clearable\":null,\"prefixIcon\":null,\"suffixIcon\":null,\"rows\":null,\"autosize\":null,\"autocomplete\":null,\"name\":null,\"readonly\":null,\"max\":null,\"min\":null,\"step\":null,\"resize\":null,\"autofocus\":null,\"form\":null,\"label\":null,\"tabindex\":null,\"validateEvent\":null,\"showPassword\":null,\"placeholder\":\"input request body as JSON format\",\"size\":\"small\"},\"field\":\"bodyParams\",\"name\":\"Body\",\"type\":\"input\",\"title\":\"$t('bodyParams')\",\"value\":\"{\\\"msgtype\\\":\\\"text\\\",\\\"text\\\":{\\\"content\\\":\\\"$msg\\\"}}\",\"validate\":[{\"required\":false,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null},{\"props\":null,\"field\":\"contentType\",\"name\":\"Content Type\",\"type\":\"radio\",\"title\":\"$t('contentType')\",\"value\":\"application/json\",\"validate\":[{\"required\":true,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null,\"options\":[{\"label\":\"application/json\",\"value\":\"application/json\",\"disabled\":false},{\"label\":\"application/x-www-form-urlencoded\",\"value\":\"application/x-www-form-urlencoded\",\"disabled\":false}]},{\"props\":null,\"field\":\"timeout\",\"name\":\"Timeout(s)\",\"type\":\"input-number\",\"title\":\"$t('timeout')\",\"value\":120,\"validate\":[{\"required\":false,\"type\":\"number\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null}]) to: Host(ip=dolphinscheduler-alert-67b7c695cb-v9b82, port=50052) failed\norg.apache.dolphinscheduler.extract.base.exception.RemoteException: Call method to Host(ip=dolphinscheduler-alert-67b7c695cb-v9b82, port=50052) failed\n\tat org.apache.dolphinscheduler.extract.base.client.NettyRemotingClient.sendSync(NettyRemotingClient.java:147)\n\tat org.apache.dolphinscheduler.extract.base.client.SyncClientMethodInvoker.invoke(SyncClientMethodInvoker.java:51)\n\tat org.apache.dolphinscheduler.extract.base.client.ClientInvocationHandler.invoke(ClientInvocationHandler.java:56)\n\tat com.sun.proxy.$Proxy838.sendTestAlert(Unknown Source)\n\tat org.apache.dolphinscheduler.api.service.impl.AlertPluginInstanceServiceImpl.testSend(AlertPluginInstanceServiceImpl.java:313)\n\tat org.apache.dolphinscheduler.api.service.impl.AlertPluginInstanceServiceImpl$$FastClassBySpringCGLIB$$677cb7d7.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)\n\tat org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386)\n\tat org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85)\n\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:704)\n\tat org.apache.dolphinscheduler.api.service.impl.AlertPluginInstanceServiceImpl$$EnhancerBySpringCGLIB$$a8b79c59.testSend(<generated>)\n\tat org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController.testSendAlertPluginInstance(AlertPluginInstanceController.java:114)\n\tat org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController$$FastClassBySpringCGLIB$$40ae385d.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\n\tat org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\n\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)\n\tat org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController$$EnhancerBySpringCGLIB$$15ae0781.testSendAlertPluginInstance(<generated>)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070)\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)\n\tat org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:517)\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:584)\n\tat org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)\n\tat org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1656)\n\tat org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:552)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:505)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)\n\tat org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:772)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:516)\n\tat org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487)\n\tat org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732)\n\tat org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479)\n\tat org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)\n\tat org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)\n\tat org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)\n\tat org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)\n\tat org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)\n\tat java.lang.Thread.run(Thread.java:750)\nCaused by: java.net.UnknownHostException: dolphinscheduler-alert-67b7c695cb-v9b82\n\tat java.net.InetAddress$CachedAddresses.get(InetAddress.java:764)\n\tat java.net.InetAddress.getAllByName0(InetAddress.java:1291)\n\tat java.net.InetAddress.getAllByName(InetAddress.java:1144)\n\tat java.net.InetAddress.getAllByName(InetAddress.java:1065)\n\tat java.net.InetAddress.getByName(InetAddress.java:1015)\n\tat io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:156)\n\tat io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:153)\n\tat java.security.AccessController.doPrivileged(Native Method)\n\tat io.netty.util.internal.SocketUtils.addressByName(SocketUtils.java:153)\n\tat io.netty.resolver.DefaultNameResolver.doResolve(DefaultNameResolver.java:41)\n\tat io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:61)\n\tat io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:53)\n\tat io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:55)\n\tat io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:31)\n\tat io.netty.resolver.AbstractAddressResolver.resolve(AbstractAddressResolver.java:106)\n\tat io.netty.bootstrap.Bootstrap.doResolveAndConnect0(Bootstrap.java:206)\n\tat io.netty.bootstrap.Bootstrap.access$000(Bootstrap.java:46)\n\tat io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:180)\n\tat io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:166)\n\tat io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:577)\n\tat io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:551)\n\tat io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:490)\n\tat io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:615)\n\tat io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:604)\n\tat io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:104)\n\tat io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetSuccess(AbstractChannel.java:989)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:504)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:417)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:474)\n\tat io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)\n\tat io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:387)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\n\t... 1 common frames omitted\n2026-01-16 09:23:27.280 ERROR [qtp2106535660-36] o.a.d.a.e.ApiExceptionHandler:[40] - org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController#testSendAlertPluginInstance[2 args] Meet a ServiceException: Alert test sending failed, [Call method to Host(ip=dolphinscheduler-alert-67b7c695cb-v9b82, port=50052) failed]\n192.168.3.11 - - [16/Jan/2026:01:23:27 +0000] \"POST /dolphinscheduler/alert-plugin-instances/test-send HTTP/1.1\" 200 167 41ms\n[0:0:0:0:0:0:0:1] - - [16/Jan/2026:01:23:28 +0000] \"GET /dolphinscheduler/actuator/health/readiness HTTP/1.1\" 200 15 2ms\n[0:0:0:0:0:0:0:1] - - [16/Jan/2026:01:23:28 +0000] \"GET /dolphinscheduler/actuator/health/liveness HTTP/1.1\" 200 15 1ms\n2026-01-16 09:23:47.312 ERROR [qtp2106535660-1632] o.a.d.a.s.i.AlertPluginInstanceServiceImpl:[316] - Send alert: AlertTestSendRequest(pluginDefineId=2, pluginInstanceParams=[{\"props\":{\"disabled\":null,\"type\":null,\"maxlength\":null,\"minlength\":null,\"clearable\":null,\"prefixIcon\":null,\"suffixIcon\":null,\"rows\":null,\"autosize\":null,\"autocomplete\":null,\"name\":null,\"readonly\":null,\"max\":null,\"min\":null,\"step\":null,\"resize\":null,\"autofocus\":null,\"form\":null,\"label\":null,\"tabindex\":null,\"validateEvent\":null,\"showPassword\":null,\"placeholder\":\"input request URL\",\"size\":\"small\"},\"field\":\"url\",\"name\":\"URL\",\"type\":\"input\",\"title\":\"$t('url')\",\"value\":\"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=f8ecd3a7-4735-4943-b687-92c5c745d99e\",\"validate\":[{\"required\":true,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null},{\"props\":null,\"field\":\"requestType\",\"name\":\"Request Type\",\"type\":\"radio\",\"title\":\"$t('requestType')\",\"value\":\"POST\",\"validate\":[{\"required\":true,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null,\"options\":[{\"label\":\"GET\",\"value\":\"GET\",\"disabled\":false},{\"label\":\"POST\",\"value\":\"POST\",\"disabled\":false},{\"label\":\"PUT\",\"value\":\"PUT\",\"disabled\":false}]},{\"props\":{\"disabled\":null,\"type\":null,\"maxlength\":null,\"minlength\":null,\"clearable\":null,\"prefixIcon\":null,\"suffixIcon\":null,\"rows\":null,\"autosize\":null,\"autocomplete\":null,\"name\":null,\"readonly\":null,\"max\":null,\"min\":null,\"step\":null,\"resize\":null,\"autofocus\":null,\"form\":null,\"label\":null,\"tabindex\":null,\"validateEvent\":null,\"showPassword\":null,\"placeholder\":\"input request headers as JSON format\",\"size\":\"small\"},\"field\":\"headerParams\",\"name\":\"Headers\",\"type\":\"input\",\"title\":\"$t('headerParams')\",\"validate\":[{\"required\":false,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null},{\"props\":{\"disabled\":null,\"type\":null,\"maxlength\":null,\"minlength\":null,\"clearable\":null,\"prefixIcon\":null,\"suffixIcon\":null,\"rows\":null,\"autosize\":null,\"autocomplete\":null,\"name\":null,\"readonly\":null,\"max\":null,\"min\":null,\"step\":null,\"resize\":null,\"autofocus\":null,\"form\":null,\"label\":null,\"tabindex\":null,\"validateEvent\":null,\"showPassword\":null,\"placeholder\":\"input request body as JSON format\",\"size\":\"small\"},\"field\":\"bodyParams\",\"name\":\"Body\",\"type\":\"input\",\"title\":\"$t('bodyParams')\",\"value\":\"{\\\"msgtype\\\":\\\"text\\\",\\\"text\\\":{\\\"content\\\":\\\"$msg\\\"}}\",\"validate\":[{\"required\":false,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null},{\"props\":null,\"field\":\"contentType\",\"name\":\"Content Type\",\"type\":\"radio\",\"title\":\"$t('contentType')\",\"value\":\"application/json\",\"validate\":[{\"required\":true,\"type\":\"string\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null,\"options\":[{\"label\":\"application/json\",\"value\":\"application/json\",\"disabled\":false},{\"label\":\"application/x-www-form-urlencoded\",\"value\":\"application/x-www-form-urlencoded\",\"disabled\":false}]},{\"props\":null,\"field\":\"timeout\",\"name\":\"Timeout(s)\",\"type\":\"input-number\",\"title\":\"$t('timeout')\",\"value\":120,\"validate\":[{\"required\":false,\"type\":\"number\",\"trigger\":\"blur\",\"min\":null,\"max\":null}],\"emit\":null}]) to: Host(ip=dolphinscheduler-alert-67b7c695cb-v9b82, port=50052) failed\norg.apache.dolphinscheduler.extract.base.exception.RemoteException: Call method to Host(ip=dolphinscheduler-alert-67b7c695cb-v9b82, port=50052) failed\n\tat org.apache.dolphinscheduler.extract.base.client.NettyRemotingClient.sendSync(NettyRemotingClient.java:147)\n\tat org.apache.dolphinscheduler.extract.base.client.SyncClientMethodInvoker.invoke(SyncClientMethodInvoker.java:51)\n\tat org.apache.dolphinscheduler.extract.base.client.ClientInvocationHandler.invoke(ClientInvocationHandler.java:56)\n\tat com.sun.proxy.$Proxy838.sendTestAlert(Unknown Source)\n\tat org.apache.dolphinscheduler.api.service.impl.AlertPluginInstanceServiceImpl.testSend(AlertPluginInstanceServiceImpl.java:313)\n\tat org.apache.dolphinscheduler.api.service.impl.AlertPluginInstanceServiceImpl$$FastClassBySpringCGLIB$$677cb7d7.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)\n\tat org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386)\n\tat org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85)\n\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:704)\n\tat org.apache.dolphinscheduler.api.service.impl.AlertPluginInstanceServiceImpl$$EnhancerBySpringCGLIB$$a8b79c59.testSend(<generated>)\n\tat org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController.testSendAlertPluginInstance(AlertPluginInstanceController.java:114)\n\tat org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController$$FastClassBySpringCGLIB$$40ae385d.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\n\tat org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\n\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)\n\tat org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController$$EnhancerBySpringCGLIB$$15ae0781.testSendAlertPluginInstance(<generated>)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070)\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)\n\tat org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:517)\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:584)\n\tat org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)\n\tat org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1656)\n\tat org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\n\tat org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)\n\tat org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:552)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:505)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)\n\tat org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:772)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:516)\n\tat org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487)\n\tat org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732)\n\tat org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479)\n\tat org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)\n\tat org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)\n\tat org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)\n\tat org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)\n\tat org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)\n\tat java.lang.Thread.run(Thread.java:750)\nCaused by: java.net.UnknownHostException: dolphinscheduler-alert-67b7c695cb-v9b82\n\tat java.net.InetAddress$CachedAddresses.get(InetAddress.java:764)\n\tat java.net.InetAddress.getAllByName0(InetAddress.java:1291)\n\tat java.net.InetAddress.getAllByName(InetAddress.java:1144)\n\tat java.net.InetAddress.getAllByName(InetAddress.java:1065)\n\tat java.net.InetAddress.getByName(InetAddress.java:1015)\n\tat io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:156)\n\tat io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:153)\n\tat java.security.AccessController.doPrivileged(Native Method)\n\tat io.netty.util.internal.SocketUtils.addressByName(SocketUtils.java:153)\n\tat io.netty.resolver.DefaultNameResolver.doResolve(DefaultNameResolver.java:41)\n\tat io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:61)\n\tat io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:53)\n\tat io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:55)\n\tat io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:31)\n\tat io.netty.resolver.AbstractAddressResolver.resolve(AbstractAddressResolver.java:106)\n\tat io.netty.bootstrap.Bootstrap.doResolveAndConnect0(Bootstrap.java:206)\n\tat io.netty.bootstrap.Bootstrap.access$000(Bootstrap.java:46)\n\tat io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:180)\n\tat io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:166)\n\tat io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:577)\n\tat io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:551)\n\tat io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:490)\n\tat io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:615)\n\tat io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:604)\n\tat io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:104)\n\tat io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetSuccess(AbstractChannel.java:989)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:504)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:417)\n\tat io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:474)\n\tat io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)\n\tat io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:387)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\n\t... 1 common frames omitted\n2026-01-16 09:23:47.313 ERROR [qtp2106535660-1632] o.a.d.a.e.ApiExceptionHandler:[40] - org.apache.dolphinscheduler.api.controller.AlertPluginInstanceController#testSendAlertPluginInstance[2 args] Meet a ServiceException: Alert test sending failed, [Call method to Host(ip=dolphinscheduler-alert-67b7c695cb-v9b82, port=50052) failed]\n\n```\n\n### What you expected to happen\n\nwe can send test alert http\n\n### How to reproduce\n\nsend a http test alsert\n\n### Anything else\n\n<img width=\"2716\" height=\"948\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/c3080cb7-7d31-41ef-9e23-ad690eee3735\" />\n\n### Version\n\n3.3.2\n\n### Are you willing to submit PR?\n\n- [ ] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "bulolo",
+          "issue_labels": [
+            "help wanted",
+            "improvement",
+            "kubernetes"
+          ],
+          "closed_at": "2026-08-31T03:34:21Z",
+          "fix_pr_number": 18574,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18574",
+          "fix_merged_at": "2026-08-31T03:34:20Z",
+          "fix_merge_commit": "9c0f9ae266eb15f757a17ac51a39fbc25e72e012",
+          "pre_fix_commit": "fb5c2d66d45e2e41df0f664e752c9355024a4fca",
+          "ground_truth_files": [
+            "dolphinscheduler-common/src/main/java/org/apache/dolphinscheduler/common/utils/NetUtils.java"
+          ],
+          "excluded_files": [
+            "dolphinscheduler-common/src/test/java/org/apache/dolphinscheduler/common/utils/NetUtilsTest.java"
+          ]
+        },
+        {
+          "issue_number": 18589,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18589",
+          "issue_title": "[Improvement][API] Align cluster query permissions",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the issues and found no similar improvement request.\n\n### Description\n\nCluster management operations should follow a consistent permission model. Align the query and verification operations with the existing create, update, and delete operations.\n\n### Are you willing to submit a PR?\n\n- [x] Yes, I am willing to submit a PR.\n\n### Code of Conduct\n\n- [x] I agree to follow this project Code of Conduct.",
+          "issue_author": "ruanwenjun",
+          "issue_labels": [
+            "improvement",
+            "backend"
+          ],
+          "closed_at": "2026-08-26T08:18:38Z",
+          "fix_pr_number": 18590,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18590",
+          "fix_merged_at": "2026-08-26T08:18:37Z",
+          "fix_merge_commit": "d4e1498c4126f77032a1e6c8c413bf715731c2ca",
+          "pre_fix_commit": "45c274941d2b1f05aec969ad1fed919871d9d36d",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ClusterController.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/ClusterService.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceImpl.java"
+          ],
+          "excluded_files": [
+            "dolphinscheduler-api/src/test/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceTest.java"
+          ]
+        },
+        {
+          "issue_number": 18580,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18580",
+          "issue_title": "[Improvement] Typo in DataSourceServiceImpl log message: \"Cant not get the schema\"",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar feature requirement.\n\n### Description\n\nThe error log at line 388 of `dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java` reads:\n\n```java\nlog.error(\"Cant not get the schema, datasourceId:{}.\", datasourceId, e);\n```\n\n\"Cant not\" should be \"Can not\".\n\n### Are you willing to submit a PR?\n\n- [x] Yes I am willing to submit a PR!\n\n(PR submitted: #18581)\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)",
+          "issue_author": "kittimzhe",
+          "issue_labels": [
+            "improvement",
+            "backend"
+          ],
+          "closed_at": "2026-08-25T02:26:11Z",
+          "fix_pr_number": 18581,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18581",
+          "fix_merged_at": "2026-08-25T02:26:10Z",
+          "fix_merge_commit": "5f73586407a71ec8b14c2802030286c65bb11e4f",
+          "pre_fix_commit": "511823be90edb050c256d09a49df12972fde10e4",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 18563,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18563",
+          "issue_title": "[Improvement][API] Refine datasource authorization list APIs",
+          "issue_body": "## Search before asking\n\n- [x] I had searched in the issues and found no similar feature requirement.\n\n## Description\n\nThe datasource authorization list APIs should align with the related grant operation and return only the fields required by the user management page. This keeps the API contract focused and consistent.\n\n## Are you willing to submit PR?\n\n- [x] Yes I am willing to submit a PR!\n\n## Code of Conduct\n\n- [x] I agree to follow this project's Code of Conduct.",
+          "issue_author": "ruanwenjun",
+          "issue_labels": [
+            "improvement",
+            "backend"
+          ],
+          "closed_at": "2026-08-19T08:25:07Z",
+          "fix_pr_number": 18564,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18564",
+          "fix_merged_at": "2026-08-19T08:25:06Z",
+          "fix_merge_commit": "f57305dd6f711bd60ccb66d8b21d70fa086d69f0",
+          "pre_fix_commit": "a247ec5f940afee5fb4eb73004872231d67bc794",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/DataSourceService.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/vo/DataSourceSimpleInfoVO.java",
+            "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/DataSourceMapper.xml"
+          ],
+          "excluded_files": [
+            "dolphinscheduler-api/src/test/java/org/apache/dolphinscheduler/api/service/DataSourceServiceTest.java",
+            "dolphinscheduler-dao/src/test/java/org/apache/dolphinscheduler/dao/mapper/DataSourceMapperTest.java"
+          ]
+        },
+        {
+          "issue_number": 18441,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18441",
+          "issue_title": "[Improvement][API&DAO] Unnecessary Large Text Fields Returned in TaskInstanceMapper Queries",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar feature requirement.\n\n\n### Description\n\nIn TaskInstanceMapper.xml , all queries use <include refid=\"baseSql\"/> which returns the complete set of fields, including multiple text/longtext type large fields :\n\n<img width=\"835\" height=\"1086\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/cb02104e-11e9-45d2-9c54-1841a348263c\" />\n\n\nAvoid returning unnecessary large text fields in TaskInstanceMapper queries. Due to the huge data volume in the task instance table, removing these fields from queries significantly boosts API execution performance.\n\n\n### Are you willing to submit a PR?\n\n- [x] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "njnu-seafish",
+          "issue_labels": [
+            "improvement",
+            "backend"
+          ],
+          "closed_at": "2026-08-07T03:05:19Z",
+          "fix_pr_number": 18442,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18442",
+          "fix_merged_at": "2026-08-07T03:05:18Z",
+          "fix_merge_commit": "51057477b815eef59c68f1b76563567814c72a93",
+          "pre_fix_commit": "d6ff33adb91b90fd30b1b3b3c31022ccbb7788bc",
+          "ground_truth_files": [
+            "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 18439,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18439",
+          "issue_title": "[Improvement][API] The queryWorkflowInstanceListPaging API is experiencing slow response times, especially when querying workflow instances for projects with large amounts of historical data.",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar feature requirement.\n\n\n### Description\n\nAs the data volume in the t_ds_workflow_instance table accumulates to a certain level, querying the workflow instance page for a specific project will become increasingly slow.\n\n<img width=\"2558\" height=\"989\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/c7a0cc6f-193f-4f4d-bcc9-f6c054667437\" />\n\n\nSimilar to [ issue #18437 ](https://github.com/apache/dolphinscheduler/issues/18437), the following SQL statements require indexes to accelerate the most frequently used queries.\n\n> ALTER TABLE t_ds_workflow_instance ADD INDEX idx_project_start_end_time (project_code ASC, start_time DESC, end_time DESC);\n\n`\n<select` id=\"queryWorkflowInstanceListPaging\" resultType=\"org.apache.dolphinscheduler.dao.entity.WorkflowInstance\">\n        select ......\n        from t_ds_workflow_instance\n        where is_sub_workflow=0\n        and project_code = #{projectCode}\n        ......\n        order by start_time desc, end_time desc\n    </select>\n`\n\n### Are you willing to submit a PR?\n\n- [x] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "njnu-seafish",
+          "issue_labels": [
+            "improvement",
+            "backend"
+          ],
+          "closed_at": "2026-07-23T13:22:13Z",
+          "fix_pr_number": 18440,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18440",
+          "fix_merged_at": "2026-07-26T10:07:02Z",
+          "fix_merge_commit": "375234665081ccf9e56819580957842e0e3e84e9",
+          "pre_fix_commit": "db695440b764bd0f2b2125e9b7e67de83ca766d2",
+          "ground_truth_files": [
+            "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_h2.sql",
+            "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_mysql.sql",
+            "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_postgresql.sql",
+            "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/mysql/dolphinscheduler_ddl.sql",
+            "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/postgresql/dolphinscheduler_ddl.sql"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 18388,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18388",
+          "issue_title": "[Improvement] [Task] Killed shell tasks may be displayed as FAILURE",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar issues.\n\n\n### What happened\n\nShell tasks can be terminated in three ways, with signals -2, -9, and -15, respectively.\n```\n// 1. Try to terminate gracefully `kill -2`\nboolean gracefulKillSuccess = sendKillSignal(SIGINT, pidList, request.getTenantCode());\n// 2. Try to terminate gracefully `kill -15`\nboolean termKillSuccess = sendKillSignal(SIGTERM, pidList, request.getTenantCode());\n// 3. As a last resort, use `kill -9`\nboolean forceKillSuccess = sendKillSignal(SIGKILL, pidList, request.getTenantCode());\n```\nHowever, the existi code only checks two termination signals in `AbstractTask`:\n```\npublic static final int EXIT_CODE_KILL = 137;\npublic static final int EXIT_CODE_HARD_KILL = 143;\nif (exitStatusCode == TaskConstants.EXIT_CODE_KILL || exitStatusCode == TaskConstants.EXIT_CODE_HARD_KILL) {\n    return TaskExecutionStatus.KILL;\n}\n```\nIt is missing the check for signal `-2`, whose exit code is `130`.\n\n### What you expected to happen\n\nKilled shell tasks should be always displayed as KILL.\n\n### How to reproduce\n\nstart a shell task and kill it.\n\n### Anything else\n\n_No response_\n\n### Version\n\n3.4.2\n\n### Are you willing to submit PR?\n\n- [x] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "HomminLee",
+          "issue_labels": [
+            "improvement",
+            "backend"
+          ],
+          "closed_at": "2026-07-15T06:49:32Z",
+          "fix_pr_number": 18407,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18407",
+          "fix_merged_at": "2026-07-15T06:49:31Z",
+          "fix_merge_commit": "a60271d6c9c1050e0cb8bfdef9c0303233514655",
+          "pre_fix_commit": "cf5704616fb9046ddf3958651cd3d55703e39f08",
+          "ground_truth_files": [
+            "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/AbstractCommandExecutor.java",
+            "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/AbstractTask.java",
+            "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/TaskConstants.java"
+          ],
+          "excluded_files": [
+            "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/test/java/org/apache/dolphinscheduler/plugin/task/api/AbstractTaskTest.java"
+          ]
+        },
+        {
+          "issue_number": 18412,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18412",
+          "issue_title": "[Improvement] [api] Resource preview API should validate the limit parameter",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar issues.\n\n\n### What happened\n\nThe resource preview API validates `skipLineNum`, but does not validate the `limit` parameter.\n\n`limit` is used to control how many lines should be fetched. Based on the current API behavior, `-1` means no limit, and positive values mean the number of lines to fetch.\n\nHowever, invalid values such as `0` or values less than `-1` are not rejected by the validator.\n\n### What you expected to happen\n\nThe API should reject invalid `limit` values before fetching file content.\n\nValid values should be:\n\n- `-1`: no limit\n- positive integers: fetch up to that many lines\n\nInvalid values should be rejected:\n\n- `0`\n- values less than `-1`\n\n### How to reproduce\n\nUse different parameters when calling the API.\n\n### Anything else\n\n_No response_\n\n### Version\n\ndev\n\n### Are you willing to submit PR?\n\n- [x] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "destinyoooo",
+          "issue_labels": [
+            "improvement",
+            "backend"
+          ],
+          "closed_at": "2026-07-13T16:00:31Z",
+          "fix_pr_number": 18411,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18411",
+          "fix_merged_at": "2026-07-13T16:00:30Z",
+          "fix_merge_commit": "cf5704616fb9046ddf3958651cd3d55703e39f08",
+          "pre_fix_commit": "0e8db82a96935ee5f6b1dd314356b3dd4243651e",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ResourcesController.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/validator/resource/FetchFileContentDtoValidator.java"
+          ],
+          "excluded_files": [
+            "dolphinscheduler-api/src/test/java/org/apache/dolphinscheduler/api/validator/resource/FetchFileContentDtoValidatorTest.java"
+          ]
+        },
+        {
+          "issue_number": 18403,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18403",
+          "issue_title": "[Improvement][API&Security] Avoid raw password exposure in user parameter validation errors",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar feature requirement.\n\n\n### Description\n\n### Security issue\n\nUsersServiceImpl#checkUserParams currently returns the original invalid parameter value when user parameter validation fails.\n\nWhen password validation fails, the method returns the raw password value. The caller then passes this value to Status.REQUEST_PARAMS_NOT_VALID_ERROR , which may include the submitted password in the API error response.\n\nEven if the password does not meet the validation rules, it should still be treated as sensitive information because it may be the user’s intended password or a reused credential.\n\n\n### Expected behavior\n\nWhen password validation fails, the API should not echo the submitted password. It should return the field name or a generic validation error instead.\n\nFor example:\n```\nrequest parameter password is not valid\n```\n\ninstead of:\n```\nrequest parameter <raw password> is not valid\n```\n\n### Suggested improvement\n\nUpdate checkUserParams so that password validation failure returns a safe field identifier such as password , instead of the raw password value.\n\n### Are you willing to submit a PR?\n\n- [x] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "njnu-seafish",
+          "issue_labels": [
+            "improvement",
+            "backend"
+          ],
+          "closed_at": "2026-07-10T08:43:13Z",
+          "fix_pr_number": 18404,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18404",
+          "fix_merged_at": "2026-07-10T08:43:12Z",
+          "fix_merge_commit": "e12fa9dab6bdff1e8b0313acb6166dce51efce0e",
+          "pre_fix_commit": "17ce56905b3f7760636dc4b7f1a719c9abb137c7",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/UsersServiceImpl.java"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 17933,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/17933",
+          "issue_title": "[Improvement] Restrict access to global audit logs",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar feature requirement.\n\n\n### Description\n\nThe `org.apache.dolphinscheduler.api.controller.AuditLogController.queryAuditLogListPaging` currently allows any authenticated regular user to view all system-wide audit logs. This includes sensitive activity logs generated by the admin user and other high-privileged accounts.\n\nI would like to suggest an improvement regarding this behavior. In my view, allowing users without any administrative or project permissions  (e.g., an intern) to access global audit logs may pose a potential risk of information disclosure.\n\nThe audit logs contain metadata that could be sensitive in certain environments, such as:\n\n* Project Metadata: Creation/deletion timestamps and project names (which often reflect internal business focus or data structures).\n* User Management: Global visibility of all usernames and user lifecycle events.\n* Security Context: Activity records related to the management of security tokens.\n\nWhile this information is necessary for administrators, providing it to all regular users might provide an unnecessary \"system blueprint.\" Even the createTime can be sensitive, as it reveals operational patterns or helps in guessing time-based IDs. \n\nProposed Improvement: To better align with the Principle of Least Privilege, I suggest adding a permission check to the audit log logic:\n\n* Regular Users: Restricted to viewing only their own activity logs.\n\n* Administrators: Retain the full global view for system auditing purposes.\n\nI believe this refinement would further enhance the security posture of DolphinScheduler for enterprise users.\n\n**An example:**\nThe userA can not view any project.\n<img width=\"1280\" height=\"640\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/ed3359f3-c3af-47cd-acba-6b19c5efa06e\" />\n\nThen we access the interface `org.apache.dolphinscheduler.api.controller.AuditLogController.queryAuditLogListPaging`. It is observed that all logs are returned, including the records of the admin creating userA and userB, as well as the records of userB creating a project, and the creation/update/deletion of security tokens.\n\n<img width=\"1280\" height=\"731\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/5adaab14-e0e9-4ea7-b7e5-266f08a03cc7\" />\n\n<img width=\"1122\" height=\"931\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/d30c5cd5-f56a-48ea-ba7b-767c82481e64\" />\n\n### Are you willing to submit a PR?\n\n- [x] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "HRsGIT",
+          "issue_labels": [
+            "improvement",
+            "backend",
+            "priority:high"
+          ],
+          "closed_at": "2026-07-01T02:04:35Z",
+          "fix_pr_number": 18368,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18368",
+          "fix_merged_at": "2026-07-01T02:04:34Z",
+          "fix_merge_commit": "17ce56905b3f7760636dc4b7f1a719c9abb137c7",
+          "pre_fix_commit": "8592557809d2d041d9d727371c090aef82e4dcae",
+          "ground_truth_files": [
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/AuditLogController.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/AuditService.java",
+            "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/AuditServiceImpl.java",
+            "dolphinscheduler-dao/src/main/java/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.java",
+            "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.xml"
+          ],
+          "excluded_files": [
+            "dolphinscheduler-api/src/test/java/org/apache/dolphinscheduler/api/service/AuditServiceTest.java",
+            "dolphinscheduler-dao/src/test/java/org/apache/dolphinscheduler/dao/mapper/AuditLogMapperTest.java"
+          ]
+        },
+        {
+          "issue_number": 18359,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18359",
+          "issue_title": "[Improvement][UI] In the frontend, the description should be optional when creating or modifying a cluster.",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar feature requirement.\n\n\n### Description\n\n1, The description field in the t_ds_cluster table definition is nullable.\n\n<img width=\"1407\" height=\"627\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/73cc1583-53d5-41ac-a1ba-b716aed5bf4c\" />\n\n2, In the backend API implementation, the description field should also be optional.\n\n<img width=\"1819\" height=\"817\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/93744576-3d2a-40c4-ab58-51e378f8cfee\" />\n\n3, However, the description field unexpectedly became mandatory in the frontend code, leading to a logical inconsistency across the system.\n\n<img width=\"1414\" height=\"1050\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/cdc8e624-4f21-4886-b464-483115e972d4\" />\n\n### Are you willing to submit a PR?\n\n- [x] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "njnu-seafish",
+          "issue_labels": [
+            "UI",
+            "improvement"
+          ],
+          "closed_at": "2026-06-18T01:41:57Z",
+          "fix_pr_number": 18360,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18360",
+          "fix_merged_at": "2026-06-18T01:41:56Z",
+          "fix_merge_commit": "6a442ab67318637d7e2135c1cfa3b7c6685104a4",
+          "pre_fix_commit": "7a102f34f8ccf7ac77664c98f5b916ec2d845978",
+          "ground_truth_files": [
+            "dolphinscheduler-ui/src/views/security/cluster-manage/components/cluster-modal.tsx",
+            "dolphinscheduler-ui/src/views/security/cluster-manage/components/use-modal.ts"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 17794,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/17794",
+          "issue_title": "[Improvement][Scheduler] Rerun workflow instance should follow the specified workerGroup parameter",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar feature requirement.\n\n\n### Description\n\n## Description\nThe current rerun mechanism of workflow instances ignores the pre-configured `workerGroup` parameter, leading to random assignment of tasks to idle workers instead of the specified worker group. This breaks resource isolation and scheduling rules, making it impossible to control task execution nodes as expected during rerun scenarios.\n\n\n### Issue Description\nWhen re-running a workflow instance, the system does not follow the specified `workerGroup` in the startup parameters, but randomly assigns the task to any idle worker node instead. This violates the expected resource isolation and scheduling rules, and cannot guarantee the consistency of task execution environment between the first run and rerun.\n\n### What version of DolphinScheduler are you using?\nVersion: 3.3.2\n\n### What Operating System are you using?\nOS: Debian 12\n\n### What happened?\n1. Create a workflow and set a specific `workerGroup` (e.g., \"w1\") in the startup parameters when running the workflow for the first time;\n2. The first run correctly executes on the nodes in the specified `workerGroup`;\n3. When re-running the failed/finished workflow instance (via \"Rerun\" button), the system ignores the `workerGroup` parameter;\n4. The re-run task is assigned to any idle worker node, not the specified `workerGroup`;\n\n\n### What you expected to happen?\n1. When re-running a workflow instance, the system should inherit and use the `workerGroup` parameter specified in the original startup parameters;\n2. The rerun task must be executed only on the nodes in the specified `workerGroup`, consistent with the first run;\n3. If the specified `workerGroup` has no idle nodes, the task should wait in the queue instead of being randomly assigned to other worker groups.\n\n### How to reproduce it (as minimally and clearly as possible)?\n1. Prepare a DolphinScheduler cluster with at least two independent worker groups (e.g., group A: node1/node2, group B: node3/node4);\n2. Create a simple test workflow (e.g., a shell task that prints the worker node name);\n3. Submit the workflow instance with startup parameter `workerGroup=group A`;\n4. Confirm the first run executes on node1/node2 (group A) by checking the task log;\n5. After the instance finishes/fails, click the \"Rerun\" button to re-execute the instance (without modifying any parameters);\n6. Check the task execution node: the rerun task runs on node3/node4 (group B) instead of group A;\n\n\n\n### Are you willing to submit a PR?\n\n- [ ] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "washingxian",
+          "issue_labels": [
+            "improvement",
+            "backend"
+          ],
+          "closed_at": "2026-06-17T06:59:09Z",
+          "fix_pr_number": 18352,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18352",
+          "fix_merged_at": "2026-06-17T06:59:08Z",
+          "fix_merge_commit": "7a102f34f8ccf7ac77664c98f5b916ec2d845978",
+          "pre_fix_commit": "a06a05f9e2d10a59fc9362371dd92e3526da94e7",
+          "ground_truth_files": [
+            "dolphinscheduler-master/src/main/java/org/apache/dolphinscheduler/server/master/engine/workflow/trigger/WorkflowInstanceRepeatTrigger.java"
+          ],
+          "excluded_files": [
+            "dolphinscheduler-master/src/test/java/org/apache/dolphinscheduler/server/master/engine/workflow/trigger/WorkflowInstanceRepeatTriggerTest.java"
+          ]
+        },
+        {
+          "issue_number": 18354,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18354",
+          "issue_title": "[Improvement][UI] The 'environment description' field should not be required in the frontend code.",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar feature requirement.\n\n\n### Description\n\n1, The description field in the t_ds_environment table definition is nullable.\n<img width=\"1200\" height=\"753\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/a4817e58-243a-4a66-af0e-597171eff28b\" />\n\n2, In the backend API implementation, the description field should also be optional.\n<img width=\"1459\" height=\"1156\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/c6f914d8-2ea2-4077-a87e-4e7e4fe06c50\" />\n\n3, However, the description field unexpectedly became mandatory in the frontend code, leading to a logical inconsistency across the system.\n<img width=\"1445\" height=\"1038\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/f45e8ba6-3282-4ad5-b34d-f948b4e78973\" />\n\n### Are you willing to submit a PR?\n\n- [x] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "njnu-seafish",
+          "issue_labels": [
+            "UI",
+            "improvement"
+          ],
+          "closed_at": "2026-06-16T09:03:54Z",
+          "fix_pr_number": 18355,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18355",
+          "fix_merged_at": "2026-06-16T09:03:53Z",
+          "fix_merge_commit": "c6dbc8989aa0a189b175d9b054e59134209c4d0d",
+          "pre_fix_commit": "76e6963bf02c3f8dd4e300ffe99493230c03d081",
+          "ground_truth_files": [
+            "dolphinscheduler-ui/src/views/security/environment-manage/components/environment-modal.tsx",
+            "dolphinscheduler-ui/src/views/security/environment-manage/components/use-modal.ts"
+          ],
+          "excluded_files": []
+        },
+        {
+          "issue_number": 17563,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/17563",
+          "issue_title": "[Improvement][Helm] Update mysql helm chart version",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar feature requirement.\n\n\n### Description\n\nas sub task https://github.com/apache/dolphinscheduler/issues/17560\n\n### Are you willing to submit a PR?\n\n- [ ] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "Gallardot",
+          "issue_labels": [
+            "good first issue",
+            "improvement"
+          ],
+          "closed_at": "2026-06-12T09:08:45Z",
+          "fix_pr_number": 18336,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18336",
+          "fix_merged_at": "2026-06-12T09:08:43Z",
+          "fix_merge_commit": "9cea76be29f059752013432f33d8e5c6ae9286a7",
+          "pre_fix_commit": "adb0c7d95132cf6126ba834bb1437ca37d7713e5",
+          "ground_truth_files": [
+            "deploy/kubernetes/dolphinscheduler/Chart.yaml",
+            "deploy/kubernetes/dolphinscheduler/values.yaml"
+          ],
+          "excluded_files": [
+            "deploy/kubernetes/dolphinscheduler/README.md"
+          ]
+        },
+        {
+          "issue_number": 18332,
+          "issue_url": "https://github.com/apache/dolphinscheduler/issues/18332",
+          "issue_title": "[Improvement][Worker] Remove plaintext passwords from SQL task logs.",
+          "issue_body": "### Search before asking\n\n- [x] I had searched in the [issues](https://github.com/apache/dolphinscheduler/issues?q=is%3Aissue) and found no similar feature requirement.\n\n\n### Description\n\nDuring the execution of SQL-type tasks, the plaintext password of the data source is exposed in the task logs, violating system security policies.  \nSecurity Flaw: Task logs expose datasource plaintext passwords to non-admin users, leading to information leakage.\n\n<img width=\"1864\" height=\"987\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/a87a2c17-78cc-4065-98fc-806c260b017d\" />\n\n### Are you willing to submit a PR?\n\n- [x] Yes I am willing to submit a PR!\n\n### Code of Conduct\n\n- [x] I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)\n",
+          "issue_author": "njnu-seafish",
+          "issue_labels": [
+            "improvement",
+            "backend"
+          ],
+          "closed_at": "2026-06-12T02:43:28Z",
+          "fix_pr_number": 18333,
+          "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18333",
+          "fix_merged_at": "2026-06-12T02:43:27Z",
+          "fix_merge_commit": "adb0c7d95132cf6126ba834bb1437ca37d7713e5",
+          "pre_fix_commit": "18ea0cf1093871c8778a791f60fb8d25b7b1bde5",
+          "ground_truth_files": [
+            "dolphinscheduler-datasource-plugin/dolphinscheduler-datasource-api/src/main/java/org/apache/dolphinscheduler/plugin/datasource/api/utils/PasswordUtils.java"
+          ],
+          "excluded_files": []
+        }
+      ],
+      "rejected_sample": [
+        {
+          "ok": false,
+          "number": 17670,
+          "url": "https://github.com/apache/dolphinscheduler/issues/17670",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 18383,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18383",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 18286,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18286",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 18425,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18425",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 18443,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18443",
+          "reason": "fix_too_broad:16_files"
+        },
+        {
+          "ok": false,
+          "number": 18568,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18568",
+          "reason": "fix_too_broad:8_files"
+        },
+        {
+          "ok": false,
+          "number": 18558,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18558",
+          "reason": "fix_too_broad:7_files"
+        },
+        {
+          "ok": false,
+          "number": 18556,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18556",
+          "reason": "fix_too_broad:7_files"
+        },
+        {
+          "ok": false,
+          "number": 18474,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18474",
+          "reason": "ground_truth_empty_after_exclusions"
+        },
+        {
+          "ok": false,
+          "number": 17928,
+          "url": "https://github.com/apache/dolphinscheduler/issues/17928",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 18394,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18394",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 18377,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18377",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 17929,
+          "url": "https://github.com/apache/dolphinscheduler/issues/17929",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 18437,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18437",
+          "reason": "fix_too_broad:7_files"
+        },
+        {
+          "ok": false,
+          "number": 18338,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18338",
+          "reason": "also_labelled_defect"
+        },
+        {
+          "ok": false,
+          "number": 18343,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18343",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 17705,
+          "url": "https://github.com/apache/dolphinscheduler/issues/17705",
+          "reason": "fix_too_broad:9_files"
+        },
+        {
+          "ok": false,
+          "number": 18326,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18326",
+          "reason": "ground_truth_empty_after_exclusions"
+        },
+        {
+          "ok": false,
+          "number": 16115,
+          "url": "https://github.com/apache/dolphinscheduler/issues/16115",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        },
+        {
+          "ok": false,
+          "number": 18348,
+          "url": "https://github.com/apache/dolphinscheduler/issues/18348",
+          "reason": "no_merged_fix_pr_after_cutoff"
+        }
+      ]
+    }
+  ],
+  "skipped_repositories": [
+    {
+      "language": "python",
+      "repo": "paperless-ngx/paperless-ngx",
+      "reason": "insufficient_qualifying_cases",
+      "qualifying": 0,
+      "candidates_examined": 0
+    },
+    {
+      "language": "python",
+      "repo": "langflow-ai/langflow",
+      "reason": "insufficient_qualifying_cases",
+      "qualifying": 1,
+      "candidates_examined": 57
+    },
+    {
+      "language": "python",
+      "repo": null,
+      "reason": "no_repo_in_pool_qualified",
+      "qualifying": 0
+    },
+    {
+      "language": "php",
+      "repo": "filamentphp/filament",
+      "reason": "insufficient_qualifying_cases",
+      "qualifying": 0,
+      "candidates_examined": 1
+    },
+    {
+      "language": "php",
+      "repo": null,
+      "reason": "no_repo_in_pool_qualified",
+      "qualifying": 0
+    },
+    {
+      "language": "typescript",
+      "repo": "TryGhost/Ghost",
+      "reason": "insufficient_qualifying_cases",
+      "qualifying": 0,
+      "candidates_examined": 4
+    }
+  ],
+  "not_selected_over_cap": [],
+  "total_cases": 40
+}
