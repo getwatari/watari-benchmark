@@ -39,6 +39,45 @@ lower, which is what a ceiling means.
 
 v4 also carries two file types v3 did not have to: it is the first run to include C# and PHP.
 
+## Feature requests: protocol v5 (2026-09-11)
+
+A separate run on a different population, and it is **not** a fifth column in the table above. Watari
+also maps small, specific feature requests (a change to code that already exists) and drafts a pull
+request for them, so v5 measures that: issues each repository's own maintainers labelled as a
+**feature**, drawn from four of v4's repositories, scored with the same code against the files the
+merged pull request changed.
+
+| | v5, feature requests |
+|---|---|
+| File Match at rank 1, code-actionable requests | **19 of 28, 67.9% (95% CI 49.3% to 82.1%)** |
+| File Match in the top 5 | 24 of 28, 85.7% (95% CI 68.5% to 94.3%) |
+| Repository routing at rank 1 | 28 of 28 |
+| Every exclusion and every declined request counted as a miss | 19 of 40, 47.5% (95% CI 32.9% to 62.5%) |
+| Selected, code-actionable, declined | 40, 28, 1 |
+| Repositories, indexed chunks searched | 4, 55,063 |
+
+**How to read it.** 67.9% is above v4's 56.5%, and the intervals overlap heavily, so the claim this
+supports is that feature requests are located **at least as well as bugs, not better**. The headline
+counts only the requests Watari judged specific enough to map, because those are the only ones it maps
+in production; the pessimistic row counts everything else against it. Four repositories and 28 cases
+is small, and the protocol declared before selection that fewer than 20 would be reported as
+underpowered.
+
+**What it found besides the number.** 11 of the 40 were not scored: 6 because extraction read an
+issue its maintainers had labelled a feature as a bug, 3 because it produced no item, and 2 because it
+split the issue into a feature and a bug. One ground-truth answer is Helm YAML the indexer does not
+read; it is scored as a miss.
+
+**Pre-registration, in order:** `pre-register the feature-request localization arm` then `freeze the
+feature-request sample, unedited` then `ground truth for the frozen feature-request sample` then
+`indexability measured before scoring` then `feature-request localization results, unedited`. The
+feasibility counts the selection was planned on are recorded in `PROTOCOL.md` and were taken from a
+counts-only dry run: no issue was read before the sample froze.
+
+Also mirrored now: the 2026-09-09 addendum to `PROTOCOL.md`, which records that the retrieval layer
+moved to a binary-quantized index and that the change was measured (`probes/binary-quantization.json`)
+rather than published as a new version.
+
 ## What this measures, and what it does not
 
 It measures **code localization**: given the title and body of a real issue, and nothing else, does
@@ -108,10 +147,11 @@ customer prose. Publishing it would add risk and no evidence.
 | File | What it is |
 |---|---|
 | `PROTOCOL.md` | The pre-registration, with every amendment, each dated and marked as made before or after the run it affects |
-| `sample.frozen.json`, `sample.v2.frozen.json` | The selected issues, frozen before the run |
-| `ground-truth.json`, `ground-truth.v2.json` | Files and line ranges each merged fix changed, plus per-file checks against the indexed commit |
-| `results.json`, `results.v2.json`, `results.v3.json` | The unedited output, every case published, hits and misses alike |
-| `indexability.v3.json` | Which cases have a ground-truth file in the index at all, measured before v3 ran rather than after |
+| `sample.frozen.json`, `sample.v2.frozen.json`, `sample.v4.frozen.json`, `sample.v5.frozen.json` | The selected issues, frozen before the run (v5: feature-labelled issues) |
+| `ground-truth.json`, `ground-truth.v2.json`, `ground-truth.v4.json`, `ground-truth.v5.json` | Files and line ranges each merged fix changed, plus per-file checks against the indexed commit |
+| `results.json`, `results.v2.json`, `results.v3.json`, `results.v4.json`, `results.v5.json` | The unedited output, every case published, hits and misses alike |
+| `indexability.v3.json`, `indexability.v4.json`, `indexability.v5.json` | Which cases have a ground-truth file in the index at all, measured before the run rather than after |
+| `probes/binary-quantization.json` | The paired measurement behind the 2026-09-09 addendum: the retrieval change that did not warrant a new version |
 | `capture.json` | v1 only: what the production pipeline returned, so scoring inputs are auditable rather than asserted |
 | `localization-score.ts` | The scoring code. `PROTOCOL.md` is the specification; if the two disagree, the protocol is right and the code is a bug |
 
