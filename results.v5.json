@@ -1,0 +1,2388 @@
+{
+  "protocol_version": 5,
+  "protocol": "benchmarks/localization/PROTOCOL.md",
+  "sample": "benchmarks/localization/sample.v5.frozen.json",
+  "ground_truth": "benchmarks/localization/ground-truth.v5.json",
+  "run_at": "2026-09-11T12:12:27.384Z",
+  "injection_transport": "offline-harness (scripts/probe/run-benchmark-offline.mjs)",
+  "retrieval_policy": {
+    "route_threshold": 0.3,
+    "route_count": 30,
+    "search_threshold": 0.3,
+    "search_count_per_repo": 30,
+    "candidate_cap": 80,
+    "query_expansion_samples": 3
+  },
+  "corpus_chunks": 55063,
+  "overall": {
+    "n": 28,
+    "fileMatchAt1": 19,
+    "fileMatchAt5": 24,
+    "repoRoutingAt1": 28,
+    "noMapping": 0,
+    "fileMatchAt1Rate": 0.6785714285714286,
+    "fileMatchAt5Rate": 0.8571428571428571,
+    "repoRoutingAt1Rate": 1,
+    "lineOverlapAt1": 11,
+    "lineOverlapScoreableN": 11,
+    "lineOverlapAt1Rate": 1,
+    "file_match_at_1_ci95": {
+      "lower": 0.4933850455563118,
+      "upper": 0.8206695245657927
+    },
+    "file_match_at_5_ci95": {
+      "lower": 0.6850982695512267,
+      "upper": 0.9430108706929821
+    }
+  },
+  "out_of_sample_available": true,
+  "out_of_sample_note": "every case is a feature issue no one here had read: the repositories are v4's, examined only for their defect issues, and no shipped change was chosen against their feature issues",
+  "out_of_sample": {
+    "note": "cases never examined while choosing #385 or #388",
+    "n": 28,
+    "fileMatchAt1": 19,
+    "fileMatchAt5": 24,
+    "repoRoutingAt1": 28,
+    "noMapping": 0,
+    "fileMatchAt1Rate": 0.6785714285714286,
+    "fileMatchAt5Rate": 0.8571428571428571,
+    "repoRoutingAt1Rate": 1,
+    "lineOverlapAt1": 11,
+    "lineOverlapScoreableN": 11,
+    "lineOverlapAt1Rate": 1,
+    "file_match_at_1_ci95": {
+      "lower": 0.4933850455563118,
+      "upper": 0.8206695245657927
+    },
+    "file_match_at_5_ci95": {
+      "lower": 0.6850982695512267,
+      "upper": 0.9430108706929821
+    }
+  },
+  "seen_in_v1": {
+    "note": "inside v1, therefore inside the set used to choose #385 and #388",
+    "n": 0,
+    "fileMatchAt1": 0,
+    "fileMatchAt5": 0,
+    "repoRoutingAt1": 0,
+    "noMapping": 0,
+    "fileMatchAt1Rate": 0,
+    "fileMatchAt5Rate": 0,
+    "repoRoutingAt1Rate": 0,
+    "lineOverlapAt1": 0,
+    "lineOverlapScoreableN": 0,
+    "lineOverlapAt1Rate": 0,
+    "file_match_at_1_ci95": {
+      "lower": 0,
+      "upper": 0
+    },
+    "file_match_at_5_ci95": {
+      "lower": 0,
+      "upper": 0
+    }
+  },
+  "if_errors_counted_as_misses": {
+    "overall": {
+      "n": 40,
+      "excluded_counted_as_miss": 12,
+      "fileMatchAt1": 19,
+      "fileMatchAt1Rate": 0.475,
+      "file_match_at_1_ci95": {
+        "lower": 0.32935229550181694,
+        "upper": 0.6250289314607026
+      },
+      "fileMatchAt5": 24,
+      "fileMatchAt5Rate": 0.6
+    },
+    "out_of_sample": {
+      "n": 40,
+      "excluded_counted_as_miss": 12,
+      "fileMatchAt1": 19,
+      "fileMatchAt1Rate": 0.475,
+      "file_match_at_1_ci95": {
+        "lower": 0.32935229550181694,
+        "upper": 0.6250289314607026
+      },
+      "fileMatchAt5": 24,
+      "fileMatchAt5Rate": 0.6
+    }
+  },
+  "item_kind": "feature",
+  "feature_arm": {
+    "headline_population": "code-actionable feature requests (isCodeActionableFeatureRequest)",
+    "single_feature_cases": 29,
+    "code_actionable": 28,
+    "refused": 1,
+    "actionable_rate": 0.9655172413793104,
+    "underpowered": false,
+    "underpowered_rule": "fewer than 20 code-actionable cases scored (Protocol v5, Decision rule)"
+  },
+  "refusals": [
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue": 17563,
+      "issue_url": "https://github.com/apache/dolphinscheduler/issues/17563",
+      "reason": "not_code_actionable",
+      "implementation_scope": "bounded",
+      "extraction_confidence": 0.65
+    }
+  ],
+  "by_repository": [
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "n": 11,
+      "fileMatchAt1": 7,
+      "fileMatchAt5": 8,
+      "repoRoutingAt1": 11,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.6363636363636364,
+      "fileMatchAt5Rate": 0.7272727272727273,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 2,
+      "lineOverlapScoreableN": 2,
+      "lineOverlapAt1Rate": 1
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "language": "go",
+      "n": 4,
+      "fileMatchAt1": 1,
+      "fileMatchAt5": 4,
+      "repoRoutingAt1": 4,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.25,
+      "fileMatchAt5Rate": 1,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 1,
+      "lineOverlapScoreableN": 1,
+      "lineOverlapAt1Rate": 1
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "language": "csharp",
+      "n": 6,
+      "fileMatchAt1": 4,
+      "fileMatchAt5": 5,
+      "repoRoutingAt1": 6,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 0.6666666666666666,
+      "fileMatchAt5Rate": 0.8333333333333334,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 3,
+      "lineOverlapScoreableN": 3,
+      "lineOverlapAt1Rate": 1
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "language": "java",
+      "n": 7,
+      "fileMatchAt1": 7,
+      "fileMatchAt5": 7,
+      "repoRoutingAt1": 7,
+      "noMapping": 0,
+      "fileMatchAt1Rate": 1,
+      "fileMatchAt5Rate": 1,
+      "repoRoutingAt1Rate": 1,
+      "lineOverlapAt1": 5,
+      "lineOverlapScoreableN": 5,
+      "lineOverlapAt1Rate": 1
+    }
+  ],
+  "cases": [
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "issue_number": 34369,
+      "issue_url": "https://github.com/element-hq/element-web/issues/34369",
+      "fix_pr_url": "https://github.com/element-hq/element-web/pull/34643",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "packages/shared-components/src/resize/separator/SeparatorView.module.css",
+        "packages/shared-components/src/resize/separator/SeparatorView.tsx"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/res/css/views/rooms/_RoomSublist.pcss",
+          "lines": [
+            203,
+            390
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/components/views/rooms/RoomSublist.tsx",
+          "lines": [
+            103,
+            859
+          ],
+          "function": null,
+          "confidence": 0.78
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/components/views/rooms/RoomSublist.tsx",
+          "lines": [
+            625,
+            706
+          ],
+          "function": "renderHeader",
+          "confidence": 0.72
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/components/views/rooms/RoomSublist.tsx",
+          "lines": [
+            714,
+            858
+          ],
+          "function": "render",
+          "confidence": 0.65
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/components/views/spaces/SpacePanel.tsx",
+          "lines": [
+            299,
+            384
+          ],
+          "function": "InnerSpacePanel",
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "issue_number": 34463,
+      "issue_url": "https://github.com/element-hq/element-web/issues/34463",
+      "fix_pr_url": "https://github.com/element-hq/element-web/pull/34566",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/web/res/css/views/right_panel/_ThreadPanel.pcss"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/res/css/views/right_panel/_ThreadPanel.pcss",
+          "lines": [
+            1,
+            197
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/res/css/views/rooms/_PinnedMessageBanner.pcss",
+          "lines": [
+            1,
+            110
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/components/structures/ThreadPanel.tsx",
+          "lines": [
+            67,
+            154
+          ],
+          "function": "ThreadPanelHeader",
+          "confidence": 0.72
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/components/structures/ThreadPanel.tsx",
+          "lines": [
+            156,
+            244
+          ],
+          "function": "ThreadPanel",
+          "confidence": 0.65
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/res/css/views/right_panel/_PinnedMessagesCard.pcss",
+          "lines": [
+            1,
+            48
+          ],
+          "function": null,
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "issue_number": 34347,
+      "issue_url": "https://github.com/element-hq/element-web/issues/34347",
+      "fix_pr_url": "https://github.com/element-hq/element-web/pull/34350",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/web/src/toasts/MobileGuideToast.ts",
+        "apps/web/src/vector/index.ts",
+        "apps/web/src/vector/mobile_guide/index.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/toasts/MobileGuideToast.ts",
+          "lines": [
+            25,
+            48
+          ],
+          "function": "showToast",
+          "confidence": 0.95
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/toasts/MobileGuideToast.ts",
+          "lines": [
+            18,
+            21
+          ],
+          "function": "onReject",
+          "confidence": 0.95
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/vector/mobile_guide/index.ts",
+          "lines": [
+            17,
+            21
+          ],
+          "function": "onBackToElementClick",
+          "confidence": 0.95
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/vector/mobile_guide/index.ts",
+          "lines": [
+            45,
+            135
+          ],
+          "function": "initPage",
+          "confidence": 0.7
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/SupportedBrowser.ts",
+          "lines": [
+            33,
+            36
+          ],
+          "function": "onDismissClick",
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "issue_number": 34317,
+      "issue_url": "https://github.com/element-hq/element-web/issues/34317",
+      "fix_pr_url": "https://github.com/element-hq/element-web/pull/34351",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/web/src/settings/Settings.tsx",
+        "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+        "apps/web/src/viewmodels/room-list/RoomListViewModel.ts"
+      ],
+      "dropped_absent_files": [
+        "apps/web/src/stores/room-list-v3/section.ts"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+          "lines": [
+            29,
+            123
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            72,
+            565
+          ],
+          "function": null,
+          "confidence": 0.82
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            94,
+            160
+          ],
+          "function": "constructor",
+          "confidence": 0.75
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "packages/shared-components/src/room-list/RoomListSectionHeaderView/RoomListSectionHeaderView.tsx",
+          "lines": [
+            84,
+            128
+          ],
+          "function": "RoomListSectionHeaderView",
+          "confidence": 0.78
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+          "lines": [
+            97,
+            466
+          ],
+          "function": null,
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "issue_number": 34216,
+      "issue_url": "https://github.com/element-hq/element-web/issues/34216",
+      "fix_pr_url": "https://github.com/element-hq/element-web/pull/34224",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/web/res/css/views/elements/_CopyableText.pcss",
+        "apps/web/res/css/views/right_panel/_UserInfo.pcss",
+        "apps/web/res/css/views/rooms/_EventTile.pcss",
+        "apps/web/src/components/views/elements/CopyableText.tsx",
+        "packages/shared-components/src/room-list/RoomListHeaderView/RoomListHeaderView.tsx"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/components/views/settings/UserProfileSettings.tsx",
+          "lines": [
+            43,
+            55
+          ],
+          "function": "UsernameBox",
+          "confidence": 0.85
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/components/views/rooms/RoomHeader/RoomHeader.tsx",
+          "lines": [
+            432,
+            552
+          ],
+          "function": "RoomHeader",
+          "confidence": 0.72
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/components/views/rooms/RoomHeader/RoomHeader.tsx",
+          "lines": [
+            61,
+            396
+          ],
+          "function": "RoomHeaderButtons",
+          "confidence": 0.68
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/res/css/views/rooms/_RoomHeader.pcss",
+          "lines": [
+            1,
+            116
+          ],
+          "function": null,
+          "confidence": 0.65
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/res/css/views/settings/_RoomProfileSettings.pcss",
+          "lines": [
+            1,
+            49
+          ],
+          "function": null,
+          "confidence": 0.52
+        }
+      ]
+    },
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "issue_number": 34147,
+      "issue_url": "https://github.com/element-hq/element-web/issues/34147",
+      "fix_pr_url": "https://github.com/element-hq/element-web/pull/34162",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+        "packages/shared-components/src/i18n/strings/en_EN.json",
+        "packages/shared-components/src/room-list/RoomListPrimaryFilters/RoomListPrimaryFilters.tsx",
+        "packages/shared-components/src/room-list/RoomListPrimaryFilters/useVisibleFilters.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/components/views/settings/tabs/user/PreferencesUserSettingsTab.tsx",
+          "lines": [
+            123,
+            423
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            72,
+            565
+          ],
+          "function": null,
+          "confidence": 0.82
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            94,
+            160
+          ],
+          "function": "constructor",
+          "confidence": 0.8
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            573,
+            588
+          ],
+          "function": "computeSections",
+          "confidence": 0.78
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "packages/shared-components/src/room-list/VirtualizedRoomListView/VirtualizedRoomListView.tsx",
+          "lines": [
+            108,
+            377
+          ],
+          "function": "VirtualizedRoomListView",
+          "confidence": 0.75
+        }
+      ]
+    },
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "issue_number": 32853,
+      "issue_url": "https://github.com/element-hq/element-web/issues/32853",
+      "fix_pr_url": "https://github.com/element-hq/element-web/pull/33680",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/web/src/utils/exportUtils/Exporter.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/utils/exportUtils/Exporter.ts",
+          "lines": [
+            80,
+            87
+          ],
+          "function": "makeFileNameNoExtension",
+          "confidence": 0.92
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/utils/exportUtils/JSONExport.ts",
+          "lines": [
+            18,
+            122
+          ],
+          "function": null,
+          "confidence": 0.88
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/utils/exportUtils/Exporter.ts",
+          "lines": [
+            89,
+            103
+          ],
+          "function": "downloadZIP",
+          "confidence": 0.81
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/utils/exportUtils/HtmlExport.tsx",
+          "lines": [
+            38,
+            512
+          ],
+          "function": null,
+          "confidence": 0.62
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/utils/exportUtils/JSONExport.ts",
+          "lines": [
+            35,
+            51
+          ],
+          "function": "createJSONString",
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "issue_number": 32858,
+      "issue_url": "https://github.com/element-hq/element-web/issues/32858",
+      "fix_pr_url": "https://github.com/element-hq/element-web/pull/33172",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/web/src/@types/matrix-js-sdk.d.ts",
+        "apps/web/src/emojipicker/recent.ts",
+        "apps/web/src/settings/handlers/AccountSettingsHandler.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/emojipicker/recent.ts",
+          "lines": [
+            36,
+            38
+          ],
+          "function": "getRecentEmoji",
+          "confidence": 0.92
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/emojipicker/recent.ts",
+          "lines": [
+            40,
+            54
+          ],
+          "function": "add",
+          "confidence": 0.9
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/emojipicker/recent.ts",
+          "lines": [
+            29,
+            34
+          ],
+          "function": "migrate",
+          "confidence": 0.88
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/emojipicker/recent.ts",
+          "lines": [
+            56,
+            67
+          ],
+          "function": "get",
+          "confidence": 0.85
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/autocomplete/EmojiProvider.tsx",
+          "lines": [
+            71,
+            185
+          ],
+          "function": null,
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "issue_number": 33470,
+      "issue_url": "https://github.com/element-hq/element-web/issues/33470",
+      "fix_pr_url": "https://github.com/element-hq/element-web/pull/33475",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+        "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+        "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+        "apps/web/src/viewmodels/room-list/RoomListViewModel.ts"
+      ],
+      "dropped_absent_files": [
+        "apps/web/src/stores/room-list-v3/section.ts"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            577,
+            584
+          ],
+          "function": "sections",
+          "confidence": 0.85
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            593,
+            598
+          ],
+          "function": "toRoomListSection",
+          "confidence": 0.82
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            573,
+            588
+          ],
+          "function": "computeSections",
+          "confidence": 0.78
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            477,
+            546
+          ],
+          "function": "updateRoomListData",
+          "confidence": 0.75
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+          "lines": [
+            97,
+            466
+          ],
+          "function": null,
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "issue_number": 33277,
+      "issue_url": "https://github.com/element-hq/element-web/issues/33277",
+      "fix_pr_url": "https://github.com/element-hq/element-web/pull/33278",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/components/views/context_menus/RoomGeneralContextMenu.tsx",
+          "lines": [
+            110,
+            317
+          ],
+          "function": "RoomGeneralContextMenu",
+          "confidence": 0.85
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+          "lines": [
+            456,
+            465
+          ],
+          "function": "getSections",
+          "confidence": 0.78
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            577,
+            584
+          ],
+          "function": "sections",
+          "confidence": 0.72
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            593,
+            598
+          ],
+          "function": "toRoomListSection",
+          "confidence": 0.68
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            573,
+            588
+          ],
+          "function": "computeSections",
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "repo": "element-hq/element-web",
+      "language": "typescript",
+      "issue_number": 32454,
+      "issue_url": "https://github.com/element-hq/element-web/issues/32454",
+      "fix_pr_url": "https://github.com/element-hq/element-web/pull/33077",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "apps/web/src/viewmodels/room-list/RoomListViewModel.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            72,
+            565
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            352,
+            387
+          ],
+          "function": null,
+          "confidence": 0.82
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+          "lines": [
+            456,
+            465
+          ],
+          "function": "getSections",
+          "confidence": 0.78
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+          "lines": [
+            161,
+            174
+          ],
+          "function": "getSortedRoomsInActiveSpace",
+          "confidence": 0.76
+        },
+        {
+          "repo": "element-hq/element-web",
+          "file": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "lines": [
+            162,
+            186
+          ],
+          "function": null,
+          "confidence": 0.74
+        }
+      ]
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "language": "go",
+      "issue_number": 38981,
+      "issue_url": "https://github.com/go-gitea/gitea/issues/38981",
+      "fix_pr_url": "https://github.com/go-gitea/gitea/pull/38988",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "models/issues/review.go",
+        "routers/web/repo/issue_page_meta.go",
+        "services/issue/pull.go",
+        "services/issue/review_request.go",
+        "templates/repo/issue/sidebar/reviewer_list.tmpl"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "go-gitea/gitea",
+          "file": "services/pull/review.go",
+          "lines": [
+            368,
+            409
+          ],
+          "function": "DismissApprovalReviews",
+          "confidence": 0.85
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "services/pull/review.go",
+          "lines": [
+            412,
+            494
+          ],
+          "function": "DismissReview",
+          "confidence": 0.82
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "models/issues/review.go",
+          "lines": [
+            416,
+            532
+          ],
+          "function": "SubmitReview",
+          "confidence": 0.75
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "models/issues/pull.go",
+          "lines": [
+            769,
+            784
+          ],
+          "function": "GetGrantedApprovalsCount",
+          "confidence": 0.72
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "routers/api/v1/repo/pull_review.go",
+          "lines": [
+            1087,
+            1124
+          ],
+          "function": "dismissReview",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "language": "go",
+      "issue_number": 15663,
+      "issue_url": "https://github.com/go-gitea/gitea/issues/15663",
+      "fix_pr_url": "https://github.com/go-gitea/gitea/pull/39204",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "templates/repo/issue/fields/textarea.tmpl",
+        "templates/repo/upload.tmpl",
+        "web_src/css/editor/combomarkdowneditor.css",
+        "web_src/js/features/comp/ComboMarkdownEditor.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "go-gitea/gitea",
+          "file": "web_src/js/features/repo-editor.ts",
+          "lines": [
+            14,
+            61
+          ],
+          "function": "initEditPreviewTab",
+          "confidence": 0.85
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "web_src/js/features/comp/ComboMarkdownEditor.ts",
+          "lines": [
+            206,
+            252
+          ],
+          "function": "setupTab",
+          "confidence": 0.78
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "web_src/js/features/comp/ComboMarkdownEditor.ts",
+          "lines": [
+            171,
+            183
+          ],
+          "function": "setupDropzone",
+          "confidence": 0.72
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "web_src/js/features/comp/ComboMarkdownEditor.ts",
+          "lines": [
+            195,
+            199
+          ],
+          "function": "dropzoneSubmitReload",
+          "confidence": 0.65
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "web_src/js/features/dropzone.ts",
+          "lines": [
+            64,
+            161
+          ],
+          "function": "initDropzone",
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "language": "go",
+      "issue_number": 6058,
+      "issue_url": "https://github.com/go-gitea/gitea/issues/6058",
+      "fix_pr_url": "https://github.com/go-gitea/gitea/pull/38995",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "web_src/js/components/ActivityHeatmap.vue"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "go-gitea/gitea",
+          "file": "web_src/js/utils/time.ts",
+          "lines": [
+            14,
+            32
+          ],
+          "function": "startDaysBetween",
+          "confidence": 0.95
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "web_src/js/components/ActivityHeatmap.vue",
+          "lines": [
+            1,
+            209
+          ],
+          "function": null,
+          "confidence": 0.88
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "web_src/js/components/RepoRecentCommits.vue",
+          "lines": [
+            1,
+            152
+          ],
+          "function": null,
+          "confidence": 0.82
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "web_src/js/components/RepoCodeFrequency.vue",
+          "lines": [
+            1,
+            175
+          ],
+          "function": null,
+          "confidence": 0.81
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "web_src/js/features/heatmap.ts",
+          "lines": [
+            10,
+            56
+          ],
+          "function": "initHeatmap",
+          "confidence": 0.75
+        }
+      ]
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "language": "go",
+      "issue_number": 25042,
+      "issue_url": "https://github.com/go-gitea/gitea/issues/25042",
+      "fix_pr_url": "https://github.com/go-gitea/gitea/pull/37826",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "models/actions/run_list.go",
+        "routers/web/repo/actions/actions.go",
+        "routers/web/repo/actions/view.go",
+        "templates/repo/actions/list.tmpl",
+        "templates/repo/actions/workflow_dispatch.tmpl"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "go-gitea/gitea",
+          "file": "templates/repo/actions/list.tmpl",
+          "lines": [
+            1,
+            115
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "routers/web/repo/actions/actions.go",
+          "lines": [
+            285,
+            402
+          ],
+          "function": "prepareWorkflowList",
+          "confidence": 0.88
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "models/activities/action_list.go",
+          "lines": [
+            207,
+            284
+          ],
+          "function": "GetFeeds",
+          "confidence": 0.75
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "templates/repo/actions/runs_list.tmpl",
+          "lines": [
+            1,
+            78
+          ],
+          "function": null,
+          "confidence": 0.68
+        },
+        {
+          "repo": "go-gitea/gitea",
+          "file": "templates/repo/issue/filter_list.tmpl",
+          "lines": [
+            1,
+            124
+          ],
+          "function": null,
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "language": "csharp",
+      "issue_number": 15515,
+      "issue_url": "https://github.com/jellyfin/jellyfin/issues/15515",
+      "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/15516",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "Emby.Server.Implementations/Collections/CollectionManager.cs",
+        "Jellyfin.Api/Controllers/LibraryController.cs",
+        "MediaBrowser.Controller/Collections/ICollectionManager.cs"
+      ],
+      "dropped_absent_files": [
+        "Jellyfin.Server.Implementations/Item/LinkedChildrenService.cs",
+        "MediaBrowser.Controller/Persistence/ILinkedChildrenService.cs"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_5_only",
+      "file_match_at_1": false,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Jellyfin.Api/Controllers/CollectionController.cs",
+          "lines": [
+            20,
+            111
+          ],
+          "function": null,
+          "confidence": 0.92
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Emby.Server.Implementations/Collections/CollectionManager.cs",
+          "lines": [
+            25,
+            368
+          ],
+          "function": null,
+          "confidence": 0.88
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Jellyfin.Api/Controllers/ItemsController.cs",
+          "lines": [
+            30,
+            1072
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Jellyfin.Api/Controllers/LibraryController.cs",
+          "lines": [
+            728,
+            817
+          ],
+          "function": "GetSimilarItems",
+          "confidence": 0.72
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Jellyfin.Api/Controllers/UserLibraryController.cs",
+          "lines": [
+            32,
+            696
+          ],
+          "function": null,
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "language": "csharp",
+      "issue_number": 14928,
+      "issue_url": "https://github.com/jellyfin/jellyfin/issues/14928",
+      "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/16433",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "Emby.Server.Implementations/Library/PathExtensions.cs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "miss",
+      "file_match_at_1": false,
+      "file_match_at_5": false,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": false,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "tests/Jellyfin.Server.Implementations.Tests/Library/PathExtensionsTests.cs",
+          "lines": [
+            8,
+            125
+          ],
+          "function": null,
+          "confidence": 0.92
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Emby.Naming/TV/SeriesPathParser.cs",
+          "lines": [
+            9,
+            59
+          ],
+          "function": null,
+          "confidence": 0.88
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Emby.Naming/TV/SeriesResolver.cs",
+          "lines": [
+            10,
+            70
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "MediaBrowser.Common/Providers/ProviderIdParsers.cs",
+          "lines": [
+            9,
+            122
+          ],
+          "function": null,
+          "confidence": 0.82
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "tests/Jellyfin.Common.Tests/Providers/ProviderIdParserTests.cs",
+          "lines": [
+            7,
+            84
+          ],
+          "function": null,
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "language": "csharp",
+      "issue_number": 13840,
+      "issue_url": "https://github.com/jellyfin/jellyfin/issues/13840",
+      "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/16478",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "Emby.Server.Implementations/AppBase/BaseApplicationPaths.cs",
+        "Emby.Server.Implementations/AppBase/BaseConfigurationManager.cs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Emby.Server.Implementations/AppBase/BaseConfigurationManager.cs",
+          "lines": [
+            202,
+            231
+          ],
+          "function": "UpdateCachePath",
+          "confidence": 0.85
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Emby.Server.Implementations/AppBase/BaseConfigurationManager.cs",
+          "lines": [
+            238,
+            257
+          ],
+          "function": "ValidateCachePath",
+          "confidence": 0.78
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Jellyfin.Server/Helpers/StartupHelpers.cs",
+          "lines": [
+            156,
+            172
+          ],
+          "function": "GetXdgCacheHome",
+          "confidence": 0.72
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Emby.Server.Implementations/ScheduledTasks/Tasks/DeleteCacheFileTask.cs",
+          "lines": [
+            19,
+            143
+          ],
+          "function": null,
+          "confidence": 0.65
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Jellyfin.Api/Controllers/RemoteImageController.cs",
+          "lines": [
+            178,
+            181
+          ],
+          "function": "GetFullCachePath",
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "language": "csharp",
+      "issue_number": 15354,
+      "issue_url": "https://github.com/jellyfin/jellyfin/issues/15354",
+      "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/15355",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "src/Jellyfin.Database/Jellyfin.Database.Providers.Sqlite/SqliteDatabaseProvider.cs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "src/Jellyfin.Database/Jellyfin.Database.Providers.Sqlite/SqliteDatabaseProvider.cs",
+          "lines": [
+            21,
+            208
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Jellyfin.Server.Implementations/Extensions/ServiceCollectionExtensions.cs",
+          "lines": [
+            76,
+            148
+          ],
+          "function": "AddJellyfinDbContext",
+          "confidence": 0.82
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Jellyfin.Server/Helpers/StartupHelpers.cs",
+          "lines": [
+            78,
+            154
+          ],
+          "function": "CreateApplicationPaths",
+          "confidence": 0.79
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Jellyfin.Server/StartupOptions.cs",
+          "lines": [
+            11,
+            112
+          ],
+          "function": null,
+          "confidence": 0.78
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "src/Jellyfin.Database/Jellyfin.Database.Implementations/DbConfiguration/DatabaseConfigurationOptions.cs",
+          "lines": [
+            8,
+            25
+          ],
+          "function": null,
+          "confidence": 0.76
+        }
+      ]
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "language": "csharp",
+      "issue_number": 15137,
+      "issue_url": "https://github.com/jellyfin/jellyfin/issues/15137",
+      "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/15138",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "Emby.Server.Implementations/Playlists/PlaylistManager.cs",
+        "Jellyfin.Api/Controllers/PlaylistsController.cs",
+        "MediaBrowser.Controller/Playlists/IPlaylistManager.cs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "MediaBrowser.Controller/Playlists/IPlaylistManager.cs",
+          "lines": [
+            12,
+            112
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Emby.Server.Implementations/Playlists/PlaylistManager.cs",
+          "lines": [
+            201,
+            209
+          ],
+          "function": "AddItemToPlaylistAsync",
+          "confidence": 0.92
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Emby.Server.Implementations/Playlists/PlaylistManager.cs",
+          "lines": [
+            211,
+            259
+          ],
+          "function": "AddToPlaylistInternal",
+          "confidence": 0.89
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Jellyfin.Api/Controllers/PlaylistsController.cs",
+          "lines": [
+            367,
+            393
+          ],
+          "function": "AddItemToPlaylist",
+          "confidence": 0.85
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "Emby.Server.Implementations/Playlists/PlaylistManager.cs",
+          "lines": [
+            299,
+            346
+          ],
+          "function": "MoveItemAsync",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "language": "csharp",
+      "issue_number": 15915,
+      "issue_url": "https://github.com/jellyfin/jellyfin/issues/15915",
+      "fix_pr_url": "https://github.com/jellyfin/jellyfin/pull/15916",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "MediaBrowser.Model/Extensions/StringHelper.cs"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 40,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "MediaBrowser.Model/Extensions/StringHelper.cs",
+          "lines": [
+            13,
+            37
+          ],
+          "function": "FirstToUpper",
+          "confidence": 0.95
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "MediaBrowser.Model/Extensions/StringHelper.cs",
+          "lines": [
+            6,
+            38
+          ],
+          "function": null,
+          "confidence": 0.92
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "tests/Jellyfin.Model.Tests/Extensions/StringHelperTests.cs",
+          "lines": [
+            23,
+            31
+          ],
+          "function": "FirstToUpper_RandomArg_Correct",
+          "confidence": 0.68
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "tests/Jellyfin.Model.Tests/Extensions/StringHelperTests.cs",
+          "lines": [
+            10,
+            32
+          ],
+          "function": null,
+          "confidence": 0.65
+        },
+        {
+          "repo": "jellyfin/jellyfin",
+          "file": "tests/Jellyfin.Model.Tests/Extensions/StringHelperTests.cs",
+          "lines": [
+            12,
+            21
+          ],
+          "function": "StringHelper_ValidArgs_Success",
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "language": "java",
+      "issue_number": 18589,
+      "issue_url": "https://github.com/apache/dolphinscheduler/issues/18589",
+      "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18590",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ClusterController.java",
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/ClusterService.java",
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceImpl.java"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.92,
+      "returned_locations": [
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ClusterController.java",
+          "lines": [
+            215,
+            226
+          ],
+          "function": "verifyCluster",
+          "confidence": 0.92
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceImpl.java",
+          "lines": [
+            276,
+            287
+          ],
+          "function": "verifyCluster",
+          "confidence": 0.9
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/ClusterService.java",
+          "lines": [
+            27,
+            98
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ClusterController.java",
+          "lines": [
+            199,
+            206
+          ],
+          "function": "queryAllClusterList",
+          "confidence": 0.82
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceImpl.java",
+          "lines": [
+            56,
+            298
+          ],
+          "function": null,
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "language": "java",
+      "issue_number": 18563,
+      "issue_url": "https://github.com/apache/dolphinscheduler/issues/18563",
+      "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18564",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/DataSourceService.java",
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+        "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/DataSourceMapper.xml"
+      ],
+      "dropped_absent_files": [
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/vo/DataSourceSimpleInfoVO.java"
+      ],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.85,
+      "returned_locations": [
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+          "lines": [
+            312,
+            323
+          ],
+          "function": "getAuthorizedDatasourceList",
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+          "lines": [
+            344,
+            348
+          ],
+          "function": "authedDatasource",
+          "confidence": 0.82
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/UsersServiceImpl.java",
+          "lines": [
+            704,
+            736
+          ],
+          "function": "grantDataSource",
+          "confidence": 0.78
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+          "lines": [
+            291,
+            303
+          ],
+          "function": "getUnauthorizedDatasourceList",
+          "confidence": 0.72
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+          "lines": [
+            317,
+            342
+          ],
+          "function": "unAuthDatasource",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "language": "java",
+      "issue_number": 18441,
+      "issue_url": "https://github.com/apache/dolphinscheduler/issues/18441",
+      "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18442",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": false,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": null,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 30,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml",
+          "lines": [
+            155,
+            283
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml",
+          "lines": [
+            1,
+            166
+          ],
+          "function": null,
+          "confidence": 0.92
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-dao/src/main/java/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.java",
+          "lines": [
+            37,
+            143
+          ],
+          "function": null,
+          "confidence": 0.75
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-dao/src/main/java/org/apache/dolphinscheduler/dao/repository/impl/TaskInstanceDaoImpl.java",
+          "lines": [
+            51,
+            235
+          ],
+          "function": null,
+          "confidence": 0.68
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-dao/src/test/java/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapperTest.java",
+          "lines": [
+            42,
+            274
+          ],
+          "function": null,
+          "confidence": 0.58
+        }
+      ]
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "language": "java",
+      "issue_number": 18412,
+      "issue_url": "https://github.com/apache/dolphinscheduler/issues/18412",
+      "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18411",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ResourcesController.java",
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/validator/resource/FetchFileContentDtoValidator.java"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 80,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/validator/resource/FetchFileContentDtoValidator.java",
+          "lines": [
+            35,
+            47
+          ],
+          "function": "validate",
+          "confidence": 0.95
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/validator/resource/FetchFileContentDtoValidator.java",
+          "lines": [
+            28,
+            48
+          ],
+          "function": null,
+          "confidence": 0.92
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ResourcesServiceImpl.java",
+          "lines": [
+            312,
+            335
+          ],
+          "function": "fetchResourceFileContent",
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/test/java/org/apache/dolphinscheduler/api/validator/resource/FetchFileContentDtoValidatorTest.java",
+          "lines": [
+            69,
+            81
+          ],
+          "function": "testValidate_skipLineNumInvalid",
+          "confidence": 0.78
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/dto/resources/FetchFileContentRequest.java",
+          "lines": [
+            27,
+            37
+          ],
+          "function": null,
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "language": "java",
+      "issue_number": 17933,
+      "issue_url": "https://github.com/apache/dolphinscheduler/issues/17933",
+      "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18368",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/AuditLogController.java",
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/AuditService.java",
+        "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/AuditServiceImpl.java",
+        "dolphinscheduler-dao/src/main/java/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.java",
+        "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.xml"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/AuditLogController.java",
+          "lines": [
+            49,
+            132
+          ],
+          "function": null,
+          "confidence": 0.95
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/AuditLogController.java",
+          "lines": [
+            71,
+            105
+          ],
+          "function": "queryAuditLogListPaging",
+          "confidence": 0.92
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/AuditServiceImpl.java",
+          "lines": [
+            72,
+            97
+          ],
+          "function": "queryLogListPaging",
+          "confidence": 0.88
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/AuditServiceImpl.java",
+          "lines": [
+            43,
+            126
+          ],
+          "function": null,
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/K8SNamespaceServiceImpl.java",
+          "lines": [
+            79,
+            100
+          ],
+          "function": "queryListPaging",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "language": "java",
+      "issue_number": 18359,
+      "issue_url": "https://github.com/apache/dolphinscheduler/issues/18359",
+      "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18360",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "dolphinscheduler-ui/src/views/security/cluster-manage/components/cluster-modal.tsx",
+        "dolphinscheduler-ui/src/views/security/cluster-manage/components/use-modal.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-ui/src/views/security/cluster-manage/components/use-modal.ts",
+          "lines": [
+            55,
+            59
+          ],
+          "function": "validator",
+          "confidence": 0.95
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-ui/src/views/security/cluster-manage/components/use-modal.ts",
+          "lines": [
+            26,
+            118
+          ],
+          "function": "useModal",
+          "confidence": 0.92
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-ui/src/views/security/cluster-manage/components/cluster-modal.tsx",
+          "lines": [
+            126,
+            199
+          ],
+          "function": "render",
+          "confidence": 0.88
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-ui/src/views/security/cluster-manage/components/use-modal.ts",
+          "lines": [
+            77,
+            96
+          ],
+          "function": "submitClusterModal",
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-ui/src/views/security/cluster-manage/components/use-modal.ts",
+          "lines": [
+            64,
+            75
+          ],
+          "function": "handleValidate",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "language": "java",
+      "issue_number": 18354,
+      "issue_url": "https://github.com/apache/dolphinscheduler/issues/18354",
+      "fix_pr_url": "https://github.com/apache/dolphinscheduler/pull/18355",
+      "seen_in_v1": false,
+      "ground_truth_files": [
+        "dolphinscheduler-ui/src/views/security/environment-manage/components/environment-modal.tsx",
+        "dolphinscheduler-ui/src/views/security/environment-manage/components/use-modal.ts"
+      ],
+      "dropped_absent_files": [],
+      "line_overlap_scoreable": true,
+      "outcome": "file_match_at_1",
+      "file_match_at_1": true,
+      "file_match_at_5": true,
+      "line_overlap_at_1": true,
+      "repo_routing_at_1": true,
+      "expansion_samples": 3,
+      "candidates": 60,
+      "ground_truth_reached_reranker": true,
+      "top_confidence": 0.95,
+      "returned_locations": [
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-ui/src/views/security/environment-manage/components/environment-modal.tsx",
+          "lines": [
+            118,
+            200
+          ],
+          "function": "render",
+          "confidence": 0.95
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-ui/src/views/security/environment-manage/components/use-modal.ts",
+          "lines": [
+            28,
+            149
+          ],
+          "function": "useModal",
+          "confidence": 0.92
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-ui/src/views/security/environment-manage/components/use-modal.ts",
+          "lines": [
+            111,
+            128
+          ],
+          "function": "submitEnvironmentModal",
+          "confidence": 0.88
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-ui/src/views/security/environment-manage/components/use-modal.ts",
+          "lines": [
+            130,
+            142
+          ],
+          "function": "updateEnvironmentModal",
+          "confidence": 0.85
+        },
+        {
+          "repo": "apache/dolphinscheduler",
+          "file": "dolphinscheduler-ui/src/views/security/environment-manage/components/use-modal.ts",
+          "lines": [
+            94,
+            109
+          ],
+          "function": "handleValidate",
+          "confidence": 0.78
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "repo": "element-hq/element-web",
+      "issue": 30968,
+      "reason": "extracted_as_bug",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue": 32456,
+      "reason": "no_item_produced",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "issue": 36299,
+      "reason": "extracted_as_bug",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "issue": 13310,
+      "reason": "extraction_split_into_1_features_1_bugs",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue": 17883,
+      "reason": "no_item_produced",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue": 18580,
+      "reason": "no_item_produced",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue": 18439,
+      "reason": "extraction_split_into_1_features_1_bugs",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue": 18388,
+      "reason": "extracted_as_bug",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue": 18403,
+      "reason": "extracted_as_bug",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue": 17794,
+      "reason": "extracted_as_bug",
+      "seen_in_v1": false
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue": 18332,
+      "reason": "extracted_as_bug",
+      "seen_in_v1": false
+    }
+  ]
+}
