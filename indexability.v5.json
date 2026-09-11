@@ -1,0 +1,732 @@
+{
+  "measured_at": "2026-09-11T11:55:50.578Z",
+  "ground_truth": "benchmarks/localization/ground-truth.v5.json",
+  "chunk_files": [
+    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v5feat/chunks/v5f-chunks-dolphinscheduler.jsonl",
+    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v5feat/chunks/v5f-chunks-elementweb.jsonl",
+    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v5feat/chunks/v5f-chunks-gitea.jsonl",
+    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v5feat/chunks/v5f-chunks-jellyfin.jsonl"
+  ],
+  "corpus_chunks": 55063,
+  "summary": {
+    "cases": 40,
+    "reachable": 39,
+    "unreachable": 1
+  },
+  "unreachable_cases": [
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 17563,
+      "ground_truth_files": [
+        "deploy/kubernetes/dolphinscheduler/Chart.yaml",
+        "deploy/kubernetes/dolphinscheduler/values.yaml"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 30968,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/src/ContentMessages.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/Lifecycle.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/utils/MediaEventHelper.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/utils/UploadedMediaCache.ts",
+          "chunked": false
+        },
+        {
+          "file_path": "apps/web/src/viewmodels/message-body/ImageBodyViewModel.ts",
+          "chunked": false
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 34369,
+      "ground_truth_files": [
+        {
+          "file_path": "packages/shared-components/src/resize/separator/SeparatorView.module.css",
+          "chunked": true
+        },
+        {
+          "file_path": "packages/shared-components/src/resize/separator/SeparatorView.tsx",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 34463,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/res/css/views/right_panel/_ThreadPanel.pcss",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 34347,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/src/toasts/MobileGuideToast.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/vector/index.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/vector/mobile_guide/index.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 34317,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/src/settings/Settings.tsx",
+          "chunked": false
+        },
+        {
+          "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+          "chunked": false
+        },
+        {
+          "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 34216,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/res/css/views/elements/_CopyableText.pcss",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/res/css/views/right_panel/_UserInfo.pcss",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/res/css/views/rooms/_EventTile.pcss",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/components/views/elements/CopyableText.tsx",
+          "chunked": true
+        },
+        {
+          "file_path": "packages/shared-components/src/room-list/RoomListHeaderView/RoomListHeaderView.tsx",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 34147,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "packages/shared-components/src/i18n/strings/en_EN.json",
+          "chunked": false
+        },
+        {
+          "file_path": "packages/shared-components/src/room-list/RoomListPrimaryFilters/RoomListPrimaryFilters.tsx",
+          "chunked": true
+        },
+        {
+          "file_path": "packages/shared-components/src/room-list/RoomListPrimaryFilters/useVisibleFilters.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 32853,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/src/utils/exportUtils/Exporter.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 32858,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/src/@types/matrix-js-sdk.d.ts",
+          "chunked": false
+        },
+        {
+          "file_path": "apps/web/src/emojipicker/recent.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/settings/handlers/AccountSettingsHandler.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 33470,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/stores/room-list-v3/section.ts",
+          "chunked": false
+        },
+        {
+          "file_path": "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/viewmodels/room-list/RoomListSectionHeaderViewModel.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 33277,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 32456,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/src/stores/room-list-v3/RoomListStoreV3.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "apps/web/src/viewmodels/room-list/RoomListItemViewModel.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "element-hq/element-web",
+      "issue_number": 32454,
+      "ground_truth_files": [
+        {
+          "file_path": "apps/web/src/viewmodels/room-list/RoomListViewModel.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "issue_number": 38981,
+      "ground_truth_files": [
+        {
+          "file_path": "models/issues/review.go",
+          "chunked": true
+        },
+        {
+          "file_path": "routers/web/repo/issue_page_meta.go",
+          "chunked": true
+        },
+        {
+          "file_path": "services/issue/pull.go",
+          "chunked": true
+        },
+        {
+          "file_path": "services/issue/review_request.go",
+          "chunked": true
+        },
+        {
+          "file_path": "templates/repo/issue/sidebar/reviewer_list.tmpl",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "issue_number": 15663,
+      "ground_truth_files": [
+        {
+          "file_path": "templates/repo/issue/fields/textarea.tmpl",
+          "chunked": true
+        },
+        {
+          "file_path": "templates/repo/upload.tmpl",
+          "chunked": true
+        },
+        {
+          "file_path": "web_src/css/editor/combomarkdowneditor.css",
+          "chunked": true
+        },
+        {
+          "file_path": "web_src/js/features/comp/ComboMarkdownEditor.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "issue_number": 6058,
+      "ground_truth_files": [
+        {
+          "file_path": "web_src/js/components/ActivityHeatmap.vue",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "issue_number": 36299,
+      "ground_truth_files": [
+        {
+          "file_path": "modules/indexer/issues/bleve/bleve.go",
+          "chunked": true
+        },
+        {
+          "file_path": "modules/indexer/issues/elasticsearch/elasticsearch.go",
+          "chunked": true
+        },
+        {
+          "file_path": "modules/indexer/issues/internal/model.go",
+          "chunked": true
+        },
+        {
+          "file_path": "modules/indexer/issues/meilisearch/meilisearch.go",
+          "chunked": true
+        },
+        {
+          "file_path": "modules/indexer/issues/util.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "go-gitea/gitea",
+      "issue_number": 25042,
+      "ground_truth_files": [
+        {
+          "file_path": "models/actions/run_list.go",
+          "chunked": true
+        },
+        {
+          "file_path": "routers/web/repo/actions/actions.go",
+          "chunked": true
+        },
+        {
+          "file_path": "routers/web/repo/actions/view.go",
+          "chunked": true
+        },
+        {
+          "file_path": "templates/repo/actions/list.tmpl",
+          "chunked": true
+        },
+        {
+          "file_path": "templates/repo/actions/workflow_dispatch.tmpl",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "issue_number": 15515,
+      "ground_truth_files": [
+        {
+          "file_path": "Emby.Server.Implementations/Collections/CollectionManager.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "Jellyfin.Api/Controllers/LibraryController.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "Jellyfin.Server.Implementations/Item/LinkedChildrenService.cs",
+          "chunked": false
+        },
+        {
+          "file_path": "MediaBrowser.Controller/Collections/ICollectionManager.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "MediaBrowser.Controller/Persistence/ILinkedChildrenService.cs",
+          "chunked": false
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "issue_number": 14928,
+      "ground_truth_files": [
+        {
+          "file_path": "Emby.Server.Implementations/Library/PathExtensions.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "issue_number": 13840,
+      "ground_truth_files": [
+        {
+          "file_path": "Emby.Server.Implementations/AppBase/BaseApplicationPaths.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "Emby.Server.Implementations/AppBase/BaseConfigurationManager.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "issue_number": 15354,
+      "ground_truth_files": [
+        {
+          "file_path": "src/Jellyfin.Database/Jellyfin.Database.Providers.Sqlite/SqliteDatabaseProvider.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "issue_number": 13310,
+      "ground_truth_files": [
+        {
+          "file_path": "MediaBrowser.Model/Extensions/EnumerableExtensions.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "issue_number": 15137,
+      "ground_truth_files": [
+        {
+          "file_path": "Emby.Server.Implementations/Playlists/PlaylistManager.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "Jellyfin.Api/Controllers/PlaylistsController.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "MediaBrowser.Controller/Playlists/IPlaylistManager.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "jellyfin/jellyfin",
+      "issue_number": 15915,
+      "ground_truth_files": [
+        {
+          "file_path": "MediaBrowser.Model/Extensions/StringHelper.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 17883,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-common/src/main/java/org/apache/dolphinscheduler/common/utils/NetUtils.java",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 18589,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ClusterController.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/ClusterService.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/ClusterServiceImpl.java",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 18580,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 18563,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/DataSourceController.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/DataSourceService.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/DataSourceServiceImpl.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/vo/DataSourceSimpleInfoVO.java",
+          "chunked": false
+        },
+        {
+          "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/DataSourceMapper.xml",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 18441,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/TaskInstanceMapper.xml",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 18439,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_h2.sql",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_mysql.sql",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-dao/src/main/resources/sql/dolphinscheduler_postgresql.sql",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/mysql/dolphinscheduler_ddl.sql",
+          "chunked": false
+        },
+        {
+          "file_path": "dolphinscheduler-dao/src/main/resources/sql/upgrade/3.5.0_schema/postgresql/dolphinscheduler_ddl.sql",
+          "chunked": false
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 18388,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/AbstractCommandExecutor.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/AbstractTask.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-task-plugin/dolphinscheduler-task-api/src/main/java/org/apache/dolphinscheduler/plugin/task/api/TaskConstants.java",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 18412,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/ResourcesController.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/validator/resource/FetchFileContentDtoValidator.java",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 18403,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/UsersServiceImpl.java",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 17933,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/controller/AuditLogController.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/AuditService.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-api/src/main/java/org/apache/dolphinscheduler/api/service/impl/AuditServiceImpl.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-dao/src/main/java/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.java",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-dao/src/main/resources/org/apache/dolphinscheduler/dao/mapper/AuditLogMapper.xml",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 18359,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-ui/src/views/security/cluster-manage/components/cluster-modal.tsx",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-ui/src/views/security/cluster-manage/components/use-modal.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 17794,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-master/src/main/java/org/apache/dolphinscheduler/server/master/engine/workflow/trigger/WorkflowInstanceRepeatTrigger.java",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 18354,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-ui/src/views/security/environment-manage/components/environment-modal.tsx",
+          "chunked": true
+        },
+        {
+          "file_path": "dolphinscheduler-ui/src/views/security/environment-manage/components/use-modal.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 17563,
+      "ground_truth_files": [
+        {
+          "file_path": "deploy/kubernetes/dolphinscheduler/Chart.yaml",
+          "chunked": false
+        },
+        {
+          "file_path": "deploy/kubernetes/dolphinscheduler/values.yaml",
+          "chunked": false
+        }
+      ],
+      "reachable": false
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "issue_number": 18332,
+      "ground_truth_files": [
+        {
+          "file_path": "dolphinscheduler-datasource-plugin/dolphinscheduler-datasource-api/src/main/java/org/apache/dolphinscheduler/plugin/datasource/api/utils/PasswordUtils.java",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    }
+  ]
+}
