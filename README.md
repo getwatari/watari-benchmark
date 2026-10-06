@@ -17,7 +17,6 @@ the scoring code for four runs of that measurement. It exists so the claim on
 | Line overlap at rank 1 | 4 of 12, 33.3% | 15 of 32, 46.9% | 19 of 32, 59.4% | 26 of 56, 46.4% |
 | Every exclusion counted as a miss | n/a | n/a | 36 of 60, 60.0% | 61 of 120, 50.8% |
 | Repositories, languages | 4, 4 | 6, 6 | 6, 6 | 8, 6 |
-| Indexed chunks searched | n/a | 183,894 | 186,605 | 130,826 |
 
 Every rate here carries its denominator, and the Line overlap figures carry a smaller one than the
 rest because only some cases have line numbers that survive the gap between the indexed commit and
@@ -54,7 +53,7 @@ merged pull request changed.
 | Repository routing at rank 1 | 28 of 28 |
 | Every exclusion and every declined request counted as a miss | 19 of 40, 47.5% (95% CI 32.9% to 62.5%) |
 | Selected, code-actionable, declined | 40, 28, 1 |
-| Repositories, indexed chunks searched | 4, 55,063 |
+| Repositories | 4 |
 
 **How to read it.** 67.9% is above v4's 56.5%, and the intervals overlap heavily, so the claim this
 supports is that feature requests are located **at least as well as bugs, not better**. The headline
@@ -75,8 +74,8 @@ feasibility counts the selection was planned on are recorded in `PROTOCOL.md` an
 counts-only dry run: no issue was read before the sample froze.
 
 Also mirrored now: the 2026-09-09 addendum to `PROTOCOL.md`, which records that the retrieval layer
-moved to a binary-quantized index and that the change was measured (`probes/binary-quantization.json`)
-rather than published as a new version.
+changed and that the change was measured rather than published as a new version. The probe file that
+accompanied it was withdrawn under Amendment R; its outcome-level figures remain in `PROTOCOL.md`.
 
 ## What this measures, and what it does not
 
@@ -138,6 +137,11 @@ verifiable here, and the link back to the private original is asserted by us. If
 the results without trusting any of that, you do not have to. Every case names a public issue and a
 public merged pull request, so you can re-derive the ground truth yourself from GitHub.
 
+Implementation detail of the production pipeline (model identifiers, retrieval configuration, index
+design, internal component names, production database identifiers) was withdrawn from the current
+files on 2026-10-06; see Amendment R at the end of `PROTOCOL.md`. Scoring rules, samples, ground
+truth and results are unchanged, and the history is not rewritten.
+
 Deliberately not included: a directory of production runs from real customer tickets. It is
 demonstration material rather than measurement, it cannot be verified by a stranger, and it contains
 customer prose. Publishing it would add risk and no evidence.
@@ -151,7 +155,6 @@ customer prose. Publishing it would add risk and no evidence.
 | `ground-truth.json`, `ground-truth.v2.json`, `ground-truth.v4.json`, `ground-truth.v5.json` | Files and line ranges each merged fix changed, plus per-file checks against the indexed commit |
 | `results.json`, `results.v2.json`, `results.v3.json`, `results.v4.json`, `results.v5.json` | The unedited output, every case published, hits and misses alike |
 | `indexability.v3.json`, `indexability.v4.json`, `indexability.v5.json` | Which cases have a ground-truth file in the index at all, measured before the run rather than after |
-| `probes/binary-quantization.json` | The paired measurement behind the 2026-09-09 addendum: the retrieval change that did not warrant a new version |
 | `capture.json` | v1 only: what the production pipeline returned, so scoring inputs are auditable rather than asserted |
 | `localization-score.ts` | The scoring code. `PROTOCOL.md` is the specification; if the two disagree, the protocol is right and the code is a bug |
 

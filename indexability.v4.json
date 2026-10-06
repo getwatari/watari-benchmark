@@ -1,17 +1,6 @@
 {
   "measured_at": "2026-09-02T18:19:48.335Z",
   "ground_truth": "benchmarks/localization/ground-truth.v4.json",
-  "chunk_files": [
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v4/chunks/v4-chunks-dolphinscheduler.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v4/chunks/v4-chunks-elementweb.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v4/chunks/v4-chunks-filament.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v4/chunks/v4-chunks-ghost.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v4/chunks/v4-chunks-gitea.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v4/chunks/v4-chunks-jellyfin.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v4/chunks/v4-chunks-langflow.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v4/chunks/v4-chunks-paperless.jsonl"
-  ],
-  "corpus_chunks": 130826,
   "summary": {
     "cases": 120,
     "reachable": 111,

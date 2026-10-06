@@ -43,8 +43,8 @@ rather than mitigated, because it cannot be mitigated without training a model w
 A repository qualifies if **all** hold:
 
 1. Public, on GitHub, with an OSI-approved licence.
-2. Primary language is present in Watari's `LANGUAGE_CONFIGS` (the Tree-sitter grammar set).
-3. Under Watari's `INDEX_FILE_CEILING` (~50k files) so it indexes on the standard path.
+2. Primary language is present in Watari's supported-language grammar set.
+3. Under Watari's repository size ceiling (~50k files) so it indexes on the standard path.
 4. It is a user-facing product, not a library — so its issue tracker carries reports written by
    people describing symptoms, which is the input shape Watari is built for.
 
@@ -105,8 +105,8 @@ zero results. The harness now resolves each pool entry to its canonical `full_na
 
 Within each repository, an issue qualifies as a case if **all** hold:
 
-1. Closed by a pull request that **merged on or after 2026-01-01** — after the snapshot date of
-   every model in the mapping path (`claude-haiku-4-5-20251001`, `claude-sonnet-4-6-20250114`).
+1. Closed by a pull request that **merged on or after 2026-01-01**, after the snapshot date of
+   every model in the mapping path (the production models in use on the run date).
 2. Labelled as a defect by the project's own taxonomy (`bug`, `type: bug`, `kind/bug`, or
    equivalent), i.e. classified by the maintainers, not by us.
 3. Issue body is **≥ 200 characters** — a one-line "it's broken" is not a support ticket and is not
@@ -227,12 +227,12 @@ buried.
 
 ### Amendment 4 — how cases are injected (2026-08-14, before any run)
 
-Cases are injected by writing a ticket into the benchmark workspace and emitting the same
-`ticket/received` event a support-tool webhook emits. **Extraction and mapping are then the
-production Inngest functions, unmodified** — the same extraction prompt, the same embedding search,
-the same confidence-scored rerank that a customer's ticket runs through.
+Cases are injected by writing a ticket into the benchmark workspace and raising the same internal
+signal a support-tool webhook raises. **Extraction and mapping are then the production extraction
+and ranking code, unmodified**: the same extraction, the same retrieval and the same
+confidence-scored ranking that a customer's ticket runs through.
 
-What is skipped is the HTTP hop and signature check in front of `ticket/received`. That is transport,
+What is skipped is the HTTP hop and signature check in front of that signal. That is transport,
 not localization, and this protocol measures localization in isolation.
 
 The practical reason is worth stating rather than dressing up: Watari has one Zendesk subdomain and
@@ -269,29 +269,24 @@ The forward-looking version of this is a coverage claim, not a scoring one: Wata
 languages, and query/DSL files are not among them. Two of twenty cases, 10% of the sample, are
 therefore a ceiling on File Match @1 of 90% for reasons that have nothing to do with ranking.
 
-Index as built, for reference (all four repositories, zero chunks missing embeddings):
-
-| repository | source files chunked | chunks | anonymous chunks |
-|---|---|---|---|
-| calcom/cal.diy | 4,122 | 14,097 | 0 |
-| apache/superset | 4,191 | 29,426 | 0 |
-| usememos/memos | 542 | 4,066 | 0 |
-| helix-editor/helix | 300 | 6,037 | 0 |
+All four repositories were fully indexed before the run, with nothing left unsearchable for an
+infrastructure reason. (The per-repository index statistics that stood here were withdrawn under
+Amendment R.)
 
 ### Amendment 6 - injection transport, and what it does not change (2026-08-29, at run time)
 
-The run of 2026-08-29 injected its cases through the Supabase and Inngest MCP servers rather than
-through `run-benchmark.ts`'s own Supabase and Inngest clients. The production credentials that
-script needs live in Vercel behind the Sensitive flag and cannot be read back, so using it would
-have meant routing a production service-role key through the tooling that runs the benchmark.
+The run of 2026-08-29 injected its cases through operator tooling (MCP servers for the database and
+the job queue) rather than through the benchmark runner's own clients. The production credentials
+that runner needs are stored write-only and cannot be read back, so using it would have meant
+routing a production service credential through the tooling that runs the benchmark.
 
-**What was substituted:** writing the `tickets` row, and emitting `ticket/received`.
+**What was substituted:** writing the ticket, and raising the signal that starts processing.
 
 **What was NOT substituted:** anything downstream of that. Extraction and mapping are the
-unmodified production Inngest functions, as Amendment 4 already required. Scoring is the committed
-`scoreCase` / `aggregate` / `wilsonInterval` in `src/lib/proof/localization-score.ts`, reached
-through the same `--from-capture` path in the same runner, with the same Amendment 3(a) filtering
-and the same split and dedup handling.
+production extraction and ranking code, unmodified, as Amendment 4 already required. Scoring is the
+committed `scoreCase` / `aggregate` / `wilsonInterval` in `localization-score.ts`, reached through
+the runner's score-from-capture path, with the same Amendment 3(a) filtering and the same split and
+dedup handling.
 
 Two controls make the substitution checkable rather than asserted:
 
@@ -363,10 +358,9 @@ become one after the fact.
 
 ## Re-running
 
-```
-npx tsx scripts/proof/select-sample.mts     # rebuilds sample.frozen.json (do not re-run after freeze)
-npx tsx scripts/proof/run-benchmark.mts     # runs the frozen sample, writes results.json
-```
+The selector that builds `sample.frozen.json` and the runner that writes `results.json` live in
+Watari's private application repository. The selection rules above are complete enough to re-derive
+the sample from GitHub by hand, and `localization-score.ts` in this repository re-scores any run.
 
 Re-running selection after the freeze would defeat the pre-registration. If the sample must change,
 that is a **version 2** of this protocol with its own commit and its own frozen sample, and version 1
@@ -402,7 +396,7 @@ Two selector parameters, and nothing else:
 Everything else is held fixed and re-derived by the same code: the pre-declared pool and its order,
 the maintainers'-own-defect-label rule, `merged_on_or_after` 2026-01-01, the 200-character body
 minimum, the 1-to-5-file fix ceiling, 60 candidates examined per repository, the path exclusions,
-the metrics, and `src/lib/proof/localization-score.ts`.
+the metrics, and `localization-score.ts`.
 
 **Observed on selection, recorded here before the run:** the pool yields **60 cases across 6
 repositories and 6 languages**. Ruby qualified no repository and is absent, which the selector
@@ -419,13 +413,13 @@ case. So all six repositories are indexed afresh at new pins. No v1 corpus is re
 
 ## Amendment 7 - the run is executed offline, and why that is sound
 
-v1 ran against production. v2 runs against `scripts/probe/`, which reproduces the pipeline locally:
-the real chunker, the real extraction (`extractBugsFromTicket`), the real query expansion, the real
-retrieval policy, and the real ranking prompt imported from `mapping.service.ts`.
+v1 ran against production. v2 runs against an offline harness that reproduces the pipeline locally
+from the production extraction and ranking code, unmodified, with the production retrieval
+configuration in use on the run date.
 
 This is not a convenience. A production run requires re-indexing every benchmark repository into the
-live workspace, which is a code-search degradation window for each and pushes the shared vector index
-to roughly 140% of `shared_buffers`. That cost is what kept v1 a single run.
+live workspace, which is a code-search degradation window for each and puts significant load on the
+production database. That cost is what kept v1 a single run.
 
 The substitution is only sound if it is measured, so it was:
 
@@ -457,8 +451,8 @@ invalidate v1, whose rule was pre-registered and applied consistently. It does m
 
 ## Amendment 9 - 15 of the 60 cases are not out-of-sample, and are reported separately
 
-Between v1 and v2, two product changes were made and measured against v1's cases: query expansion
-(#385) and per-repository search depth (#388). The choice between variants was made by looking at
+Between v1 and v2, two retrieval changes were made and measured against v1's cases (#385 and
+#388). The choice between variants was made by looking at
 those results. That is selection on test data, however sound each individual measurement was.
 
 v2's 10-most-recent rule is a superset of v1's 5-most-recent rule, so for cal.diy, superset and
@@ -473,13 +467,12 @@ exists to prevent.
 
 ## Amendment 10 - the v2 runner, and two things declared before it runs (2026-08-30)
 
-The offline transport Amendment 7 declares is `scripts/probe/run-benchmark-offline.mjs`, committed
-before any v2 case is scored. It drives the real `extractBugsFromTicket`, the real `expandBugQuery`,
-the real `generateEmbeddings`, the production retrieval constants, and the ranking prompt imported
-from `mapping.service.ts`, then scores with the committed `scoreCase` / `aggregate` /
-`wilsonInterval`. Only candidate selection is reimplemented, because in production it is two
-pgvector RPCs that cannot run against a local vector file; its constants are mirrored from
-`map-bug-to-code.ts` and named in the results file so a reader can check them against the code.
+The offline transport Amendment 7 declares was committed to Watari's application repository before
+any v2 case is scored. It drives the production extraction and ranking code, unmodified, with the
+production retrieval configuration in use on the run date, then scores with the committed
+`scoreCase` / `aggregate` / `wilsonInterval`. Only candidate selection is reimplemented, because in
+production it runs inside the database and cannot run against a local vector file; its parameters
+are mirrored from the production configuration.
 
 Two declarations, both made before the run rather than after seeing it.
 
@@ -494,8 +487,8 @@ different stories, both are published and the gap is the story.
 `protocol_version: 1` and `derived_from: benchmarks/localization/sample.frozen.json`. Both labels are
 wrong: its 60 cases are v2's, extracted from `sample.v2.frozen.json`. The generator took its input
 path from an environment variable but hard-coded the two fields that describe it, so the artefact
-mislabels itself while its contents are correct. The generator is fixed
-(`scripts/proof/extract-ground-truth.mjs` now derives both from the actual input). **The frozen
+mislabels itself while its contents are correct. The generator is fixed (it now derives both from
+the actual input). **The frozen
 artefact is deliberately NOT edited**: it was committed before the run, and rewriting a
 pre-registered file to correct a label is exactly the move a pre-registration exists to make
 impossible. The erratum lives here instead.
@@ -564,14 +557,14 @@ against the corpus the shipped indexer produces today.
 | frozen sample | `sample.v2.frozen.json` | same file, unchanged |
 | ground truth | `ground-truth.v2.json` | same file, unchanged |
 | repository pins | six `index_commit` values | same six, verified against the local clones |
-| chunker | production at 2026-08-30 | production at `35bd6c54`, which includes `#394` |
-| retrieval policy | route 30 / per-repo 30 / cap 80 | unchanged |
-| extraction, expansion, ranking prompt | production modules | unchanged |
+| indexer | production at 2026-08-30 | production at 2026-09-01, which includes `#394` |
+| retrieval configuration | production configuration in use on the run date | unchanged |
+| extraction and ranking | production code, unmodified | unchanged |
 | scoring | `scoreCase` / `aggregate` / `wilsonInterval` | unchanged |
 
-**v3 measures ONE change, not four.** The chunker blind-spot fix (`#380`, merged 2026-08-29), query
-expansion (`#385`) and per-repository search depth (`#388`, both merged 2026-08-30) were all already
-in the product when v2 ran, and v2's corpus was chunked with `#380` in it. Only `#394` is new.
+**v3 measures ONE change, not four.** An indexer fix (`#380`, merged 2026-08-29) and two retrieval
+changes (`#385` and `#388`, both merged 2026-08-30) were all already in the product when v2 ran, and
+v2's corpus was indexed with `#380` in it. Only `#394` is new.
 
 n does not move either. The sample is the same 60 cases, so v3 inherits v2's interval width of
 roughly 25 points. **Anything that narrows the interval requires more cases, which is a new sample
@@ -599,9 +592,8 @@ we already know the answer.
 
 ## Amendment 13 - indexability measured BEFORE the run, as Amendment 11 committed
 
-Amendment 11 committed v3 to checking corpus composition before results rather than after. Run
-against the v3 corpus (186,605 chunks) by `scripts/probe/indexability.mjs`, output committed as
-`benchmarks/localization/indexability.v3.json` before any case is scored:
+Amendment 11 committed v3 to checking corpus composition before results rather than after. Measured
+against the v3 corpus, output committed as `indexability.v3.json` before any case is scored:
 
 | | v2 corpus | v3 corpus |
 |---|---|---|
@@ -611,8 +603,7 @@ against the v3 corpus (186,605 chunks) by `scripts/probe/indexability.mjs`, outp
 The three that remain, with the reason each is unreachable:
 
     apache/superset#43399      docs/src/pages/community.tsx     `docs/` is a deliberately skipped
-                                                                directory (semantic collision with
-                                                                bug descriptions)
+                                                                directory
     navidrome/navidrome#5950   core/artwork/processor.go        does not exist at the pinned commit
                                resources/mime_types.yaml        YAML is still not indexed
     navidrome/navidrome#5905   contrib/navidrome                no extension, so not a supported type
@@ -623,21 +614,21 @@ the reason it is wrong does not change what they receive.
 
 ## Amendment 14 - the corpus is re-chunked, and its vectors are reused where the content is identical
 
-The corpus is chunked afresh from the six local clones at their pinned commits, with the chunker
-that shipped, by `scripts/probe/chunk-local-repo.ts`. That is what makes it the shipped product's
-corpus rather than a described one, and it caught a real difference: an earlier measurement of
-`#394` predates the `.snapshots/` exclusion, so its navidrome corpus carries 62 chunks the shipped
-indexer does not produce. Those chunks are absent here.
+The corpus is indexed afresh from the six local clones at their pinned commits, with the production
+indexer as shipped. That is what makes it the shipped product's corpus rather than a described one,
+and it caught a real difference: an earlier measurement of `#394` predates the `.snapshots/`
+exclusion, so its navidrome corpus carries content the shipped indexer does not produce. That
+content is absent here.
 
-Vectors are NOT re-bought for chunks whose content did not change. `scripts/probe/reuse-vectors.mjs`
-copies the v2 vector for any chunk whose content is byte identical and embeds only the rest. This is
-sound because the production embedding input is the chunk's raw content and nothing else, so
-identical content has an identical embedding input. It is verified rather than assumed: every reused
-row is matched against v2's own `chunks.index.json` on repository, path and line range and the run is
-refused on the first mismatch, an all-zero row from a failed v2 batch is never reused, and the
+Vectors are NOT re-bought for indexed content that did not change. The v2 vector is reused wherever
+the content is byte identical, and only the rest is embedded afresh. This is sound because identical
+content produces an identical embedding input in production. It is verified rather than assumed:
+every reused row is matched against v2's own index on repository, path and line range and the run
+is refused on the first mismatch, an all-zero row from a failed v2 batch is never reused, and the
 finished file is swept for all-zero rows before it is written.
 
-Measured for this run: **183,894 of 186,605 rows reused, 2,711 embedded, 0 zero rows in the source.**
+Measured for this run: **0 zero rows in the source.** (The reuse counts that stood here were
+withdrawn with the corpus sizes under Amendment R.)
 
 ## What is published, and what would have to be published if it went badly
 
@@ -646,9 +637,9 @@ Unchanged from v1 and v2, restated because it binds hardest when the result is b
 - `results.v3.json` is committed **unedited**, every case including every miss.
 - The pessimistic bound (Amendment 10a) ships next to every headline figure: the same numerator over
   a denominator including every excluded case.
-- Every figure rendered on `/proof` derives from the committed artefact through
-  `src/lib/proof/benchmark-data.ts`, and `src/__tests__/proof/proof-page.test.tsx` fails the build on
-  any percentage without a source. **If v3 is worse than v2, v3 is the number that ships.**
+- Every figure rendered on `/proof` derives from the committed artefact, and a test in the
+  application's build fails it on any percentage without a source. **If v3 is worse than v2, v3 is
+  the number that ships.**
 - The commits are merged without squashing. Ordering is the pre-registration: this amendment must
   provably predate the results. `#390` was squash-merged and had to be rebuilt from its unsquashed
   branch for exactly this reason.
@@ -692,7 +683,7 @@ rules and scored by the same committed code.
 
 Everything else is held fixed and re-derived by the same code: the maintainers' own defect-label
 rule, `merged_on_or_after` 2026-01-01, the 200-character body minimum, the 1-to-5-file fix ceiling,
-the path exclusions, the metrics, and `src/lib/proof/localization-score.ts`.
+the path exclusions, the metrics, and `localization-score.ts`.
 
 `candidates_examined_per_repo` rises from 60 to 100 because 15 qualifying cases cannot reliably be
 found in 60 candidates. 100 is the GraphQL search page ceiling, so this is the maximum the existing
@@ -838,7 +829,7 @@ language signal.
 - **n is not fixed** (Amendment 8): extraction is sampled, so the excluded set varies between runs.
   Every figure carries its own denominator and inherits none.
 - **`results.v4.json` is committed unedited**, every case including every miss, and every figure on
-  `/proof` derives from it through `src/lib/proof/benchmark-data.ts`. **If v4 is worse than v2 or v3,
+  `/proof` derives from it. **If v4 is worse than v2 or v3,
   v4 is the number that ships**, and it becomes the standing generalization claim in place of v2's
   57.1% because it is the out-of-sample one.
 - **The commits are merged without squashing.** Ordering is the pre-registration: this section must
@@ -884,22 +875,22 @@ pin moves to the parent of the merge commit of the next-earliest selected fix.
 
 ## Addendum, 2026-09-09: retrieval changed, the ceiling was re-measured, no v5
 
-The vector index moved from `halfvec(1536)` to a binary-quantized `bit(1536)` HNSW with an exact
-rerank of the shortlist (migration `20260909120000`). That is a change to the retrieval layer the
-benchmark scores, so it needed measuring before it shipped, and the measurement is recorded at
-`benchmarks/localization/probes/binary-quantization.json`.
+The design of the vector index behind retrieval changed. That is a change to the retrieval layer the
+benchmark scores, so it needed measuring before it shipped, and it was measured. (The probe file that
+recorded the measurement at each shortlist size was withdrawn under Amendment R; the outcome-level
+figures below are unchanged.)
 
 **This is deliberately NOT a v5.** A protocol version exists to carry a new pre-registered sample or
 a moved number. This change moved neither, and publishing "still 56.5%" under a new version would
 add a version and no information. It would also invite exactly the cross-run comparison that
-§ Re-running warns about: the binary arm scored 110 cases (the prep cache's own denominator, with
+§ Re-running warns about: the new-index arm scored 110 cases (the prep cache's own denominator, with
 extraction splits excluded) and v4 scored a different set, so the two headlines are not each other's
 control even though they share a corpus.
 
 What was measured, paired on the query vector, so the only difference between the arms is the
 retrieval policy:
 
-| | exact `halfvec` | binary + rerank |
+| | previous index | new index |
 |---|---|---|
 | ground-truth file reachable in candidates | 86 / 110 | 86 / 110 |
 | top candidate | identical in 110 / 110 | |
@@ -907,7 +898,7 @@ retrieval policy:
 | File Match @5, same 27 cases | 18 | 18 |
 
 Reachability is the ceiling on everything downstream of retrieval, and it did not move at any
-shortlist from 400 to 3,200. The single @1 flip is one sampled model call in one direction and is
+shortlist size tested. The single @1 flip is one sampled model call in one direction and is
 not claimed as an improvement.
 
 The 83 cases whose candidate list was byte-identical were not reranked, on purpose: an identical
@@ -917,13 +908,11 @@ would have sampled the model's variance rather than measured this change.
 A v5 is published when there is a reason: a fresh out-of-sample repository set, or a change that
 moves @1.
 
-**Follow-up, same day: the old index was dropped** (migration `20260909180000`). It had been kept
-alive purely so the change above could be reverted, and by then no live search function could reach
-it: both order the shortlist by the bit expression and rerank over a CTE, and a CTE scan cannot use
-a table index. So this removes 218 MB of prod index and changes nothing the benchmark measures.
-Re-running any arm from here reads the binary path, which is what the numbers above already
-describe. There is no exact-`halfvec` arm to re-run against any more; the paired measurement in
-`probes/binary-quantization.json` is the record of it.
+**Follow-up, same day: the old index was dropped.** It had been kept alive purely so the change
+above could be reverted, and by then no live search path could reach it, so dropping it changes
+nothing the benchmark measures. Re-running any arm from here reads the new index, which is what the
+numbers above already describe. There is no previous-index arm to re-run against any more; the
+paired measurement above is the record of it.
 
 # Protocol version 5, the feature-request arm (2026-09-11, declared before any v5 case is selected or run)
 
@@ -933,8 +922,8 @@ Versions 1 to 4 stay published exactly as they are. Nothing here restates, revis
 
 The Addendum above says a v5 is published when there is a reason. This is one: a different kind of
 input. Every earlier version measured **bug reports**. Watari now also maps **feature requests** that
-extraction judges code-actionable (`isCodeActionableFeatureRequest`: `implementation_scope` of
-`bounded` AND extraction confidence of at least 0.7), and it drafts pull requests for them. That
+the production feature-request classifier judges code-actionable, and it drafts pull requests for
+them. That
 mapping is currently **unmetered**, and the published 56.5% (v4) says nothing about it. This arm is
 the measurement a decision to meter it would rest on, and the measurement a rename of "Mapped Bug"
 would rest on.
@@ -971,7 +960,7 @@ spans twenty files has no single file to find, so admitting it would measure som
 
 ## Feasibility, observed before selection
 
-`select-sample.mjs --dry-run` with the v5 parameters and a minimum of 1, so that every repository
+The selector's dry-run mode with the v5 parameters and a minimum of 1, so that every repository
 reports its count. It prints counts and rejection reasons only; no issue title, body, patch or ground
 truth was read.
 
@@ -997,9 +986,9 @@ This arm is small and says so instead.
 ## Repository state
 
 As v4: each selected repository is indexed at its own pin, and the selected repositories are searched
-together as one workspace (Amendment 2), so a routing error is a file miss. The corpus is re-chunked by
-the shipped chunker at the new pins, and a chunk whose content is byte-identical to a v4 chunk reuses
-v4's vector (Amendment 14's method, `reuse-vectors.mjs`). Indexability is measured and committed as
+together as one workspace (Amendment 2), so a routing error is a file miss. The corpus is re-indexed
+by the shipped indexer at the new pins, and content that is byte-identical to v4's reuses v4's vector
+(Amendment 14's method). Indexability is measured and committed as
 `indexability.v5.json` before any case is scored (Amendment 11). Amendment 3(a) applies unchanged: a
 ground-truth file the pull request CREATES is dropped, which matters more here because feature work
 adds files, and a case whose every ground-truth file is created is excluded as
@@ -1007,19 +996,18 @@ adds files, and a case whose every ground-truth file is created is excluded as
 
 ## Input and extraction
 
-The title and body verbatim, exactly as every earlier version. The real `extractBugsFromTicket` runs
-over it. Then, in this order:
+The title and body verbatim, exactly as every earlier version. The production extraction code runs
+over it, unmodified. Then, in this order:
 
 1. Extraction produces **exactly one feature request and no bug**: the case proceeds. Anything else
    is an exclusion with its own reason: `no_item_produced`, `extracted_as_bug` (one bug and no
    feature request), or `extraction_split_into_<f>_features_<b>_bugs`. As Amendment 8 records,
    extraction is sampled, so this set varies between runs.
-2. The real `isCodeActionableFeatureRequest` decides. A feature request it rejects is a **refusal**:
-   production would not map it, so nothing is retrieved or ranked. A refusal is not an exclusion and
-   not a miss; it is reported as its own outcome.
-3. A code-actionable request is mapped the way `map-bug-to-code` maps one: the search text is the
-   description, a blank line, then `desired_behavior`, and that same text is what query expansion,
-   retrieval and the ranking prompt receive.
+2. The production feature-request classifier decides. A feature request it rejects is a
+   **refusal**: production would not map it, so nothing is retrieved or ranked. A refusal is not an
+   exclusion and not a miss; it is reported as its own outcome.
+3. A code-actionable request is mapped exactly the way production maps one, by the production
+   retrieval and ranking code, unmodified.
 
 ## Metrics, and which figure is the headline
 
@@ -1044,9 +1032,9 @@ prose, with both denominators, and the metering decision is taken by a person wi
 
 ## What this costs, stated so it cannot be quietly skipped
 
-About 40 cases x (1 extraction + 3 query expansions + 1 rerank) is at most 200 model calls, on the
-probe keys only, under the 400-call ceiling in `probe-env.mjs`. A refused case stops after extraction.
-Embeddings are bought only for chunks whose content changed between the v4 pins and the v5 pins.
+About 40 cases, each with a small fixed number of model calls, on dedicated benchmark credentials
+only and under a hard per-run call ceiling. A refused case stops after extraction. Embeddings are
+bought only for content that changed between the v4 pins and the v5 pins.
 
 ## Publication
 
@@ -1056,3 +1044,24 @@ Every refusal, exclusion and miss stays in the file. Whether the figure appears 
 public benchmark repository is a separate decision, taken after the result is read, because this arm
 exists to inform a pricing decision rather than to make a marketing claim. If it is published, the
 pessimistic bound and the underpowered flag travel with it.
+
+---
+
+# Amendment R (2026-10-06): implementation detail withdrawn
+
+Implementation detail of the production pipeline was removed from this repository's current files on
+2026-10-06: model identifiers, retrieval configuration, index design, internal component names, and
+production database identifiers. Concretely, the `retrieval_policy` and `corpus_chunks` fields were
+removed from the results files, `corpus_chunks` and `chunk_files` (local scratch paths) from the
+indexability files, the database identifiers were removed from `capture.json`, the
+retrieval probe file behind the 2026-09-09 addendum was deleted, and the text of this document and
+the README was redacted where it described those things. Where a passage was redacted, it now says
+so or describes the same step at the level of what it does.
+
+**Unchanged:** the protocol's scoring rules, the frozen samples, the ground truth, and every result.
+No case, score, interval, denominator or exclusion was touched, and `localization-score.ts` is
+unchanged, so every published figure can still be re-scored from the files here.
+
+The earlier text remains in this repository's git history, which is not rewritten. The commit
+ordering that makes the pre-registration checkable (protocol, then frozen sample, then results) is
+therefore preserved exactly as it was.

@@ -1,15 +1,6 @@
 {
   "measured_at": "2026-09-01T06:15:52.108Z",
   "ground_truth": "benchmarks/localization/ground-truth.v2.json",
-  "chunk_files": [
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v2/v3b-chunks-caldiy.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v2/v3b-chunks-superset.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v2/v3b-chunks-navidrome.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v2/v3b-chunks-helix.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v2/v3b-chunks-nextcloud.jsonl",
-    "C:/Users/ompatel.j/AppData/Local/Temp/watari-bench-v2/v3b-chunks-keycloak.jsonl"
-  ],
-  "corpus_chunks": 186605,
   "summary": {
     "cases": 60,
     "reachable": 57,

@@ -5,15 +5,6 @@
   "ground_truth": "benchmarks/localization/ground-truth.v2.json",
   "run_at": "2026-09-01T06:41:35.611Z",
   "injection_transport": "offline-harness (scripts/probe/run-benchmark-offline.mjs)",
-  "retrieval_policy": {
-    "route_threshold": 0.3,
-    "route_count": 30,
-    "search_threshold": 0.3,
-    "search_count_per_repo": 30,
-    "candidate_cap": 80,
-    "query_expansion_samples": 3
-  },
-  "corpus_chunks": 186605,
   "overall": {
     "n": 56,
     "fileMatchAt1": 36,
