@@ -1065,3 +1065,208 @@ unchanged, so every published figure can still be re-scored from the files here.
 The earlier text remains in this repository's git history, which is not rewritten. The commit
 ordering that makes the pre-registration checkable (protocol, then frozen sample, then results) is
 therefore preserved exactly as it was.
+
+---
+
+# Protocol version 6 (2026-10-09, declared before any v6 repository is probed, any case is selected, or any case is run)
+
+Versions 1 to 5 stay published exactly as they are. Nothing here restates, revises or withdraws them.
+
+## Why v6 exists
+
+v4 (2026-09-03) is the standing out-of-sample claim: File Match @1 of **61 of 108 = 56.5%**, 95%
+Wilson interval **47.1% to 65.5%**, with a pessimistic bound of 61 of 120 = 50.8% when every
+excluded case is counted as a miss. Two things have happened since, and either one alone would be
+reason enough for a new sample:
+
+1. **The production system has changed.** Ranking changes shipped after v4 ran. v4 measured the
+   system as it was on its run date, which is no longer the system a customer's ticket goes through.
+2. **v4's cases are no longer out of sample.** They have since been read in miss analysis, so none
+   of them is held out any more. The argument Amendment 12 made about v3 now applies to v4: a sample that has been examined cannot
+   measure how a later change generalizes, however carefully each measurement was made.
+
+v6 re-measures the production system as customers get it, on repositories nobody here has examined,
+selected by the same rules and scored by the same committed code.
+
+**Stated plainly, so it cannot be read as anything else:** an internal re-run on the v4 corpus, which
+was not pre-registered, suggested an improvement. That number is not published, here or anywhere,
+and it is not a claim. It was measured on cases already read, against a system partly shaped by
+reading them, which is exactly the situation this protocol exists to keep out of the published record.
+v6 exists so that any claim about the current system is made the pre-registered way, and v6's result
+stands whether or not it agrees with that internal number.
+
+## System under test
+
+**Production as deployed on the run date**, every stage, including any second-stage ranking, at
+production settings. The configuration is not frozen by this document; it is whatever production
+runs on the day the cases run, so the figure describes the product a customer receives that day.
+
+The offline harness of Amendment 7 is permitted, on three conditions:
+
+1. **It calls the production modules, not copies of them.** Extraction, retrieval and every ranking
+   stage are imported from the production code at the recorded commit. The one step Amendment 10
+   declared as reimplemented (candidate selection, which in production runs inside the database and
+   cannot run against a local index) remains reimplemented on the same terms, mirrored from the
+   production configuration in use on the run date, and is listed as a deviation.
+2. **It sends the same prompt bytes production sends.** Every prompt is byte-identical to the one
+   production would send for the same input. A harness that reads a prompt from a checkout whose line
+   endings differ from production's does not meet this, even though the text reads the same; prompts
+   are normalized to production's bytes before any case runs.
+3. **Every deviation is written down in the artefact.** `results.v6.json` records the production
+   commit SHA the run used and lists every way the harness differs from production. A deviation that
+   is not in the results file is a defect in the run, not an undocumented detail.
+
+## Selector parameters
+
+| | v4 | v6 |
+|---|---|---|
+| sample | new, selected fresh | **new, selected fresh** |
+| repositories | 8 | **10** |
+| cases per repository | 15 | **15** |
+| candidates examined per repository | 100 | **100** |
+| total cases | 120 target | **150 target** |
+| out-of-sample share | 120 of 120 | **150 of 150** |
+| `merged_on_or_after` | 2026-01-01 | **2026-07-01** |
+
+**The cutoff moves to 2026-07-01** so that every fix in the sample postdates the training data of
+the production system, not merely the snapshot date of each component. v1 disclosed that a snapshot
+date is a lower bound on contamination distance rather than a guarantee; a cutoff six months later
+widens that distance for every case. The selector's cutoff is a fixed value today, so it becomes a
+parameter whose default stays 2026-01-01 (re-running with nothing set must still reproduce v1 to v5
+exactly). That change is committed before the feasibility probe runs.
+
+Everything else is held fixed and re-derived by the same code: the maintainers' own defect-label
+rule, the 200-character body minimum, the 1-to-5-file fix ceiling, criterion 5 (the fix PR is in the
+same repository as the issue, Amendment 15), the path exclusions, the metrics, and
+`localization-score.ts`, unchanged.
+
+## Repositories already examined are excluded by name
+
+A repository whose issue tracker has been read is not out of sample. The selector is given every
+repository from which v1 to v5 drew cases, and walks past any of them:
+
+    calcom/cal.com, calcom/cal.diy, apache/superset, usememos/memos,
+    helix-editor/helix, navidrome/navidrome, nextcloud/server, keycloak/keycloak,
+    element-hq/element-web, paperless-ngx/paperless-ngx, go-gitea/gitea,
+    jellyfin/jellyfin, apache/dolphinscheduler, filamentphp/filament,
+    TryGhost/Ghost, langflow-ai/langflow
+
+That is 16 names for 15 repositories, because both names of cal.com are listed (v4's reasoning: a
+rename must not slip an examined repository back in). v5's feature arm drew only from v4's eight, so
+it adds no name.
+
+**Probed for counts is not examined.** `grafana/grafana`, `matomo-org/matomo` and
+`appsmithorg/appsmith` were probed in v4 for licence, defect label and qualifying count only. No
+issue body, patch, ground truth or result was read for any of them, and none was selected. They are
+therefore eligible, and two of them appear in the pool below.
+
+## Candidate pool, declared before any probe, in probe order per language
+
+Language order: **TypeScript, Python, Go, C#, Java, PHP, Ruby, Rust.**
+
+| language | pool, in order |
+|---|---|
+| TypeScript | `hoppscotch/hoppscotch`, `payloadcms/payload`, `medusajs/medusa`, `toeverything/AFFiNE`, `supabase/supabase`, `appsmithorg/appsmith` |
+| Python | `saleor/saleor`, `netbox-community/netbox`, `wagtail/wagtail`, `zulip/zulip`, `mealie-recipes/mealie` |
+| Go | `grafana/grafana`, `mattermost/mattermost`, `traefik/traefik`, `photoprism/photoprism`, `woodpecker-ci/woodpecker` |
+| C# | `Radarr/Radarr`, `Sonarr/Sonarr`, `ShareX/ShareX`, `duplicati/duplicati` |
+| Java | `thingsboard/thingsboard`, `jenkinsci/jenkins`, `halo-dev/halo` |
+| PHP | `matomo-org/matomo`, `PrestaShop/PrestaShop`, `wallabag/wallabag`, `monicahq/monica` |
+| Ruby | `zammad/zammad`, `opf/openproject`, `forem/forem` |
+| Rust | `nushell/nushell`, `rustdesk/rustdesk` |
+
+The repository criteria are unchanged from v1: public, on GitHub, with an OSI-approved licence; a
+primary language in Watari's grammar set; under the repository size ceiling; and a user-facing
+product rather than a library, so its tracker carries symptom reports. **The names were chosen
+against those criteria without reading any issue body, patch or result.** The language a repository
+is listed under is this table's declaration; the probe records the language GitHub reports for each
+repository beside it, so a reader can see any repository whose reported language differs from its row.
+
+If a language's pool is exhausted, **the language is dropped**, as Ruby was in Amendment 1 and Rust
+in v4. Any extension of the pool is a recorded amendment, made after feasibility data only and never
+after outcome data, with every observation listed: the standard v4's "Pool extension" section set. A
+second pass of names chosen after seeing a feasibility failure is recorded as a second pass, not
+presented as one list.
+
+## Feasibility probe, recorded before the freeze
+
+After this section is committed, the selector probes every pool entry for licence, defect label and
+qualifying count, and nothing else. The observations, every entry and every rejection reason, are
+committed as an amendment to this section **before `sample.v6.frozen.json` exists**. That amendment
+also writes down the selection the rule below yields from those counts, as v4 did, so the frozen
+sample either matches it or the difference is visible.
+
+## Selection rule for v6, declared before it runs
+
+1. Round one takes the **first repository in each language's pool order that yields at least 15
+   qualifying cases**, in the language order above.
+2. Round two takes the **second such repository per language**, in the same language order.
+3. It stops at **10 repositories**. Repositories that qualify but do not fit the cap are recorded in
+   the frozen sample as selected out, with their counts.
+4. Within a repository, the **15 most recently closed** qualifying issues, as in every earlier
+   version.
+
+The arithmetic is worth stating before anyone sees a count: if all eight languages qualify in round
+one, round two reaches only TypeScript and Python before the cap. A language that qualifies no
+repository frees its place for round two.
+
+**Neither the 15-case threshold nor the 10-repository target is lowered after the probe.** If fewer
+than 10 repositories qualify and the pool is not extended under the rule above, v6 runs with the
+number that qualified and says so, as v5 did: a smaller sample stated as smaller, rather than a
+looser rule chosen after seeing which repositories it would admit.
+
+## Composition is not a language split
+
+Repeated from v1 and v4 because it binds at any size: selecting repositories by primary language does
+not produce cases balanced by language. The honest claim v6 supports is **ten repositories (or the
+number that qualified) across the primary languages that qualified**, and the per-repository
+breakdown is what carries the language signal.
+
+## Held from earlier versions, restated because they bind hardest when the result is bad
+
+- **One workspace** (Amendment 2): every selected repository is searched together, so cross-repo
+  routing is part of the measured task and a routing error is a file miss. Repo Routing @1 is
+  reported.
+- **Input is the issue title and body verbatim**, with no comments, labels or linked-PR metadata.
+  Confidence thresholds are not applied; every case counts whatever confidence came back.
+- **The pin rule**: each repository is indexed at the parent of the merge commit of its earliest
+  selected fix. A ground-truth file the fix creates is dropped from the ground-truth set (Amendment
+  3(a)), and a case it empties is excluded and reported.
+- **Indexability is measured before any case is scored** and committed as `indexability.v6.json`
+  (Amendments 11 and 13). A reader sees how many answers were reachable before they see how many were
+  found.
+- **No case leaves the denominator for being unreachable.** A ground-truth file the indexer cannot
+  chunk is scored as a miss. The customer gets a wrong answer either way.
+- **A pessimistic bound ships next to every headline figure** (Amendment 10a): the same numerator
+  over a denominator that includes every excluded case.
+- **n is not fixed** (Amendment 8): extraction is sampled, so the excluded set varies between runs.
+  Every figure carries its own denominator and inherits none.
+- **`results.v6.json` is committed unedited**, every case including every miss, and every figure on
+  `/proof` derives from it. **If v6 is worse than v4, v6 is the number that ships**, and it becomes
+  the standing out-of-sample claim in place of v4's 56.5%.
+- **The commits are merged without squashing**, so the ordering is checkable from the history: this
+  section, then the feasibility amendment, then `sample.v6.frozen.json`, then `ground-truth.v6.json`,
+  then `indexability.v6.json`, then `results.v6.json`.
+
+## What this costs, stated so it cannot be quietly skipped
+
+Ten repositories never chunked before means **no vector reuse**: every chunk is new and every vector
+is bought. The run is single-digit dollars and about a day of wall clock, which is the price of an
+out-of-sample number. As in v4, the pin moves to the earliest of fifteen fixes, so later cases search
+a tree older than their report; that is conservative against Watari and never in its favour.
+
+## Decision rule, declared now so it cannot be fitted to the result
+
+**v6's File Match @1, with its interval and its pessimistic bound, replaces v4 as the headline on
+`/proof`, whichever way it moves.** v4 stays published as a version, as every earlier version does,
+and is not presented as the current figure once v6 exists.
+
+The changelog may state the outcome, the new rate and v4's, each with its denominator, and nothing
+about what changed in the system between them. A benchmark figure says how often the right file is
+found; it is not evidence for any particular change, and it is not offered as such.
+
+## Earliest run date
+
+**No v6 case is run before 2026-10-15.** The production configuration under test has then served
+real traffic for at least a week before it is measured. The configuration is not frozen by this date;
+it is whatever production runs on the run date, recorded by commit SHA in `results.v6.json`.

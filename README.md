@@ -142,6 +142,10 @@ design, internal component names, production database identifiers) was withdrawn
 files on 2026-10-06; see Amendment R at the end of `PROTOCOL.md`. Scoring rules, samples, ground
 truth and results are unchanged, and the history is not rewritten.
 
+**Protocol v6** (declared 2026-10-09) is pre-registered at the end of `PROTOCOL.md`: ten new
+repositories, fixes merged on or after 2026-07-01, the production system as deployed on the run date.
+It has no sample or results yet, and no case runs before 2026-10-15.
+
 Deliberately not included: a directory of production runs from real customer tickets. It is
 demonstration material rather than measurement, it cannot be verified by a stranger, and it contains
 customer prose. Publishing it would add risk and no evidence.
