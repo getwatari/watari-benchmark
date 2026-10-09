@@ -1270,3 +1270,148 @@ found; it is not evidence for any particular change, and it is not offered as su
 **No v6 case is run before 2026-10-15.** The production configuration under test has then served
 real traffic for at least a week before it is measured. The configuration is not frozen by this date;
 it is whatever production runs on the run date, recorded by commit SHA in `results.v6.json`.
+
+## Amendment 16 - v6 feasibility, observed before selection (2026-10-09)
+
+The probe the section "Feasibility probe, recorded before the freeze" commits to, run on 2026-10-09
+against **every entry in the v6 pool, in declared order**. It does not stop at the first repository
+that qualifies in a language: all 32 entries were evaluated and every observation is recorded below,
+as v4 recorded its pools. `sample.v6.frozen.json` does not exist.
+
+The selector gained a `--probe` mode for this, committed with this amendment. It evaluates each pool
+entry with the same code a selection uses (licence, defect label, the one candidate search, the case
+criteria) and prints per-repository counts and rejection reasons only. It selects nothing and writes
+no sample, and with `--probe` absent the selector behaves exactly as before. No issue title, body,
+patch, ground truth or result was read by anyone, in running the probe or in recording it.
+
+    PROOF_POOL_JSON=<the v6 pool table above, in its order>
+    PROOF_EXCLUDE_REPOS=<the 16 names above>
+    PROOF_MERGED_ON_OR_AFTER=2026-07-01
+    PROOF_CANDIDATES_PER_REPO=100
+    PROOF_CASES_PER_REPO=15
+    PROOF_ROUNDS_PER_LANGUAGE=2
+    PROOF_MAX_REPOS=10
+    node scripts/proof/select-sample.mjs --probe
+
+Everything else is the committed default: the maintainers' defect-label rule, the 200-character body
+minimum, the 1-to-5-file fix ceiling, criterion 5 and the path exclusions. A repository qualifies at
+15 or more qualifying cases. **Candidates** are the closed, defect-labelled issues closed on or after
+2026-07-01 that the one search returns. A count of 100 is the search ceiling and means more exist; a
+count under 100 is every such issue the repository has.
+
+"GitHub reports" is the primary language GitHub's API returns for the repository. The language a
+repository is listed under is the pool table's declaration, and that is the language it is selected
+under.
+
+**TypeScript**
+
+| repository | GitHub reports | licence | observed |
+|---|---|---|---|
+| `hoppscotch/hoppscotch` | TypeScript | MIT | 17 candidates, 4 qualifying |
+| `payloadcms/payload` | TypeScript | MIT | 30 candidates, 9 qualifying |
+| `medusajs/medusa` | TypeScript | `NOASSERTION` | licence `NOASSERTION` |
+| `toeverything/AFFiNE` | TypeScript | `NOASSERTION` | licence `NOASSERTION` |
+| `supabase/supabase` | TypeScript | Apache-2.0 | 100 candidates (at the ceiling), 10 qualifying |
+| `appsmithorg/appsmith` | TypeScript | Apache-2.0 | 14 candidates, 10 qualifying |
+
+**Python**
+
+| repository | GitHub reports | licence | observed |
+|---|---|---|---|
+| `saleor/saleor` | Python | BSD-3-Clause | 6 candidates, 2 qualifying |
+| `netbox-community/netbox` | Python | Apache-2.0 | 100 candidates (at the ceiling), **76 qualifying** |
+| `wagtail/wagtail` | Python | BSD-3-Clause | 24 candidates, 6 qualifying |
+| `zulip/zulip` | Python | Apache-2.0 | 38 candidates, 13 qualifying |
+| `mealie-recipes/mealie` | Python | AGPL-3.0 | 100 candidates (at the ceiling), **50 qualifying** |
+
+**Go**
+
+| repository | GitHub reports | licence | observed |
+|---|---|---|---|
+| `grafana/grafana` | **TypeScript** | AGPL-3.0 | 100 candidates (at the ceiling), **25 qualifying** |
+| `mattermost/mattermost` | **TypeScript** | `NOASSERTION` | licence `NOASSERTION` |
+| `traefik/traefik` | Go | MIT | no defect label in taxonomy |
+| `photoprism/photoprism` | Go | `NOASSERTION` | licence `NOASSERTION` |
+| `woodpecker-ci/woodpecker` | Go | Apache-2.0 | 38 candidates, **25 qualifying** |
+
+**C#**
+
+| repository | GitHub reports | licence | observed |
+|---|---|---|---|
+| `Radarr/Radarr` | C# | GPL-3.0 | 26 candidates, 10 qualifying |
+| `Sonarr/Sonarr` | C# | GPL-3.0 | 5 candidates, 5 qualifying |
+| `ShareX/ShareX` | C# | GPL-3.0 | 7 candidates, 0 qualifying |
+| `duplicati/duplicati` | C# | `NOASSERTION` | licence `NOASSERTION` |
+
+**Java**
+
+| repository | GitHub reports | licence | observed |
+|---|---|---|---|
+| `thingsboard/thingsboard` | Java | `NOASSERTION` | licence `NOASSERTION` |
+| `jenkinsci/jenkins` | Java | MIT | 0 candidates since the cutoff |
+| `halo-dev/halo` | Java | GPL-3.0 | 4 candidates, 3 qualifying |
+
+**PHP**
+
+| repository | GitHub reports | licence | observed |
+|---|---|---|---|
+| `matomo-org/matomo` | PHP | GPL-3.0 | 50 candidates, 4 qualifying |
+| `PrestaShop/PrestaShop` | PHP | `NOASSERTION` | licence `NOASSERTION` |
+| `wallabag/wallabag` | PHP | MIT | 0 candidates since the cutoff |
+| `monicahq/monica` | PHP | AGPL-3.0 | 2 candidates, 0 qualifying |
+
+**Ruby**
+
+| repository | GitHub reports | licence | observed |
+|---|---|---|---|
+| `zammad/zammad` | Ruby | AGPL-3.0 | 22 candidates, 0 qualifying |
+| `opf/openproject` | Ruby | GPL-3.0 | no defect label in taxonomy |
+| `forem/forem` | Ruby | AGPL-3.0 | 59 candidates, 13 qualifying |
+
+**Rust**
+
+| repository | GitHub reports | licence | observed |
+|---|---|---|---|
+| `nushell/nushell` | Rust | MIT | 21 candidates, 10 qualifying |
+| `rustdesk/rustdesk` | Rust | AGPL-3.0 | 100 candidates (at the ceiling), 4 qualifying |
+
+Across the pool: 7 of 32 entries fail the licence criterion (`NOASSERTION`), 2 of 32 have no defect
+label, and the remaining 23 return 863 candidates between them, of which 279 qualify. Of the 584
+rejected candidates, 520 have **no merged fix PR on or after the cutoff**; the rest are fixes over the
+file ceiling (31), bodies under 200 characters (17), ground truth emptied by the path exclusions (8),
+fixes merged in another repository (5, criterion 5) and fixes over the file page limit (3). Only 5 of
+the 23 searches reached the 100-candidate ceiling, so for the other 18 the count is bounded by the
+cutoff window, not by the ceiling, and examining more candidates would not change it.
+
+**Two repositories are reported by GitHub in a language other than their row.** `grafana/grafana` and
+`mattermost/mattermost` are declared Go and reported TypeScript. The protocol's rule is that the row is
+the declaration: `grafana/grafana` is selected as Go, and `mattermost/mattermost` fails on licence
+either way. This is the case "Composition is not a language split" exists for: one of the two Go
+repositories below is, by GitHub's measure, mostly TypeScript, and the per-repository breakdown is
+what carries the language signal.
+
+Applying the selection rule to these counts yields, before the selector runs:
+
+1. Round one: `netbox-community/netbox` (Python, 76), `grafana/grafana` (Go, 25). TypeScript, C#,
+   Java, PHP, Ruby and Rust qualify no repository.
+2. Round two: `mealie-recipes/mealie` (Python, 50), `woodpecker-ci/woodpecker` (Go, 25).
+
+That is **4 repositories, 15 cases each, 60 cases**, across two primary languages as declared. No
+repository qualifies and is selected out by the cap, because the cap is never reached.
+
+**Six languages are dropped**, each because no entry in its pool reaches 15 qualifying cases. The
+nearest in each: TypeScript 10 (`supabase/supabase`, `appsmithorg/appsmith`), C# 10
+(`Radarr/Radarr`), Java 3 (`halo-dev/halo`), PHP 4 (`matomo-org/matomo`), Ruby 13 (`forem/forem`),
+Rust 10 (`nushell/nushell`).
+
+**This is a shortfall, stated as one:** 4 of the 10 repositories the rule targets, 2 of the 8
+declared languages, and 60 of the 150 target cases. **No pool extension is made in this amendment**,
+and neither the 15-case threshold, the 10-repository target nor the 2026-07-01 cutoff is changed by
+it. Under the selection rule above, v6 runs with the 4 that qualified and says so. Whether the pool is
+extended instead is a decision taken by a person after this amendment is committed; if it is, that is
+its own amendment, made on feasibility data only, with every name and observation listed, and recorded
+as a second pass rather than folded into the pool table above.
+
+The frozen sample governs if issues closed between this probe and the freeze move a count. The
+cutoff window lengthens every day the freeze waits, so a count can differ at the freeze; any
+difference is visible by comparing the two.
