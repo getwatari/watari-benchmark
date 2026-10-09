@@ -1453,3 +1453,53 @@ each and get no second pass.
    v6 runs with the number that did and says so.
 5. Neither the 15-case threshold, the 10-repository target, the 100-candidate ceiling nor the
    2026-07-01 cutoff is changed.
+
+## Amendment 18 - the second pass, observed, and the selection it yields (2026-10-09)
+
+The second pass Amendment 17 declared, probed once with Amendment 16's command and parameters
+unchanged (only `PROOF_POOL_JSON` differs: it holds the Amendment 17 names). No issue title, body,
+patch, ground truth or result was read.
+
+| language | repository | GitHub reports | licence | observed |
+|---|---|---|---|---|
+| TypeScript | `microsoft/vscode` | TypeScript | MIT | 100 candidates (at the ceiling), **48 qualifying** |
+| | `backstage/backstage` | TypeScript | Apache-2.0 | 86 candidates, **40 qualifying** |
+| | `Kong/insomnia` | TypeScript | Apache-2.0 | 16 candidates, 7 qualifying |
+| C# | `microsoft/PowerToys` | **C** | MIT | 100 candidates (at the ceiling), **19 qualifying** |
+| | `PowerShell/PowerShell` | C# | MIT | 11 candidates, 4 qualifying |
+| | `Lidarr/Lidarr` | C# | GPL-3.0 | 6 candidates, 3 qualifying |
+| Java | `NationalSecurityAgency/ghidra` | Java | Apache-2.0 | 12 candidates, 2 qualifying |
+| | `zaproxy/zaproxy` | Java | Apache-2.0 | 16 candidates, 0 qualifying |
+| | `metersphere/metersphere` | Java | `NOASSERTION` | licence `NOASSERTION` |
+| PHP | `librenms/librenms` | PHP | `NOASSERTION` | licence `NOASSERTION` |
+| | `phpmyadmin/phpmyadmin` | PHP | GPL-2.0 | 16 candidates, 2 qualifying |
+| | `glpi-project/glpi` | PHP | GPL-3.0 | 4 candidates, 3 qualifying |
+| Ruby | `loomio/loomio` | Ruby | AGPL-3.0 | 0 candidates since the cutoff |
+| | `consuldemocracy/consuldemocracy` | Ruby | AGPL-3.0 | 1 candidate, 0 qualifying |
+| | `huginn/huginn` | Ruby | MIT | 2 candidates, 0 qualifying |
+| Rust | `wezterm/wezterm` | Rust | `NOASSERTION` | licence `NOASSERTION` |
+| | `astral-sh/uv` | Rust | Apache-2.0 | 100 candidates (at the ceiling), **56 qualifying** |
+| | `zellij-org/zellij` | Rust | MIT | 40 candidates, 12 qualifying |
+
+Across the second pass: 3 of 18 entries fail the licence criterion, and the other 15 return 510
+candidates, of which 196 qualify. Of the 314 rejected, 254 have no merged fix PR on or after the
+cutoff, 47 are fixes over the file ceiling, 6 have bodies under 200 characters, 4 merged in another
+repository (criterion 5) and 3 have ground truth emptied by the path exclusions.
+
+`microsoft/PowerToys` is declared C# and GitHub reports C. The row is the declaration, so it is
+selected as C#; as with `grafana/grafana` in Amendment 16, the per-repository breakdown carries the
+language signal.
+
+Applying the selection rule to the combined pool (Amendment 16's entries in their places, these
+appended), before the selector runs:
+
+1. Round one: `microsoft/vscode` (TypeScript, 48), `netbox-community/netbox` (Python, 76),
+   `grafana/grafana` (Go, 25), `microsoft/PowerToys` (C#, 19), `astral-sh/uv` (Rust, 56). Java, PHP
+   and Ruby qualify no repository in either pass.
+2. Round two: `backstage/backstage` (TypeScript, 40), `mealie-recipes/mealie` (Python, 50),
+   `woodpecker-ci/woodpecker` (Go, 25). C# and Rust have no second qualifying repository.
+
+That is **8 repositories, 15 cases each, 120 cases, across five declared languages**, short of the
+10-repository target by two. As Amendment 17 fixed in advance, no further pass is made, nothing about
+the threshold, target, ceiling or cutoff changes, and the freeze follows this amendment directly.
+Java, PHP and Ruby are dropped, as Ruby was in Amendment 1 and Rust in v4.
