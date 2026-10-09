@@ -1,0 +1,1838 @@
+{
+  "measured_at": "2026-10-09T10:52:47.010Z",
+  "ground_truth": "benchmarks/localization/ground-truth.v6.json",
+  "summary": {
+    "cases": 120,
+    "reachable": 114,
+    "unreachable": 6
+  },
+  "unreachable_cases": [
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 133365,
+      "ground_truth_files": [
+        ".github/workflows/pr-e2e-tests.yml",
+        "conf/defaults.ini",
+        "conf/sample.ini",
+        "e2e-playwright/start-server",
+        "scripts/grafana-server/custom.ini"
+      ]
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 131592,
+      "ground_truth_files": [
+        "packaging/deb/systemd/grafana-server.service",
+        "packaging/rpm/systemd/grafana-server.service"
+      ]
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 15693,
+      "ground_truth_files": [
+        "crates/uv-lock/src/lock/mod.rs",
+        "crates/uv-lock/src/lock/windows_emulation_tests.rs"
+      ]
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 22046,
+      "ground_truth_files": [
+        "crates/uv-lock/src/lock/mod.rs"
+      ]
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 21978,
+      "ground_truth_files": [
+        "crates/uv-virtualenv/src/activator/activate.nu"
+      ]
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7020,
+      "ground_truth_files": [
+        "docker/Dockerfile.server.alpine.multiarch.rootless",
+        "docker/Dockerfile.server.multiarch.rootless"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 339837,
+      "ground_truth_files": [
+        {
+          "file_path": "src/vs/workbench/contrib/browserView/electron-browser/browserEditor.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "src/vs/workbench/contrib/browserView/electron-browser/features/browserNavigationFeatures.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "src/vs/workbench/contrib/browserView/electron-browser/features/browserTabManagementFeatures.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 339955,
+      "ground_truth_files": [
+        {
+          "file_path": "src/vs/platform/mcp/common/mcpWorkspaceConfiguration.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 335581,
+      "ground_truth_files": [
+        {
+          "file_path": "src/vs/workbench/api/common/extHostAuthentication.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "src/vs/workbench/api/node/extHostAuthentication.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "src/vs/workbench/contrib/chat/browser/agentSessions/agentHost/agentHostSessionHandler.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 339076,
+      "ground_truth_files": [
+        {
+          "file_path": "src/vs/workbench/contrib/debug/browser/debugSession.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 340165,
+      "ground_truth_files": [
+        {
+          "file_path": "src/vs/platform/agentHost/node/copilot/copilotAgentSession.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "src/vs/platform/agentHost/node/copilot/mapSessionEvents.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "src/vs/workbench/contrib/chat/browser/agentSessions/agentHost/stateToProgressAdapter.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 340226,
+      "ground_truth_files": [
+        {
+          "file_path": "src/vs/workbench/contrib/chat/browser/widget/chatContentParts/toolInvocationParts/chatTerminalToolProgressPart.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "src/vs/workbench/contrib/terminal/browser/chatTerminalCommandMirror.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 322904,
+      "ground_truth_files": [
+        {
+          "file_path": "package.json",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 339842,
+      "ground_truth_files": [
+        {
+          "file_path": "src/vs/platform/agentHost/common/sessionConfigKeys.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 331636,
+      "ground_truth_files": [
+        {
+          "file_path": "extensions/copilot/package.json",
+          "chunked": true
+        },
+        {
+          "file_path": "extensions/copilot/src/extension/byok/common/byokProvider.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "extensions/copilot/src/extension/byok/node/openAIEndpoint.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "extensions/copilot/src/extension/byok/vscode-node/customEndpointProvider.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "extensions/copilot/src/platform/endpoint/common/endpointProvider.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 331579,
+      "ground_truth_files": [
+        {
+          "file_path": "extensions/copilot/src/extension/contextKeys/vscode-node/contextKeys.contribution.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "extensions/copilot/src/extension/prompt/node/chatMLFetcher.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "extensions/copilot/src/platform/authentication/common/quotaTokenRefresh.ts",
+          "chunked": false
+        },
+        {
+          "file_path": "extensions/copilot/src/platform/authentication/node/copilotTokenManager.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "extensions/copilot/src/platform/nesFetch/node/completionsFetchServiceImpl.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 336609,
+      "ground_truth_files": [
+        {
+          "file_path": "extensions/media-preview/media/imagePreview.css",
+          "chunked": true
+        },
+        {
+          "file_path": "extensions/media-preview/media/imagePreview.js",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 333547,
+      "ground_truth_files": [
+        {
+          "file_path": "src/vs/base/browser/ui/list/listView.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 340019,
+      "ground_truth_files": [
+        {
+          "file_path": "src/vs/sessions/browser/parts/sessionView.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 335919,
+      "ground_truth_files": [
+        {
+          "file_path": "src/vs/platform/agentHost/node/wslRemoteAgentHostService.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/vscode",
+      "issue_number": 338693,
+      "ground_truth_files": [
+        {
+          "file_path": "src/vs/editor/common/cursor/cursor.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "src/vs/editor/common/cursor/cursorTypeEditOperations.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "src/vs/editor/common/cursorCommon.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23340,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/netbox/filtersets.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23321,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/dcim/models/devices.py",
+          "chunked": true
+        },
+        {
+          "file_path": "netbox/utilities/testing/utils.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23325,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/circuits/filtersets.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23342,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/circuits/tables/circuits.py",
+          "chunked": true
+        },
+        {
+          "file_path": "netbox/circuits/tables/virtual_circuits.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23345,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/dcim/filtersets.py",
+          "chunked": true
+        },
+        {
+          "file_path": "netbox/extras/filtersets.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23326,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/dcim/filtersets.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23324,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/circuits/api/serializers_/circuits.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23323,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/dcim/api/serializers_/device_components.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23327,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/circuits/filtersets.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23332,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/utilities/request.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23322,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/vpn/filtersets.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23307,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/dcim/models/cables.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23099,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/dcim/models/cables.py",
+          "chunked": true
+        },
+        {
+          "file_path": "netbox/dcim/signals.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23227,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/netbox/tables/columns.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "netbox-community/netbox",
+      "issue_number": 23247,
+      "ground_truth_files": [
+        {
+          "file_path": "netbox/netbox/api/viewsets/mixins.py",
+          "chunked": true
+        },
+        {
+          "file_path": "netbox/netbox/jobs.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 133057,
+      "ground_truth_files": [
+        {
+          "file_path": "pkg/services/pluginsintegration/clientmiddleware/cookies_middleware.go",
+          "chunked": true
+        },
+        {
+          "file_path": "pkg/services/pluginsintegration/clientmiddleware/oauthtoken_middleware.go",
+          "chunked": true
+        },
+        {
+          "file_path": "pkg/services/pluginsintegration/clientmiddleware/usealertingheaders_middleware.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 133805,
+      "ground_truth_files": [
+        {
+          "file_path": "public/app/features/alerting/unified/components/rule-editor/notificaton-preview/PolicyTreeSelector.tsx",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 125740,
+      "ground_truth_files": [
+        {
+          "file_path": "pkg/tsdb/cloudwatch/log_actions.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 133391,
+      "ground_truth_files": [
+        {
+          "file_path": "public/app/plugins/panel/nodeGraph/NodeGraph.tsx",
+          "chunked": true
+        },
+        {
+          "file_path": "public/app/plugins/panel/nodeGraph/NodeGraphPanel.tsx",
+          "chunked": true
+        },
+        {
+          "file_path": "public/app/plugins/panel/nodeGraph/consts.ts",
+          "chunked": false
+        },
+        {
+          "file_path": "public/app/plugins/panel/nodeGraph/dataErrors.ts",
+          "chunked": false
+        },
+        {
+          "file_path": "public/app/plugins/panel/nodeGraph/utils.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 130459,
+      "ground_truth_files": [
+        {
+          "file_path": "pkg/services/annotations/annotationsimpl/xorm_store.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 129954,
+      "ground_truth_files": [
+        {
+          "file_path": "packages/grafana-ui/src/components/Alert/Alert.tsx",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 133703,
+      "ground_truth_files": [
+        {
+          "file_path": "public/app/features/explore/Logs/LogsContainer.tsx",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 125683,
+      "ground_truth_files": [
+        {
+          "file_path": "public/app/features/transformers/fieldToConfigMapping/fieldToConfigMapping.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 130873,
+      "ground_truth_files": [
+        {
+          "file_path": "pkg/api/short_url.go",
+          "chunked": true
+        },
+        {
+          "file_path": "pkg/registry/apps/shorturl/conversions.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 131858,
+      "ground_truth_files": [
+        {
+          "file_path": "pkg/plugins/manager/installer.go",
+          "chunked": true
+        },
+        {
+          "file_path": "pkg/plugins/manager/pluginfakes/fakes.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 133365,
+      "ground_truth_files": [
+        {
+          "file_path": ".github/workflows/pr-e2e-tests.yml",
+          "chunked": false
+        },
+        {
+          "file_path": "conf/defaults.ini",
+          "chunked": false
+        },
+        {
+          "file_path": "conf/sample.ini",
+          "chunked": false
+        },
+        {
+          "file_path": "e2e-playwright/start-server",
+          "chunked": false
+        },
+        {
+          "file_path": "scripts/grafana-server/custom.ini",
+          "chunked": false
+        }
+      ],
+      "reachable": false
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 131592,
+      "ground_truth_files": [
+        {
+          "file_path": "packaging/deb/systemd/grafana-server.service",
+          "chunked": false
+        },
+        {
+          "file_path": "packaging/rpm/systemd/grafana-server.service",
+          "chunked": false
+        }
+      ],
+      "reachable": false
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 133015,
+      "ground_truth_files": [
+        {
+          "file_path": "public/app/core/components/TimeSeries/utils.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 132585,
+      "ground_truth_files": [
+        {
+          "file_path": "pkg/services/correlations/database.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "grafana/grafana",
+      "issue_number": 132985,
+      "ground_truth_files": [
+        {
+          "file_path": "public/app/plugins/panel/xychart/scatter.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 51012,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Dock/DockControl.xaml.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Dock/DockItemControl.xaml.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Helpers/DockDropHelper.cs",
+          "chunked": false
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Strings/en-us/Resources.resw",
+          "chunked": false
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 49454,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/poweraccent/PowerAccent.UI/PowerAccentXAML/MainWindow.xaml.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/poweraccent/PowerAccent.UI/PowerAccentXAML/SelectorControl.xaml",
+          "chunked": false
+        },
+        {
+          "file_path": "src/modules/poweraccent/PowerAccent.UITests/PowerAccent.UITests.csproj",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/poweraccent/PowerAccent.UITests/PowerAccentEndToEndTests.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/poweraccent/PowerAccent.UITests/PowerAccentTestHelper.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 51027,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Helpers/Icons/ShellIconCacheInvalidationReason.cs",
+          "chunked": false
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Helpers/Icons/ShellIconCacheInvalidator.cs",
+          "chunked": false
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/MainWindow.xaml.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/extensionsdk/Microsoft.CommandPalette.Extensions.Toolkit/NativeMethods.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/extensionsdk/Microsoft.CommandPalette.Extensions.Toolkit/ThumbnailHelper.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 51026,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Helpers/Icons/ShellIconCacheInvalidationReason.cs",
+          "chunked": false
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Helpers/Icons/ShellIconCacheInvalidator.cs",
+          "chunked": false
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/MainWindow.xaml.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/extensionsdk/Microsoft.CommandPalette.Extensions.Toolkit/NativeMethods.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/extensionsdk/Microsoft.CommandPalette.Extensions.Toolkit/ThumbnailHelper.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 51028,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI.ViewModels/Services/PersistenceService.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI.ViewModels/Services/SettingsService.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 50958,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/ExtViews/ListItemsView.xaml.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Helpers/ListItemDoubleTapTarget.cs",
+          "chunked": false
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 50991,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Controls/SearchBar.xaml.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/MainWindow.xaml.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Pages/ShellPage.xaml.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 50984,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Controls/IconBox.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Controls/IconUnloadController.cs",
+          "chunked": false
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 50908,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Controls/AdaptiveCards/AdaptiveFilePathInputElement.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Controls/AdaptiveCards/AdaptiveListInputElements.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 50604,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/MouseUtils/AutoHideCursor/AutoHideCursorWorker.cpp",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/MouseUtils/MouseUtils.UITests.Next/AutoHideCursorSettingsTests.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 50887,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Services/LanguageService.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 50888,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/ext/SamplePagesExtension/Pages/SampleClipboardPage.cs",
+          "chunked": false
+        },
+        {
+          "file_path": "src/modules/cmdpal/ext/SamplePagesExtension/SamplesListPage.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/extensionsdk/Microsoft.CommandPalette.Extensions.Toolkit/ClipboardHelper.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 50484,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI.ViewModels/CommandContextItemViewModel.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI.ViewModels/CommandItemViewModel.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI.ViewModels/CommandViewModel.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI.ViewModels/ExtensionPropertySubscription.cs",
+          "chunked": false
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI.ViewModels/ListItemViewModel.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 50568,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI/Dock/DockWindowManager.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "microsoft/PowerToys",
+      "issue_number": 48914,
+      "ground_truth_files": [
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI.ViewModels/Dock/DockMonitorConfigViewModel.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI.ViewModels/Settings/DockSettings.cs",
+          "chunked": true
+        },
+        {
+          "file_path": "src/modules/cmdpal/Microsoft.CmdPal.UI.ViewModels/Settings/MonitorConfigReconciler.cs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 15693,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-lock/src/lock/mod.rs",
+          "chunked": false
+        },
+        {
+          "file_path": "crates/uv-lock/src/lock/windows_emulation_tests.rs",
+          "chunked": false
+        }
+      ],
+      "reachable": false
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 22110,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-distribution-filename/src/wheel.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv-platform-tags/src/platform_tag.rs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 22089,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-cli/src/lib.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv/src/settings.rs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 22046,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-lock/src/lock/mod.rs",
+          "chunked": false
+        }
+      ],
+      "reachable": false
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 21978,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-virtualenv/src/activator/activate.nu",
+          "chunked": false
+        }
+      ],
+      "reachable": false
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 21969,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-pypi-types/src/parsed_url.rs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 21857,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-cache/src/lib.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv-git/src/git.rs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 21846,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-platform-tags/src/tags.rs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 21820,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-distribution-types/src/prioritized_distribution.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv-resolver/src/resolver/mod.rs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 21774,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv/src/settings.rs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 21773,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-cli/src/lib.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv-cli/src/options.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv/src/lib.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv/src/settings.rs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 21692,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-install-wheel/src/install.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv-install-wheel/src/linker.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv-install-wheel/src/wheel.rs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 21694,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-install-wheel/src/install.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv-install-wheel/src/linker.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv-install-wheel/src/wheel.rs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 21611,
+      "ground_truth_files": [
+        {
+          "file_path": "crates/uv-fs/src/lib.rs",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "astral-sh/uv",
+      "issue_number": 18663,
+      "ground_truth_files": [
+        {
+          "file_path": ".github/workflows/test-integration.yml",
+          "chunked": false
+        },
+        {
+          "file_path": "Cargo.toml",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv-trampoline-builder/Cargo.toml",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv-trampoline-builder/src/lib.rs",
+          "chunked": true
+        },
+        {
+          "file_path": "crates/uv-trampoline-builder/src/resource_tests.rs",
+          "chunked": false
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 34484,
+      "ground_truth_files": [
+        {
+          "file_path": "plugins/notifications-backend/migrations/20260621_addMetadata.js",
+          "chunked": false
+        },
+        {
+          "file_path": "plugins/notifications-backend/src/database/DatabaseNotificationsStore.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 35734,
+      "ground_truth_files": [
+        {
+          "file_path": "plugins/catalog-backend/src/database/operations/stitcher/performStitching.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 32839,
+      "ground_truth_files": [
+        {
+          "file_path": "plugins/techdocs/src/reader/components/TechDocsNotFound.tsx",
+          "chunked": true
+        },
+        {
+          "file_path": "plugins/techdocs/src/reader/components/TechDocsStateIndicator.tsx",
+          "chunked": true
+        },
+        {
+          "file_path": "plugins/techdocs/src/translation.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 34681,
+      "ground_truth_files": [
+        {
+          "file_path": "plugins/techdocs-backend/package.json",
+          "chunked": true
+        },
+        {
+          "file_path": "plugins/techdocs-backend/src/cache/cacheMiddleware.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 35388,
+      "ground_truth_files": [
+        {
+          "file_path": "plugins/techdocs-node/src/stages/generate/__fixtures__/mkdocs_with_extensions.yml",
+          "chunked": false
+        },
+        {
+          "file_path": "plugins/techdocs-node/src/stages/generate/helpers.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "plugins/techdocs-node/src/stages/generate/mkdocsPatchers.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 35832,
+      "ground_truth_files": [
+        {
+          "file_path": "plugins/auth-backend-module-gcp-iap-provider/src/helpers.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 35727,
+      "ground_truth_files": [
+        {
+          "file_path": "plugins/techdocs/src/alpha/components/TechDocsReaderPage.tsx",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 35379,
+      "ground_truth_files": [
+        {
+          "file_path": "plugins/scaffolder-backend-module-github/src/actions/githubRepoCreate.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 35153,
+      "ground_truth_files": [
+        {
+          "file_path": "packages/ui/src/components/PluginHeader/PluginHeader.tsx",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 34763,
+      "ground_truth_files": [
+        {
+          "file_path": "packages/core-components/src/components/HeaderIconLinkRow/HeaderIconLinkRow.tsx",
+          "chunked": true
+        },
+        {
+          "file_path": "plugins/catalog/src/alpha/entityCards.tsx",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 35393,
+      "ground_truth_files": [
+        {
+          "file_path": "plugins/catalog/src/components/AboutCard/AboutField.tsx",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 34731,
+      "ground_truth_files": [
+        {
+          "file_path": "plugins/api-docs/package.json",
+          "chunked": true
+        },
+        {
+          "file_path": "plugins/api-docs/src/alpha.tsx",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 34778,
+      "ground_truth_files": [
+        {
+          "file_path": "plugins/catalog-backend/src/actions/createQueryCatalogEntitiesAction.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 34887,
+      "ground_truth_files": [
+        {
+          "file_path": "packages/core-components/src/components/CopyTextButton/CopyTextButton.tsx",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "backstage/backstage",
+      "issue_number": 34449,
+      "ground_truth_files": [
+        {
+          "file_path": "packages/frontend-plugin-api/src/wiring/createFrontendPlugin.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "packages/frontend-plugin-api/src/wiring/resolveExtensionDefinition.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 8448,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/components/Domain/QueryFilterBuilder.vue",
+          "chunked": true
+        },
+        {
+          "file_path": "frontend/app/composables/use-query-filter-builder.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "frontend/app/lang/messages/en-US.json",
+          "chunked": false
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 8633,
+      "ground_truth_files": [
+        {
+          "file_path": "mealie/core/release_checker.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 8617,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/components/global/SafeMarkdown.vue",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 8548,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/pages/group/reports/[id].vue",
+          "chunked": true
+        },
+        {
+          "file_path": "frontend/vitest.config.js",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 8549,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/pages/group/migrations.vue",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 8405,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/components/Domain/Group/GroupAIProviderDialog.vue",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 5213,
+      "ground_truth_files": [
+        {
+          "file_path": "mealie/services/household_services/shopping_lists.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 8060,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/components/Domain/Recipe/RecipeTimeCard.vue",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 8139,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/composables/use-users/user-registration-form.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "frontend/app/pages/register/index.vue",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 8555,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/components/Domain/Recipe/RecipeDialogShare.vue",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 7730,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/plugins/axios.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 5886,
+      "ground_truth_files": [
+        {
+          "file_path": "mealie/services/email/email_senders.py",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 6114,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/components/Domain/Admin/Setup/EndPageContent.vue",
+          "chunked": true
+        },
+        {
+          "file_path": "frontend/app/lang/messages/en-US.json",
+          "chunked": false
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 8489,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/components/Domain/Recipe/RecipeContextMenu/RecipeContextMenuContent.vue",
+          "chunked": true
+        },
+        {
+          "file_path": "frontend/app/components/Domain/Recipe/RecipeDialogShare.vue",
+          "chunked": true
+        },
+        {
+          "file_path": "frontend/app/components/global/AppButtonCopy.vue",
+          "chunked": true
+        },
+        {
+          "file_path": "frontend/app/composables/use-copy.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "mealie-recipes/mealie",
+      "issue_number": 4494,
+      "ground_truth_files": [
+        {
+          "file_path": "frontend/app/components/Domain/Recipe/RecipeImageUploadBtn.vue",
+          "chunked": true
+        },
+        {
+          "file_path": "frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageEditorToolbar.vue",
+          "chunked": true
+        },
+        {
+          "file_path": "frontend/app/composables/use-toast.ts",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 6038,
+      "ground_truth_files": [
+        {
+          "file_path": "server/rpc/rpc.go",
+          "chunked": true
+        },
+        {
+          "file_path": "server/rpc/serve.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 6849,
+      "ground_truth_files": [
+        {
+          "file_path": "server/model/registry.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7205,
+      "ground_truth_files": [
+        {
+          "file_path": "server/forge/bitbucket/bitbucket.go",
+          "chunked": true
+        },
+        {
+          "file_path": "server/forge/bitbucket/internal/client.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7130,
+      "ground_truth_files": [
+        {
+          "file_path": ".golangci.yaml",
+          "chunked": false
+        },
+        {
+          "file_path": "pipeline/backend/kubernetes/kubernetes.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7175,
+      "ground_truth_files": [
+        {
+          "file_path": "server/forge/refresh.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 4067,
+      "ground_truth_files": [
+        {
+          "file_path": "server/forge/gitlab/gitlab.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7148,
+      "ground_truth_files": [
+        {
+          "file_path": "cli/exec/exec.go",
+          "chunked": true
+        },
+        {
+          "file_path": "pipeline/backend/kubernetes/kubernetes.go",
+          "chunked": true
+        },
+        {
+          "file_path": "pipeline/backend/kubernetes/volume.go",
+          "chunked": true
+        },
+        {
+          "file_path": "pipeline/frontend/yaml/compiler/convert.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7115,
+      "ground_truth_files": [
+        {
+          "file_path": "server/pipeline/restart.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7142,
+      "ground_truth_files": [
+        {
+          "file_path": "server/forge/github/github.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7103,
+      "ground_truth_files": [
+        {
+          "file_path": "pipeline/shared/replace_secrets.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 6691,
+      "ground_truth_files": [
+        {
+          "file_path": "pipeline/backend/common/script_posix.go",
+          "chunked": true
+        },
+        {
+          "file_path": "pipeline/backend/common/script_win.go",
+          "chunked": true
+        },
+        {
+          "file_path": "web/src/components/repo/pipeline/PipelineLog.vue",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7131,
+      "ground_truth_files": [
+        {
+          "file_path": "pipeline/backend/local/cmd_unix.go",
+          "chunked": true
+        },
+        {
+          "file_path": "pipeline/backend/local/cmd_win.go",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7125,
+      "ground_truth_files": [
+        {
+          "file_path": "web/src/views/user/UserCLIAndAPI.vue",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7114,
+      "ground_truth_files": [
+        {
+          "file_path": "web/src/components/repo/pipeline/PipelineLog.vue",
+          "chunked": true
+        },
+        {
+          "file_path": "web/src/components/repo/pipeline/PipelineStepList.vue",
+          "chunked": true
+        },
+        {
+          "file_path": "web/src/lib/api/types/pipeline.ts",
+          "chunked": true
+        },
+        {
+          "file_path": "web/src/views/repo/pipeline/Pipeline.vue",
+          "chunked": true
+        }
+      ],
+      "reachable": true
+    },
+    {
+      "repo": "woodpecker-ci/woodpecker",
+      "issue_number": 7020,
+      "ground_truth_files": [
+        {
+          "file_path": "docker/Dockerfile.server.alpine.multiarch.rootless",
+          "chunked": false
+        },
+        {
+          "file_path": "docker/Dockerfile.server.multiarch.rootless",
+          "chunked": false
+        }
+      ],
+      "reachable": false
+    }
+  ]
+}
