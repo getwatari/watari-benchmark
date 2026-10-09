@@ -1503,3 +1503,17 @@ That is **8 repositories, 15 cases each, 120 cases, across five declared languag
 10-repository target by two. As Amendment 17 fixed in advance, no further pass is made, nothing about
 the threshold, target, ceiling or cutoff changes, and the freeze follows this amendment directly.
 Java, PHP and Ruby are dropped, as Ruby was in Amendment 1 and Rust in v4.
+
+## Amendment 19 - the earliest run date moves to 2026-10-09, declared before any case is run (2026-10-09)
+
+The section "Earliest run date" held every v6 case until 2026-10-15 so that the production
+configuration under test would first serve real traffic for a week. That purpose cannot be served
+on this timeline: production processed one ticket between the configuration's deployment on
+2026-10-08 and this amendment, and no more are expected before 2026-10-15. Waiting would add six
+days and no evidence, so **the earliest run date becomes 2026-10-09**.
+
+This is the first pre-registered rule v6 has changed, and it is recorded as such. It is a change to
+timing only, made before any v6 case has been run and before any v6 result exists. Nothing else
+changes: the system under test is still production as deployed on the run date, identified by the
+commit SHA recorded in `results.v6.json`; the sample, ground truth, indexability, metrics and
+decision rule are exactly as committed.
