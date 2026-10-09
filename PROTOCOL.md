@@ -1415,3 +1415,41 @@ as a second pass rather than folded into the pool table above.
 The frozen sample governs if issues closed between this probe and the freeze move a count. The
 cutoff window lengthens every day the freeze waits, so a count can differ at the freeze; any
 difference is visible by comparing the two.
+
+## Amendment 17 - a second pass for the six dropped languages, declared before it is probed (2026-10-09)
+
+Amendment 16 left v6 at 4 repositories and 60 cases, in two languages. That sample would carry a
+wider interval than v4's and could not credibly stand in its place, so the pool is **extended once,
+as a second pass**, under the standard v4 set: names chosen after a feasibility result and never
+after an outcome result, recorded as a second pass rather than folded into the original table.
+
+**What the second pass knows and what it does not.** It is written after seeing Amendment 16's
+counts, which showed that the 2026-07-01 cutoff, not the candidate ceiling, is what empties most
+pools. The names below were therefore chosen for one property beyond the unchanged repository
+criteria: a large, active public issue tracker, so that 15 qualifying fixes inside the cutoff
+window are plausible. No issue title, body, patch, ground truth or result of any repository was read
+in choosing them, and none of them has been probed. Python and Go already qualify two repositories
+each and get no second pass.
+
+| language | second pass, in probe order |
+|---|---|
+| TypeScript | `microsoft/vscode`, `backstage/backstage`, `Kong/insomnia` |
+| C# | `microsoft/PowerToys`, `PowerShell/PowerShell`, `Lidarr/Lidarr` |
+| Java | `NationalSecurityAgency/ghidra`, `zaproxy/zaproxy`, `metersphere/metersphere` |
+| PHP | `librenms/librenms`, `phpmyadmin/phpmyadmin`, `glpi-project/glpi` |
+| Ruby | `loomio/loomio`, `consuldemocracy/consuldemocracy`, `huginn/huginn` |
+| Rust | `wezterm/wezterm`, `astral-sh/uv`, `zellij-org/zellij` |
+
+**Rules for using it, fixed now:**
+
+1. Each language's second-pass names are appended to the end of that language's pool order. The
+   original entries keep their places and their Amendment 16 counts.
+2. The second pass is probed once, with Amendment 16's command and parameters unchanged, and every
+   observation is committed as its own amendment before `sample.v6.frozen.json` exists.
+3. The selection rule is then applied to the combined pool exactly as written: first repository per
+   language in round one, second in round two, in the declared language order, stopping at 10.
+4. **The freeze follows that amendment directly**, on whatever qualifies. No further pass is made,
+   and the freeze is not delayed to let the cutoff window grow. If fewer than 10 repositories qualify,
+   v6 runs with the number that did and says so.
+5. Neither the 15-case threshold, the 10-repository target, the 100-candidate ceiling nor the
+   2026-07-01 cutoff is changed.
